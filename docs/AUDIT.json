@@ -1,0 +1,11 @@
+{
+  "candidate_files": 323,
+  "secret_findings": [],
+  "syntax_errors": [],
+  "model_candidates": [],
+  "models_ignored": 43,
+  "model_files": 43,
+  "original_repository_changes": [],
+  "original_file_changes": [],
+  "unexpected_function_changes": []
+}

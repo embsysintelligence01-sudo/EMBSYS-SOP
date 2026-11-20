@@ -1,0 +1,5 @@
+# Relative paths resolve against EMBSYS-SOP. No network access at startup.
+# install.sh records existing environments in ignored configs/local.toml.
+purity_python = ".venv-slic/bin/python"
+packet_python = ".venv-slic/bin/python"
+ocr_python = ".venv-ocr/bin/python"

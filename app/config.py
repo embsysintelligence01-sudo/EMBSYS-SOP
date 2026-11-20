@@ -1,0 +1,62 @@
+"""Location-based configuration; no engine or model imports here."""
+from pathlib import Path
+import os
+try:
+    import tomllib
+except ImportError:
+    try:
+        import tomli as tomllib
+    except ImportError:
+        from pip._vendor import tomli as tomllib  # Existing Python 3.10 environments.
+
+ROOT = Path(__file__).resolve().parents[1]
+JEWEL = ROOT / 'engines/Jeweltracker'
+PACKET = ROOT / 'engines/Packetsealing_001'
+
+
+def settings():
+    result = tomllib.loads((ROOT / 'configs/app.toml').read_text())
+    local = ROOT / 'configs/local.toml'
+    if local.exists():
+        result.update(tomllib.loads(local.read_text()))
+    return result
+
+
+def resolve_path(value):
+    path = Path(value).expanduser()
+    return Path(os.path.abspath(ROOT / path)) if not path.is_absolute() else path
+
+
+def interpreter(workflow):
+    data = settings()
+    variable = 'PURITY_PYTHON' if workflow == 'purity' else 'PACKET_PYTHON'
+    path = resolve_path(os.environ.get(variable) or data[workflow + '_python'])
+    if not path.is_file() or not os.access(path, os.X_OK):
+        raise RuntimeError(f'{variable} interpreter is unavailable. Run scripts/install.sh or configure configs/local.toml.')
+    return path
+
+
+def engine_environment(workflow):
+    env = os.environ.copy()
+    python = interpreter(workflow)
+    env.update(JEWEL_TRACKER_DIR=str(JEWEL), JEWEL_PACKET_DIR=str(PACKET),
+               VIRTUAL_ENV=str(python.parent.parent),
+               PATH=str(python.parent) + os.pathsep + env.get('PATH', ''),
+               PYTHONNOUSERSITE='1', YOLO_AUTOINSTALL='False',
+               OMP_WAIT_POLICY='PASSIVE', PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK='True')
+    env.pop('PYTHONHOME', None)
+    env.pop('PYTHONPATH', None)
+    for key in ('ocr_python', 'reviewer_dir'):
+        value = settings().get(key)
+        if value:
+            env['PACKET_OCR_PYTHON' if key == 'ocr_python' else 'EMBSYS_REVIEWER_DIR'] = str(resolve_path(value))
+    for key in ('QT_PLUGIN_PATH', 'QT_QPA_PLATFORM_PLUGIN_PATH', 'QT_QPA_FONTDIR'):
+        env.pop(key, None)
+    return env
+
+
+def command(workflow):
+    if workflow not in ('purity', 'packet'):
+        raise ValueError('Unknown workflow')
+    directory = JEWEL if workflow == 'purity' else PACKET
+    return [str(interpreter(workflow)), str(directory / ('jewel_tracker_5.py' if workflow == 'purity' else 'packet_app.py'))], directory

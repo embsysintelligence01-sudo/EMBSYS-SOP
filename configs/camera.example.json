@@ -1,0 +1,31 @@
+{
+  "mode": "usb",
+  "usb": {
+    "index": 0,
+    "resolution": "2560x1440",
+    "antiflicker": {
+      "enabled": true,
+      "mains_hz": 50,
+      "shutter_denom": 50,
+      "brightness": 96,
+      "gain": 0
+    }
+  },
+  "network": {
+    "ip": "CAMERA_HOST",
+    "user": "CAMERA_USER",
+    "password": "CAMERA_PASSWORD",
+    "channel": 1,
+    "subtype": 0
+  },
+  "direct": {
+    "ip": "CAMERA_HOST",
+    "user": "CAMERA_USER",
+    "password": "CAMERA_PASSWORD",
+    "channel": 1,
+    "subtype": 0
+  },
+  "custom": {
+    "url": "0"
+  }
+}

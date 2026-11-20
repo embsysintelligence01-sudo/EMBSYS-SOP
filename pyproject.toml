@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "EMBSYS-SOP"
+version = "0.2.0"
+description = "Local launcher for existing purity testing and packet sealing engines"
+requires-python = ">=3.10"
+dependencies = ["PyQt5>=5.15,<6", "tomli>=2; python_version<'3.11'"]
+
+[tool.setuptools]
+packages = ["app"]
+# Engines and private model assets run from the source checkout, not a wheel.

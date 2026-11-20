@@ -1,0 +1,155 @@
+[
+  {
+    "file": "Jeweltracker/jewel_tracker_2.py",
+    "changed_functions": [],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/jewel_tracker_3.py",
+    "changed_functions": [],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/jewel_tracker_similarity.py",
+    "changed_functions": [
+      "MainWindow.__init__"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/jewel_tracker_5.py",
+    "changed_functions": [
+      "MainWindow.__init__",
+      "MainWindow.review_acid_recordings"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/packet_stage.py",
+    "changed_functions": [
+      "packet_wait_reason",
+      "testing_snapshot",
+      "packet_module",
+      "PacketStage.__init__",
+      "PacketStage.begin",
+      "PacketStage.tick",
+      "PacketStage.finish_analysis",
+      "PacketStage.release_gold"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/jewel_tracker_6.py",
+    "changed_functions": [],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/jewel_tracker.py",
+    "changed_functions": [],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/tracker_update_20261027/jewel_tracker_5.py",
+    "changed_functions": [],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/tests/test_new_rub_integration.py",
+    "changed_functions": [
+      "RubSnapshotTests.test_real_snapshot_models_use_existing_frame_without_camera"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/tests/test_packet_stage.py",
+    "changed_functions": [
+      "PacketStageTests.test_gate_requires_every_result_and_no_active_cycle",
+      "PacketStageTests.test_bridge_reuses_ids_gallery_and_gold_backend",
+      "PacketStageTests.test_incomplete_and_processing_attempts_enable_packing"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/tests/test_stone_model.py",
+    "changed_functions": [
+      "StoneBackendTests.test_int8_boxes_and_confidence_match_ultralytics_decoding",
+      "StoneBackendTests.test_snapshot_masks_restore_camera_coordinates_without_letterbox_padding"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/tests/test_shared_gold_model.py",
+    "changed_functions": [
+      "SharedGoldTests.test_real_full_frame_model_output_is_reused_for_stone_masking"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Packetsealing_001/packet_app.py",
+    "changed_functions": [],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Packetsealing_001/standalone/tracking.py",
+    "changed_functions": [
+      "TrackingBridge.__init__",
+      "TrackingBridge.process",
+      "TrackingBridge.pickup_event",
+      "TrackingBridge.reset_assignment"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Packetsealing_001/standalone/evidence.py",
+    "changed_functions": [
+      "export_session"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Packetsealing_001/standalone/app.py",
+    "changed_functions": [
+      "PacketWorker.__init__",
+      "PacketWorker._restart_assignment",
+      "PacketWorker._commands",
+      "PacketWorker.run",
+      "PacketWorker._observations",
+      "MainWindow.show_state"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Packetsealing_001/standalone/report.py",
+    "changed_functions": [
+      "write_session_report"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Packetsealing_001/tests/test_session.py",
+    "changed_functions": [
+      "SessionTests.run_session"
+    ],
+    "note": "Structural integration, surveillance orchestration, evidence reporting or regression fixture/contract updates; see CHANGELOG.md and SURVEILLANCE_HANDOFF.md"
+  },
+  {
+    "file": "Jeweltracker/surveillance.py",
+    "added": true,
+    "note": "Integration, regression assets or surveillance handoff support; see CHANGELOG.md."
+  },
+  {
+    "file": "Jeweltracker/regression_assets.py",
+    "added": true,
+    "note": "Integration, regression assets or surveillance handoff support; see CHANGELOG.md."
+  },
+  {
+    "file": "Jeweltracker/tests/test_surveillance_handoff.py",
+    "added": true,
+    "note": "Integration, regression assets or surveillance handoff support; see CHANGELOG.md."
+  },
+  {
+    "file": "Packetsealing_001/tests/test_surveillance_handoff.py",
+    "added": true,
+    "note": "Integration, regression assets or surveillance handoff support; see CHANGELOG.md."
+  }
+]

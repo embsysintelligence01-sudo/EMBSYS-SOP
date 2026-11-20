@@ -1,0 +1,32 @@
+{
+  "Jeweltracker": {
+    "source": "/home/embsys/Desktop/jewel_tracker/jewel_tracker",
+    "branch": "main",
+    "head": "1545e1bb3eed33bf18e0ab745d331f4b3132b228",
+    "status": "",
+    "launchers": [
+      "run_tracker.sh",
+      "run_tracker_slic.sh",
+      "jewel_tracker_5.py"
+    ],
+    "launcher_sha256": {
+      "run_tracker.sh": "3c16185c88780da0d40b9316dc5d54b37abdeff045158c541129d17312b142c5",
+      "run_tracker_slic.sh": "223c7ac72c204b6f3fe6d51c2ac122c5549ef44ccd074d86cb9e6fe79ac9f806",
+      "jewel_tracker_5.py": "42839f25e94c4b1fa4768add8cfd13060e15cfe8f91812ef5611238bc2ccea9b"
+    }
+  },
+  "Packetsealing_001": {
+    "source": "/home/embsys/Desktop/packet_sealing",
+    "branch": "main",
+    "head": "9d09a34820259c85bd066a82ee056f9bc4d001ec",
+    "status": " M README-packet-app.md\n M pickup_trigger_motion_class.py\n M pickup_trigger_test.py\n M standalone/gold_event_bridge.py\n M standalone/hand_keypoints.py\n M standalone/home_rubbing.py\n?? standalone/home_capture.py\n?? tests/test_hand_candidate_transfer.py\n?? tests/test_home_capture.py\n?? tests/test_pickup_only.py\n?? tests/test_pinch_support.py\n",
+    "launchers": [
+      "run_packet_sealing.sh",
+      "packet_app.py"
+    ],
+    "launcher_sha256": {
+      "run_packet_sealing.sh": "44fa506a92d943b94063e8b2a6b304c43202a8d7a9884e06c06a471746e7d70f",
+      "packet_app.py": "20704b3ecd2312e5130913d4f5f3b35dbe304e32456375230016fe0040236ec7"
+    }
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "check": "launcher-tests",
+    "status": "PASSED",
+    "detail": "exit=0; 6.9s; private log: outputs/validation/launcher-tests.log; Ran 10 tests in 6.773s; OK"
+  },
+  {
+    "check": "launcher-ui",
+    "status": "PASSED",
+    "detail": "exit=0; 0.2s; private log: outputs/validation/launcher-ui.log"
+  },
+  {
+    "check": "purity-imports",
+    "status": "PASSED",
+    "detail": "exit=0; 2.0s; private log: outputs/validation/purity-imports.log"
+  },
+  {
+    "check": "slic-imports",
+    "status": "PASSED",
+    "detail": "exit=0; 2.0s; private log: outputs/validation/slic-imports.log"
+  },
+  {
+    "check": "purity-ui",
+    "status": "PASSED",
+    "detail": "exit=0; 2.0s; private log: outputs/validation/purity-ui.log"
+  },
+  {
+    "check": "packet-ui",
+    "status": "PASSED",
+    "detail": "exit=0; 2.0s; private log: outputs/validation/packet-ui.log"
+  },
+  {
+    "check": "purity-models",
+    "status": "PASSED",
+    "detail": "exit=0; 6.2s; private log: outputs/validation/purity-models.log"
+  },
+  {
+    "check": "packet-models",
+    "status": "PASSED",
+    "detail": "exit=0; 5.7s; private log: outputs/validation/packet-models.log"
+  },
+  {
+    "check": "offline-ocr",
+    "status": "PASSED",
+    "detail": "exit=0; 8.6s; private log: outputs/validation/offline-ocr.log"
+  },
+  {
+    "check": "purity-regression",
+    "status": "FAILED",
+    "detail": "exit=1; 149.2s; private log: outputs/validation/purity-regression.log; Ran 414 tests in 145.720s; FAILED (failures=1)"
+  },
+  {
+    "check": "slic-regression",
+    "status": "FAILED",
+    "detail": "exit=1; 149.7s; private log: outputs/validation/slic-regression.log; Ran 414 tests in 147.044s; FAILED (failures=1)"
+  },
+  {
+    "check": "packet-regression",
+    "status": "PASSED",
+    "detail": "exit=0; 13.2s; private log: outputs/validation/packet-regression.log; Ran 352 tests in 10.893s; OK"
+  },
+  {
+    "check": "rub-regression",
+    "status": "PASSED",
+    "detail": "exit=0; 2.9s; private log: outputs/validation/rub-regression.log; Ran 43 tests in 2.199s; OK"
+  },
+  {
+    "check": "mouth-lab-regression",
+    "status": "FAILED",
+    "detail": "exit=1; 3.7s; private log: outputs/validation/mouth-lab-regression.log; Ran 12 tests in 1.687s; FAILED (failures=1)"
+  },
+  {
+    "check": "model-copy-integrity",
+    "status": "PASSED",
+    "detail": "45 copied models/assets checked; missing/changed: "
+  },
+  {
+    "check": "required-model-paths",
+    "status": "PASSED",
+    "detail": "17 required assets; 3 temporal models; missing: "
+  },
+  {
+    "check": "source-security-audit",
+    "status": "PASSED",
+    "detail": "exit=0; 7.3s; private log: outputs/validation/source-security-audit.log"
+  },
+  {
+    "check": "handoff-regression",
+    "status": "PASSED",
+    "detail": "exit=0; 2.2s; private log: outputs/validation/handoff-regression.log; Ran 17 tests in 0.248s; OK"
+  },
+  {
+    "check": "surveillance-export-regression",
+    "status": "PASSED",
+    "detail": "exit=0; 2.5s; private log: outputs/validation/surveillance-export-regression.log; Ran 4 tests in 0.546s; OK"
+  },
+  {
+    "check": "live-camera-and-operator-SOP",
+    "status": "UNTESTED",
+    "detail": "Requires bench camera and operator: live ROI, full purity/sealing sequence, evidence export and physical camera release. No camera connection attempted."
+  },
+  {
+    "check": "optional-reviewer-and-legacy-hardware",
+    "status": "UNTESTED",
+    "detail": "External recording reviewer, Qt6 standalone acid UI and legacy Hailo/pickup hardware not exercised."
+  },
+  {
+    "check": "desktop-launcher-ui",
+    "status": "PASSED",
+    "detail": "Updated SLIC-configured run.sh --smoke-ui opened and closed on the desktop from /tmp; exit=0."
+  },
+  {
+    "check": "existing-environment-setup",
+    "status": "PASSED",
+    "detail": "install.sh reused configured SLIC and OCR interpreters and refreshed version inventories; installed/upgraded zero packages."
+  },
+  {
+    "check": "protected-detection-logic",
+    "status": "PASSED",
+    "detail": "24 checks: protected SOP/model modules, original purity Worker AST and numeric thresholds unchanged; see SURVEILLANCE_LOGIC_AUDIT.json."
+  }
+]

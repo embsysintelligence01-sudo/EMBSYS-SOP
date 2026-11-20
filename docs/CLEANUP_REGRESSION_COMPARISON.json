@@ -1,0 +1,23 @@
+{
+  "historical_before": [
+    "ERROR: test_models_run_without_original_lab_folder (test_temporal_acid.LocalModelTests)",
+    "FAIL: test_stone_loss_fails_without_classifying (test_temporal_acid.ThreadFlowTests)",
+    "FAIL: test_thread_captures_detects_classifies_and_preserves_jewel_id (test_temporal_acid.ThreadFlowTests)"
+  ],
+  "historical_after": [
+    "ERROR: test_models_run_without_original_lab_folder (test_temporal_acid.LocalModelTests)",
+    "FAIL: test_stone_loss_fails_without_classifying (test_temporal_acid.ThreadFlowTests)",
+    "FAIL: test_thread_captures_detects_classifies_and_preserves_jewel_id (test_temporal_acid.ThreadFlowTests)"
+  ],
+  "historical_baseline_unchanged": true,
+  "production_baseline_failures": [
+    "FAIL: test_full_frame_coordinates_are_not_offset_by_stone_origin (test_classification_crop.VerifiedCropTests)",
+    "FAIL: test_packet_only_detector_filters_and_clips (test_packet_collection.PacketCollectionTests)"
+  ],
+  "production_after_failures": [
+    "FAIL: test_full_frame_coordinates_are_not_offset_by_stone_origin (test_classification_crop.VerifiedCropTests)",
+    "FAIL: test_packet_only_detector_filters_and_clips (test_packet_collection.PacketCollectionTests)"
+  ],
+  "unexpected_production_failures": [],
+  "unexpected_historical_failures": []
+}

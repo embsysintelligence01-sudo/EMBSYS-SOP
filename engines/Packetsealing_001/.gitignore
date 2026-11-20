@@ -1,0 +1,112 @@
+__pycache__/
+*.pyc
+outputs/
+packet_ui_settings.json
+packet_mouth_lab/dataset/
+packet_mouth_lab/evidence/
+packet_mouth_lab/models/
+.venv-ocr/
+
+# AI models
+*.onnx
+*.pt
+*.pth
+*.hef
+*.keras
+*.h5
+*.safetensors
+*.tflite
+*.engine
+*.ckpt
+*.pb
+
+# Generated builds
+build/
+dist/
+*.exe
+*.pkg
+*.pyz
+
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Runtime captures and diagnostics
+captures/
+diagnostics/
+*.log
+
+# Temporary backups
+*.bak
+
+# Training outputs
+runs/
+wandb/
+
+# AI models
+*.onnx
+*.pt
+*.pth
+*.hef
+*.keras
+*.h5
+*.safetensors
+*.tflite
+*.engine
+*.ckpt
+*.pb
+
+# Generated builds
+build/
+dist/
+*.exe
+*.pkg
+*.pyz
+
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Runtime captures and diagnostics
+captures/
+diagnostics/
+*.log
+
+# Temporary backups
+*.bak
+
+# Training outputs
+runs/
+wandb/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# AI models
+*.pt
+*.pth
+*.onnx
+*.hef
+*.safetensors
+
+# Captures and videos
+captures/
+recordings/
+outputs/
+
+# Build and logs
+build/
+dist/
+*.log
+
+# Local marker-only camera ROI
+aruco_roi.json
