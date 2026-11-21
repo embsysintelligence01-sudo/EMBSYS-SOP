@@ -1,0 +1,16 @@
+{
+  "branch": "main",
+  "head": "58351968453054b1a441e5b7113c736e2cc07769",
+  "status": "",
+  "baseline": "/tmp/embsys-sop-functional-baseline-oauhge60/project",
+  "entrypoints": [
+    "launcher.py",
+    "engines/Jeweltracker/jewel_tracker_5.py",
+    "engines/Packetsealing_001/packet_app.py"
+  ],
+  "interpreters": {
+    "purity": "/home/embsys/Desktop/jewel_tracker/jewel_tracker/.venv-slic/bin/python",
+    "packet": "/home/embsys/Desktop/jewel_tracker/jewel_tracker/.venv-slic/bin/python"
+  },
+  "ocr_python": "../packet_sealing/.venv-ocr/bin/python"
+}

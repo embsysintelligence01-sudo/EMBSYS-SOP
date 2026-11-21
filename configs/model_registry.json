@@ -1,0 +1,1678 @@
+{
+  "version": 1,
+  "models": {
+    "shared.gold": {
+      "path": "models/shared/gold/gold_int8.xml",
+      "sha256": "b28753d8eb582b571090ab6b7bdd047ef446c3baa3d807ec1094cd2eb28bfb68",
+      "bytes": 1059498,
+      "format": "xml",
+      "original": "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.xml",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "purity",
+        "packet"
+      ]
+    },
+    "shared.gold.gold_int8.bin": {
+      "path": "models/shared/gold/gold_int8.bin",
+      "sha256": "4679db67aea9fb93f6657dfe3db7c6ae96ae0515824e69f1c907100c6454577e",
+      "bytes": 11882880,
+      "format": "bin",
+      "original": "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.bin",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "purity",
+        "packet"
+      ]
+    },
+    "shared.gold.gold_int8.json": {
+      "path": "models/shared/gold/gold_int8.json",
+      "sha256": "c99f4b9072b7d0b42562e0545f6011ad501d8201d2209a9bb030481b00dc86ce",
+      "bytes": 301,
+      "format": "json",
+      "original": "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity",
+        "packet"
+      ]
+    },
+    "purity.stone": {
+      "path": "models/purity/stone/int8/best.xml",
+      "sha256": "8cc7cfb934fda932343213e21de3510044f069b96464302669f2557287e08351",
+      "bytes": 548543,
+      "format": "xml",
+      "original": "engines/Jeweltracker/INT8_openvino_model/best.xml",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.stone.int8.benchmark_origin.json": {
+      "path": "models/purity/stone/int8/benchmark_origin.json",
+      "sha256": "6fbae56d51e8d5669c35acb7e6eaf212acf5b55ff12e046f118719d81abc0e67",
+      "bytes": 298,
+      "format": "json",
+      "original": "engines/Jeweltracker/INT8_openvino_model/benchmark_origin.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.stone.int8.best.bin": {
+      "path": "models/purity/stone/int8/best.bin",
+      "sha256": "0c7e1e7871eb120dd8d469b777b67fab7eb07de513ab3538674d415391752aea",
+      "bytes": 11957876,
+      "format": "bin",
+      "original": "engines/Jeweltracker/INT8_openvino_model/best.bin",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.stone.int8.metadata.yaml": {
+      "path": "models/purity/stone/int8/metadata.yaml",
+      "sha256": "1be2f8ed172c20ea966a58d5be84a74d567d1d2b7a388b82243d5a0b83842422",
+      "bytes": 542,
+      "format": "yaml",
+      "original": "engines/Jeweltracker/INT8_openvino_model/metadata.yaml",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.rubbed_mask": {
+      "path": "models/purity/rubbed_mask/int8/rubbedmask_det_v3_int8.xml",
+      "sha256": "3c3cf5c14d5cebc0d68e16a4a9405ef0f9ac51056ddaf6b54b7d285f1d782232",
+      "bytes": 861902,
+      "format": "xml",
+      "original": "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.xml",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.rubbed_mask.int8.rubbedmask_det_v3_int8.bin": {
+      "path": "models/purity/rubbed_mask/int8/rubbedmask_det_v3_int8.bin",
+      "sha256": "009e536f4b78e3cc0f60a5cc2ecf0c631f03e3952836013556ca3324f3413c3a",
+      "bytes": 5390904,
+      "format": "bin",
+      "original": "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.bin",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.rubbed_mask.int8.rubbedmask_det_v3_int8.json": {
+      "path": "models/purity/rubbed_mask/int8/rubbedmask_det_v3_int8.json",
+      "sha256": "9e994a9d084424ef85875d204ceb9015befbf68e75302202d2636318d3cd6a52",
+      "bytes": 385,
+      "format": "json",
+      "original": "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.rubbed_mask.legacy.newstone1.onnx": {
+      "path": "models/purity/rubbed_mask/legacy/newstone1.onnx",
+      "sha256": "afc8d3042c1426edd06a7bf1b4897b6e05bd0a1a32d00381774ecc572b547dbd",
+      "bytes": 47375201,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/new_rub_detection/models/newstone1.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.rubbed_mask.legacy.rubbedmask.onnx": {
+      "path": "models/purity/rubbed_mask/legacy/rubbedmask.onnx",
+      "sha256": "42a46f35e09e75b143d25978fa0c9dba11533d00c09ebfcf90b75ab835db2390",
+      "bytes": 47343461,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/new_rub_detection/models/rubbedmask.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "shared.identity_checkpoint": {
+      "path": "models/purity/classification/weights/resnet18-f37072fd.pth",
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "bytes": 46830571,
+      "format": "pth",
+      "original": "engines/Jeweltracker/weights/resnet18-f37072fd.pth",
+      "runtime": "local asset",
+      "stages": [
+        "purity",
+        "packet"
+      ]
+    },
+    "purity.siglip": {
+      "path": "models/purity/classification/weights/siglip2-base-patch32-256_vision_encoder.sim.onnx",
+      "sha256": "1f92f04e592b172c7fe6bbef34c7cd5f42636d0524611319346906736284a560",
+      "bytes": 375974399,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/weights/siglip2-base-patch32-256_vision_encoder.sim.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "shared.identity_features": {
+      "path": "models/purity/classification/weights/resnet18_features.onnx",
+      "sha256": "da5e2b313ee25c0cc75e4bf0d16c19ed05803286cdacd0fedebd59b46a57a37a",
+      "bytes": 44696396,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/weights/resnet18_features.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity",
+        "packet"
+      ]
+    },
+    "purity.recovery_decoder": {
+      "path": "models/purity/rubbed_mask/edgesam/edge_sam_3x_decoder.onnx",
+      "sha256": "83a2174d54571596913dcb7455d021e713623c3dca30a31c8c41ab98c9fb0863",
+      "bytes": 15937006,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/weights/edgesam/edge_sam_3x_decoder.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.recovery_encoder": {
+      "path": "models/purity/rubbed_mask/edgesam/edge_sam_3x_encoder.onnx",
+      "sha256": "719a498cf5b3fe9be9f01ee513e13d3915f9028aa4f23dfd30eaaa0a17143159",
+      "bytes": 22098300,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/weights/edgesam/edge_sam_3x_encoder.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.rubbed_mask.edgesam.models.json": {
+      "path": "models/purity/rubbed_mask/edgesam/models.json",
+      "sha256": "84c0f23e30286e4163a9d464acba28b85519431f23473ebfc21b75b4fb313c09",
+      "bytes": 412,
+      "format": "json",
+      "original": "engines/Jeweltracker/weights/edgesam/models.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.classification.gallery.jewelry_correction_gallery.npz": {
+      "path": "models/purity/classification/gallery/jewelry_correction_gallery.npz",
+      "sha256": "ac2985526f6de2a8d7d7d7dc0a6d797b5adc5964adbcdee9e497b083ae86f88b",
+      "bytes": 2613526,
+      "format": "npz",
+      "original": "engines/Jeweltracker/classification/jewelry_correction_gallery.npz",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.classification.gallery.foreign_object_prompts.json": {
+      "path": "models/purity/classification/gallery/foreign_object_prompts.json",
+      "sha256": "0299318f73d0991fcf7705297eb0313512aa93243d9e0c78f9651ebadc836aef",
+      "bytes": 1369,
+      "format": "json",
+      "original": "engines/Jeweltracker/classification/foreign_object_prompts.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.classification.gallery.jewelry_prompts.json": {
+      "path": "models/purity/classification/gallery/jewelry_prompts.json",
+      "sha256": "0eb836eb6add98db19fcdd90a885b814a921e8c32544c2c053b4e0bfab723400",
+      "bytes": 8212,
+      "format": "json",
+      "original": "engines/Jeweltracker/classification/jewelry_prompts.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.classification.gallery.operator_corrections.npz": {
+      "path": "models/purity/classification/gallery/operator_corrections.npz",
+      "sha256": "8313c288cb02a63906b0b4a265eb798962bd80d91a559d9dc9885107d6880ae3",
+      "bytes": 22526,
+      "format": "npz",
+      "original": "engines/Jeweltracker/classification/operator_corrections.npz",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.classification.gallery.foreign_object_text_embeddings_cache.npz": {
+      "path": "models/purity/classification/gallery/foreign_object_text_embeddings_cache.npz",
+      "sha256": "802989c52b6298b1a63fa495790333a62c22857d91013637612e7e168736cc07",
+      "bytes": 9086,
+      "format": "npz",
+      "original": "engines/Jeweltracker/classification/foreign_object_text_embeddings_cache.npz",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.classification.gallery.jewelry_text_embeddings_cache.npz": {
+      "path": "models/purity/classification/gallery/jewelry_text_embeddings_cache.npz",
+      "sha256": "432ebed256f122233bf18f29805bc1ca73f47ac41325bb216962c7836848084d",
+      "bytes": 46362,
+      "format": "npz",
+      "original": "engines/Jeweltracker/classification/jewelry_text_embeddings_cache.npz",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.ph.acidph.json": {
+      "path": "models/purity/acid/ph/acidph.json",
+      "sha256": "e8f3129e8e38484ca5ec90eb1a69a5e1deeb28a9bd681a6b9e5bc4d988fc6bb3",
+      "bytes": 121,
+      "format": "json",
+      "original": "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.ph.acidph.bin": {
+      "path": "models/purity/acid/ph/acidph.bin",
+      "sha256": "ea3b81100b571db7dab8dacbfe73877d655ee27ae75e542323e894df3cd5589c",
+      "bytes": 22874614,
+      "format": "bin",
+      "original": "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.bin",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.ph": {
+      "path": "models/purity/acid/ph/acidph.xml",
+      "sha256": "ffcff91db20a7967fa99afe40472de8baeb128db73e0e5e0b493ff2ff8e2ec14",
+      "bytes": 349189,
+      "format": "xml",
+      "original": "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.xml",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid_detector": {
+      "path": "models/purity/acid/detector/acid_detector.onnx",
+      "sha256": "fc7fce3b0fa6ec655c601ac0756ba31b9d8354692d140a1cf3cdabf339a805d2",
+      "bytes": 47249091,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/acid_test/models/acid_detector.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.onnx": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911.onnx",
+      "sha256": "868d1d8d1bfcae2f9c2a675df0b4161eba7c93a20119ed9868a81d104989b473",
+      "bytes": 6674924,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_report.json": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911_report.json",
+      "sha256": "40046cf67e6429e5d4873057cf597b471f5557745e2f0324f9cd66e373c1da23",
+      "bytes": 9300,
+      "format": "json",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_report.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_dataset_index.json": {
+      "path": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149_dataset_index.json",
+      "sha256": "f678996da0f3e576b0f9a7f0c929072cd11dc3084fcbb83b92d4ce64263ca76f",
+      "bytes": 695867,
+      "format": "json",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_dataset_index.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.pt": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911.pt",
+      "sha256": "2d2a2f14d4fbb7f4611f7a99784e3fb59f102b8525c46076158cdd17b21dbc08",
+      "bytes": 6806037,
+      "format": "pt",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.pt",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.onnx": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+      "sha256": "dd2cd6279355ef9c17652e7a5c0f37373c32e12b5091f4455d0bd362d500a37b",
+      "bytes": 6674924,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_report.json": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901_report.json",
+      "sha256": "91e5dbae1f205bf58c4db1ea819c397348722fc1159774f8e36f2a98e5f8032b",
+      "bytes": 9268,
+      "format": "json",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_report.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_split.json": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911_split.json",
+      "sha256": "7244bb3b04d7506d436bdb3ba8f7aa3829a250f2efeb8628ec8cb7d96fda7041",
+      "bytes": 5311,
+      "format": "json",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_split.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_split.json": {
+      "path": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149_split.json",
+      "sha256": "c4dd0a199e4ea4b0d1764a49fcc278c504d54b996136c57bb159d01fbaf9780b",
+      "bytes": 2191,
+      "format": "json",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_split.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_report.json": {
+      "path": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149_report.json",
+      "sha256": "394f9acd7c0fbfb3170bd6a4fb46351472685cc7dbc9523f2ee811fb94bbd508",
+      "bytes": 9273,
+      "format": "json",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_report.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_split.json": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901_split.json",
+      "sha256": "7bb3b781627cddea9229f5ffe063de9f5b4dd9a4372f95f6cef6193fb016b3e1",
+      "bytes": 7502,
+      "format": "json",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_split.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json",
+      "sha256": "49212372cfd70f72dc21cda2f75fd6737d3a30c9ff89391d7acc7af0a752c1ca",
+      "bytes": 2704567,
+      "format": "json",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.onnx": {
+      "path": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149.onnx",
+      "sha256": "28f239a20d6552d42060103e8aef637535827ab51f295bc429bf2ab27613a269",
+      "bytes": 6674881,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.pt": {
+      "path": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149.pt",
+      "sha256": "8eff4f254fbc779959fe695deb6234f105afba7a62e02b6a1af2b9b8a7080cda",
+      "bytes": 6799459,
+      "format": "pt",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.pt",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.pt": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901.pt",
+      "sha256": "857975264e1a43a754bcb361a2324af431a0702628c6c28fd22ec4a0c016c60d",
+      "bytes": 6806037,
+      "format": "pt",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.pt",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json",
+      "sha256": "a1d118e372b8aa3542102ed5e3f6d67723e200c35be9cacd414d571be2ca2729",
+      "bytes": 1993231,
+      "format": "json",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json",
+      "runtime": "local asset",
+      "stages": [
+        "purity"
+      ]
+    },
+    "sealing.opening": {
+      "path": "models/sealing/opening/packet_bbox_classifier.joblib",
+      "sha256": "89fd9b737d2e01dbcb3698e86290c2aff98c2a68b5986e9380a64e1eb254d48f",
+      "bytes": 107009,
+      "format": "joblib",
+      "original": "engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.joblib",
+      "runtime": "local asset",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.opening.packet_bbox_classifier.validation.json": {
+      "path": "models/sealing/opening/packet_bbox_classifier.validation.json",
+      "sha256": "6afb9a010c8a9a5898085fb57eae1d0cb1f53c62efebe7482f5a2368d75773e1",
+      "bytes": 1474,
+      "format": "json",
+      "original": "engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.validation.json",
+      "runtime": "local asset",
+      "stages": [
+        "packet"
+      ]
+    },
+    "candidate.sealing.hand.candidate.best.xml": {
+      "path": "models/sealing/hand/candidate/best.xml",
+      "sha256": "21d6fb52e3dd516ce667c11c9e4e200d7c3600929adec2a14b124cc5022e4107",
+      "bytes": 896914,
+      "format": "xml",
+      "original": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.xml",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "candidate.sealing.hand.candidate.benchmark_origin.json": {
+      "path": "models/sealing/hand/candidate/benchmark_origin.json",
+      "sha256": "b7f57850c00ea21c1466aac3eddee54d99c7b9fc177943ec4d0f6c2b8614fbea",
+      "bytes": 298,
+      "format": "json",
+      "original": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/benchmark_origin.json",
+      "runtime": "local asset",
+      "stages": [
+        "packet"
+      ]
+    },
+    "candidate.sealing.hand.candidate.best.bin": {
+      "path": "models/sealing/hand/candidate/best.bin",
+      "sha256": "1c9e08ca584268e4da3d67f7779fb0e75b58be19dee2375a343781c9b475780c",
+      "bytes": 10519936,
+      "format": "bin",
+      "original": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.bin",
+      "runtime": "OpenVINO CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "candidate.sealing.hand.candidate.metadata.yaml": {
+      "path": "models/sealing/hand/candidate/metadata.yaml",
+      "sha256": "7aeeed949f4fa38522398590bef88c7e6a49b2cb360f883929953508075bde2a",
+      "bytes": 570,
+      "format": "yaml",
+      "original": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/metadata.yaml",
+      "runtime": "local asset",
+      "stages": [
+        "packet"
+      ]
+    },
+    "candidate.sealing.opening.candidate.mouth_classifier.joblib": {
+      "path": "models/sealing/opening/candidate/mouth_classifier.joblib",
+      "sha256": "a6c3efb3daa0a65cc6c1278c79784da234b8951642e2d8e0536e395706932311",
+      "bytes": 106980,
+      "format": "joblib",
+      "original": "development/models/Packetsealing_001/mouth_classifier.joblib",
+      "runtime": "local asset",
+      "stages": [
+        "packet"
+      ]
+    },
+    "candidate.sealing.opening.candidate.mouth_classifier.validation.json": {
+      "path": "models/sealing/opening/candidate/mouth_classifier.validation.json",
+      "sha256": "6d504953760a44ef7ac4d0a2b67e63b0913198340fd3af1e62addc4f4134ce80",
+      "bytes": 1416,
+      "format": "json",
+      "original": "development/models/Packetsealing_001/mouth_classifier.validation.json",
+      "runtime": "local asset",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.hand_landmarks": {
+      "path": "models/sealing/hand/hand_landmarker.task",
+      "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
+      "bytes": 7819105,
+      "format": "task",
+      "original": "engines/Packetsealing_001/model onnx/hand_landmarker.task",
+      "runtime": "MediaPipe Tasks CPU",
+      "stages": [
+        "packet",
+        "purity"
+      ]
+    },
+    "sealing.ocr_number": {
+      "path": "models/sealing/ocr/pcnumber.onnx",
+      "sha256": "4f6111391e52dc6c3d330c7df44f06433e547df3401be0b635bb3cafbdb5ef35",
+      "bytes": 45801888,
+      "format": "onnx",
+      "original": "engines/Packetsealing_001/model onnx/pcnumber.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.hand": {
+      "path": "models/sealing/hand/handseg model.onnx",
+      "sha256": "0f725de96d87163ca809674b9492d9c43d24b8ce96845c931d5ebd9f54ce4cac",
+      "bytes": 41598877,
+      "format": "onnx",
+      "original": "engines/Packetsealing_001/model onnx/handseg model.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.packet": {
+      "path": "models/sealing/packet/bagnewmodel.onnx",
+      "sha256": "dce32a88d0aa42bb2db1b44b7feed1ae87c88a4202f0d0b400c756bda41ce212",
+      "bytes": 47217683,
+      "format": "onnx",
+      "original": "engines/Packetsealing_001/model onnx/bagnewmodel.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.strip": {
+      "path": "models/sealing/strip/stripmodel.onnx",
+      "sha256": "cd8969ae5f3b2cfafda092380f7b47efe742b67721afbd0a0a43a87c1172797e",
+      "bytes": 47217450,
+      "format": "onnx",
+      "original": "engines/Packetsealing_001/model onnx/stripmodel.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.bag_filter": {
+      "path": "models/sealing/bag_filter/fp_filter_resnet18_bag.onnx",
+      "sha256": "9d31c4d65679e9f2cf3b89ea5f27ffa6f7f24a82b5593fac71edb275d32e801a",
+      "bytes": 44700673,
+      "format": "onnx",
+      "original": "engines/Packetsealing_001/model onnx/fp_filter_resnet18_bag.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.packet.metadata.packet_closure.json.example": {
+      "path": "models/sealing/packet/metadata/packet_closure.json.example",
+      "sha256": "9745de8c5b1412e2a8bd78e7734f307e9ffc4bfb0058a132a8a3edcd2ae47252",
+      "bytes": 190,
+      "format": "example",
+      "original": "engines/Packetsealing_001/model onnx/packet_closure.json.example",
+      "runtime": "local asset",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.strip_filter": {
+      "path": "models/sealing/strip/hsv_fp_filter_strip.pt",
+      "sha256": "2f365b29a2cacdcb039f72799a570ceb8e8146588b1ca408460101f09cb72154",
+      "bytes": 2203559,
+      "format": "pt",
+      "original": "engines/Packetsealing_001/model onnx/hsv_fp_filter_strip.pt",
+      "runtime": "local asset",
+      "stages": [
+        "packet"
+      ]
+    },
+    "shared.gold.legacy.nivagar_gold_v3.onnx": {
+      "path": "models/shared/gold/legacy/nivagar_gold_v3.onnx",
+      "sha256": "1387781e05fe1f1bf577cb25a2871a650881892bbf15d7020dcfddc1c42e9d29",
+      "bytes": 47198375,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/nivagar_gold_v3.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity",
+        "packet"
+      ]
+    },
+    "purity.rubbed_mask.legacy_gold.rubbing_gold.onnx": {
+      "path": "models/purity/rubbed_mask/legacy_gold/rubbing_gold.onnx",
+      "sha256": "d1e30c1970153f68f4619bb76d349c8ba47a38658a5582934e46e5a5ccecf1cd",
+      "bytes": 47249099,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/rubbing_gold.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "shared.gold.legacy.nivagar_gold_v3.pt": {
+      "path": "models/shared/gold/legacy/nivagar_gold_v3.pt",
+      "sha256": "85f6d394d94ffd3fa97f1dbe5a497d074f7c7d66f484b81d7d09adb263e86c2e",
+      "bytes": 23822068,
+      "format": "pt",
+      "original": "engines/Jeweltracker/nivagar_gold_v3.pt",
+      "runtime": "local asset",
+      "stages": [
+        "purity",
+        "packet"
+      ]
+    },
+    "purity.stone.legacy.newstone1.onnx": {
+      "path": "models/purity/stone/legacy/newstone1.onnx",
+      "sha256": "afc8d3042c1426edd06a7bf1b4897b6e05bd0a1a32d00381774ecc572b547dbd",
+      "bytes": 47375201,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/newstone1.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "shared.gold.legacy.rojeweltrack.onnx": {
+      "path": "models/shared/gold/legacy/rojeweltrack.onnx",
+      "sha256": "63da65b2e8ba872b58e89b39530814fc53b6187f9cb2b8d6cf130da21d4faa81",
+      "bytes": 47217673,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/rojeweltrack.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity",
+        "packet"
+      ]
+    },
+    "purity.acid.legacy.acid.onnx": {
+      "path": "models/purity/acid/legacy/acid.onnx",
+      "sha256": "fc7fce3b0fa6ec655c601ac0756ba31b9d8354692d140a1cf3cdabf339a805d2",
+      "bytes": 47249091,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/acid.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det.inference.pdiparams": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/inference.pdiparams",
+      "sha256": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+      "bytes": 4692937,
+      "format": "pdiparams",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/inference.pdiparams",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det.inference.json": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/inference.json",
+      "sha256": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+      "bytes": 229777,
+      "format": "json",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/inference.json",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..gitattributes": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.gitattributes",
+      "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e",
+      "bytes": 1575,
+      "format": "",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.gitattributes",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det.config.json": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/config.json",
+      "sha256": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+      "bytes": 2871,
+      "format": "json",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/config.json",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det.README.md": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/README.md",
+      "sha256": "4cc20ad6d41af86b3ce9885ffb0956e152574a2eb14179aeb07fd2d3956161ca",
+      "bytes": 16243,
+      "format": "md",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/README.md",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det.inference.yml": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/inference.yml",
+      "sha256": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+      "bytes": 903,
+      "format": "yml",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/inference.yml",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface..gitignore": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/.gitignore",
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+      "bytes": 1,
+      "format": "",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/.gitignore",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.CACHEDIR.TAG": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/CACHEDIR.TAG",
+      "sha256": "f6572428f6d5e1575e73a1502895a8731f10757dfbb634909c6e154b849af91d",
+      "bytes": 191,
+      "format": "TAG",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/CACHEDIR.TAG",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.trees.0d63e78e2b680928f6b1747d76a08db6e645efb7.json": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/trees/0d63e78e2b680928f6b1747d76a08db6e645efb7.json",
+      "sha256": "06d662d7ab252c2b91c0401e38068322a530ca90677788b7f0d70f885988af1f",
+      "bytes": 838,
+      "format": "json",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/trees/0d63e78e2b680928f6b1747d76a08db6e645efb7.json",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.yml.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.metadata",
+      "sha256": "40d5728df3694a7e4746a0e21d1ffc5fca484503309f8d4894c49d67853efdb7",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download..gitattributes.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.metadata",
+      "sha256": "392900f34fd48fc9940ad16ae9f88639c0e100bdcc9130f11ffaad5e71fed526",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.README.md.lock": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.README.md.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.metadata",
+      "sha256": "987b9f3c491515260e3736eb14e23a3b0903d0eab588454783c3201e57b0ee20",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.yml.lock": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.pdiparams.lock": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.json.lock": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download..gitattributes.lock": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.config.json.lock": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.pdiparams.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.metadata",
+      "sha256": "2e54320e47c5e81cce40e52dbfbe57add76cbaba22c16bc7d2a40e2010bd0276",
+      "bytes": 125,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.config.json.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.metadata",
+      "sha256": "2462431ad7b046d1cd53913dc571dee2e05195697f2490cca953b433501afa02",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.json.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.metadata",
+      "sha256": "fdab73e1cfad3951901a87270a7a8f509ec2e0c5c146a01f7134c67f4b43b87d",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.inference.pdiparams": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/inference.pdiparams",
+      "sha256": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+      "bytes": 7772315,
+      "format": "pdiparams",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/inference.pdiparams",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.inference.json": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/inference.json",
+      "sha256": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+      "bytes": 217712,
+      "format": "json",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/inference.json",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..gitattributes": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.gitattributes",
+      "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e",
+      "bytes": 1575,
+      "format": "",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.gitattributes",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.config.json": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/config.json",
+      "sha256": "16103ac291a82fca50f0bb000d62a4b8168f6042f03c89c44cf32f241d1eb1f2",
+      "bytes": 10455,
+      "format": "json",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/config.json",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.README.md": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/README.md",
+      "sha256": "4c1cfd6e103b0966fe97505b5254cfa35a931d47d7effca97a9db47fb57dd699",
+      "bytes": 6908,
+      "format": "md",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/README.md",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.inference.yml": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/inference.yml",
+      "sha256": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067",
+      "bytes": 3964,
+      "format": "yml",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/inference.yml",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface..gitignore": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/.gitignore",
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+      "bytes": 1,
+      "format": "",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/.gitignore",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.CACHEDIR.TAG": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/CACHEDIR.TAG",
+      "sha256": "f6572428f6d5e1575e73a1502895a8731f10757dfbb634909c6e154b849af91d",
+      "bytes": 191,
+      "format": "TAG",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/CACHEDIR.TAG",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.trees.267c36e24c331595590fe7bd72bde2436fd286f2.json": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/trees/267c36e24c331595590fe7bd72bde2436fd286f2.json",
+      "sha256": "79614cf95dc0368dc2ebbd1cb5250bcd51dac40914186b63a5dd64d1aac7c839",
+      "bytes": 839,
+      "format": "json",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/trees/267c36e24c331595590fe7bd72bde2436fd286f2.json",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.yml.metadata": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.metadata",
+      "sha256": "49ec16ebd9d468eaa72c99e44a4a608d0ce238b22242eb052b5ffcb37a52fa10",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download..gitattributes.metadata": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.metadata",
+      "sha256": "3cb66ca4d7e8c3da3bd9f6da46e4995d60ef8fb05b91fe9eb819a3c36b27b772",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.README.md.lock": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.README.md.metadata": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.metadata",
+      "sha256": "9010e6ec73a193407c54fea702520adca7ef3153b3b93dd3418a5041ca0bec3c",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.yml.lock": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.pdiparams.lock": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.json.lock": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download..gitattributes.lock": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.config.json.lock": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.pdiparams.metadata": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.metadata",
+      "sha256": "7edfaf6adb460199d4ff67f76b6cf76c307e77c09f73798a66f7ed2cffa9a156",
+      "bytes": 124,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.config.json.metadata": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.metadata",
+      "sha256": "0c1b1dbadc23b92fe737a2766e5855f17c39ef2f4c2aa0e907ba1596302971bb",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.json.metadata": {
+      "path": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.metadata",
+      "sha256": "7a45ae644110e1dc3766bd1ce5c46994b18f730e6b9aca95e8c83174c619534f",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.inference.pdiparams": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/inference.pdiparams",
+      "sha256": "0de2bcf996cf553e2b848dd7b1769dafffc6917b1ccdf55c1d8efe7909fbf743",
+      "bytes": 6743918,
+      "format": "pdiparams",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/inference.pdiparams",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.inference.json": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/inference.json",
+      "sha256": "b81929eeaff8e52db0fafb49c9fbfc5bc0572f81641fe0179cc52096323fb4d4",
+      "bytes": 104399,
+      "format": "json",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/inference.json",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..gitattributes": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.gitattributes",
+      "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e",
+      "bytes": 1575,
+      "format": "",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.gitattributes",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.config.json": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/config.json",
+      "sha256": "c1a2576f9713adabdc4a58d9d654fcc9ea93b6efd0e2d3581d5aab409a33f14f",
+      "bytes": 2487,
+      "format": "json",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/config.json",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.README.md": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/README.md",
+      "sha256": "c2de067422621e296f697b849b90b8f6cae090a8e0a27d8b04eeb8d68ffb8ce0",
+      "bytes": 3554,
+      "format": "md",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/README.md",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.inference.yml": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/inference.yml",
+      "sha256": "8d5120d0e1a30a9df7ed46aa9119da3796ed066777089d1c1d705f132d5e90f9",
+      "bytes": 735,
+      "format": "yml",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/inference.yml",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface..gitignore": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/.gitignore",
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+      "bytes": 1,
+      "format": "",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/.gitignore",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.CACHEDIR.TAG": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/CACHEDIR.TAG",
+      "sha256": "f6572428f6d5e1575e73a1502895a8731f10757dfbb634909c6e154b849af91d",
+      "bytes": 191,
+      "format": "TAG",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/CACHEDIR.TAG",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.trees.cd237a44b0e359d4fe38310a416203cf7403faa5.json": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/trees/cd237a44b0e359d4fe38310a416203cf7403faa5.json",
+      "sha256": "917b0a39da002b79d233b76eda3d740624390ed6e5ab4dc4615050d5217f4c00",
+      "bytes": 837,
+      "format": "json",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/trees/cd237a44b0e359d4fe38310a416203cf7403faa5.json",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.yml.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.metadata",
+      "sha256": "d91185b86fcd9603a067234989a61983acd53481163f74e361f60983e38dd547",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download..gitattributes.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.metadata",
+      "sha256": "a2398700b1fc9e23e3085448e98ef25a9bbed9614bf3d98831f5a1a4bc1c8e1c",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.README.md.lock": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.README.md.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.metadata",
+      "sha256": "6f2a5c48647e02a65089fd09e9e984a8c1cceaa05f031c101387c363ef5d7cb7",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.yml.lock": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.pdiparams.lock": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.json.lock": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download..gitattributes.lock": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.config.json.lock": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "format": "lock",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.lock",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.pdiparams.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.metadata",
+      "sha256": "1ee781fb401cc61d1a47385cda2f69065c121e79e5177385199439dbb5ee6a9d",
+      "bytes": 125,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.config.json.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.metadata",
+      "sha256": "f9d33ecac2ef3a11cdfd5f319e6d602c1f6c45c6e7c6a8eebf00eea938ba48ac",
+      "bytes": 100,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.json.metadata": {
+      "path": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.metadata",
+      "sha256": "a19afb51ce9db4d76123624a83c55164101e559b40381bed1a5ec919e9230eac",
+      "bytes": 101,
+      "format": "metadata",
+      "original": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.metadata",
+      "runtime": "PaddleOCR CPU",
+      "stages": [
+        "packet"
+      ]
+    },
+    "purity.temporal": {
+      "path": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+      "sha256": "dd2cd6279355ef9c17652e7a5c0f37373c32e12b5091f4455d0bd362d500a37b",
+      "bytes": 6674924,
+      "format": "onnx",
+      "original": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+      "runtime": "ONNX Runtime CPU",
+      "stages": [
+        "purity"
+      ]
+    }
+  },
+  "aliases": {
+    "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.xml": "shared.gold",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.xml": "shared.gold",
+    "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.bin": "shared.gold.gold_int8.bin",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.bin": "shared.gold.gold_int8.bin",
+    "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.json": "shared.gold.gold_int8.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.json": "shared.gold.gold_int8.json",
+    "engines/Jeweltracker/INT8_openvino_model/best.xml": "purity.stone",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/INT8_openvino_model/best.xml": "purity.stone",
+    "engines/Jeweltracker/INT8_openvino_model/benchmark_origin.json": "purity.stone.int8.benchmark_origin.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/INT8_openvino_model/benchmark_origin.json": "purity.stone.int8.benchmark_origin.json",
+    "engines/Jeweltracker/INT8_openvino_model/best.bin": "purity.stone.int8.best.bin",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/INT8_openvino_model/best.bin": "purity.stone.int8.best.bin",
+    "engines/Jeweltracker/INT8_openvino_model/metadata.yaml": "purity.stone.int8.metadata.yaml",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/INT8_openvino_model/metadata.yaml": "purity.stone.int8.metadata.yaml",
+    "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.xml": "purity.rubbed_mask",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.xml": "purity.rubbed_mask",
+    "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.bin": "purity.rubbed_mask.int8.rubbedmask_det_v3_int8.bin",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.bin": "purity.rubbed_mask.int8.rubbedmask_det_v3_int8.bin",
+    "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.json": "purity.rubbed_mask.int8.rubbedmask_det_v3_int8.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.json": "purity.rubbed_mask.int8.rubbedmask_det_v3_int8.json",
+    "engines/Jeweltracker/new_rub_detection/models/newstone1.onnx": "purity.rubbed_mask.legacy.newstone1.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/new_rub_detection/models/newstone1.onnx": "purity.rubbed_mask.legacy.newstone1.onnx",
+    "engines/Jeweltracker/new_rub_detection/models/rubbedmask.onnx": "purity.rubbed_mask.legacy.rubbedmask.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/new_rub_detection/models/rubbedmask.onnx": "purity.rubbed_mask.legacy.rubbedmask.onnx",
+    "engines/Jeweltracker/weights/resnet18-f37072fd.pth": "shared.identity_checkpoint",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/weights/resnet18-f37072fd.pth": "shared.identity_checkpoint",
+    "engines/Jeweltracker/weights/siglip2-base-patch32-256_vision_encoder.sim.onnx": "purity.siglip",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/weights/siglip2-base-patch32-256_vision_encoder.sim.onnx": "purity.siglip",
+    "engines/Jeweltracker/weights/resnet18_features.onnx": "shared.identity_features",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/weights/resnet18_features.onnx": "shared.identity_features",
+    "engines/Jeweltracker/weights/edgesam/edge_sam_3x_decoder.onnx": "purity.recovery_decoder",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/weights/edgesam/edge_sam_3x_decoder.onnx": "purity.recovery_decoder",
+    "engines/Jeweltracker/weights/edgesam/edge_sam_3x_encoder.onnx": "purity.recovery_encoder",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/weights/edgesam/edge_sam_3x_encoder.onnx": "purity.recovery_encoder",
+    "engines/Jeweltracker/weights/edgesam/models.json": "purity.rubbed_mask.edgesam.models.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/weights/edgesam/models.json": "purity.rubbed_mask.edgesam.models.json",
+    "engines/Jeweltracker/classification/jewelry_correction_gallery.npz": "purity.classification.gallery.jewelry_correction_gallery.npz",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/classification/jewelry_correction_gallery.npz": "purity.classification.gallery.jewelry_correction_gallery.npz",
+    "engines/Jeweltracker/classification/foreign_object_prompts.json": "purity.classification.gallery.foreign_object_prompts.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/classification/foreign_object_prompts.json": "purity.classification.gallery.foreign_object_prompts.json",
+    "engines/Jeweltracker/classification/jewelry_prompts.json": "purity.classification.gallery.jewelry_prompts.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/classification/jewelry_prompts.json": "purity.classification.gallery.jewelry_prompts.json",
+    "engines/Jeweltracker/classification/operator_corrections.npz": "purity.classification.gallery.operator_corrections.npz",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/classification/operator_corrections.npz": "purity.classification.gallery.operator_corrections.npz",
+    "engines/Jeweltracker/classification/foreign_object_text_embeddings_cache.npz": "purity.classification.gallery.foreign_object_text_embeddings_cache.npz",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/classification/foreign_object_text_embeddings_cache.npz": "purity.classification.gallery.foreign_object_text_embeddings_cache.npz",
+    "engines/Jeweltracker/classification/jewelry_text_embeddings_cache.npz": "purity.classification.gallery.jewelry_text_embeddings_cache.npz",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/classification/jewelry_text_embeddings_cache.npz": "purity.classification.gallery.jewelry_text_embeddings_cache.npz",
+    "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.json": "purity.acid.ph.acidph.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.json": "purity.acid.ph.acidph.json",
+    "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.bin": "purity.acid.ph.acidph.bin",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.bin": "purity.acid.ph.acidph.bin",
+    "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.xml": "purity.ph",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.xml": "purity.ph",
+    "engines/Jeweltracker/acid_test/models/acid_detector.onnx": "purity.acid_detector",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/models/acid_detector.onnx": "purity.acid_detector",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.onnx": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.onnx": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.onnx",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_report.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_report.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_report.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_report.json",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_dataset_index.json": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_dataset_index.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_dataset_index.json": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_dataset_index.json",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.pt": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.pt",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.pt": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.pt",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.onnx": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.onnx": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_report.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_report.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_report.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_report.json",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_split.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_split.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_split.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_split.json",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_split.json": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_split.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_split.json": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_split.json",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_report.json": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_report.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_report.json": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_report.json",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_split.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_split.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_split.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_split.json",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.onnx": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.onnx": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.onnx",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.pt": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.pt",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.pt": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.pt",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.pt": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.pt",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.pt": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.pt",
+    "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json",
+    "engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.joblib": "sealing.opening",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.joblib": "sealing.opening",
+    "engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.validation.json": "sealing.opening.packet_bbox_classifier.validation.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.validation.json": "sealing.opening.packet_bbox_classifier.validation.json",
+    "development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.xml": "candidate.sealing.hand.candidate.best.xml",
+    "/home/embsys/Desktop/EMBSYS-SOP/development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.xml": "candidate.sealing.hand.candidate.best.xml",
+    "development/models/Jeweltracker/INT8_openvino_model_hand_seg/benchmark_origin.json": "candidate.sealing.hand.candidate.benchmark_origin.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/development/models/Jeweltracker/INT8_openvino_model_hand_seg/benchmark_origin.json": "candidate.sealing.hand.candidate.benchmark_origin.json",
+    "development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.bin": "candidate.sealing.hand.candidate.best.bin",
+    "/home/embsys/Desktop/EMBSYS-SOP/development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.bin": "candidate.sealing.hand.candidate.best.bin",
+    "development/models/Jeweltracker/INT8_openvino_model_hand_seg/metadata.yaml": "candidate.sealing.hand.candidate.metadata.yaml",
+    "/home/embsys/Desktop/EMBSYS-SOP/development/models/Jeweltracker/INT8_openvino_model_hand_seg/metadata.yaml": "candidate.sealing.hand.candidate.metadata.yaml",
+    "development/models/Packetsealing_001/mouth_classifier.joblib": "candidate.sealing.opening.candidate.mouth_classifier.joblib",
+    "/home/embsys/Desktop/EMBSYS-SOP/development/models/Packetsealing_001/mouth_classifier.joblib": "candidate.sealing.opening.candidate.mouth_classifier.joblib",
+    "development/models/Packetsealing_001/mouth_classifier.validation.json": "candidate.sealing.opening.candidate.mouth_classifier.validation.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/development/models/Packetsealing_001/mouth_classifier.validation.json": "candidate.sealing.opening.candidate.mouth_classifier.validation.json",
+    "engines/Packetsealing_001/model onnx/hand_landmarker.task": "sealing.hand_landmarks",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/model onnx/hand_landmarker.task": "sealing.hand_landmarks",
+    "engines/Packetsealing_001/model onnx/pcnumber.onnx": "sealing.ocr_number",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/model onnx/pcnumber.onnx": "sealing.ocr_number",
+    "engines/Packetsealing_001/model onnx/handseg model.onnx": "sealing.hand",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/model onnx/handseg model.onnx": "sealing.hand",
+    "engines/Packetsealing_001/model onnx/bagnewmodel.onnx": "sealing.packet",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/model onnx/bagnewmodel.onnx": "sealing.packet",
+    "engines/Packetsealing_001/model onnx/stripmodel.onnx": "sealing.strip",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/model onnx/stripmodel.onnx": "sealing.strip",
+    "engines/Packetsealing_001/model onnx/fp_filter_resnet18_bag.onnx": "sealing.bag_filter",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/model onnx/fp_filter_resnet18_bag.onnx": "sealing.bag_filter",
+    "engines/Packetsealing_001/model onnx/packet_closure.json.example": "sealing.packet.metadata.packet_closure.json.example",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/model onnx/packet_closure.json.example": "sealing.packet.metadata.packet_closure.json.example",
+    "engines/Packetsealing_001/model onnx/hsv_fp_filter_strip.pt": "sealing.strip_filter",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Packetsealing_001/model onnx/hsv_fp_filter_strip.pt": "sealing.strip_filter",
+    "engines/Jeweltracker/nivagar_gold_v3.onnx": "shared.gold.legacy.nivagar_gold_v3.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/nivagar_gold_v3.onnx": "shared.gold.legacy.nivagar_gold_v3.onnx",
+    "engines/Jeweltracker/rubbing_gold.onnx": "purity.rubbed_mask.legacy_gold.rubbing_gold.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/rubbing_gold.onnx": "purity.rubbed_mask.legacy_gold.rubbing_gold.onnx",
+    "engines/Jeweltracker/nivagar_gold_v3.pt": "shared.gold.legacy.nivagar_gold_v3.pt",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/nivagar_gold_v3.pt": "shared.gold.legacy.nivagar_gold_v3.pt",
+    "engines/Jeweltracker/newstone1.onnx": "purity.stone.legacy.newstone1.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/newstone1.onnx": "purity.stone.legacy.newstone1.onnx",
+    "engines/Jeweltracker/rojeweltrack.onnx": "shared.gold.legacy.rojeweltrack.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/rojeweltrack.onnx": "shared.gold.legacy.rojeweltrack.onnx",
+    "engines/Jeweltracker/acid.onnx": "purity.acid.legacy.acid.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/Jeweltracker/acid.onnx": "purity.acid.legacy.acid.onnx",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/inference.pdiparams": "sealing.ocr.paddle.PP-OCRv5_mobile_det.inference.pdiparams",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/inference.json": "sealing.ocr.paddle.PP-OCRv5_mobile_det.inference.json",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.gitattributes": "sealing.ocr.paddle.PP-OCRv5_mobile_det..gitattributes",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/config.json": "sealing.ocr.paddle.PP-OCRv5_mobile_det.config.json",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/README.md": "sealing.ocr.paddle.PP-OCRv5_mobile_det.README.md",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/inference.yml": "sealing.ocr.paddle.PP-OCRv5_mobile_det.inference.yml",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/.gitignore": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface..gitignore",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/CACHEDIR.TAG": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.CACHEDIR.TAG",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/trees/0d63e78e2b680928f6b1747d76a08db6e645efb7.json": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.trees.0d63e78e2b680928f6b1747d76a08db6e645efb7.json",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.metadata": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.yml.metadata",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.metadata": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download..gitattributes.metadata",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.lock": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.README.md.lock",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.metadata": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.README.md.metadata",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.lock": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.yml.lock",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.lock": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.pdiparams.lock",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.lock": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.json.lock",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.lock": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download..gitattributes.lock",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.lock": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.config.json.lock",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.metadata": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.pdiparams.metadata",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.metadata": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.config.json.metadata",
+    "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.metadata": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.json.metadata",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/inference.pdiparams": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.inference.pdiparams",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/inference.json": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.inference.json",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.gitattributes": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..gitattributes",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/config.json": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.config.json",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/README.md": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.README.md",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/inference.yml": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.inference.yml",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/.gitignore": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface..gitignore",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/CACHEDIR.TAG": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.CACHEDIR.TAG",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/trees/267c36e24c331595590fe7bd72bde2436fd286f2.json": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.trees.267c36e24c331595590fe7bd72bde2436fd286f2.json",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.metadata": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.yml.metadata",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.metadata": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download..gitattributes.metadata",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.lock": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.README.md.lock",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.metadata": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.README.md.metadata",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.lock": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.yml.lock",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.lock": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.pdiparams.lock",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.lock": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.json.lock",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.lock": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download..gitattributes.lock",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.lock": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.config.json.lock",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.metadata": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.pdiparams.metadata",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.metadata": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.config.json.metadata",
+    "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.metadata": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.json.metadata",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/inference.pdiparams": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.inference.pdiparams",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/inference.json": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.inference.json",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.gitattributes": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..gitattributes",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/config.json": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.config.json",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/README.md": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.README.md",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/inference.yml": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.inference.yml",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/.gitignore": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface..gitignore",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/CACHEDIR.TAG": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.CACHEDIR.TAG",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/trees/cd237a44b0e359d4fe38310a416203cf7403faa5.json": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.trees.cd237a44b0e359d4fe38310a416203cf7403faa5.json",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.metadata": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.yml.metadata",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.metadata": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download..gitattributes.metadata",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.lock": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.README.md.lock",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.metadata": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.README.md.metadata",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.lock": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.yml.lock",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.lock": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.pdiparams.lock",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.lock": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.json.lock",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.lock": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download..gitattributes.lock",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.lock": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.config.json.lock",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.metadata": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.pdiparams.metadata",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.metadata": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.config.json.metadata",
+    "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.metadata": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.json.metadata",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/models/acid_detector.onnx": "purity.acid_detector",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.onnx": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_report.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_report.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_dataset_index.json": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_dataset_index.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.pt": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.pt",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.onnx": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_report.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_report.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_split.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_split.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_split.json": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_split.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_report.json": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_report.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_split.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_split.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.onnx": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.pt": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.pt",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.pt": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.pt",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/acid/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/ph/acidph_openvino/acidph.json": "purity.acid.ph.acidph.json",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/ph/acidph_openvino/acidph.bin": "purity.acid.ph.acidph.bin",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/ph/acidph_openvino/acidph.xml": "purity.ph",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/rubbed_mask_lab/models/newstone1.onnx": "purity.rubbed_mask.legacy.newstone1.onnx",
+    "/home/embsys/Desktop/EMBSYS-SOP/engines/purity/rubbed_mask_lab/models/rubbedmask.onnx": "purity.rubbed_mask.legacy.rubbedmask.onnx"
+  },
+  "directories": {
+    "engines/Jeweltracker/int_8_GOLD_JEWEL": "models/shared/gold",
+    "engines/Jeweltracker/INT8_openvino_model": "models/purity/stone/int8",
+    "engines/Jeweltracker/INT_8_RUBBEDMASK": "models/purity/rubbed_mask/int8",
+    "engines/Jeweltracker/new_rub_detection/models": "models/purity/rubbed_mask/legacy",
+    "engines/Jeweltracker/weights": "models/purity/classification/weights",
+    "engines/Jeweltracker/weights/edgesam": "models/purity/rubbed_mask/edgesam",
+    "engines/Jeweltracker/classification": "models/purity/classification/gallery",
+    "engines/Jeweltracker/acidphintegration/acidph_openvino": "models/purity/acid/ph",
+    "engines/Jeweltracker/acid_test/models": "models/purity/acid/detector",
+    "engines/Jeweltracker/acid_test/model_training/artifacts": "models/purity/acid/temporal",
+    "engines/Packetsealing_001/packet_mouth_lab/models": "models/sealing/opening",
+    "development/models/Jeweltracker/INT8_openvino_model_hand_seg": "models/sealing/hand/candidate",
+    "development/models/Packetsealing_001": "models/sealing/opening/candidate",
+    "PP-OCRv5_mobile_det": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det",
+    "en_PP-OCRv5_mobile_rec": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec",
+    "PP-LCNet_x1_0_textline_ori": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori",
+    "gold": "models/shared/gold",
+    "stone": "models/purity/stone/int8",
+    "rubbed_mask": "models/purity/rubbed_mask/int8",
+    "classification": "models/purity/classification/gallery",
+    "weights": "models/purity/classification/weights",
+    "temporal": "models/purity/acid/temporal",
+    "packet": "models/sealing/packet",
+    "engines/purity/acid/models": "models/purity/acid/detector",
+    "engines/purity/acid/model_training/artifacts": "models/purity/acid/temporal",
+    "engines/purity/ph/acidph_openvino": "models/purity/acid/ph",
+    "engines/purity/rubbed_mask_lab/models": "models/purity/rubbed_mask/legacy"
+  }
+}

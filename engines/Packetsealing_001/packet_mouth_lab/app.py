@@ -1,5 +1,6 @@
 """Packet bounding-box dataset collection and optional CPU state classification."""
 from __future__ import annotations
+from model_registry import model_path, asset_dir, resolve_model
 import argparse
 import json
 import os
@@ -126,7 +127,7 @@ class MouthWindow(QtWidgets.QMainWindow):
         self.setWindowTitle('Packet Mouth Lab — independent CPU proof of concept')
         self.resize(1210,790)
         self.dataset=MouthDataset(ROOT/'dataset'/'packet_bbox', input_region='packet_bbox')
-        self.model_path=ROOT/'models'/'packet_bbox_classifier.joblib'
+        self.model_path=model_path('sealing.opening')
         self.classifier=None
         self.temporal=TemporalConsensus()
         self.cap=None
@@ -217,7 +218,7 @@ class MouthWindow(QtWidgets.QMainWindow):
                 if str(ROOT.parent) not in sys.path:
                     sys.path.insert(0,str(ROOT.parent))
                 from standalone.models import PacketBagDetector
-                self.packet_detector=PacketBagDetector(ROOT.parent/'model onnx')
+                self.packet_detector=PacketBagDetector(asset_dir('packet'))
             self.packet_detections=self.packet_detector.detect(self.frame)
             count=len(self.packet_detections)
             if count==1:

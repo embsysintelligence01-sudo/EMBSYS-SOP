@@ -1,5 +1,13 @@
 # Change record
 
+## Recording trigger correction — 2026-11-21
+
+Restored provisional recording for covered or unconfirmed pickup candidates, the standalone's 0.45-second recent-pinch tolerance, and its minimum 720-pixel hand context crop. The start hold remains 0.5 seconds. The extended stone area stays fixed while a pinch is being checked and during the active cycle. Initial calibration continues while background home observations run.
+
+Right, Left and Any selection now applies consistently to pinch and gold fallback. The selected hand blocks fallback for one second after being seen near the area. Ignored hands stay visible. Hand-model failures are reported explicitly and permit the enabled gold fallback to continue. The preview distinguishes PINCH HOLD and GOLD HOLD, and trigger manifests include the source, candidate identities, selected hands, provisional status and hand-model errors. Uncertain recordings remain UNASSIGNED.
+
+Added direct comparisons against the unchanged standalone recorder using identical synthetic frames for covered homes, brief landmark misses, no hand and occupied homes. Added regressions for provisional identity, fallback selection, calibration and area freezing. Existing rubbing, acid, classification and handoff checks continue independently.
+
 ## 0.1.0 — 2026-11-20
 
 Created a new sibling `EMBSYS-SOP` from local working files, without downloading either GitHub repository. Preserved source branches, commits, working-tree status and launcher names in `SOURCE_SNAPSHOT.json`. `COPY_MANIFEST.json` records hashes before integration edits. Original directories and their Git history are the untouched backups. Initialized a separate root repository on `main`; no remote, commit or push.

@@ -1,0 +1,6164 @@
+[
+  {
+    "path": "run.sh",
+    "bytes": 535,
+    "sha256": "e44c98dd933abbd39e447a936e70863dbd2a07a6b0470a5ca4b72563b272a34f"
+  },
+  {
+    "path": "launcher.py",
+    "bytes": 453,
+    "sha256": "93cb36311ef12124ab9883d1133d53f40df2b690214791e550da6bd8dd86c71a",
+    "imports": [
+      "import sys",
+      "from PyQt5 import QtWidgets",
+      "from app.main_window import MainWindow"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "pyproject.toml",
+    "bytes": 432,
+    "sha256": "5d9614fe4acabfd2d7179542c914e6cb1d2380b0b63168cabe1366d2e15af6f2"
+  },
+  {
+    "path": "configs/packet_ui_settings.example.json",
+    "bytes": 245,
+    "sha256": "a1be93b06f1f09e4ae51423b1140dc9f83f677c7978a0cd9dc1dced3467eba3d"
+  },
+  {
+    "path": "configs/aruco_roi.example.json",
+    "bytes": 159,
+    "sha256": "d2a03586a1b7362b55f37ff9aa22d13bc6db1adb39ad8f0c1ab07939a774e2e6"
+  },
+  {
+    "path": "configs/camera.example.json",
+    "bytes": 539,
+    "sha256": "09257a30843e46d22d6d30bd370f43c3ffdda1ce6c5f9690ff2d9c0cb2a0541a"
+  },
+  {
+    "path": "configs/zones.example.json",
+    "bytes": 236,
+    "sha256": "9dbc8850bef128edf214ac9f81def2fd21effc48e63dc11bf9d799678e5889f8"
+  },
+  {
+    "path": "configs/local.toml",
+    "bytes": 248,
+    "sha256": "3812641c93f7a4b01d5dbce3d778bdc1005c65398fde3b18a708f14810605120"
+  },
+  {
+    "path": "configs/evidence_retention.example.json",
+    "bytes": 579,
+    "sha256": "2eed7aa2fad66472d821ae63fc3fbccb8746d7a9a1792de66517f35e7186b130"
+  },
+  {
+    "path": "configs/app.toml",
+    "bytes": 265,
+    "sha256": "c7fd1db96a660fcaf8f013e7d85018e470b9e82bce07c1f4586602cc45d2b5c1"
+  },
+  {
+    "path": "configs/sop_config.example.json",
+    "bytes": 623,
+    "sha256": "b023b42c1402286815433f16253a4721a790123ffa0a98547a95b5f1994a3118"
+  },
+  {
+    "path": "docs/AUDIT.json",
+    "bytes": 253,
+    "sha256": "1c758e433f5a8db69bd67827d432f8d5aff1bb825a3689fc4b71694476037a28"
+  },
+  {
+    "path": "docs/CLEANUP_REFERENCES.json",
+    "bytes": 379751,
+    "sha256": "b8f6ce435e2a8ca3e968438f2473f9d575aabded6d5b79b2099a0fc0b42c530c"
+  },
+  {
+    "path": "docs/DEPENDENCIES.json",
+    "bytes": 43773,
+    "sha256": "037f04cacc55af264629c4f249db4e51eaac72d9c8ce042efafc41df044b7455"
+  },
+  {
+    "path": "docs/COPY_MANIFEST.json",
+    "bytes": 39069,
+    "sha256": "f79962fcd202f071665013acc8625a537b9a926f7b0768febe7ceec5fcb68dd5"
+  },
+  {
+    "path": "docs/CLEANUP_BASELINE_VALIDATION.json",
+    "bytes": 4143,
+    "sha256": "ca8927b8f4c40832123a0e997bd21c8685ad284c1a58d4092360a11010dcbc92"
+  },
+  {
+    "path": "docs/CLEANUP_INTEGRITY.json",
+    "bytes": 134,
+    "sha256": "15b29286582e94ea85f5f152ad7bc8c72e67c8783fe68936398752fd5e6991f0"
+  },
+  {
+    "path": "docs/CLEANUP_MANIFEST.json",
+    "bytes": 268682,
+    "sha256": "25c5cc9f164acdbd351961740ad10415434b0947e9c8e56b4a53b4137a962eb5"
+  },
+  {
+    "path": "docs/CLEANUP_REGRESSION_COMPARISON.json",
+    "bytes": 1300,
+    "sha256": "0473eae0e49ddff4323d7a1d22da5ed8b64c3cb01357857f031153ff9121bbe5"
+  },
+  {
+    "path": "docs/SOURCE_SNAPSHOT.json",
+    "bytes": 1442,
+    "sha256": "7c08d76e138401e7ecda19159bdbb63f7ab23b5a67cf39f53e06ac48067200ab"
+  },
+  {
+    "path": "docs/SURVEILLANCE_LOGIC_AUDIT.json",
+    "bytes": 1140,
+    "sha256": "a85aac71234c464ae00783b09e5b149a54b9961adc0961408a9bcf27f8db94d4"
+  },
+  {
+    "path": "docs/VALIDATION.json",
+    "bytes": 5379,
+    "sha256": "17dd0acd0f372c1334e6ca00c1deaf275e81798a9f2b6a82faad37b1a7226fa2"
+  },
+  {
+    "path": "docs/SOURCE_CHANGES.json",
+    "bytes": 6821,
+    "sha256": "76f08125607d4bcf6462b922cb2ecb1f5afc2496775d976040bfdbd4f1c70284"
+  },
+  {
+    "path": "outputs/validation/surveillance-focused-results.json",
+    "bytes": 321,
+    "sha256": "069e324a8ba158df57d40540de2cb74a0d92cd42a488fa0ff0e3ad3d9f927dfb"
+  },
+  {
+    "path": "development/run.sh",
+    "bytes": 291,
+    "sha256": "6558fc9b2a89b59fca58e13b1dbc6e4130afb125b6c956746806579c830e6834"
+  },
+  {
+    "path": "development/run_legacy.py",
+    "bytes": 1898,
+    "sha256": "25a6fb69d3574e34a8b142d43bc26982539d9222e06f8eb66895d7ce02701169",
+    "imports": [
+      "from pathlib import Path",
+      "import argparse",
+      "import os",
+      "import sys",
+      "from app.config import JEWEL, PACKET, engine_environment",
+      "from scripts.prepare_runtime import maintenance_lock"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "development/legacy/Packetsealing_001/triger_motion_rohan/pickup_trigger_test.py",
+    "bytes": 114777,
+    "sha256": "7c53c77dd8fcfde9c4ce6bf34db5d6389fa6f7f435092d24495a5d61fc86f22c",
+    "imports": [
+      "from __future__ import annotations",
+      "import argparse",
+      "from collections import deque",
+      "from dataclasses import dataclass",
+      "from datetime import datetime",
+      "import json",
+      "import math",
+      "import os",
+      "from pathlib import Path",
+      "import sys",
+      "import threading",
+      "import time",
+      "import struct",
+      "from types import SimpleNamespace",
+      "from zoneinfo import ZoneInfo",
+      "import cv2",
+      "import numpy as np",
+      "import fcntl",
+      "import jewel_tracker_5 as original",
+      "import torch",
+      "import ultralytics.utils.torch_utils as torch_utils",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "import tempfile",
+      "from standalone.hand_keypoints import TIP_IDS",
+      "from standalone.tracking import GoldPredictor",
+      "from standalone.models import PacketBagDetector",
+      "from continuous_testing import visibility",
+      "from standalone.models import PacketBagDetector",
+      "from standalone.models import Segmenter",
+      "from standalone.hand_keypoints import HandKeypoints",
+      "from standalone.settings import tracker_camera, tracker_roi, read_json",
+      "from standalone.camera import make_grabber",
+      "from standalone.settings import tracker_source",
+      "from standalone.hand_keypoints import draw_hand"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 61,
+        "operation": "Path('/dev').glob"
+      },
+      {
+        "line": 1873,
+        "operation": "json.loads"
+      },
+      {
+        "line": 1912,
+        "operation": "Path(directory).glob"
+      },
+      {
+        "line": 1485,
+        "operation": "json.loads((ROOT / 'packet_ui_settings.json').read_text()).get"
+      },
+      {
+        "line": 1485,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "development/legacy/Jeweltracker/jewel_tracker_2.py",
+    "bytes": 138017,
+    "sha256": "1e7016618a5211b23b0563fa3117d388cb5b62a8c7c27272a75cc2beb1a02b4d",
+    "imports": [
+      "import math",
+      "import os",
+      "import sys",
+      "import time",
+      "import json",
+      "import threading",
+      "import socket",
+      "from urllib.parse import quote, urlparse",
+      "from ultralytics import YOLO",
+      "import onnxruntime",
+      "import torch",
+      "import ultralytics.utils.torch_utils as _ul_torch_utils",
+      "from collections import deque",
+      "from jewel_capture import jewellery_mask, jewel_crop, ring_shape",
+      "import cv2",
+      "import numpy as np",
+      "from scipy.optimize import linear_sum_assignment",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "from pathlib import Path as _CameraPath",
+      "import traceback",
+      "import torch",
+      "from torch import nn",
+      "from torchvision import models, transforms",
+      "import winsound",
+      "import onnxruntime",
+      "from siglip_vision import SiglipVisionONNX",
+      "from jewel_classifier import JewelClassifier"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 138,
+        "operation": "json.loads"
+      },
+      {
+        "line": 1082,
+        "operation": "model.load_state_dict"
+      },
+      {
+        "line": 2241,
+        "operation": "self.load_zones"
+      },
+      {
+        "line": 2245,
+        "operation": "self.load_cameras"
+      },
+      {
+        "line": 2423,
+        "operation": "json.loads"
+      },
+      {
+        "line": 1082,
+        "operation": "torch.load"
+      },
+      {
+        "line": 2358,
+        "operation": "json.load"
+      },
+      {
+        "line": 2426,
+        "operation": "json.load"
+      }
+    ]
+  },
+  {
+    "path": "development/legacy/Jeweltracker/jewel_tracker_similarity.py",
+    "bytes": 50265,
+    "sha256": "7997955fe4b14ec106730e46a550b5d8ba4a934ffa97eef050b31b0ebb958e30",
+    "imports": [
+      "import os",
+      "import sys",
+      "import time",
+      "import json",
+      "import threading",
+      "import itertools",
+      "from pathlib import Path as _CameraPath",
+      "from ultralytics import YOLO",
+      "import queue",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "from scipy.optimize import linear_sum_assignment",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "import onnxruntime",
+      "from app.config import AppConfig",
+      "from app.vision.features import prepare_detail_crop",
+      "from app.models.siglip_onnx import SiglipVisionONNX",
+      "import winsound"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 47,
+        "operation": "json.loads(_private_url.read_text()).get"
+      },
+      {
+        "line": 64,
+        "operation": "AppConfig.load"
+      },
+      {
+        "line": 880,
+        "operation": "self.load_zones"
+      },
+      {
+        "line": 47,
+        "operation": "json.loads"
+      },
+      {
+        "line": 966,
+        "operation": "json.load"
+      }
+    ]
+  },
+  {
+    "path": "development/legacy/Jeweltracker/jewel_tracker_6.py",
+    "bytes": 179003,
+    "sha256": "ad69b8cad0442e9995d6e09d7a01304070b5744e89f68264df0418c4d18bb250",
+    "imports": [
+      "import math",
+      "import os",
+      "import sys",
+      "import time",
+      "import json",
+      "import threading",
+      "import uuid",
+      "import socket",
+      "from urllib.parse import quote, urlparse",
+      "from ultralytics import YOLO",
+      "import onnxruntime",
+      "import torch",
+      "import ultralytics.utils.torch_utils as _ul_torch_utils",
+      "from collections import deque",
+      "from jewel_capture import jewellery_mask, jewel_crop, ring_shape",
+      "import cv2",
+      "import numpy as np",
+      "from scipy.optimize import linear_sum_assignment",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "from acid_test.integration import AcidTestThread, AcidModelCache",
+      "from live_pipeline import InferenceDispatcher, StaleInference, LatestPreview",
+      "from jewel_identity import IdentityMatcher",
+      "from linux_camera_controls import LINUX_AF_DEFAULT, apply_linux_antiflicker",
+      "from pathlib import Path as _CameraPath",
+      "import traceback",
+      "import winsound",
+      "import torchvision"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 154,
+        "operation": "json.loads"
+      },
+      {
+        "line": 2680,
+        "operation": "self.load_zones"
+      },
+      {
+        "line": 2684,
+        "operation": "self.load_cameras"
+      },
+      {
+        "line": 2935,
+        "operation": "json.loads"
+      },
+      {
+        "line": 3263,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 3293,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 963,
+        "operation": "onnxruntime.InferenceSession"
+      },
+      {
+        "line": 970,
+        "operation": "net.load_state_dict"
+      },
+      {
+        "line": 2756,
+        "operation": "self.load_rub_move"
+      },
+      {
+        "line": 3265,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3287,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 3297,
+        "operation": "payload.get"
+      },
+      {
+        "line": 970,
+        "operation": "torch.load"
+      },
+      {
+        "line": 2870,
+        "operation": "json.load"
+      },
+      {
+        "line": 2938,
+        "operation": "json.load"
+      },
+      {
+        "line": 3273,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 2845,
+        "operation": "json.load(f).get"
+      },
+      {
+        "line": 3268,
+        "operation": "payload.get"
+      },
+      {
+        "line": 2845,
+        "operation": "json.load"
+      },
+      {
+        "line": 3283,
+        "operation": "payload.get"
+      }
+    ]
+  },
+  {
+    "path": "development/legacy/Jeweltracker/tracker_update_20261027/jewel_tracker_5.camera-defaults.local.json",
+    "bytes": 379,
+    "sha256": "3b3f431d3cc663e6f95c631f56d8eef55315cb2f5236b3ace5b893b3b6a7429b"
+  },
+  {
+    "path": "development/legacy/Jeweltracker/tracker_update_20261027/jewel_tracker_5.py",
+    "bytes": 179003,
+    "sha256": "57e58cf0f64d96c282d80c3619c7e9a8579550cb134b62b9322c987ca22c6ad1",
+    "imports": [
+      "import math",
+      "import os",
+      "import sys",
+      "import time",
+      "import json",
+      "import threading",
+      "import uuid",
+      "import socket",
+      "from urllib.parse import quote, urlparse",
+      "from ultralytics import YOLO",
+      "import onnxruntime",
+      "import torch",
+      "import ultralytics.utils.torch_utils as _ul_torch_utils",
+      "from collections import deque",
+      "from jewel_capture import jewellery_mask, jewel_crop, ring_shape",
+      "import cv2",
+      "import numpy as np",
+      "from scipy.optimize import linear_sum_assignment",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "from acid_test.integration import AcidTestThread, AcidModelCache",
+      "from live_pipeline import InferenceDispatcher, StaleInference, LatestPreview",
+      "from jewel_identity import IdentityMatcher",
+      "from linux_camera_controls import LINUX_AF_DEFAULT, apply_linux_antiflicker",
+      "from pathlib import Path as _CameraPath",
+      "import traceback",
+      "import winsound",
+      "import torchvision"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 154,
+        "operation": "json.loads"
+      },
+      {
+        "line": 2680,
+        "operation": "self.load_zones"
+      },
+      {
+        "line": 2684,
+        "operation": "self.load_cameras"
+      },
+      {
+        "line": 2935,
+        "operation": "json.loads"
+      },
+      {
+        "line": 3263,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 3293,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 963,
+        "operation": "onnxruntime.InferenceSession"
+      },
+      {
+        "line": 970,
+        "operation": "net.load_state_dict"
+      },
+      {
+        "line": 2756,
+        "operation": "self.load_rub_move"
+      },
+      {
+        "line": 3265,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3287,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 3297,
+        "operation": "payload.get"
+      },
+      {
+        "line": 970,
+        "operation": "torch.load"
+      },
+      {
+        "line": 2870,
+        "operation": "json.load"
+      },
+      {
+        "line": 2938,
+        "operation": "json.load"
+      },
+      {
+        "line": 3273,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 2845,
+        "operation": "json.load(f).get"
+      },
+      {
+        "line": 3268,
+        "operation": "payload.get"
+      },
+      {
+        "line": 2845,
+        "operation": "json.load"
+      },
+      {
+        "line": 3283,
+        "operation": "payload.get"
+      }
+    ]
+  },
+  {
+    "path": "development/legacy/Jeweltracker/tracker_update_20261027/jewel_identity.py",
+    "bytes": 13661,
+    "sha256": "2e4785b087d10bcbc751e198b7e2dd838bd0d47f7807f2e6f20fa47817a0d449",
+    "imports": [
+      "from __future__ import annotations",
+      "import cv2",
+      "import numpy as np",
+      "import faiss",
+      "from sklearn.cluster import AgglomerativeClustering"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "development/legacy/Jeweltracker/tracker_update_20261027/tests/test_box_rubbing.py",
+    "bytes": 6134,
+    "sha256": "36a9d3271adf962007fcd8d53631a63e5586984bef62769a342f4eea94673e7f",
+    "imports": [
+      "import os",
+      "import sys",
+      "import tempfile",
+      "import time",
+      "import unittest",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock, patch",
+      "import numpy as np",
+      "import jewel_tracker_5 as tracker"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 151,
+        "operation": "tracker.MainWindow.load_rub_move"
+      }
+    ]
+  },
+  {
+    "path": "development/legacy/Jeweltracker/tracker_update_20261027/tests/test_temporal_acid.py",
+    "bytes": 29828,
+    "sha256": "7322119ae3586c9b0a444a267b51c99d5ba3db1edf237034073119bd1b926283",
+    "imports": [
+      "import json",
+      "import os",
+      "from pathlib import Path",
+      "import tempfile",
+      "import time",
+      "from types import SimpleNamespace",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import numpy as np",
+      "import cv2",
+      "import jewel_tracker_5 as tracker",
+      "from acid_test.sequence import AcidSequence",
+      "from acid_test.onnx_detector import Detection, OnnxAcidDetector",
+      "from acid_test.integration import AcidTestThread, AcidModelCache",
+      "from acid_test.runtime import TemporalMobileNet, latest_temporal_model_path",
+      "from acidphintegration.auto_sop import AutoSOP, analyze_paper, FRESH_FRAMES"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 183,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "development/legacy/Jeweltracker/tracker_update_20261027/tests/test_jewel_identity.py",
+    "bytes": 3985,
+    "sha256": "660cbe5f918712326f9a92ff96e037f753dee3836f5449637d5704357c8d0140",
+    "imports": [
+      "import os",
+      "import sys",
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "import jewel_identity as ji"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "development/benchmarks/Jeweltracker/live_pipeline_benchmark.json",
+    "bytes": 1783,
+    "sha256": "9a76404059b7106dae33b95760e8d7cd63a9104e3b4df02d9102c0e55ea5bb77"
+  },
+  {
+    "path": "development/models/Packetsealing_001/mouth_classifier.joblib",
+    "bytes": 106980,
+    "sha256": "a6c3efb3daa0a65cc6c1278c79784da234b8951642e2d8e0536e395706932311"
+  },
+  {
+    "path": "development/models/Packetsealing_001/mouth_classifier.validation.json",
+    "bytes": 1416,
+    "sha256": "6d504953760a44ef7ac4d0a2b67e63b0913198340fd3af1e62addc4f4134ce80"
+  },
+  {
+    "path": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.xml",
+    "bytes": 896914,
+    "sha256": "21d6fb52e3dd516ce667c11c9e4e200d7c3600929adec2a14b124cc5022e4107"
+  },
+  {
+    "path": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/benchmark_origin.json",
+    "bytes": 298,
+    "sha256": "b7f57850c00ea21c1466aac3eddee54d99c7b9fc177943ec4d0f6c2b8614fbea"
+  },
+  {
+    "path": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.bin",
+    "bytes": 10519936,
+    "sha256": "1c9e08ca584268e4da3d67f7779fb0e75b58be19dee2375a343781c9b475780c"
+  },
+  {
+    "path": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/metadata.yaml",
+    "bytes": 570,
+    "sha256": "7aeeed949f4fa38522398590bef88c7e6a49b2cb360f883929953508075bde2a"
+  },
+  {
+    "path": "app/process_manager.py",
+    "bytes": 3379,
+    "sha256": "02fb55b02a38cbd240ab12c92fc8c64daf3c48acca60ece3c35bf2e5ed1ec77d",
+    "imports": [
+      "import fcntl",
+      "import hashlib",
+      "import os",
+      "from pathlib import Path",
+      "import subprocess",
+      "import tempfile",
+      "from PyQt5 import QtCore",
+      "from .config import ROOT, command, engine_environment"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 53,
+        "operation": "subprocess.Popen"
+      }
+    ]
+  },
+  {
+    "path": "app/main_window.py",
+    "bytes": 2140,
+    "sha256": "7abf30d6a036ceae550fe0c894ed5669125e955a580fd5f305f747a450742224",
+    "imports": [
+      "from PyQt5 import QtCore, QtWidgets",
+      "from .process_manager import ProcessManager"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "app/config.py",
+    "bytes": 2371,
+    "sha256": "0c2f9f37e8a5d6d4314ba3d2a00c2c43cbca3167bfc45b907e52d84aed8d4b9e",
+    "imports": [
+      "from pathlib import Path",
+      "import os",
+      "import tomllib",
+      "import tomli as tomllib",
+      "from pip._vendor import tomli as tomllib"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 18,
+        "operation": "tomllib.loads"
+      },
+      {
+        "line": 21,
+        "operation": "tomllib.loads"
+      }
+    ]
+  },
+  {
+    "path": "app/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "imports": [],
+    "dynamic_operations": []
+  },
+  {
+    "path": "scripts/install.sh",
+    "bytes": 282,
+    "sha256": "5eb67f92e80774d7156e7ae2fcce6a4ade16260040213424efbea7e1c640443d"
+  },
+  {
+    "path": "scripts/prepare_runtime.py",
+    "bytes": 2255,
+    "sha256": "225b4726a9491160f92881b803e526a0a4c9ed6e06cb64f99d9dede4fd6559a0",
+    "imports": [
+      "from contextlib import contextmanager",
+      "from pathlib import Path",
+      "import fcntl",
+      "import hashlib",
+      "import os",
+      "import tempfile"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "scripts/configure.py",
+    "bytes": 1979,
+    "sha256": "66b074c0f16e5405498e14cfd4a6840857a0409b1f8ec19cb8509c8ca98cf4f5",
+    "imports": [
+      "from pathlib import Path",
+      "import json",
+      "import os",
+      "import subprocess",
+      "import sys",
+      "from app.config import settings, resolve_path"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 37,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "scripts/check_storage_paths.py",
+    "bytes": 1839,
+    "sha256": "ee58ef2d8b26e12189ee0870fb72baa163e63f563768fd0a8247206f3fb39389",
+    "imports": [
+      "from pathlib import Path",
+      "import sys",
+      "import tempfile",
+      "from unittest.mock import patch",
+      "from evidence_archive import checked_local",
+      "from test_surveillance_handoff import SurveillanceExportTests"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "scripts/cleanup.sh",
+    "bytes": 1008,
+    "sha256": "e9eb484e1111e916ce47ff2796cb60191e0ee7fec9a8947e4fe009d467ed6f0c"
+  },
+  {
+    "path": "scripts/validate.py",
+    "bytes": 8000,
+    "sha256": "87c7a5fb11979adc5d5836191b954dc8352cdf06dbcd9b6efd203c8561d8d62a",
+    "imports": [
+      "from pathlib import Path",
+      "import argparse",
+      "import json",
+      "import os",
+      "import subprocess",
+      "import sys",
+      "import time",
+      "from app.config import JEWEL, PACKET, interpreter, engine_environment",
+      "from scripts.cleanup_layout import asset_location",
+      "import hashlib",
+      "import re"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 61,
+        "operation": "json.loads"
+      },
+      {
+        "line": 26,
+        "operation": "json.loads"
+      },
+      {
+        "line": 73,
+        "operation": "(JEWEL / 'acid_test/model_training/artifacts').glob"
+      },
+      {
+        "line": 40,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "scripts/engine_check.py",
+    "bytes": 2161,
+    "sha256": "50f3f84a7ad6bf50486bde122cfed6b7924892e751fbc97ea0fcf96016999ad4",
+    "imports": [
+      "import os",
+      "from pathlib import Path",
+      "import sys",
+      "from app.config import JEWEL, PACKET",
+      "import jewel_tracker_5",
+      "import packet_app",
+      "import acid_test.integration",
+      "import backup_recovery, audit_report, evidence_archive",
+      "import standalone.app",
+      "import jewel_tracker_5 as tracker",
+      "from unittest.mock import patch",
+      "import numpy as np",
+      "import jewel_tracker_5 as tracker",
+      "from acid_test.integration import AcidModelCache",
+      "from int8_models import OpenVINOYolo, RUBBED_MODEL",
+      "from jewel_classifier import JewelClassifier"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "scripts/cleanup_layout.py",
+    "bytes": 726,
+    "sha256": "263666f3ffa690812b6fe505da2a9c9d5423d2186b701a8e9c2b9e0cc613c058",
+    "imports": [
+      "from pathlib import Path",
+      "import json"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 13,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "scripts/ocr_check.py",
+    "bytes": 801,
+    "sha256": "34b9280f7eba046181215589172aeaca0c9da696ad97a1e9f2bc358d8c73dfbc",
+    "imports": [
+      "from pathlib import Path",
+      "import os",
+      "import sys",
+      "from app.config import PACKET",
+      "from standalone.packet_ocr import check_ocr"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 11,
+        "operation": "directory.glob"
+      },
+      {
+        "line": 11,
+        "operation": "directory.glob"
+      }
+    ]
+  },
+  {
+    "path": "scripts/audit.py",
+    "bytes": 6022,
+    "sha256": "4e0ad4088ab6954cfea803b4e0aa079b4ce45a5c667ec32c675d889bebe578a7",
+    "imports": [
+      "from pathlib import Path",
+      "import ast",
+      "import hashlib",
+      "import json",
+      "import re",
+      "import subprocess",
+      "import sys",
+      "from scripts.cleanup_layout import asset_location",
+      "from urllib.parse import urlsplit, unquote"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 18,
+        "operation": "ROOT.rglob"
+      },
+      {
+        "line": 50,
+        "operation": "json.loads"
+      },
+      {
+        "line": 58,
+        "operation": "json.loads"
+      },
+      {
+        "line": 33,
+        "operation": "json.loads"
+      },
+      {
+        "line": 98,
+        "operation": "base.rglob"
+      }
+    ]
+  },
+  {
+    "path": "scripts/verify_cleanup.py",
+    "bytes": 3403,
+    "sha256": "85ce22f32c4c5f704ee73e9661e69c48aa317178cc486d58a83bb7b9a9653674",
+    "imports": [
+      "from pathlib import Path",
+      "import hashlib",
+      "import json",
+      "import subprocess",
+      "import sys",
+      "from scripts.prepare_runtime import LAYOUT"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 20,
+        "operation": "json.loads"
+      },
+      {
+        "line": 33,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/aruco_roi.json",
+    "bytes": 159,
+    "sha256": "d2a03586a1b7362b55f37ff9aa22d13bc6db1adb39ad8f0c1ab07939a774e2e6"
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_app.py",
+    "bytes": 3799,
+    "sha256": "764786b46e02f2e436db9d3cd1df7ad9d51d5ab8f8868f81bd4fec1c27885933",
+    "imports": [
+      "import argparse",
+      "import os",
+      "from pathlib import Path",
+      "import sys",
+      "from standalone.app import MainWindow",
+      "from PyQt5 import QtWidgets",
+      "from packet_mouth_lab.app import main as mouth_main",
+      "from standalone.packet_ocr import check_ocr",
+      "from standalone.replay import replay",
+      "import cv2",
+      "import numpy as np",
+      "from standalone.models import PacketModels",
+      "from standalone.tracking import TrackingBridge",
+      "from standalone.evidence import ffmpeg_path",
+      "import jewel_tracker_5 as tracker"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/__init__.py",
+    "bytes": 177,
+    "sha256": "a88315ebfae7d9592b99883a50f40c2f3dcd2a5e2ab2ddfaaba03f93be5fd855",
+    "imports": [
+      "from packet_sealing.routes import register_packet_sealing_routes",
+      "from packet_sealing.service import PacketService"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/service.py",
+    "bytes": 24560,
+    "sha256": "6040f8a296af002c86f77fe235dddf2c1d43a5ef45401c6d8ff3d7c75687f06c",
+    "imports": [
+      "from __future__ import annotations",
+      "import queue",
+      "import threading",
+      "import time",
+      "from pathlib import Path",
+      "from typing import Any, Callable",
+      "import cv2",
+      "import numpy as np",
+      "from HandRemover.handremover import get_hand_model, infer_hand_mask",
+      "from hailo_model_runner import DEFAULT_HAILO_BATCH_SIZE, DEFAULT_HAILO_INFERENCE_TIMEOUT_MS, HailoRuntime",
+      "from jewel_tracka_rpi import striping_process_hef as support",
+      "from services.camera_service import CameraService, save_jpeg",
+      "from services.roi_service import RoiService"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/setup_packet_ocr.sh",
+    "bytes": 338,
+    "sha256": "d6ea14948d31cd2fe9800a488f293c9ccda902491e3f0d04a79425e1b72a150b"
+  },
+  {
+    "path": "engines/Packetsealing_001/pickup_trigger_motion_class.py",
+    "bytes": 136721,
+    "sha256": "5ae78a5c7ebd7cd49d6110e1eacd981a313bf35c3920a94b470abaac6b107ef2",
+    "imports": [
+      "from __future__ import annotations",
+      "import argparse",
+      "from collections import deque",
+      "from dataclasses import dataclass",
+      "from datetime import datetime",
+      "import json",
+      "import math",
+      "import os",
+      "from pathlib import Path",
+      "import sys",
+      "import threading",
+      "import time",
+      "import struct",
+      "from types import SimpleNamespace",
+      "from zoneinfo import ZoneInfo",
+      "import cv2",
+      "import numpy as np",
+      "from standalone.aruco_reference import ArucoHomeMixin",
+      "import fcntl",
+      "import jewel_tracker_5 as original",
+      "import torch",
+      "import ultralytics.utils.torch_utils as torch_utils",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "import tempfile",
+      "from standalone.hand_keypoints import home_guard_mask",
+      "from standalone.hand_keypoints import home_guard_mask, home_contact_mask",
+      "from standalone.hand_keypoints import TIP_IDS",
+      "from standalone.home_rubbing import HomeRubbingFlow",
+      "from standalone.gold_mask_tracks import GoldMaskTracks",
+      "from standalone.gold_event_bridge import GoldEventBridge",
+      "from standalone.tracking import GoldPredictor",
+      "from standalone.models import PacketBagDetector",
+      "from standalone.home_capture import HomeCaptureTrackerMixin",
+      "from continuous_testing import visibility",
+      "from standalone.motion_classification import review",
+      "import torch",
+      "from standalone.motion_classification import train",
+      "from standalone.models import PacketBagDetector",
+      "from standalone.hand_keypoints import HandKeypoints",
+      "from stone_onnx import StoneOnnxModel",
+      "from standalone.marker_roi_ui import load_marker_roi",
+      "from standalone.settings import tracker_camera, tracker_roi, read_json",
+      "from standalone.camera import make_grabber",
+      "from standalone.settings import tracker_source",
+      "from standalone.marker_roi_ui import save_marker_roi",
+      "from standalone.marker_roi_ui import choose_marker_roi",
+      "from standalone.motion_classification import MotionSequences",
+      "from standalone.home_rubbing import WORKFLOW_STYLES",
+      "from standalone.workflow_display import sequence_rows",
+      "from standalone.hand_keypoints import draw_home_diagnostics",
+      "from standalone.hand_keypoints import draw_hand"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 65,
+        "operation": "Path('/dev').glob"
+      },
+      {
+        "line": 1338,
+        "operation": "load_marker_roi"
+      },
+      {
+        "line": 2139,
+        "operation": "json.loads"
+      },
+      {
+        "line": 2179,
+        "operation": "Path(directory).glob"
+      },
+      {
+        "line": 1710,
+        "operation": "json.loads((ROOT / 'packet_ui_settings.json').read_text()).get"
+      },
+      {
+        "line": 1710,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_ui_settings.json",
+    "bytes": 245,
+    "sha256": "a1be93b06f1f09e4ae51423b1140dc9f83f677c7978a0cd9dc1dced3467eba3d"
+  },
+  {
+    "path": "engines/Packetsealing_001/routes.py",
+    "bytes": 5268,
+    "sha256": "90e28755df3a9b2111d5bca98045b199fb636d7b01e0075386675f791cb66d1c",
+    "imports": [
+      "from __future__ import annotations",
+      "from pathlib import Path",
+      "from typing import Any, Callable",
+      "from flask import Flask",
+      "from core.state_machine import WorkflowState, now_iso, packet_prerequisites, transition"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/pickup_trigger_test.py",
+    "bytes": 132096,
+    "sha256": "595336a3518d950c652f858a944fbb0488b751441a249158ad769710fd252f4e",
+    "imports": [
+      "from __future__ import annotations",
+      "import argparse",
+      "from collections import deque",
+      "from dataclasses import dataclass",
+      "from datetime import datetime",
+      "import json",
+      "import math",
+      "import os",
+      "from pathlib import Path",
+      "import sys",
+      "import threading",
+      "import time",
+      "import struct",
+      "from types import SimpleNamespace",
+      "from zoneinfo import ZoneInfo",
+      "import cv2",
+      "import numpy as np",
+      "from standalone.aruco_reference import ArucoHomeMixin",
+      "import fcntl",
+      "import jewel_tracker_5 as original",
+      "import torch",
+      "import ultralytics.utils.torch_utils as torch_utils",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "import tempfile",
+      "from standalone.hand_keypoints import home_guard_mask",
+      "from standalone.hand_keypoints import home_guard_mask, home_contact_mask",
+      "from standalone.hand_keypoints import TIP_IDS",
+      "from standalone.home_rubbing import HomeRubbingFlow",
+      "from standalone.gold_mask_tracks import GoldMaskTracks",
+      "from standalone.gold_event_bridge import GoldEventBridge",
+      "from standalone.tracking import GoldPredictor",
+      "from standalone.models import PacketBagDetector",
+      "from standalone.home_capture import HomeCaptureTrackerMixin",
+      "from continuous_testing import visibility",
+      "from standalone.models import PacketBagDetector",
+      "from standalone.hand_keypoints import HandKeypoints",
+      "from stone_onnx import StoneOnnxModel",
+      "from standalone.marker_roi_ui import load_marker_roi",
+      "from standalone.settings import tracker_camera, tracker_roi, read_json",
+      "from standalone.camera import make_grabber",
+      "from standalone.settings import tracker_source",
+      "from standalone.marker_roi_ui import save_marker_roi",
+      "from standalone.marker_roi_ui import choose_marker_roi",
+      "from standalone.home_rubbing import WORKFLOW_STYLES",
+      "from standalone.workflow_display import sequence_rows",
+      "from standalone.hand_keypoints import draw_hand"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 61,
+        "operation": "Path('/dev').glob"
+      },
+      {
+        "line": 1323,
+        "operation": "load_marker_roi"
+      },
+      {
+        "line": 2103,
+        "operation": "json.loads"
+      },
+      {
+        "line": 2143,
+        "operation": "Path(directory).glob"
+      },
+      {
+        "line": 1675,
+        "operation": "json.loads((ROOT / 'packet_ui_settings.json').read_text()).get"
+      },
+      {
+        "line": 1675,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/run_packet_sealing.sh",
+    "bytes": 136,
+    "sha256": "e991edd4dba77ecb9ea07e36fba9e840825f301f7b8c4e033fc0988f9bd47867"
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/mouth_core.py",
+    "bytes": 11473,
+    "sha256": "83d32ccca3f5345f64bbcdd3ce765fd2a8b9cc059061ce4a40035a1f3a36d4e0",
+    "imports": [
+      "from __future__ import annotations",
+      "from collections import deque",
+      "from dataclasses import dataclass",
+      "import math",
+      "from typing import Optional",
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/__init__.py",
+    "bytes": 63,
+    "sha256": "2baa634bc25de79ef3f69c29fdbcad03213d3d04fdfe72f48401d187c81ca990",
+    "imports": [],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/mouth_training.py",
+    "bytes": 7859,
+    "sha256": "f1b17257b367cf149c6990ec08b9616ae7ccd121c1d5702ef048c82e25d412c9",
+    "imports": [
+      "from __future__ import annotations",
+      "from collections import Counter",
+      "import json",
+      "from pathlib import Path",
+      "import time",
+      "import uuid",
+      "import cv2",
+      "import numpy as np",
+      "from .mouth_core import mouth_features, LABELS",
+      "from mouth_core import mouth_features, LABELS",
+      "from sklearn.linear_model import LogisticRegression",
+      "from sklearn.pipeline import Pipeline",
+      "from sklearn.preprocessing import StandardScaler",
+      "import joblib",
+      "from sklearn.metrics import classification_report, confusion_matrix",
+      "from sklearn.model_selection import GroupShuffleSplit",
+      "import joblib"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 74,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 163,
+        "operation": "joblib.load"
+      },
+      {
+        "line": 154,
+        "operation": "self.reload"
+      },
+      {
+        "line": 169,
+        "operation": "self.payload['pipeline'].predict_proba"
+      },
+      {
+        "line": 76,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/app.py",
+    "bytes": 25523,
+    "sha256": "443ff827f88978b3156bb6f575b236d66aabb9d54a253173c02061d1c9bc4511",
+    "imports": [
+      "from __future__ import annotations",
+      "import argparse",
+      "import json",
+      "import os",
+      "import sys",
+      "import time",
+      "from datetime import datetime",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "from .mouth_core import TemporalConsensus, LABELS, crop_roi, to_working_size, diagnostic_metrics",
+      "from .mouth_training import MouthDataset, MouthClassifier, train_validated",
+      "from mouth_core import TemporalConsensus, LABELS, crop_roi, to_working_size, diagnostic_metrics",
+      "from mouth_training import MouthDataset, MouthClassifier, train_validated",
+      "from standalone.models import PacketBagDetector"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 31,
+        "operation": "json.loads"
+      },
+      {
+        "line": 269,
+        "operation": "(self.dataset.root / 'packet_frames').glob"
+      },
+      {
+        "line": 252,
+        "operation": "self.classifier.payload.get"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/tests/test_bbox_ui.py",
+    "bytes": 5166,
+    "sha256": "1d16ecb792df23372f7a4d84401bd3ef6a1d802ab56c5c5012df8fef7a0b3d16",
+    "imports": [
+      "import json",
+      "import os",
+      "from pathlib import Path",
+      "import tempfile",
+      "import unittest",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "from PyQt5 import QtWidgets",
+      "from packet_mouth_lab import app as lab"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 72,
+        "operation": "json.loads"
+      },
+      {
+        "line": 77,
+        "operation": "json.loads"
+      },
+      {
+        "line": 70,
+        "operation": "window.dataset.root.glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/tests/test_core.py",
+    "bytes": 3714,
+    "sha256": "2d3fa01b821c267098e6bfd6a2bf25b66581d92cbcfb3e98bdbe6c2814236afd",
+    "imports": [
+      "import sys",
+      "from pathlib import Path",
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "from mouth_core import MouthROITracker, mouth_features, TemporalConsensus, clamp_roi, crop_roi, diagnostic_metrics, visible_gap_candidate"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/tests/test_packet_collection.py",
+    "bytes": 2665,
+    "sha256": "333f2e318e23f16f42859cd4de70bbf625b38c1e912b41a5e9e2f19813865c29",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import tempfile",
+      "from types import SimpleNamespace",
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "from packet_mouth_lab.mouth_training import MouthDataset",
+      "from standalone.models import Detection, PacketBagDetector"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 39,
+        "operation": "json.loads"
+      },
+      {
+        "line": 49,
+        "operation": "json.loads"
+      },
+      {
+        "line": 46,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/tests/test_training.py",
+    "bytes": 2296,
+    "sha256": "81e696205717d0178df0212e4d42f389e8bbf1aba6c68342eec8e2287acbec28",
+    "imports": [
+      "import sys",
+      "from pathlib import Path",
+      "import tempfile",
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "from mouth_training import MouthDataset, MouthClassifier, train_validated"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.joblib",
+    "bytes": 107009,
+    "sha256": "89fd9b737d2e01dbcb3698e86290c2aff98c2a68b5986e9380a64e1eb254d48f"
+  },
+  {
+    "path": "engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.validation.json",
+    "bytes": 1474,
+    "sha256": "6afb9a010c8a9a5898085fb57eae1d0cb1f53c62efebe7482f5a2368d75773e1"
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/packet_motion.py",
+    "bytes": 3490,
+    "sha256": "4da1cfff37ee9d7d2eb946cf74e28bfab7f23b0e6a1ad61d8cc1d8fe52088c7b",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from .models import Detection"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/seal_context.py",
+    "bytes": 3506,
+    "sha256": "c8cde67177070ec7619389fcc5829cba78959e3b644fb985ad9dfe49a7122ece",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from .models import Detection"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/flow.py",
+    "bytes": 14019,
+    "sha256": "b41c8f05d2a08e224bd0c2a8bd54bd0b9030809bd7049991879ae1f878b16a34",
+    "imports": [
+      "from dataclasses import dataclass, field",
+      "import math"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/gold_transfer.py",
+    "bytes": 5668,
+    "sha256": "bf7444d648ce6acac84de24c11bac50e032c6805321ab0010bf7a68e7034e382",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from .flow import Observation",
+      "from types import SimpleNamespace"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/workflow_display.py",
+    "bytes": 1421,
+    "sha256": "5764772dde2f976b652c3230b68f1108a2a769a177c3ddda738ffa19ffaff03b",
+    "imports": [],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/gold_mask_tracks.py",
+    "bytes": 7296,
+    "sha256": "e1f7d223e6cb09ec42f5f18c20e0940d28bf10d2628100685def558dd1770640",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from .hand_keypoints import hand_continuity_mask",
+      "from .scene_alignment import reference_point"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/camera.py",
+    "bytes": 1570,
+    "sha256": "ef6c2003d50cab19e307c1d4743adee8ca49f518ea524e42de4b54f4e298a4d5",
+    "imports": [
+      "from pathlib import Path",
+      "import threading",
+      "import time",
+      "import cv2",
+      "import jewel_tracker_5 as original"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/ocr_service.py",
+    "bytes": 2262,
+    "sha256": "1a9f28e242391d9da63d2f619a97ad50fd4ed2b77df6f9851054e5cd42504cb3",
+    "imports": [
+      "import base64",
+      "from contextlib import redirect_stdout",
+      "import json",
+      "import os",
+      "import sys",
+      "import cv2",
+      "import numpy as np",
+      "from paddleocr import PaddleOCR"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 26,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/hand_keypoints.py",
+    "bytes": 5140,
+    "sha256": "cdbefe7543f5fb3e6bbe059013f1e9692fe368073e1c9d3f7c2c07d1ac5f8885",
+    "imports": [
+      "from types import SimpleNamespace",
+      "import cv2",
+      "import numpy as np",
+      "import mediapipe as mp"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/aruco_reference.py",
+    "bytes": 9909,
+    "sha256": "a4c35c016561c0cb0b0e55857df3828b8ce706439acee3b48cae806162351cd1",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from .scene_alignment import reference_point"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/__init__.py",
+    "bytes": 79,
+    "sha256": "bcdb9f574b9f9bb7ff719f80f25c6974238867bfd647a707ca95a0f0b1db8af4",
+    "imports": [],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/packet_region.py",
+    "bytes": 2867,
+    "sha256": "514ec12c80dc4b9eabbb99b0fb1aa1f9f71d8d8fa1743b54e11ddda0781a8f08",
+    "imports": [
+      "from .models import mask_iou",
+      "import numpy as np",
+      "import cv2",
+      "import math"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/motion_classification.py",
+    "bytes": 13292,
+    "sha256": "3f47161b061cc4802e991fa731ebb6fdce0b258309e8121659c36921ab591bcc",
+    "imports": [
+      "from collections import deque",
+      "import json",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "import torch",
+      "from torch import nn",
+      "from torchvision.models import resnet50, ResNet50_Weights",
+      "import torch",
+      "import torch",
+      "import torch"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 49,
+        "operation": "torch.load"
+      },
+      {
+        "line": 53,
+        "operation": "self.model.load_state_dict"
+      },
+      {
+        "line": 175,
+        "operation": "Path(folder).rglob"
+      },
+      {
+        "line": 177,
+        "operation": "json.loads"
+      },
+      {
+        "line": 207,
+        "operation": "Path(folder).rglob"
+      },
+      {
+        "line": 208,
+        "operation": "json.loads"
+      },
+      {
+        "line": 180,
+        "operation": "np.load"
+      },
+      {
+        "line": 225,
+        "operation": "np.load"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/tracking.py",
+    "bytes": 16710,
+    "sha256": "a8d0a1c5a6717ebcb4fb7b7f3b45dff0d550f05404716f1890a73990a61f51b4",
+    "imports": [
+      "import copy",
+      "from contextlib import nullcontext",
+      "from types import SimpleNamespace",
+      "from surveillance import identity_status",
+      "import cv2",
+      "import numpy as np",
+      "import jewel_tracker_5 as original",
+      "from int8_models import OpenVINOYolo",
+      "from continuous_testing import visibility, choose_hand_jewel, PICKUP_STATES, HAND",
+      "from .flow import Pickup, INSIDE, PICKED, UNVERIFIED, INTERACTING",
+      "from .transfer import TransferFollower"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/settings.py",
+    "bytes": 1010,
+    "sha256": "425cc89ac240a2d7ada117d9c11889225c1665e7ce262f158cf7b5360e215aaf",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import jewel_tracker_5 as original"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 10,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/preview.py",
+    "bytes": 2026,
+    "sha256": "68aee0abc555ee45ecde1a01c6337e06a8c6994601d47c563e0230af1d651121",
+    "imports": [
+      "import threading",
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/packet_opening.py",
+    "bytes": 8810,
+    "sha256": "42d1bcb9b2b0f7ea3c056d5f0a71f3956b4f955178c7b95d3bdb82978bdedd83",
+    "imports": [
+      "from pathlib import Path",
+      "import cv2",
+      "from packet_mouth_lab.mouth_core import TemporalConsensus, crop_roi, to_working_size",
+      "from .flow import INSIDE",
+      "from .evidence import image_save",
+      "from packet_mouth_lab.mouth_training import MouthClassifier"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 37,
+        "operation": "self.classifier.payload.get"
+      },
+      {
+        "line": 41,
+        "operation": "self.classifier.payload.get"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/home_capture.py",
+    "bytes": 2082,
+    "sha256": "bed9c138b636f2c831b6db0d7e0f92e2a58964ecfd69d3f84d8db89261da5ec8",
+    "imports": [
+      "import math",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/evidence.py",
+    "bytes": 15484,
+    "sha256": "41a49d35298303ab7baf371d96a3b27291adf6f6536e8c7261e76c5e62ce9153",
+    "imports": [
+      "from collections import deque",
+      "from datetime import datetime",
+      "from pathlib import Path",
+      "from queue import Queue, Full",
+      "from zoneinfo import ZoneInfo",
+      "import json",
+      "import shutil",
+      "import subprocess",
+      "import threading",
+      "import cv2",
+      "from .flow import INSIDE",
+      "import os",
+      "from .report import write_session_report",
+      "import copy"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/packet_ocr.py",
+    "bytes": 12065,
+    "sha256": "80afebac479d8379fd7ad6a7e227d289ac04cebf47c440497cba05ca80592308",
+    "imports": [
+      "import base64",
+      "from concurrent.futures import ThreadPoolExecutor",
+      "import json",
+      "import os",
+      "from pathlib import Path",
+      "import re",
+      "import selectors",
+      "import subprocess",
+      "import time",
+      "import cv2",
+      "import numpy as np",
+      "import torch",
+      "from ultralytics.data.augment import LetterBox",
+      "from ultralytics.utils import nms, ops",
+      "from .models import session"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 244,
+        "operation": "json.loads"
+      },
+      {
+        "line": 159,
+        "operation": "subprocess.Popen"
+      },
+      {
+        "line": 182,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/marker_roi_ui.py",
+    "bytes": 2645,
+    "sha256": "8eb9c1fa122acf929721795fe5fe9b3664e60e134e046e536fbac118c6d85cb4",
+    "imports": [
+      "import json",
+      "import math"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 8,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/app.py",
+    "bytes": 55348,
+    "sha256": "3fedaa42bc01339f53bab1e801c38f5087b1c3323cf22db93f33b398221ec6ed",
+    "imports": [
+      "from datetime import datetime",
+      "from concurrent.futures import ThreadPoolExecutor",
+      "from pathlib import Path",
+      "from queue import Queue, Empty",
+      "import json",
+      "import time",
+      "import uuid",
+      "import os",
+      "import copy",
+      "from contextlib import nullcontext",
+      "import cv2",
+      "import numpy as np",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "import jewel_tracker_5 as original",
+      "from .evidence import Recorder, export_session, ffmpeg_path, image_save, TIMEZONE",
+      "from .flow import PackingFlow, Observation, INSIDE, PICKED, AT_PACKET",
+      "from .models import PacketModels",
+      "from .tracking import TrackingBridge, draw_gold, packet_overlap",
+      "from .packet_region import PacketRegion",
+      "from .packet_motion import PacketMotion",
+      "from .transfer import TransferFollower",
+      "from .gold_transfer import GoldTransfer, packet_position, interaction_region",
+      "from .camera import make_grabber",
+      "from .settings import tracker_camera, tracker_roi, tracker_source",
+      "from .preview import DetectionPreview",
+      "from .packet_ocr import PacketOCR",
+      "from .packet_opening import PacketOpening",
+      "import shutil"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 606,
+        "operation": "json.loads"
+      },
+      {
+        "line": 688,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/scene_alignment.py",
+    "bytes": 7177,
+    "sha256": "bea1fbf331a9d7658458b2d293359f7507648cd8a73b00fa5026454800e35277",
+    "imports": [
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/home_rubbing.py",
+    "bytes": 45285,
+    "sha256": "0b63e4a0105c4b228636e54f674a727afae670f538fcb536513723afaa25f5c4",
+    "imports": [
+      "from dataclasses import dataclass, field, asdict",
+      "import numpy as np",
+      "from .scene_alignment import reference_point, scene_area_scale",
+      "from .hand_keypoints import pinch_measurement",
+      "from .hand_keypoints import hand_continuity_mask"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/transfer.py",
+    "bytes": 6902,
+    "sha256": "6c054da76c926b8d0c6516b05f03d7d9a879af97a8f1130ce7f8e1ccac205e72",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from .flow import Observation"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/gold_event_bridge.py",
+    "bytes": 7736,
+    "sha256": "0d7a6ee605120599c6b3665798b25f0fc36b3a85998a21546c94627b26cd1052",
+    "imports": [
+      "from types import SimpleNamespace",
+      "import numpy as np",
+      "from .gold_mask_tracks import box_iou",
+      "from .hand_keypoints import hand_continuity_mask",
+      "from .home_rubbing import HomeRubbingFlow, TERMINAL"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/closure.py",
+    "bytes": 4522,
+    "sha256": "5c345f6bcb28cadc489c70f9e9fbce19f9f41e55b672af4b8bb6664f92385c53",
+    "imports": [
+      "from dataclasses import dataclass",
+      "import json",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "from .models import session"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 27,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/report.py",
+    "bytes": 14915,
+    "sha256": "700eee825b1c87e5863a82c3ee6be6c69aac1b75172f477c6aa64f7b77a77860",
+    "imports": [
+      "from datetime import datetime",
+      "from pathlib import Path",
+      "from xml.sax.saxutils import escape",
+      "from zoneinfo import ZoneInfo",
+      "from reportlab.lib import colors",
+      "from reportlab.lib.pagesizes import A4",
+      "from reportlab.lib.styles import ParagraphStyle",
+      "from reportlab.lib.utils import ImageReader",
+      "from reportlab.pdfgen import canvas as pdfcanvas",
+      "from reportlab.platypus import Paragraph",
+      "from .packet_opening import opening_description"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/replay.py",
+    "bytes": 4221,
+    "sha256": "5bd05bf92db5a34c436da1e6fb648c69120551b9be7f19f3247741f926d405b4",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "from .app import PacketWorker, ROOT",
+      "from .flow import PackingFlow, INSIDE",
+      "from .models import PacketModels",
+      "from .packet_region import PacketRegion",
+      "from .settings import tracker_camera, tracker_roi",
+      "from .tracking import TrackingBridge"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/standalone/models.py",
+    "bytes": 9469,
+    "sha256": "103cf653d493f8224669d7c813d53cfc283e756f095d2da66e3f201d76d0fbcd",
+    "imports": [
+      "from dataclasses import dataclass",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "import onnxruntime as ort",
+      "import torch",
+      "from torch import nn",
+      "from ultralytics.data.augment import LetterBox",
+      "from ultralytics.utils import nms, ops"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 20,
+        "operation": "ort.InferenceSession"
+      },
+      {
+        "line": 104,
+        "operation": "self.strip_filter.load_state_dict"
+      },
+      {
+        "line": 104,
+        "operation": "torch.load"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_preview.py",
+    "bytes": 7883,
+    "sha256": "724737f921b3fd42389157e71bbe99b9685c99781c1d1efd698d78af4c07ac1e",
+    "imports": [
+      "import json",
+      "import os",
+      "from pathlib import Path",
+      "import tempfile",
+      "from types import SimpleNamespace",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import packet_app",
+      "import jewel_tracker_5 as original",
+      "import numpy as np",
+      "from PyQt5 import QtWidgets",
+      "from live_pipeline import LatestPreview",
+      "from standalone.app import MainWindow, PacketWorker",
+      "from standalone.models import Detection, PacketModels",
+      "from standalone.settings import tracker_camera, tracker_roi",
+      "from standalone.tracking import GoldPredictor",
+      "from standalone.flow import PackingFlow, INSIDE"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_packet_region.py",
+    "bytes": 2742,
+    "sha256": "87151d7cad2c183061b1b007e5e9e3d3d4ba066410b8dc8b290da1b1ec403aed",
+    "imports": [
+      "import unittest",
+      "import numpy as np",
+      "from standalone.packet_region import PacketRegion"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_filters.py",
+    "bytes": 5959,
+    "sha256": "37a1615ba2eac3afde0146a39928263a0d5de732f8857130012503f4cf34e7ea",
+    "imports": [
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import numpy as np",
+      "from standalone.models import Detection, PacketModels"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_packet_opening.py",
+    "bytes": 6347,
+    "sha256": "290a7ade93114737dcaea2fa5dca073522c43b64b6b1b6d3e63e62b62e1af361",
+    "imports": [
+      "from pathlib import Path",
+      "import tempfile",
+      "from types import SimpleNamespace",
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import numpy as np",
+      "import cv2",
+      "from standalone.flow import PackingFlow, INSIDE, PICKED",
+      "from standalone.packet_opening import PacketOpening, opening_description"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_packet_motion.py",
+    "bytes": 4501,
+    "sha256": "837a8e30cd364d5315878a5b6d979557ade494bf13021a43a0d878f6fd7739c7",
+    "imports": [
+      "import unittest",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "import packet_app",
+      "from standalone.packet_motion import PacketMotion",
+      "from standalone.models import Detection, mask_iou",
+      "from standalone.app import PacketWorker",
+      "from standalone.flow import PackingFlow, Pickup, Observation, INSIDE, PICKED"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_packet_ocr.py",
+    "bytes": 6204,
+    "sha256": "696e516d27e6f905500514c8b4d2b460dc8054a853b9e97118dc2a130a1f92b3",
+    "imports": [
+      "from concurrent.futures import Future",
+      "from pathlib import Path",
+      "import tempfile",
+      "import threading",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "from ultralytics.data.augment import LetterBox",
+      "from standalone.packet_ocr import NumberConsensus, NumberDetector, PacketOCR"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_home_position_trigger.py",
+    "bytes": 21327,
+    "sha256": "cbf796f1dfb86b7097524ed136344b47b2f3ecd70278b8a3e08af4e7561fce9b",
+    "imports": [
+      "import tempfile",
+      "import unittest",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "from pickup_trigger_test import CandidateClips, HomePositionEngine, PickupEngine, make_engine, region",
+      "from standalone.hand_keypoints import home_contact_mask"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_gold_event_bridge.py",
+    "bytes": 7032,
+    "sha256": "812172b4e2e331c11b1809ec15342d075c18b44c9ab1f0287ec24e4d75bb3723",
+    "imports": [
+      "import unittest",
+      "from types import SimpleNamespace",
+      "import numpy as np",
+      "from standalone.gold_mask_tracks import GoldMaskTracks",
+      "from standalone.gold_event_bridge import GoldEventBridge",
+      "from standalone.home_rubbing import HomeRubbingFlow",
+      "import tempfile",
+      "from pathlib import Path",
+      "from pickup_trigger_test import CandidateClips",
+      "from standalone.hand_keypoints import home_contact_mask, hand_continuity_mask"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 113,
+        "operation": "Path(tmp).glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_reset.py",
+    "bytes": 3565,
+    "sha256": "3a6a468ed722dfb7d8bd05db9ec1929f36afce9cc1bafc2761deb78b6b6a4d89",
+    "imports": [
+      "import os",
+      "from types import SimpleNamespace",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import packet_app",
+      "from PyQt5 import QtWidgets",
+      "from standalone.app import MainWindow"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_closure.py",
+    "bytes": 4275,
+    "sha256": "0556632b48c3d3e04528481a923c12212a28d1b70ac8a973a6c303037750a637",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import tempfile",
+      "import unittest",
+      "import numpy as np",
+      "import onnx",
+      "from onnx import helper, numpy_helper, TensorProto",
+      "from standalone.closure import ClosureClassifier",
+      "from standalone.models import Detection"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_surveillance_handoff.py",
+    "bytes": 6364,
+    "sha256": "d97a657bd4eb4a9fd36bb14ead3f18d87d162c55bc01d9b842453dfb49c29bfb",
+    "imports": [
+      "from pathlib import Path",
+      "import copy",
+      "import json",
+      "import tempfile",
+      "import time",
+      "import unittest",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock, patch",
+      "import numpy as np",
+      "import packet_app",
+      "from standalone.app import PacketWorker",
+      "from standalone.flow import PackingFlow, Pickup",
+      "from standalone.evidence import export_session, ffmpeg_path",
+      "import test_evidence as fixtures",
+      "import threading",
+      "import cv2"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_detection_preview.py",
+    "bytes": 2376,
+    "sha256": "bf5e9fcb9f1a413b26c68cfdfbdf95dde1b7421a5c28cf738f984481297650a6",
+    "imports": [
+      "import unittest",
+      "from types import SimpleNamespace",
+      "import cv2",
+      "import numpy as np",
+      "import packet_app",
+      "from standalone.preview import DetectionPreview",
+      "from standalone.app import PacketWorker",
+      "from standalone.flow import PackingFlow, PICKED"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_scene_alignment.py",
+    "bytes": 3172,
+    "sha256": "10640c3e75fde1121f80c8ab57dc986b4c60e9f82579e14c9cd4d95ffd9063b5",
+    "imports": [
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "from standalone.scene_alignment import SceneAlignment, reference_point"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_packet_flow.py",
+    "bytes": 9947,
+    "sha256": "459bef5f89f714add300ffdda15a705a05a40796c0d8ad3c016cb54d23309660",
+    "imports": [
+      "import unittest",
+      "from standalone.flow import PackingFlow, Observation, Pickup, INSIDE, PICKED, UNVERIFIED, INTERACTING, AT_PACKET"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_home_rubbing.py",
+    "bytes": 15906,
+    "sha256": "4b39a44ac322d05afab4f92e375cf7bb0ee74e818b12f4888ccddf569a433a84",
+    "imports": [
+      "import tempfile",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "import unittest",
+      "import numpy as np",
+      "from standalone.home_rubbing import HomeRubbingFlow",
+      "from pickup_trigger_test import CandidateClips, make_engine"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_gold_mask_tracks.py",
+    "bytes": 4259,
+    "sha256": "5345946b80e590752ed7b6d7dc6d9994a613c38c44e0e9c8ff62353a91955211",
+    "imports": [
+      "import unittest",
+      "from types import SimpleNamespace",
+      "import cv2",
+      "import numpy as np",
+      "from standalone.gold_mask_tracks import GoldMaskTracks"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_motion_classification.py",
+    "bytes": 3622,
+    "sha256": "ec67fd4471cdcf8d551b57a0d74b6030aab5dd88f9618691a2515d75ab2aa056",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "import tempfile",
+      "import unittest",
+      "import numpy as np",
+      "from standalone.motion_classification import CUES, MotionSequences",
+      "from standalone.motion_classification import train"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 40,
+        "operation": "json.loads"
+      },
+      {
+        "line": 32,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 33,
+        "operation": "np.load"
+      },
+      {
+        "line": 47,
+        "operation": "np.load"
+      },
+      {
+        "line": 54,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 60,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 68,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 81,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 47,
+        "operation": "self.root.glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_gold_transfer.py",
+    "bytes": 8714,
+    "sha256": "c4dae2c4dde6e9c09a14871f0f5ba5001f09f7f7ec4543b18a0ab8632ede7d1e",
+    "imports": [
+      "import unittest",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "import packet_app",
+      "from standalone.gold_transfer import GoldTransfer, interaction_region",
+      "from standalone.app import PacketWorker",
+      "from standalone.flow import PackingFlow, Pickup, INSIDE"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_sealing_diagnostics.py",
+    "bytes": 6810,
+    "sha256": "e4770a367e98c934151e4bd835246397d977976ec45f19bd1077221ffabe1b72",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import tempfile",
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import numpy as np",
+      "from standalone.flow import PackingFlow",
+      "from standalone.models import PacketModels, Detection",
+      "from standalone.app import PacketWorker",
+      "from standalone.seal_context import SealContext"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 105,
+        "operation": "json.loads"
+      },
+      {
+        "line": 107,
+        "operation": "(Path(tmp) / 'sealing_debug').glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_aruco_trigger.py",
+    "bytes": 10051,
+    "sha256": "f9e87ce59e2a3123418adbac1eb94eafff25beb82b9d3963a6b2b518224102ef",
+    "imports": [
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "from types import SimpleNamespace",
+      "from pickup_trigger_test import make_engine, ArucoHomeEngine, HomePositionEngine",
+      "from standalone.aruco_reference import ArucoReference",
+      "from standalone.scene_alignment import reference_point, scene_area_scale",
+      "from unittest.mock import patch",
+      "from types import SimpleNamespace",
+      "import tempfile",
+      "from pathlib import Path",
+      "from standalone.marker_roi_ui import load_marker_roi, save_marker_roi"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 165,
+        "operation": "load_marker_roi"
+      },
+      {
+        "line": 167,
+        "operation": "load_marker_roi"
+      },
+      {
+        "line": 169,
+        "operation": "load_marker_roi"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_pickup_only.py",
+    "bytes": 9656,
+    "sha256": "837a4e9f41897fd8a8a2d32c778df1d541f41a480c0eb913940f79703833f160",
+    "imports": [
+      "import unittest",
+      "import tempfile",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "import numpy as np",
+      "from tests import test_home_rubbing as fixtures",
+      "from standalone.home_rubbing import HomeRubbingFlow",
+      "from pickup_trigger_test import make_engine, CandidateClips",
+      "import pickup_trigger_motion_class as motion",
+      "import pickup_trigger_motion_class as motion"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 90,
+        "operation": "Path(tmp).glob"
+      },
+      {
+        "line": 201,
+        "operation": "Path(tmp).glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_assignment.py",
+    "bytes": 8489,
+    "sha256": "5557e55486f9c0cf0744733aff8bc4059544bf1c28494f004a5a55301830abd8",
+    "imports": [
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import packet_app",
+      "import jewel_tracker_5 as original",
+      "import numpy as np",
+      "from standalone.tracking import TrackingBridge, draw_gold, packet_overlap"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_home_capture.py",
+    "bytes": 4914,
+    "sha256": "7fb221ee07a779264bde062f6d1c5e2d56b0776f08a2a80886a922d00cc279ea",
+    "imports": [
+      "import importlib",
+      "import unittest",
+      "from collections import deque",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock",
+      "import numpy as np",
+      "from standalone.home_capture import HomeCaptureTrackerMixin",
+      "from pickup_trigger_test import HomePositionEngine"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 93,
+        "operation": "importlib.import_module(script).HomePositionEngine"
+      },
+      {
+        "line": 93,
+        "operation": "importlib.import_module"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_hand_candidate_transfer.py",
+    "bytes": 8283,
+    "sha256": "3fa575f1f075261bef26dbdeece1ed75b9e93b52e0248c0c18582f256adc8873",
+    "imports": [
+      "import unittest",
+      "import tempfile",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "import numpy as np",
+      "from standalone.home_rubbing import HomeRubbingFlow, RubEvent",
+      "from pickup_trigger_test import CandidateClips",
+      "from pickup_trigger_motion_class import CandidateClips as MotionClips"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 87,
+        "operation": "folder.glob"
+      },
+      {
+        "line": 91,
+        "operation": "folder.glob"
+      },
+      {
+        "line": 92,
+        "operation": "folder.glob"
+      },
+      {
+        "line": 96,
+        "operation": "folder.glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_session.py",
+    "bytes": 13207,
+    "sha256": "caff959d2b3950d8b1ee279e41c84f0855f49686a75d59db03822373a85d8b2a",
+    "imports": [
+      "from pathlib import Path",
+      "import sys",
+      "import tempfile",
+      "import time",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import packet_app",
+      "import jewel_tracker_5 as original",
+      "import numpy as np",
+      "from standalone.app import PacketWorker",
+      "from standalone.evidence import Recorder",
+      "from standalone.models import Detection",
+      "from standalone.flow import INSIDE, PICKED, AT_PACKET",
+      "from standalone.tracking import TrackingBridge",
+      "from standalone.packet_opening import PacketOpening",
+      "from standalone.gold_transfer import GoldTransfer",
+      "from types import SimpleNamespace"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_workflow_display.py",
+    "bytes": 1222,
+    "sha256": "320bd9675f78a51e0c2e74456dc56bc22e8edfb526c5769b7f8ae9517e9fb79a",
+    "imports": [
+      "import unittest",
+      "from types import SimpleNamespace",
+      "from standalone.workflow_display import sequence_rows"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_testing_handoff.py",
+    "bytes": 2354,
+    "sha256": "a4306ad0ac6f6dd05104944f87a931a83445dd9798a58450b43d1d4cd19e4fd5",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import shutil",
+      "import subprocess",
+      "import tempfile",
+      "import unittest",
+      "import test_evidence as fixtures",
+      "from standalone.evidence import export_session, ffmpeg_path"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 30,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_evidence.py",
+    "bytes": 13105,
+    "sha256": "6d90050ba13e71eed99c372d7ea140b6f533cae693ee004e8f271583959888e8",
+    "imports": [
+      "from pathlib import Path",
+      "import tempfile",
+      "import shutil",
+      "import subprocess",
+      "import unittest",
+      "from unittest.mock import patch",
+      "import cv2",
+      "import numpy as np",
+      "from standalone.evidence import Recorder, export_session, ffmpeg_path, image_save",
+      "from standalone.flow import PackingFlow, INSIDE",
+      "from standalone.flow import PICKED",
+      "from standalone.flow import Jewel"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 77,
+        "operation": "root.glob"
+      },
+      {
+        "line": 145,
+        "operation": "root.glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_cog_trigger.py",
+    "bytes": 9216,
+    "sha256": "4561d072edfe56574aab257e4af9100328e9a717661e5a215b0c2774fb9c82f5",
+    "imports": [
+      "import tempfile",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "from pickup_trigger_test import COGMovementEngine, CandidateClips, Models, make_engine"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 180,
+        "operation": "Path(tmp).glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_transfer.py",
+    "bytes": 5767,
+    "sha256": "1273eb270de0925addb7137e9d6af6b5e963dd70a67e8c50086de02e7ab48252",
+    "imports": [
+      "import unittest",
+      "from types import SimpleNamespace",
+      "import cv2",
+      "import numpy as np",
+      "from standalone.transfer import TransferFollower"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_seal_context.py",
+    "bytes": 4408,
+    "sha256": "680b3f9795e91ef0815410983f4de175928411a1a2405f0a3280894ebb205798",
+    "imports": [
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "from standalone.seal_context import SealContext",
+      "from standalone.models import Detection",
+      "from standalone.flow import PackingFlow, INSIDE"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/tests/test_pinch_support.py",
+    "bytes": 5745,
+    "sha256": "84868f96a2b68f7ae4ab8872d36716439a4fac8071666d166e78195f98518a9f",
+    "imports": [
+      "import unittest",
+      "from types import SimpleNamespace",
+      "import numpy as np",
+      "from standalone.hand_keypoints import pinch_measurement",
+      "from standalone.home_rubbing import HomeRubbingFlow, RubEvent"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Packetsealing_001/model onnx/hand_landmarker.task",
+    "bytes": 7819105,
+    "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1"
+  },
+  {
+    "path": "engines/Packetsealing_001/model onnx/pcnumber.onnx",
+    "bytes": 45801888,
+    "sha256": "4f6111391e52dc6c3d330c7df44f06433e547df3401be0b635bb3cafbdb5ef35"
+  },
+  {
+    "path": "engines/Packetsealing_001/model onnx/handseg model.onnx",
+    "bytes": 41598877,
+    "sha256": "0f725de96d87163ca809674b9492d9c43d24b8ce96845c931d5ebd9f54ce4cac"
+  },
+  {
+    "path": "engines/Packetsealing_001/model onnx/bagnewmodel.onnx",
+    "bytes": 47217683,
+    "sha256": "dce32a88d0aa42bb2db1b44b7feed1ae87c88a4202f0d0b400c756bda41ce212"
+  },
+  {
+    "path": "engines/Packetsealing_001/model onnx/stripmodel.onnx",
+    "bytes": 47217450,
+    "sha256": "cd8969ae5f3b2cfafda092380f7b47efe742b67721afbd0a0a43a87c1172797e"
+  },
+  {
+    "path": "engines/Packetsealing_001/model onnx/fp_filter_resnet18_bag.onnx",
+    "bytes": 44700673,
+    "sha256": "9d31c4d65679e9f2cf3b89ea5f27ffa6f7f24a82b5593fac71edb275d32e801a"
+  },
+  {
+    "path": "engines/Packetsealing_001/model onnx/hsv_fp_filter_strip.pt",
+    "bytes": 2203559,
+    "sha256": "2f365b29a2cacdcb039f72799a570ceb8e8146588b1ca408460101f09cb72154"
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_tracker_2.camera-defaults.local.json",
+    "bytes": 379,
+    "sha256": "3b3f431d3cc663e6f95c631f56d8eef55315cb2f5236b3ace5b893b3b6a7429b"
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_tracker.spec",
+    "bytes": 3799,
+    "sha256": "d31bb0aacd11871cceed2805480b145742d2c90ebaa38e89f6f846121f75e360"
+  },
+  {
+    "path": "engines/Jeweltracker/camera_defaults.local.json",
+    "bytes": 379,
+    "sha256": "3b3f431d3cc663e6f95c631f56d8eef55315cb2f5236b3ace5b893b3b6a7429b"
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_tracker.camera-defaults.local.json",
+    "bytes": 320,
+    "sha256": "6f56d7e06f6172b36394307d51a0cbbf37dfc6e63e4f6a925a47ccd53c592b70"
+  },
+  {
+    "path": "engines/Jeweltracker/sop_evidence.py",
+    "bytes": 5621,
+    "sha256": "7165e93ae5864d4d580bb843c3550a1505d42fd137ebf93716356be1c7779d02",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from new_rub_detection.geometry import DEST, project_mask",
+      "from rub_preparation import clear_surface"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_tracker_6.camera-defaults.local.json",
+    "bytes": 379,
+    "sha256": "3b3f431d3cc663e6f95c631f56d8eef55315cb2f5236b3ace5b893b3b6a7429b"
+  },
+  {
+    "path": "engines/Jeweltracker/sop_config.json",
+    "bytes": 623,
+    "sha256": "b023b42c1402286815433f16253a4721a790123ffa0a98547a95b5f1994a3118"
+  },
+  {
+    "path": "engines/Jeweltracker/rub_preparation.py",
+    "bytes": 12731,
+    "sha256": "996a01e94aa0ed3e3f6ff811c46e284898bfbdfc74c5e121923558608f557424",
+    "imports": [
+      "from pathlib import Path",
+      "import threading",
+      "import cv2",
+      "import numpy as np",
+      "from new_rub_detection.flow import RubCheck",
+      "from new_rub_detection.geometry import project_mask, stone_surface",
+      "from new_rub_detection.photo_worker import create_session, detect_mask",
+      "from stone_onnx import StoneOnnxModel",
+      "from auto_testing import StoneSettling",
+      "from int8_models import RUBBED_MODEL, RubbedMarkDetector"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/classification_crop.py",
+    "bytes": 3147,
+    "sha256": "2a1cd83f5c9559d95825515240978172c05e27116c36ba7518192b6a21bc9d76",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from acid_freshness import normalized, footprint",
+      "from acid_test.flow import bbox_iou",
+      "from acid_application import visible_patch"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/camera.json",
+    "bytes": 518,
+    "sha256": "d825c9b1c93426a23b399e54c62cd3e7a463bdd8b9e1b17ca47faef88d0fbe3e"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_application.py",
+    "bytes": 10995,
+    "sha256": "4cc304f73152a38dda814c7c3c84ddd14d529d3aa7e4ad13d973f9d419fec5c8",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from acid_freshness import DEST, normalized, footprint, changed_pixels"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acid_review_queue.py",
+    "bytes": 2619,
+    "sha256": "e5401d0c83d55fc2165c229a9a0fdc62a9edc0d6a61b97d6b0b5fae92d5c91d5",
+    "imports": [
+      "import json",
+      "import os",
+      "import shutil",
+      "import tempfile",
+      "from pathlib import Path",
+      "from evidence_archive import durable_json",
+      "from evidence_archive import durable_json, sync_directory"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 11,
+        "operation": "json.loads"
+      },
+      {
+        "line": 44,
+        "operation": "temporary.rglob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/install_edgesam.py",
+    "bytes": 1704,
+    "sha256": "e6d810d457353fa8f71eb81c11bf39cf8fc0a0290f7ff52d9bb8d9bbb6610ca9",
+    "imports": [
+      "import hashlib",
+      "import json",
+      "from pathlib import Path",
+      "import urllib.request"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 17,
+        "operation": "json.load"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/zones.json",
+    "bytes": 93,
+    "sha256": "eed016c489aa056d8ca2a342fba127c5d90fbb20f0ddaae1459cbf79521b6d44"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_freshness.py",
+    "bytes": 6920,
+    "sha256": "ff42dab6918d711802ca5980a118865ac5258c806ea45380319b291d3e3f12f9",
+    "imports": [
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/backup_recovery.py",
+    "bytes": 11130,
+    "sha256": "3c67edd3c73ecaaf0b370ec2108294bfd4320f136f3e6caf821c28dd391e4ab2",
+    "imports": [
+      "import json",
+      "import os",
+      "from pathlib import Path",
+      "import select",
+      "import subprocess",
+      "import sys",
+      "import time",
+      "import cv2",
+      "import numpy as np",
+      "from session_evidence import atomic_json",
+      "from new_rub_detection.geometry import DEST, project_mask",
+      "from acid_area import AcidAreaMeasurement",
+      "from acid_freshness import normalized"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 80,
+        "operation": "json.loads"
+      },
+      {
+        "line": 70,
+        "operation": "subprocess.Popen"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_tracker_5.py",
+    "bytes": 214104,
+    "sha256": "f4af15832e05429ed3a51dc190edc0ef8fcb9476a7e4b69326d5c59b1bf89073",
+    "imports": [
+      "import math",
+      "import os",
+      "import sys",
+      "import time",
+      "import json",
+      "import threading",
+      "import uuid",
+      "import socket",
+      "from urllib.parse import quote, urlparse",
+      "from ultralytics import YOLO",
+      "import onnxruntime",
+      "import torch",
+      "import ultralytics.utils.torch_utils as _ul_torch_utils",
+      "from collections import deque",
+      "from concurrent.futures import ThreadPoolExecutor",
+      "from jewel_capture import jewellery_mask, jewel_crop, ring_shape",
+      "import cv2",
+      "import numpy as np",
+      "from scipy.optimize import linear_sum_assignment",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "from acid_test.integration import AcidTestThread, AcidModelCache",
+      "from live_pipeline import InferenceDispatcher, StaleInference, LatestPreview",
+      "from stone_onnx import StoneOnnxModel",
+      "from int8_models import OpenVINOYolo",
+      "from jewel_identity import IdentityMatcher",
+      "from rub_preparation import RubPhotoModels, RubCycle, StoneCleanup, draw_acid_roi, render_rub_preview",
+      "from auto_testing import StoneSettling",
+      "from continuous_testing import ContinuousMonitor, draw_workflow, PHASE_TITLES",
+      "from session_evidence import prediction_text",
+      "from linux_camera_controls import LINUX_AF_DEFAULT, apply_linux_antiflicker",
+      "from pathlib import Path as _Path",
+      "import traceback",
+      "import winsound",
+      "from packet_stage import PacketStage",
+      "import torchvision",
+      "from html import escape"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 115,
+        "operation": "json.loads"
+      },
+      {
+        "line": 2827,
+        "operation": "self.load_zones"
+      },
+      {
+        "line": 2831,
+        "operation": "self.load_cameras"
+      },
+      {
+        "line": 3164,
+        "operation": "json.loads"
+      },
+      {
+        "line": 3627,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 3809,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 3839,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 882,
+        "operation": "onnxruntime.InferenceSession"
+      },
+      {
+        "line": 889,
+        "operation": "net.load_state_dict"
+      },
+      {
+        "line": 2519,
+        "operation": "payload['roi_mask'].copy"
+      },
+      {
+        "line": 3811,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3833,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 3844,
+        "operation": "payload.get"
+      },
+      {
+        "line": 889,
+        "operation": "torch.load"
+      },
+      {
+        "line": 1614,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3098,
+        "operation": "json.load"
+      },
+      {
+        "line": 3167,
+        "operation": "json.load"
+      },
+      {
+        "line": 3819,
+        "operation": "self.current_acid_payload"
+      },
+      {
+        "line": 1630,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3814,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3345,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3351,
+        "operation": "QtCore.QUrl.fromLocalFile(payload['path']).toString"
+      },
+      {
+        "line": 1611,
+        "operation": "payload.get"
+      },
+      {
+        "line": 1617,
+        "operation": "payload.get"
+      },
+      {
+        "line": 1636,
+        "operation": "payload.get"
+      },
+      {
+        "line": 1638,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3341,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3343,
+        "operation": "payload.get"
+      },
+      {
+        "line": 1641,
+        "operation": "payload.get"
+      },
+      {
+        "line": 1644,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3348,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3362,
+        "operation": "QtGui.QPixmap.fromImage(to_qimage(payload['photo'])).scaled"
+      },
+      {
+        "line": 3829,
+        "operation": "payload.get"
+      },
+      {
+        "line": 1661,
+        "operation": "payload.get"
+      },
+      {
+        "line": 1662,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3369,
+        "operation": "QtGui.QPixmap.fromImage(to_qimage(payload['photo'])).scaled"
+      },
+      {
+        "line": 3376,
+        "operation": "payload.get"
+      },
+      {
+        "line": 1663,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3382,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3385,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3390,
+        "operation": "payload.get"
+      },
+      {
+        "line": 3393,
+        "operation": "payload.get"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/surveillance.py",
+    "bytes": 4105,
+    "sha256": "e59d892f7444b56a10c9b180f92b7e7bf73bfd1598d23a6681355d49df6a6366",
+    "imports": [
+      "import copy",
+      "import time",
+      "import json",
+      "import os",
+      "from pathlib import Path",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_classifier.py",
+    "bytes": 16164,
+    "sha256": "d740d63ab76554cdab9a52c581b068e4c753a95c1fdd202b1dacf554d9eac74f",
+    "imports": [
+      "import json",
+      "import os",
+      "import sys",
+      "import numpy as np",
+      "import onnxruntime as ort",
+      "from PIL import Image"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 91,
+        "operation": "np.load"
+      },
+      {
+        "line": 118,
+        "operation": "np.load"
+      },
+      {
+        "line": 122,
+        "operation": "ort.InferenceSession"
+      },
+      {
+        "line": 105,
+        "operation": "np.load"
+      },
+      {
+        "line": 111,
+        "operation": "np.load"
+      },
+      {
+        "line": 121,
+        "operation": "json.load(f)['objects'].items"
+      },
+      {
+        "line": 121,
+        "operation": "json.load"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/live_pipeline.py",
+    "bytes": 3538,
+    "sha256": "c450ef9a73fdcd304393f79b9f52515d9bd840f7c367d5891a059e58d196d69b",
+    "imports": [
+      "import threading",
+      "import time",
+      "from concurrent.futures import Future",
+      "import cv2"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_capture.py",
+    "bytes": 10226,
+    "sha256": "064e11cbfd3617ddf2a405638a1b422a4c9631e485d0f2e870289053faa98d52",
+    "imports": [
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/evidence_archive.py",
+    "bytes": 43516,
+    "sha256": "da9349ac0653f638bdbcbe6cac52784b70c37b507bf859ac22478651e5f91b46",
+    "imports": [
+      "from __future__ import annotations",
+      "from contextlib import contextmanager",
+      "from dataclasses import dataclass, asdict",
+      "from pathlib import Path",
+      "import argparse, copy, fcntl, hashlib, hmac, json, math, os, shutil, subprocess, time, uuid",
+      "import cv2",
+      "from compact_evidence import encode_compact",
+      "from acid_test.model_training.session_dataset import prepare_temporal_triplet",
+      "import numpy as np",
+      "from audit_report import render_report",
+      "from session_evidence import prediction_text",
+      "from historical_cleanup import per_test_sizes"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 100,
+        "operation": "Path(path).rglob"
+      },
+      {
+        "line": 219,
+        "operation": "ack_payload_valid"
+      },
+      {
+        "line": 633,
+        "operation": "RetentionPolicy.load"
+      },
+      {
+        "line": 217,
+        "operation": "json.loads"
+      },
+      {
+        "line": 225,
+        "operation": "(parent / '.retention-deletions').glob"
+      },
+      {
+        "line": 226,
+        "operation": "json.loads"
+      },
+      {
+        "line": 277,
+        "operation": "json.loads"
+      },
+      {
+        "line": 500,
+        "operation": "stage.rglob"
+      },
+      {
+        "line": 532,
+        "operation": "json.loads"
+      },
+      {
+        "line": 544,
+        "operation": "json.loads"
+      },
+      {
+        "line": 553,
+        "operation": "json.loads"
+      },
+      {
+        "line": 562,
+        "operation": "json.loads"
+      },
+      {
+        "line": 591,
+        "operation": "json.loads"
+      },
+      {
+        "line": 600,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 233,
+        "operation": "ack_payload_valid"
+      },
+      {
+        "line": 242,
+        "operation": "RetentionPolicy.load"
+      },
+      {
+        "line": 290,
+        "operation": "(self.root / 'deferred_recovery').glob"
+      },
+      {
+        "line": 298,
+        "operation": "json.loads"
+      },
+      {
+        "line": 537,
+        "operation": "json.loads"
+      },
+      {
+        "line": 569,
+        "operation": "json.loads"
+      },
+      {
+        "line": 605,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 606,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 607,
+        "operation": "(self.root / 'archives').glob"
+      },
+      {
+        "line": 288,
+        "operation": "self.root.glob"
+      },
+      {
+        "line": 489,
+        "operation": "stage.rglob"
+      },
+      {
+        "line": 582,
+        "operation": "json.loads"
+      },
+      {
+        "line": 650,
+        "operation": "json.loads"
+      },
+      {
+        "line": 51,
+        "operation": "json.loads"
+      },
+      {
+        "line": 256,
+        "operation": "json.loads"
+      },
+      {
+        "line": 470,
+        "operation": "json.loads"
+      },
+      {
+        "line": 667,
+        "operation": "json.loads"
+      },
+      {
+        "line": 270,
+        "operation": "json.loads"
+      },
+      {
+        "line": 406,
+        "operation": "(folder / name).glob"
+      },
+      {
+        "line": 410,
+        "operation": "(folder / name).glob"
+      },
+      {
+        "line": 682,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/rubbing_recovery.py",
+    "bytes": 8486,
+    "sha256": "a493dfa343db304d203bc419c09bc8b1e866f3c18052df232cd0aa170c2073c5",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from sop_evidence import contact_region, local_motion"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/auto_testing.py",
+    "bytes": 3454,
+    "sha256": "7e2ccc1e3b0ad209c736bb85d21f53f07cee32b1fc98fb96daceb348751a0e3b",
+    "imports": [
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/stone_onnx.py",
+    "bytes": 3100,
+    "sha256": "1bb048e1240b13fa4158714c125abd48c507e7c0ebe79fee319e6acab17beb18",
+    "imports": [
+      "from pathlib import Path",
+      "import threading",
+      "import numpy as np",
+      "import torch",
+      "from ultralytics.data.augment import LetterBox",
+      "from ultralytics.engine.results import Results",
+      "from ultralytics.utils import nms, ops",
+      "import openvino as ov"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 26,
+        "operation": "core.read_model"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/packet_stage.py",
+    "bytes": 14639,
+    "sha256": "c93f99b80e0dc3f7ec1711a22d87e4048db84352bfdeb84c8f583050ea9813ed",
+    "imports": [
+      "import gc",
+      "import importlib",
+      "import os",
+      "from pathlib import Path",
+      "import sys",
+      "import time",
+      "import threading",
+      "import copy",
+      "from contextlib import nullcontext",
+      "from surveillance import purity_evidence, aggregate_purity, retain_auxiliary_result",
+      "from PyQt5 import QtCore",
+      "from PyQt5 import QtCore"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 68,
+        "operation": "importlib.import_module"
+      },
+      {
+        "line": 145,
+        "operation": "__import__('uuid').uuid4"
+      },
+      {
+        "line": 145,
+        "operation": "__import__"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/live_retention.py",
+    "bytes": 18013,
+    "sha256": "7768ebbe08481c7ca0022b6b4bd6959b5a41bd3ab8b14525eb17429e6f63f409",
+    "imports": [
+      "from contextlib import nullcontext",
+      "from pathlib import Path",
+      "import copy",
+      "import json",
+      "import logging",
+      "import os",
+      "import re",
+      "import shutil",
+      "import threading",
+      "import time",
+      "import traceback",
+      "from evidence_archive import SessionGuard, checked_local, digest, durable_json, encoder_available, report_guard, sync_directory, tree_bytes, validate_pdf",
+      "from simple_session import encode_budgeted, _publish_and_clean, _validate_files",
+      "from compact_evidence import media_info",
+      "from audit_report import render_report",
+      "from session_evidence import prediction_text",
+      "from session_evidence import _write_report",
+      "from acid_review_queue import preserve_review_sample",
+      "from simple_session import finalize_simple_session"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 74,
+        "operation": "json.loads"
+      },
+      {
+        "line": 202,
+        "operation": "json.loads"
+      },
+      {
+        "line": 45,
+        "operation": "json.loads"
+      },
+      {
+        "line": 164,
+        "operation": "json.loads"
+      },
+      {
+        "line": 210,
+        "operation": "json.loads"
+      },
+      {
+        "line": 201,
+        "operation": "json.loads"
+      },
+      {
+        "line": 254,
+        "operation": "self.root.parent.glob"
+      },
+      {
+        "line": 261,
+        "operation": "(root / STATES).glob"
+      },
+      {
+        "line": 264,
+        "operation": "json.loads"
+      },
+      {
+        "line": 298,
+        "operation": "json.loads"
+      },
+      {
+        "line": 295,
+        "operation": "root.glob"
+      },
+      {
+        "line": 282,
+        "operation": "json.loads"
+      },
+      {
+        "line": 313,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/audit_report.py",
+    "bytes": 22239,
+    "sha256": "1caeb156b5ad7530b32cf1252fb40701db69958987e1a0eac4dbde2ceba98b9f",
+    "imports": [
+      "from datetime import datetime",
+      "from zoneinfo import ZoneInfo",
+      "from pathlib import Path",
+      "import textwrap",
+      "from xml.sax.saxutils import escape",
+      "from reportlab.platypus import Table, TableStyle, Paragraph",
+      "from reportlab.lib.styles import ParagraphStyle",
+      "from reportlab.pdfgen import canvas",
+      "from reportlab.lib.colors import HexColor, white",
+      "from reportlab.lib.utils import ImageReader",
+      "from reportlab.lib.pagesizes import A4",
+      "from urllib.parse import quote"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/backup_analysis.py",
+    "bytes": 23630,
+    "sha256": "9aa030d3fe827f63e61d26c9930844c70515c643d222d80bb710dd146542fdf7",
+    "imports": [
+      "from collections import Counter",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "import time",
+      "import cv2",
+      "import numpy as np",
+      "from acid_application import AcidApplicationVerifier",
+      "from acid_area import region_box",
+      "from acid_freshness import normalized, changed_pixels, footprint",
+      "from new_rub_detection.flow import RubCheck",
+      "from new_rub_detection.geometry import DEST, project_mask",
+      "from rub_preparation import clear_surface",
+      "from rubbing_recovery import recover_contact",
+      "from sop_evidence import validate_mark, contact_match",
+      "from jewel_tracker_5 import Worker",
+      "from rub_preparation import RubPhotoModels",
+      "import torch",
+      "from int8_models import OpenVINOYolo, JEWEL_MODEL",
+      "from edgesam_backend import EdgeSAM",
+      "from acid_test.onnx_detector import OnnxAcidDetector"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 243,
+        "operation": "load"
+      },
+      {
+        "line": 252,
+        "operation": "load"
+      },
+      {
+        "line": 296,
+        "operation": "load"
+      },
+      {
+        "line": 335,
+        "operation": "load"
+      },
+      {
+        "line": 393,
+        "operation": "load"
+      },
+      {
+        "line": 373,
+        "operation": "load"
+      },
+      {
+        "line": 382,
+        "operation": "load"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/simple_session.py",
+    "bytes": 14753,
+    "sha256": "1ff5db3ccf1a31bbb0ca002ca2db9b4de9d89e0aef1d0edb1c18d65ec4066aa6",
+    "imports": [
+      "from collections import Counter, defaultdict",
+      "from contextlib import nullcontext",
+      "from pathlib import Path",
+      "import argparse",
+      "import copy",
+      "import hashlib",
+      "import json",
+      "import os",
+      "import shutil",
+      "from compact_evidence import media_info, run_encoder",
+      "from evidence_archive import RetentionPolicy, SessionGuard, checked_local, digest, durable_json, encoder_available, report_guard, sync_directory, tree_bytes, validate_pdf",
+      "from acid_review_queue import preserve_review_sample",
+      "import cv2",
+      "from audit_report import render_report",
+      "from session_evidence import prediction_text"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 78,
+        "operation": "root.glob"
+      },
+      {
+        "line": 48,
+        "operation": "output.parent.glob"
+      },
+      {
+        "line": 105,
+        "operation": "RetentionPolicy.load"
+      },
+      {
+        "line": 214,
+        "operation": "RetentionPolicy.load"
+      },
+      {
+        "line": 265,
+        "operation": "root.glob"
+      },
+      {
+        "line": 91,
+        "operation": "folder.rglob"
+      },
+      {
+        "line": 222,
+        "operation": "root.glob"
+      },
+      {
+        "line": 120,
+        "operation": "json.loads"
+      },
+      {
+        "line": 221,
+        "operation": "json.loads"
+      },
+      {
+        "line": 270,
+        "operation": "stage.rglob"
+      },
+      {
+        "line": 113,
+        "operation": "json.loads"
+      },
+      {
+        "line": 185,
+        "operation": "stage.rglob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/regression_assets.py",
+    "bytes": 226,
+    "sha256": "089a91195575cb0ebde30ced55e88110eb766efc1f7e87d27651297d03601c6f",
+    "imports": [
+      "import os",
+      "from pathlib import Path"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/nivagar_gold_v3.onnx",
+    "bytes": 47198375,
+    "sha256": "1387781e05fe1f1bf577cb25a2871a650881892bbf15d7020dcfddc1c42e9d29"
+  },
+  {
+    "path": "engines/Jeweltracker/backup_worker.py",
+    "bytes": 2614,
+    "sha256": "5ffafadf1472a30f0e0622ee571d9f9b04550880fb7f95a9b16947f02648f59f",
+    "imports": [
+      "import argparse",
+      "from contextlib import redirect_stdout",
+      "import json",
+      "import os",
+      "from pathlib import Path",
+      "import sys",
+      "import cv2",
+      "from backup_recovery import configuration, BackupWorker",
+      "from backup_analysis import AnalysisEngine"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 56,
+        "operation": "json.loads"
+      },
+      {
+        "line": 28,
+        "operation": "json.loads"
+      },
+      {
+        "line": 55,
+        "operation": "json.loads(settings_path.read_text()).get"
+      },
+      {
+        "line": 35,
+        "operation": "json.loads"
+      },
+      {
+        "line": 55,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/rubbing_gold.onnx",
+    "bytes": 47249099,
+    "sha256": "d1e30c1970153f68f4619bb76d349c8ba47a38658a5582934e46e5a5ccecf1cd"
+  },
+  {
+    "path": "engines/Jeweltracker/similarity_camera.local.json",
+    "bytes": 88,
+    "sha256": "a21df5436d60eae85b3ce6082ef6cfdef2eae782b18ad889be978d20d9e27ac0"
+  },
+  {
+    "path": "engines/Jeweltracker/siglip_vision.py",
+    "bytes": 4378,
+    "sha256": "fa15814a519e3b82b647d392d5dbd45ffdff6a4fa9fdbd7c3f4458b84d09ed68",
+    "imports": [
+      "from __future__ import annotations",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "import onnxruntime as ort"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 32,
+        "operation": "ort.InferenceSession"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_identity.py",
+    "bytes": 13661,
+    "sha256": "2e4785b087d10bcbc751e198b7e2dd838bd0d47f7807f2e6f20fa47817a0d449",
+    "imports": [
+      "from __future__ import annotations",
+      "import cv2",
+      "import numpy as np",
+      "import faiss",
+      "from sklearn.cluster import AgglomerativeClustering"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/nivagar_gold_v3.pt",
+    "bytes": 23822068,
+    "sha256": "85f6d394d94ffd3fa97f1dbe5a497d074f7c7d66f484b81d7d09adb263e86c2e"
+  },
+  {
+    "path": "engines/Jeweltracker/newstone1.onnx",
+    "bytes": 47375201,
+    "sha256": "afc8d3042c1426edd06a7bf1b4897b6e05bd0a1a32d00381774ecc572b547dbd"
+  },
+  {
+    "path": "engines/Jeweltracker/linux_camera_controls.py",
+    "bytes": 3844,
+    "sha256": "a546776155053cc7dea0dcc3b3ab2055b26b487193f962166464959d983d420d",
+    "imports": [
+      "import re",
+      "import subprocess",
+      "import time"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/int8_models.py",
+    "bytes": 4613,
+    "sha256": "3527028534c19000af6fa038fb29e1a94c4b5d8b26faf99b0d8389fb88abe500",
+    "imports": [
+      "from pathlib import Path",
+      "import threading",
+      "import numpy as np",
+      "import torch",
+      "from ultralytics.data.augment import LetterBox",
+      "from ultralytics.engine.results import Results",
+      "from ultralytics.utils import nms, ops",
+      "import openvino as ov"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 30,
+        "operation": "core.read_model"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/run_tracker.sh",
+    "bytes": 136,
+    "sha256": "e991edd4dba77ecb9ea07e36fba9e840825f301f7b8c4e033fc0988f9bd47867"
+  },
+  {
+    "path": "engines/Jeweltracker/rojeweltrack.onnx",
+    "bytes": 47217673,
+    "sha256": "63da65b2e8ba872b58e89b39530814fc53b6187f9cb2b8d6cf130da21d4faa81"
+  },
+  {
+    "path": "engines/Jeweltracker/continuous_testing.py",
+    "bytes": 121517,
+    "sha256": "abe428224b836e524c6dd1ed54d814b518101fc6bfb6b0e4585436e8cd26a696",
+    "imports": [
+      "from __future__ import annotations",
+      "from concurrent.futures import ThreadPoolExecutor",
+      "from pathlib import Path",
+      "import copy",
+      "import threading",
+      "import time",
+      "import uuid",
+      "import json",
+      "import pickle",
+      "import os",
+      "from datetime import datetime",
+      "from collections import deque",
+      "import cv2",
+      "import numpy as np",
+      "from new_rub_detection.flow import RubCheck",
+      "from new_rub_detection.geometry import DEST, project_mask",
+      "from rub_preparation import clear_surface, draw_acid_roi",
+      "from session_evidence import FrameJournal, atomic_json, write_report",
+      "from acid_freshness import AcidHistory, FreshAcidGate, footprint, normalized, DEST as ACID_DEST",
+      "from acid_application import AcidApplicationVerifier",
+      "from acid_test.onnx_detector import ACID_DETECTION_CONFIDENCE, ACID_STONE_PADDING",
+      "from acid_area import AcidAreaMeasurement, region_box, compare_area",
+      "from acid_test.flow import pad_bbox",
+      "from classification_crop import ClassificationCrop, extract_crop",
+      "from rubbing_recovery import recover_contact",
+      "from sop_evidence import contact_region, validate_mark, local_motion",
+      "from evidence_archive import RetentionPolicy, SessionGuard",
+      "from backup_recovery import configuration",
+      "from backup_recovery import recover",
+      "from session_evidence import prediction_text",
+      "from live_retention import LiveRetention",
+      "from acid_review_queue import preserve_review_sample",
+      "from evidence_archive import ArchiveManager, durable_json",
+      "from evidence_archive import durable_json",
+      "from acid_test.model_training.session_dataset import prepare_temporal_triplet",
+      "from live_retention import finalize_live_session",
+      "from simple_session import finalize_simple_session"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 320,
+        "operation": "RetentionPolicy.load"
+      },
+      {
+        "line": 334,
+        "operation": "json.loads"
+      },
+      {
+        "line": 1427,
+        "operation": "self.deferred_dir.glob"
+      },
+      {
+        "line": 1430,
+        "operation": "pickle.load"
+      },
+      {
+        "line": 1444,
+        "operation": "self.deferred_dir.glob"
+      },
+      {
+        "line": 837,
+        "operation": "(self.directory / 'references').glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_tracker.py",
+    "bytes": 118152,
+    "sha256": "11f1110f83d3e918bb1616c45a10f750faa69aa665da89b7ab6be89728ac17f0",
+    "imports": [
+      "import os",
+      "import sys",
+      "import time",
+      "import json",
+      "import threading",
+      "import socket",
+      "from urllib.parse import quote, urlparse",
+      "from ultralytics import YOLO",
+      "import onnxruntime",
+      "import torch",
+      "import ultralytics.utils.torch_utils as _ul_torch_utils",
+      "from collections import deque",
+      "from jewel_capture import jewellery_mask, jewel_crop, ring_shape",
+      "import cv2",
+      "import numpy as np",
+      "from scipy.optimize import linear_sum_assignment",
+      "from PyQt5 import QtCore, QtGui, QtWidgets",
+      "from pathlib import Path as _CameraPath",
+      "import traceback",
+      "import torch",
+      "from torch import nn",
+      "from torchvision import models, transforms",
+      "import winsound",
+      "import onnxruntime",
+      "from siglip_vision import SiglipVisionONNX",
+      "from jewel_classifier import JewelClassifier"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 126,
+        "operation": "json.loads"
+      },
+      {
+        "line": 849,
+        "operation": "model.load_state_dict"
+      },
+      {
+        "line": 1971,
+        "operation": "self.load_zones"
+      },
+      {
+        "line": 1975,
+        "operation": "self.load_cameras"
+      },
+      {
+        "line": 2145,
+        "operation": "json.loads"
+      },
+      {
+        "line": 849,
+        "operation": "torch.load"
+      },
+      {
+        "line": 2080,
+        "operation": "json.load"
+      },
+      {
+        "line": 2148,
+        "operation": "json.load"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid.onnx",
+    "bytes": 47249091,
+    "sha256": "fc7fce3b0fa6ec655c601ac0756ba31b9d8354692d140a1cf3cdabf339a805d2"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_area.py",
+    "bytes": 6766,
+    "sha256": "3db24b1f85e64250aa58a4b9979aca0557634f05a64b20608f82b9de2ad718c9",
+    "imports": [
+      "import copy",
+      "import cv2",
+      "import numpy as np",
+      "from acid_freshness import normalized, footprint, changed_pixels, DEST",
+      "from acid_application import AcidApplicationVerifier"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/compact_evidence.py",
+    "bytes": 5515,
+    "sha256": "56324c2ce191c4717b5ec24d687888464ed0a816f026b4cb53fbbe9a0e98956d",
+    "imports": [
+      "from pathlib import Path",
+      "from fractions import Fraction",
+      "import math, re, shutil, subprocess, uuid",
+      "import cv2"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/historical_cleanup.py",
+    "bytes": 13732,
+    "sha256": "1a07eb7479569a4e6d38523911fbd5326a9bdc65b684bcb6c02810468e9b32bd",
+    "imports": [
+      "from __future__ import annotations",
+      "from pathlib import Path",
+      "from collections import Counter",
+      "import argparse, json, math, os, time",
+      "from evidence_archive import ArchiveManager, RetentionPolicy, SessionGuard, checked_local, digest, durable_json, tree_bytes, encoder_available, validate_video, validate_pdf, valid_ack",
+      "import fcntl"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 43,
+        "operation": "json.loads"
+      },
+      {
+        "line": 172,
+        "operation": "RetentionPolicy.load"
+      },
+      {
+        "line": 69,
+        "operation": "(root / 'deferred_recovery').glob"
+      },
+      {
+        "line": 115,
+        "operation": "root.glob"
+      },
+      {
+        "line": 161,
+        "operation": "json.loads"
+      },
+      {
+        "line": 46,
+        "operation": "root.glob"
+      },
+      {
+        "line": 100,
+        "operation": "json.loads"
+      },
+      {
+        "line": 104,
+        "operation": "load_session"
+      },
+      {
+        "line": 118,
+        "operation": "root.glob"
+      },
+      {
+        "line": 118,
+        "operation": "root.glob"
+      },
+      {
+        "line": 134,
+        "operation": "json.loads"
+      },
+      {
+        "line": 150,
+        "operation": "json.loads"
+      },
+      {
+        "line": 154,
+        "operation": "load_session"
+      },
+      {
+        "line": 57,
+        "operation": "json.loads"
+      },
+      {
+        "line": 117,
+        "operation": "p.glob"
+      },
+      {
+        "line": 144,
+        "operation": "json.loads"
+      },
+      {
+        "line": 146,
+        "operation": "json.loads"
+      },
+      {
+        "line": 162,
+        "operation": "json.loads((final / 'archive_manifest.json').read_text()).get"
+      },
+      {
+        "line": 183,
+        "operation": "json.loads"
+      },
+      {
+        "line": 162,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/run_tracker_slic.sh",
+    "bytes": 136,
+    "sha256": "e991edd4dba77ecb9ea07e36fba9e840825f301f7b8c4e033fc0988f9bd47867"
+  },
+  {
+    "path": "engines/Jeweltracker/session_evidence.py",
+    "bytes": 11248,
+    "sha256": "ecf48fcd9cec3bea2f025d5aa57953624a44e101c64aa0f68a7e42494f2943b9",
+    "imports": [
+      "from __future__ import annotations",
+      "from datetime import datetime",
+      "from pathlib import Path",
+      "from queue import Queue, Full",
+      "import json",
+      "import os",
+      "import threading",
+      "from contextlib import contextmanager",
+      "import shutil",
+      "import uuid",
+      "import time",
+      "import cv2",
+      "from evidence_archive import report_guard",
+      "from audit_report import render_report",
+      "from live_retention import compact_records",
+      "from evidence_archive import ArchiveManager"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/evidence_retention.json",
+    "bytes": 579,
+    "sha256": "2eed7aa2fad66472d821ae63fc3fbccb8746d7a9a1792de66517f35e7186b130"
+  },
+  {
+    "path": "engines/Jeweltracker/jewel_tracker_3.camera-defaults.local.json",
+    "bytes": 379,
+    "sha256": "3b3f431d3cc663e6f95c631f56d8eef55315cb2f5236b3ace5b893b3b6a7429b"
+  },
+  {
+    "path": "engines/Jeweltracker/edgesam_backend.py",
+    "bytes": 5538,
+    "sha256": "7fecd374bf27f1ecd2dbed67f5e17ad62a512f2af9e3cc3549e6ad4c15d1e05a",
+    "imports": [
+      "from collections import OrderedDict",
+      "import hashlib",
+      "from pathlib import Path",
+      "import time",
+      "import cv2",
+      "import numpy as np",
+      "import onnxruntime as ort"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 23,
+        "operation": "ort.InferenceSession"
+      },
+      {
+        "line": 24,
+        "operation": "ort.InferenceSession"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/INT8_openvino_model/best.xml",
+    "bytes": 548543,
+    "sha256": "8cc7cfb934fda932343213e21de3510044f069b96464302669f2557287e08351"
+  },
+  {
+    "path": "engines/Jeweltracker/INT8_openvino_model/benchmark_origin.json",
+    "bytes": 298,
+    "sha256": "6fbae56d51e8d5669c35acb7e6eaf212acf5b55ff12e046f118719d81abc0e67"
+  },
+  {
+    "path": "engines/Jeweltracker/INT8_openvino_model/best.bin",
+    "bytes": 11957876,
+    "sha256": "0c7e1e7871eb120dd8d469b777b67fab7eb07de513ab3538674d415391752aea"
+  },
+  {
+    "path": "engines/Jeweltracker/INT8_openvino_model/metadata.yaml",
+    "bytes": 542,
+    "sha256": "1be2f8ed172c20ea966a58d5be84a74d567d1d2b7a388b82243d5a0b83842422"
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/flow.py",
+    "bytes": 6584,
+    "sha256": "c0e556c5c2c599a344c6d9c2fed9e331d6d7985d4d2834ac8d461d47de0b59fd",
+    "imports": [
+      "import cv2",
+      "import numpy as np",
+      "from .core import marked_photo, merged_mark_regions, new_mark_locations, new_mark_regions, stone_region",
+      "from .geometry import SIZE, align_to_reference, normalize, project_mask",
+      "from .rubbing_zones import analyze_zones"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/geometry.py",
+    "bytes": 9105,
+    "sha256": "b7acd982fb707a5d57fbe043ea168e5be8f2b010bd54a2c191fbde44e0b25c84",
+    "imports": [
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/rubbing_zones.py",
+    "bytes": 6028,
+    "sha256": "b0e5b9d31e18f186dfc1dd0c6624d67fd23d0a49539b876e23da2158df8419a5",
+    "imports": [
+      "from dataclasses import dataclass",
+      "import cv2",
+      "import numpy as np",
+      "from .geometry import SIZE",
+      "from geometry import SIZE"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/photo_worker.py",
+    "bytes": 8311,
+    "sha256": "ca7998eaa1e2143b7b1661012a169d9391e43fbfe8a98d066c37da84b5c569fb",
+    "imports": [
+      "import argparse",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "import onnxruntime as ort"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 182,
+        "operation": "ort.InferenceSession"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/__init__.py",
+    "bytes": 71,
+    "sha256": "144bd8fb87b5d5677335813cbc26abf2ac8cdafe3ad58e15a1d55176de01a413",
+    "imports": [],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/example_pair.py",
+    "bytes": 2737,
+    "sha256": "30a9ac116ca85b0862910e8935c91afbb4fc8680c0177a70b8602e44608ebbb3",
+    "imports": [
+      "import argparse",
+      "from pathlib import Path",
+      "import cv2",
+      "from .core import OnnxStoneModel, infer_stone",
+      "from .flow import RubCheck",
+      "from .geometry import stone_quad",
+      "from .photo_worker import create_session, detect_mask"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/live_camera.py",
+    "bytes": 3068,
+    "sha256": "c616582a621c6477dc396f35461d718add40d83b94eb00d537a1ccbe0d3d4f5a",
+    "imports": [
+      "import sys",
+      "import threading",
+      "from time import monotonic",
+      "import cv2"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/core.py",
+    "bytes": 12491,
+    "sha256": "6735cb1ada42dac9154758c35023057cd9aa99d6501466931d58c5f58ef75bf8",
+    "imports": [
+      "from __future__ import annotations",
+      "import cv2",
+      "import numpy as np",
+      "from .geometry import DEST, SIZE",
+      "import onnxruntime as ort"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 26,
+        "operation": "ort.InferenceSession"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/App.py",
+    "bytes": 40157,
+    "sha256": "676fb9a1250c6df2b65c7535012ad2a62e12a5d1a8722fbbfb2896b4302a7cb3",
+    "imports": [
+      "from __future__ import annotations",
+      "import argparse",
+      "from dataclasses import asdict",
+      "import json",
+      "import queue",
+      "import subprocess",
+      "import sys",
+      "from threading import Lock",
+      "from time import monotonic",
+      "from datetime import datetime",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "from PyQt6.QtCore import QThread, QTimer, Qt, pyqtSignal",
+      "from PyQt6.QtGui import QImage, QPixmap",
+      "from PyQt6.QtWidgets import QApplication, QHBoxLayout, QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget",
+      "from .geometry import DEST, SIZE, align_to_reference, normalize, project_mask, stone_quad",
+      "from .live_camera import LatestCamera",
+      "from .rubbing_zones import TARGET_RADIUS, analyze_zones, draw_recommendation, rubbing_instruction, rubbing_result",
+      "from geometry import DEST, SIZE, align_to_reference, normalize, project_mask, stone_quad",
+      "from live_camera import LatestCamera",
+      "from rubbing_zones import TARGET_RADIUS, analyze_zones, draw_recommendation, rubbing_instruction, rubbing_result",
+      "import onnxruntime as ort"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 56,
+        "operation": "ort.InferenceSession"
+      },
+      {
+        "line": 557,
+        "operation": "subprocess.Popen"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/tests/test_photo_flow.py",
+    "bytes": 2678,
+    "sha256": "b5384960ab2b5d7de99eb4c1b89ab589c7727bffbd8ec161c5442f82a66104c3",
+    "imports": [
+      "import unittest",
+      "import numpy as np",
+      "from new_rub_detection.core import merged_mark_regions, new_mark_locations, new_mark_regions",
+      "from new_rub_detection.geometry import SIZE",
+      "from new_rub_detection.rubbing_zones import analyze_zones"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/tests/test_geometry.py",
+    "bytes": 4545,
+    "sha256": "4c2c3295cd9176d9d1f1dc0f5831473705f5e1f5a9f57a3354b8a90fd350251c",
+    "imports": [
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "from new_rub_detection.geometry import SIZE, align_to_reference, normalize, project_mask, stone_quad, tag_stable"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/tests/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "imports": [],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/tests/test_live_preview.py",
+    "bytes": 6935,
+    "sha256": "b5e47bfbc7a3769c6172b8e12e8663e8f239c8df55051977631987e6eb21613b",
+    "imports": [
+      "from pathlib import Path",
+      "import queue",
+      "import threading",
+      "from time import monotonic",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import numpy as np",
+      "from new_rub_detection import App",
+      "from new_rub_detection.live_camera import LatestCamera"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/tests/test_flow_adapter.py",
+    "bytes": 6306,
+    "sha256": "0f584f82fdc07b7d4327d160746b7cd64ca208edc869f742e2c5938001770f70",
+    "imports": [
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "from new_rub_detection.flow import RubCheck",
+      "from new_rub_detection.geometry import DEST, SIZE",
+      "from unittest.mock import patch"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/tests/test_rubbing_zones.py",
+    "bytes": 10787,
+    "sha256": "f0c785c6e5759732793f824bdc8dfff485526cffffc09e1ddbb3757612c8faea",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import tempfile",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "from new_rub_detection.App import CameraWorker, draw_stone_grid",
+      "from new_rub_detection.geometry import DEST, SIZE",
+      "from new_rub_detection.rubbing_zones import EDGE_MARGIN, OLD_MARK_MARGIN, TARGET_RADIUS, analyze_zones, draw_recommendation, rubbing_instruction, rubbing_result, zone_name"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 145,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/models/newstone1.onnx",
+    "bytes": 47375201,
+    "sha256": "afc8d3042c1426edd06a7bf1b4897b6e05bd0a1a32d00381774ecc572b547dbd"
+  },
+  {
+    "path": "engines/Jeweltracker/new_rub_detection/models/rubbedmask.onnx",
+    "bytes": 47343461,
+    "sha256": "42a46f35e09e75b143d25978fa0c9dba11533d00c09ebfcf90b75ab835db2390"
+  },
+  {
+    "path": "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.xml",
+    "bytes": 1059498,
+    "sha256": "b28753d8eb582b571090ab6b7bdd047ef446c3baa3d807ec1094cd2eb28bfb68"
+  },
+  {
+    "path": "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.bin",
+    "bytes": 11882880,
+    "sha256": "4679db67aea9fb93f6657dfe3db7c6ae96ae0515824e69f1c907100c6454577e"
+  },
+  {
+    "path": "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.json",
+    "bytes": 301,
+    "sha256": "c99f4b9072b7d0b42562e0545f6011ad501d8201d2209a9bb030481b00dc86ce"
+  },
+  {
+    "path": "engines/Jeweltracker/pyi_hooks/hook-ultralytics.py",
+    "bytes": 3003,
+    "sha256": "a2dcb62fa18b99fc4de53203f9ee25ec059eedd00d02fe7e2c8639583dfaa705",
+    "imports": [
+      "import os",
+      "from PyInstaller.utils.hooks import collect_data_files, get_package_paths"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/pyi_hooks/hook-torch.py",
+    "bytes": 3046,
+    "sha256": "6534efdeebe7d86f22bf35c72eaa5cc091b468d8bc8dc7a3cf35980bac559f84",
+    "imports": [
+      "import os",
+      "from PyInstaller.utils.hooks import collect_data_files, collect_dynamic_libs, get_package_paths"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/captures/sessions/20261120_122150_82389948/pending_review/test_1_5942bef7/manifest.json",
+    "bytes": 44582,
+    "sha256": "b949d36739832f2959209f9b5a0002bfebfa1505fe1e74f09b5a795bc0e91bc6"
+  },
+  {
+    "path": "engines/Jeweltracker/weights/resnet18-f37072fd.pth",
+    "bytes": 46830571,
+    "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+  },
+  {
+    "path": "engines/Jeweltracker/weights/siglip2-base-patch32-256_vision_encoder.sim.onnx",
+    "bytes": 375974399,
+    "sha256": "1f92f04e592b172c7fe6bbef34c7cd5f42636d0524611319346906736284a560"
+  },
+  {
+    "path": "engines/Jeweltracker/weights/resnet18_features.onnx",
+    "bytes": 44696396,
+    "sha256": "da5e2b313ee25c0cc75e4bf0d16c19ed05803286cdacd0fedebd59b46a57a37a"
+  },
+  {
+    "path": "engines/Jeweltracker/weights/edgesam/edge_sam_3x_decoder.onnx",
+    "bytes": 15937006,
+    "sha256": "83a2174d54571596913dcb7455d021e713623c3dca30a31c8c41ab98c9fb0863"
+  },
+  {
+    "path": "engines/Jeweltracker/weights/edgesam/edge_sam_3x_encoder.onnx",
+    "bytes": 22098300,
+    "sha256": "719a498cf5b3fe9be9f01ee513e13d3915f9028aa4f23dfd30eaaa0a17143159"
+  },
+  {
+    "path": "engines/Jeweltracker/weights/edgesam/models.json",
+    "bytes": 412,
+    "sha256": "84c0f23e30286e4163a9d464acba28b85519431f23473ebfc21b75b4fb313c09"
+  },
+  {
+    "path": "engines/Jeweltracker/deploy/configure_pdf_video_player.py",
+    "bytes": 2339,
+    "sha256": "52513868024c9d8804906a5c4cdc545cd8dd5d005357ed98970ac115db822a58",
+    "imports": [
+      "from pathlib import Path",
+      "import shutil",
+      "import subprocess"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.xml",
+    "bytes": 861902,
+    "sha256": "3c3cf5c14d5cebc0d68e16a4a9405ef0f9ac51056ddaf6b54b7d285f1d782232"
+  },
+  {
+    "path": "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.bin",
+    "bytes": 5390904,
+    "sha256": "009e536f4b78e3cc0f60a5cc2ecf0c631f03e3952836013556ca3324f3413c3a"
+  },
+  {
+    "path": "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.json",
+    "bytes": 385,
+    "sha256": "9e994a9d084424ef85875d204ceb9015befbf68e75302202d2636318d3cd6a52"
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_historical_cleanup.py",
+    "bytes": 17845,
+    "sha256": "a104d682b3d44ba61fc8c9756ea660eaeb1286a1904a92c1941f4c8cfb5d70ae",
+    "imports": [
+      "import copy, io, json, tempfile, unittest",
+      "from contextlib import redirect_stdout",
+      "from dataclasses import replace",
+      "from pathlib import Path",
+      "from unittest.mock import patch",
+      "import cv2",
+      "import numpy as np",
+      "import test_evidence_retention as fixtures",
+      "from evidence_archive import ArchiveManager, RetentionPolicy, digest, durable_json, validate_video, encoder_available, SessionGuard",
+      "from session_evidence import atomic_json, write_report",
+      "from historical_cleanup import scan_session, migrate, per_test_sizes, main",
+      "from compact_evidence import encode_compact",
+      "import shutil",
+      "import shutil"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 188,
+        "operation": "json.loads"
+      },
+      {
+        "line": 190,
+        "operation": "json.loads"
+      },
+      {
+        "line": 25,
+        "operation": "json.loads"
+      },
+      {
+        "line": 88,
+        "operation": "json.loads"
+      },
+      {
+        "line": 89,
+        "operation": "json.loads"
+      },
+      {
+        "line": 159,
+        "operation": "json.loads"
+      },
+      {
+        "line": 200,
+        "operation": "json.loads"
+      },
+      {
+        "line": 212,
+        "operation": "json.loads"
+      },
+      {
+        "line": 214,
+        "operation": "json.loads"
+      },
+      {
+        "line": 215,
+        "operation": "json.loads"
+      },
+      {
+        "line": 22,
+        "operation": "root.rglob"
+      },
+      {
+        "line": 57,
+        "operation": "json.loads"
+      },
+      {
+        "line": 27,
+        "operation": "root.rglob"
+      },
+      {
+        "line": 91,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_acid_review_queue.py",
+    "bytes": 2912,
+    "sha256": "a88f659e7fda482f24628b1cef599b778a915fec24d6ffc3715ad641125e20da",
+    "imports": [
+      "import json",
+      "import tempfile",
+      "import unittest",
+      "from pathlib import Path",
+      "from unittest.mock import patch",
+      "from acid_review_queue import preserve_review_sample",
+      "from simple_session import _publish_and_clean"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 27,
+        "operation": "json.loads(queued.read_text()).get"
+      },
+      {
+        "line": 27,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_continuous_testing.py",
+    "bytes": 23893,
+    "sha256": "314072d4690fa1ccb73253291ab4dabd58569d9e7749b08270c3c0d11154b41c",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import tempfile",
+      "import time",
+      "import unittest",
+      "import threading",
+      "from concurrent.futures import Future",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "from continuous_testing import ContinuousMonitor, StonePose, RubReference, choose_hand_jewel, visibility, inside_roi, workflow_lines",
+      "from session_evidence import FrameJournal, prediction_text, write_report",
+      "from acid_freshness import FreshAcidGate"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 110,
+        "operation": "json.loads"
+      },
+      {
+        "line": 122,
+        "operation": "json.loads"
+      },
+      {
+        "line": 146,
+        "operation": "Path(tmp).glob"
+      },
+      {
+        "line": 415,
+        "operation": "payload.get"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_residue_stage.py",
+    "bytes": 5849,
+    "sha256": "9bf4d01470927c717abda6a940899718113bf7a1d1691fa32fc25a487721206d",
+    "imports": [
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "from acid_freshness import AcidHistory, FreshAcidGate, normalized, footprint",
+      "from continuous_testing import draw_workflow, RubReference",
+      "from test_continuous_testing import scene, QUAD, Photos",
+      "from test_acid_application import DETECTION",
+      "from test_sop_revision import monitor_case, snap"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_contact_gate.py",
+    "bytes": 7494,
+    "sha256": "2856b8c365f0663f79a50bfd26d59e2c6060dcdf24c3401ccd0af859ecec4d92",
+    "imports": [
+      "import tempfile",
+      "import time",
+      "from pathlib import Path",
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "import jewel_tracker_5 as app",
+      "from continuous_testing import RubReference",
+      "from rubbing_recovery import recover_contact",
+      "from session_evidence import FrameJournal",
+      "from test_continuous_testing import scene, STONE, QUAD, Photos",
+      "from test_sop_revision import monitor_case, snap, contact"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_classification_crop.py",
+    "bytes": 4168,
+    "sha256": "de5bfd3c8b0beb1a6d4eac540d948cd26cf53fa0d7cc49339750c686c57d5a5b",
+    "imports": [
+      "import unittest",
+      "import numpy as np",
+      "import cv2",
+      "from classification_crop import ClassificationCrop, extract_crop",
+      "from acid_freshness import normalized, footprint",
+      "from test_continuous_testing import scene, QUAD, STONE",
+      "from test_acid_application import DETECTION",
+      "from test_sop_revision import monitor_case",
+      "from unittest.mock import Mock",
+      "from unittest.mock import Mock",
+      "from types import SimpleNamespace",
+      "from test_sop_revision import snap"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_simple_session.py",
+    "bytes": 6748,
+    "sha256": "6042d2743afc24dd96ab648451558a0c185a9795556cb35621b2f8d2afdda5ff",
+    "imports": [
+      "import json",
+      "import shutil",
+      "import tempfile",
+      "import unittest",
+      "from pathlib import Path",
+      "from unittest.mock import patch",
+      "from evidence_archive import RetentionPolicy, encoder_available, tree_bytes",
+      "from session_evidence import write_report",
+      "from simple_session import finalize_simple_session, convert_simple_session_to_avi, _decoded_digest",
+      "from compact_evidence import media_info, run_encoder",
+      "import test_evidence_retention as fixtures"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 97,
+        "operation": "(root / 'J1').glob"
+      },
+      {
+        "line": 57,
+        "operation": "json.loads"
+      },
+      {
+        "line": 114,
+        "operation": "(root / 'J1').glob"
+      },
+      {
+        "line": 27,
+        "operation": "root.rglob"
+      },
+      {
+        "line": 109,
+        "operation": "(root / 'J1').glob"
+      },
+      {
+        "line": 112,
+        "operation": "root.rglob"
+      },
+      {
+        "line": 128,
+        "operation": "(root / 'J1').glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_new_rub_integration.py",
+    "bytes": 35512,
+    "sha256": "b3afe0e885074c3f9233da499965aca4811883d93f2d102c4fa5f6d74cbade5c",
+    "imports": [
+      "from regression_assets import assets_root",
+      "import json",
+      "import os",
+      "from collections import deque",
+      "from concurrent.futures import Future",
+      "from pathlib import Path",
+      "import tempfile",
+      "import time",
+      "from types import SimpleNamespace",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "import jewel_tracker_5 as app",
+      "from acid_test.integration import AcidTestThread",
+      "from acid_test.onnx_detector import Detection",
+      "from acid_test.sequence import AcidSequence",
+      "from new_rub_detection.geometry import DEST, SIZE",
+      "from rub_preparation import RubCycle, RubPhotoModels, render_rub_preview"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 638,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_classifier_handoff.py",
+    "bytes": 7237,
+    "sha256": "2a83bb85d32e4198606f2ed61474df295c59c454b9dc9dbec9bf81b88f98940f",
+    "imports": [
+      "import threading",
+      "import time",
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import numpy as np",
+      "from acid_test.flow import pad_bbox",
+      "from acid_freshness import FreshAcidGate",
+      "from continuous_testing import RubReference, choose_hand_jewel",
+      "from test_acid_application import DETECTION",
+      "import test_contact_gate as contact_tests",
+      "from test_continuous_testing import scene, QUAD, STONE, Photos, track",
+      "from test_sop_revision import monitor_case, snap, contact",
+      "from test_continuous_testing import Detector",
+      "import cv2"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_padded_acid_detection.py",
+    "bytes": 4733,
+    "sha256": "ac1f11cd8cb97e5196056307880abb8d86d0622f655114301fc2b242f8e41653",
+    "imports": [
+      "import threading",
+      "import cv2",
+      "import unittest",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock",
+      "import numpy as np",
+      "from continuous_testing import ContinuousMonitor, surface_ready_at",
+      "from acid_test.onnx_detector import ACID_DETECTION_CONFIDENCE",
+      "from acid_application import AcidApplicationVerifier",
+      "from acid_freshness import normalized",
+      "from test_continuous_testing import scene, QUAD, STONE",
+      "from test_sop_revision import monitor_case, snap, contact"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_packet_stage.py",
+    "bytes": 8091,
+    "sha256": "fa9c9eb2feb5c58918ca03b2159bd4bed8b4d4161afc11bb8185e9628bd72377",
+    "imports": [
+      "import os",
+      "from pathlib import Path",
+      "import time",
+      "import unittest",
+      "from types import SimpleNamespace",
+      "from unittest.mock import patch, Mock",
+      "import numpy as np",
+      "from PyQt5 import QtCore, QtWidgets",
+      "import jewel_tracker_5 as original",
+      "from packet_stage import ready_for_packet, packet_module, testing_snapshot",
+      "from standalone.tracking import TrackingBridge",
+      "import threading"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_rub_detection_boxes.py",
+    "bytes": 2069,
+    "sha256": "9aebf3da54ee576eff9408c6a0764b4eacaa1e5ac0ba4809febd8fc00419473e",
+    "imports": [
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "from continuous_testing import RubReference",
+      "from rub_preparation import draw_acid_roi",
+      "from test_continuous_testing import Photos, QUAD, scene"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_acid_freshness_advisory_flow.py",
+    "bytes": 3880,
+    "sha256": "6533c1de5a0f9857e0692122c5db94eafdaa5fcaa48a33c7b8ce535438553a86",
+    "imports": [
+      "import unittest",
+      "import numpy as np",
+      "from acid_application import AcidApplicationVerifier",
+      "from acid_freshness import FreshAcidGate, normalized",
+      "from classification_crop import ClassificationCrop",
+      "from test_acid_application import DETECTION",
+      "from test_continuous_testing import scene, QUAD, Detector",
+      "from test_sop_revision import monitor_case, snap"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_stone_snapshots.py",
+    "bytes": 8137,
+    "sha256": "6d7a69bfa3810ac6f58c54aec3115e9471d6baa60a059e28e441da3c599427be",
+    "imports": [
+      "import os",
+      "import tempfile",
+      "import time",
+      "import unittest",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "import torch",
+      "from PyQt5 import QtWidgets",
+      "from acid_test.integration import AcidTestThread",
+      "from acid_test.onnx_detector import Detection",
+      "from acid_test.sequence import AcidSequence",
+      "from new_rub_detection.geometry import stone_surface",
+      "from rub_preparation import RubCycle, RubPhotoModels"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_acid_area.py",
+    "bytes": 8917,
+    "sha256": "0dad956c17d06429c6047c893862ba935def6d29fec6d32cf4ad41e1ef900486",
+    "imports": [
+      "import unittest",
+      "from pathlib import Path",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "from acid_area import AcidAreaMeasurement, compare_area, region_box",
+      "from acid_freshness import normalized, footprint",
+      "from test_continuous_testing import scene, QUAD, Photos",
+      "from test_acid_application import DETECTION, needle",
+      "from test_sop_revision import monitor_case, snap",
+      "from acid_freshness import FreshAcidGate",
+      "from continuous_testing import RubReference",
+      "from test_continuous_testing import Detector",
+      "from acid_test.flow import pad_bbox",
+      "import cv2",
+      "from acid_freshness import FreshAcidGate"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_continuous_ui.py",
+    "bytes": 12136,
+    "sha256": "c2b62b7b304bae9c22f9c4f287b8712d6532fea88d249d4213297523e66cb43b",
+    "imports": [
+      "import os",
+      "import unittest",
+      "import threading",
+      "from types import SimpleNamespace",
+      "from unittest.mock import patch",
+      "import cv2",
+      "import numpy as np",
+      "from PyQt5 import QtCore, QtWidgets, QtTest",
+      "import jewel_tracker_5 as app"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_surveillance_handoff.py",
+    "bytes": 9544,
+    "sha256": "14eb44db191a9c3e1515e34b41c0d237677d6c08b0bea0a7131ed380098c7c7d",
+    "imports": [
+      "import os",
+      "import threading",
+      "import time",
+      "import unittest",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock, patch",
+      "from concurrent.futures import Future",
+      "import numpy as np",
+      "from PyQt5 import QtCore, QtWidgets",
+      "import jewel_tracker_5 as original",
+      "from packet_stage import testing_snapshot, ready_for_packet, camera_released",
+      "from surveillance import purity_evidence",
+      "from packet_stage import packet_module",
+      "from standalone.tracking import TrackingBridge",
+      "from standalone.tracking import TrackingBridge",
+      "import json",
+      "import tempfile",
+      "from surveillance import retain_auxiliary_result",
+      "from standalone.tracking import TrackingBridge"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 116,
+        "operation": "json.loads"
+      },
+      {
+        "line": 118,
+        "operation": "np.load"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_linux_camera_controls.py",
+    "bytes": 3813,
+    "sha256": "b0d40e521b5c80d7d57c0228fb0a2c57c4eb21d309c766c48e5496b616e86845",
+    "imports": [
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import linux_camera_controls as controls",
+      "import jewel_tracker_5 as tracker"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_acid_application.py",
+    "bytes": 12905,
+    "sha256": "62397650aee1f9d294c40877f549cbd085c75a0cb0f8c87fbfcf45ab671e97e6",
+    "imports": [
+      "import threading",
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "from acid_application import AcidApplicationVerifier",
+      "from acid_freshness import FreshAcidGate, normalized, footprint",
+      "from continuous_testing import reaction_covered, reaction_region_covered",
+      "from test_continuous_testing import scene, QUAD, STONE, Photos",
+      "from continuous_testing import RubReference",
+      "from test_sop_revision import monitor_case, snap"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_live_pipeline.py",
+    "bytes": 13847,
+    "sha256": "fe3382909f0807a2f44e024e23d11459a54debce5c55dff4a0a88e1df0a6d6ef",
+    "imports": [
+      "import os",
+      "import threading",
+      "import time",
+      "import unittest",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock, patch",
+      "import numpy as np",
+      "import jewel_tracker_5 as tracker",
+      "from live_pipeline import InferenceDispatcher, StaleInference, LatestPreview"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_full_frame_rubbing.py",
+    "bytes": 10272,
+    "sha256": "f608a8cb91875f2388cfd2bdc5aaa0786abd7ea690517a5a07c93c4ee33a0adf",
+    "imports": [
+      "import time",
+      "import unittest",
+      "from collections import deque",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock, patch",
+      "import numpy as np",
+      "import torch",
+      "from ultralytics.engine.results import Boxes",
+      "import jewel_tracker_5 as app"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_live_retention.py",
+    "bytes": 11957,
+    "sha256": "75f32f8f45530dfff027aefd61ee6a8427864515da9d2d321a146bfb1df0b820",
+    "imports": [
+      "import copy",
+      "import json",
+      "import shutil",
+      "import tempfile",
+      "import time",
+      "import unittest",
+      "from pathlib import Path",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "from evidence_archive import RetentionPolicy, SessionGuard, encoder_available, tree_bytes",
+      "from live_retention import LiveRetention, compact_test, enqueue_test, finalize_live_session, job_path",
+      "from session_evidence import FrameJournal, atomic_json, write_report",
+      "import test_evidence_retention as fixtures",
+      "from continuous_testing import ContinuousMonitor",
+      "from test_continuous_testing import Photos"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 102,
+        "operation": "json.loads"
+      },
+      {
+        "line": 132,
+        "operation": "json.loads"
+      },
+      {
+        "line": 114,
+        "operation": "json.loads"
+      },
+      {
+        "line": 140,
+        "operation": "json.loads"
+      },
+      {
+        "line": 201,
+        "operation": "root.rglob"
+      },
+      {
+        "line": 69,
+        "operation": "json.loads"
+      },
+      {
+        "line": 84,
+        "operation": "json.loads"
+      },
+      {
+        "line": 136,
+        "operation": "json.loads"
+      },
+      {
+        "line": 155,
+        "operation": "json.loads"
+      },
+      {
+        "line": 65,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_recordings_review.py",
+    "bytes": 2311,
+    "sha256": "13fadb88ed6d60977b448ed61d301ec348698db6a9ead56776e8140420b7844c",
+    "imports": [
+      "import os",
+      "import tempfile",
+      "import unittest",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock, patch",
+      "import jewel_tracker_5 as app"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_openvino_acid.py",
+    "bytes": 1578,
+    "sha256": "2c9980c65cc8d09ccf4844bf2ee2661288d1c7f3b39d858408c45cdfa17a3abe",
+    "imports": [
+      "from pathlib import Path",
+      "import unittest",
+      "import numpy as np",
+      "from acid_test.openvino_detector import OpenVINOAcidDetector",
+      "from acid_test.onnx_detector import OnnxAcidDetector",
+      "from acid_test.runtime import DETECTOR_PATH"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_tracking_v6.py",
+    "bytes": 3467,
+    "sha256": "9793fc97efa30d7858b514c275955584e3fb41f5e0742ef2d27abef503dac79c",
+    "imports": [
+      "import threading",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "import jewel_tracker_5 as app",
+      "from jewel_identity import IdentityMatcher"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_overlap_trigger.py",
+    "bytes": 4456,
+    "sha256": "6e65e641e71708ebddf501692d160c6d31c87be8cc57c959b58e81d3e8b1cc1d",
+    "imports": [
+      "import time",
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import numpy as np",
+      "import test_contact_gate as contact_tests",
+      "from test_continuous_testing import scene, STONE",
+      "from test_sop_revision import monitor_case, snap, contact",
+      "from sop_evidence import local_motion",
+      "import tempfile",
+      "from pathlib import Path",
+      "from session_evidence import FrameJournal",
+      "from rubbing_recovery import recover_contact"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_evidence_retention.py",
+    "bytes": 19745,
+    "sha256": "aa27c6e50a10ef4d9ac353c9c086f6287e0b82f97bc4967e3fb6a91c635324a2",
+    "imports": [
+      "import json, os, shutil, tempfile, threading, time, unittest",
+      "from concurrent.futures import ThreadPoolExecutor",
+      "from dataclasses import replace",
+      "from pathlib import Path",
+      "from unittest.mock import patch",
+      "import hmac, hashlib",
+      "import cv2",
+      "import numpy as np",
+      "from evidence_archive import ArchiveManager, RetentionPolicy, SessionGuard, durable_json, digest, tree_bytes, validate_video, valid_ack, main",
+      "from session_evidence import FrameJournal, write_report, atomic_json",
+      "import io",
+      "from contextlib import redirect_stdout",
+      "from evidence_archive import archive_video",
+      "from types import SimpleNamespace",
+      "from types import SimpleNamespace",
+      "import io",
+      "from contextlib import redirect_stdout",
+      "from evidence_archive import resume_expirations",
+      "from test_confirmed_acid_crop import ConfirmedAcidCropTests, PREDICTION",
+      "from test_sop_revision import monitor_case",
+      "import io",
+      "from contextlib import redirect_stdout"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 74,
+        "operation": "json.loads"
+      },
+      {
+        "line": 95,
+        "operation": "json.loads"
+      },
+      {
+        "line": 163,
+        "operation": "json.loads"
+      },
+      {
+        "line": 208,
+        "operation": "json.loads"
+      },
+      {
+        "line": 250,
+        "operation": "json.loads"
+      },
+      {
+        "line": 79,
+        "operation": "json.loads"
+      },
+      {
+        "line": 86,
+        "operation": "json.loads"
+      },
+      {
+        "line": 153,
+        "operation": "(root / 'archives').glob"
+      },
+      {
+        "line": 146,
+        "operation": "(root / '.cleanup').rglob"
+      },
+      {
+        "line": 168,
+        "operation": "json.loads"
+      },
+      {
+        "line": 210,
+        "operation": "root.rglob"
+      },
+      {
+        "line": 212,
+        "operation": "root.rglob"
+      },
+      {
+        "line": 255,
+        "operation": "parent.glob"
+      },
+      {
+        "line": 257,
+        "operation": "parent.glob"
+      },
+      {
+        "line": 76,
+        "operation": "(root / 'archives').glob"
+      },
+      {
+        "line": 258,
+        "operation": "(parent / '.retention-deletions').glob"
+      },
+      {
+        "line": 258,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_confirmed_acid_crop.py",
+    "bytes": 4049,
+    "sha256": "5075b1866c82733ab288a8ca44da3fc7c1b121cc9724e761555d529a3ba052a2",
+    "imports": [
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import numpy as np",
+      "from acid_freshness import FreshAcidGate",
+      "from acid_test.flow import pad_bbox",
+      "from test_continuous_testing import scene, QUAD",
+      "from test_acid_application import DETECTION",
+      "from test_sop_revision import monitor_case, snap"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_acid_freshness.py",
+    "bytes": 10178,
+    "sha256": "367c5bec3c978f2c5ee1476900faf0dcb093e72c0c3ab382d4dfd8d5fd0830c9",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import tempfile",
+      "import threading",
+      "import time",
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "from acid_freshness import AcidHistory, FreshAcidGate, footprint",
+      "from acid_test.runtime import classify_probabilities",
+      "from continuous_testing import ContinuousMonitor",
+      "from rubbing_recovery import recover_contact",
+      "from session_evidence import FrameJournal",
+      "from test_continuous_testing import scene, track, Photos, Detector, STONE, QUAD",
+      "from test_sop_revision import monitor_case, snap"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 132,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_early_acid_audit.py",
+    "bytes": 3737,
+    "sha256": "53a6a28b8405cc1f7dd198225ce0d48d4ddc2f8bc30407df767f4953eed1efc3",
+    "imports": [
+      "import tempfile",
+      "import unittest",
+      "from pathlib import Path",
+      "import numpy as np",
+      "from audit_report import event_rows, render_report",
+      "from continuous_testing import visibility",
+      "from acid_freshness import FreshAcidGate",
+      "from test_continuous_testing import scene, QUAD, track",
+      "from test_acid_application import DETECTION",
+      "from test_sop_revision import monitor_case, snap"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_stone_cleanup.py",
+    "bytes": 6509,
+    "sha256": "bf86a2dfa498d214b3959a3544568ee40aa15c5e0fdf50ede7aa955ada8c8d21",
+    "imports": [
+      "import unittest",
+      "from unittest.mock import Mock",
+      "import cv2",
+      "import numpy as np",
+      "from acid_test.onnx_detector import Detection",
+      "from rub_preparation import RubCycle, StoneCleanup"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_acid_overlap_advisory.py",
+    "bytes": 3298,
+    "sha256": "11df17ee4ef8492a4e1a84aceb3b2443c20abb896c7fd127d2b1a977e2cdb7fe",
+    "imports": [
+      "import unittest",
+      "import numpy as np",
+      "from acid_freshness import FreshAcidGate, footprint",
+      "from test_continuous_testing import scene, QUAD, Detector",
+      "from test_acid_application import DETECTION, needle",
+      "from test_sop_revision import monitor_case, snap",
+      "from audit_report import event_rows"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_int8_models.py",
+    "bytes": 2728,
+    "sha256": "6ad479d103e3996801bdd596fa4dd1ba288e06a87ccc1398de6b3b055c1a372a",
+    "imports": [
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "import torch",
+      "from int8_models import JEWEL_MODEL, RUBBED_MODEL, OpenVINOYolo, RubbedMarkDetector",
+      "from rub_preparation import RubPhotoModels"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_report_layout.py",
+    "bytes": 4263,
+    "sha256": "d69d458a3ddd59f434c2369f838fd1a0b501693f9c14fdc16ec954136420a0b1",
+    "imports": [
+      "import tempfile",
+      "import unittest",
+      "from pathlib import Path",
+      "from unittest.mock import Mock, patch",
+      "from reportlab.pdfgen.canvas import Canvas",
+      "from audit_report import GREEN, render_report, session_period, when"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_departure_trigger_removed.py",
+    "bytes": 2105,
+    "sha256": "90edbe0fee0ae0194d86060edcb330b9f90ccd99c1dcfc69a7304fc42a7af033",
+    "imports": [
+      "import unittest",
+      "from test_sop_revision import monitor_case, snap"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_temporal_acid.py",
+    "bytes": 35000,
+    "sha256": "64eb88d38818346b72a057ea5ac7a28da311d2788eba86fa249a56f4a5cccc4d",
+    "imports": [
+      "import json",
+      "import os",
+      "from pathlib import Path",
+      "import tempfile",
+      "import time",
+      "from types import SimpleNamespace",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import numpy as np",
+      "import cv2",
+      "import jewel_tracker_5 as tracker",
+      "from acid_test.sequence import AcidSequence",
+      "from acid_test.onnx_detector import Detection, OnnxAcidDetector",
+      "from acid_test.integration import AcidTestThread, AcidModelCache",
+      "from acid_test.runtime import TemporalMobileNet, latest_temporal_model_path",
+      "from acidphintegration.auto_sop import AutoSOP, analyze_paper, FRESH_FRAMES"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 197,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_jewel_identity.py",
+    "bytes": 3970,
+    "sha256": "e09764a38449cfd63f70318c700ca1821c912bdf261e9ebe894a52dc8cd4ecd6",
+    "imports": [
+      "import os",
+      "import sys",
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "import jewel_identity as ji"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_edgesam_backup.py",
+    "bytes": 10298,
+    "sha256": "a8905dc8dfe5d96afe507f9368fbe68aff2ced2b49da585209e89d3ad2b83ed4",
+    "imports": [
+      "import json",
+      "import os",
+      "from pathlib import Path",
+      "import tempfile",
+      "import time",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "from backup_analysis import AnalysisEngine, RecordedSource",
+      "from backup_recovery import BackupWorker, configuration",
+      "from acid_application import AcidApplicationVerifier",
+      "from audit_report import audit_outcome",
+      "import threading",
+      "from test_sop_revision import monitor_case, snap",
+      "from test_sop_revision import monitor_case",
+      "from test_confirmed_acid_crop import ConfirmedAcidCropTests, PREDICTION",
+      "from test_acid_application import DETECTION",
+      "from acid_test.flow import pad_bbox",
+      "from acid_area import compare_area",
+      "from acid_area import compare_area"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_sop_revision.py",
+    "bytes": 22259,
+    "sha256": "57d3fb2bfbe702b7a1a637c3741fd3f9025f3c99fadf7bb61a8e54f75e0860d3",
+    "imports": [
+      "import os",
+      "from contextlib import contextmanager",
+      "from pathlib import Path",
+      "import tempfile",
+      "import threading",
+      "import time",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "import cv2",
+      "import numpy as np",
+      "from continuous_testing import ContinuousMonitor, RubReference, reaction_covered",
+      "from rubbing_recovery import recover_contact",
+      "from sop_evidence import contact_region, validate_mark",
+      "from audit_report import audit_outcome",
+      "from session_evidence import FrameJournal, write_report",
+      "from test_continuous_testing import scene, track, Photos, STONE, QUAD",
+      "from test_continuous_testing import Detector"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 307,
+        "operation": "m.deferred_dir.glob"
+      },
+      {
+        "line": 304,
+        "operation": "m.deferred_dir.glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_stone_model.py",
+    "bytes": 8758,
+    "sha256": "c7c774963047608845502ac3d053a536bb122d0a82d8daaa535ae479b103ab7b",
+    "imports": [
+      "from regression_assets import assets_root",
+      "import time",
+      "import unittest",
+      "from pathlib import Path",
+      "from types import SimpleNamespace",
+      "from unittest.mock import Mock, patch",
+      "import numpy as np",
+      "import torch",
+      "import jewel_tracker_5 as tracker",
+      "from stone_onnx import StoneOnnxModel"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_shared_gold_model.py",
+    "bytes": 3821,
+    "sha256": "f4c97d79f14d83ebf2c6c1a22e71f806c9675563e373ddcae8a9e6e7f10322ed",
+    "imports": [
+      "from regression_assets import assets_root",
+      "import os",
+      "from concurrent.futures import ThreadPoolExecutor",
+      "import time",
+      "import unittest",
+      "from unittest.mock import Mock, patch",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "import jewel_tracker_5 as tracker"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 60,
+        "operation": "(assets_root() / 'captures').glob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/tests/test_auto_testing.py",
+    "bytes": 3482,
+    "sha256": "417fb5d198030fae7acb83232c10f5c2644d76e488cbad17d2b4a2c38ba0260e",
+    "imports": [
+      "import unittest",
+      "import cv2",
+      "import numpy as np",
+      "from auto_testing import StoneSettling"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/classification/jewelry_correction_gallery.npz",
+    "bytes": 2613526,
+    "sha256": "ac2985526f6de2a8d7d7d7dc0a6d797b5adc5964adbcdee9e497b083ae86f88b"
+  },
+  {
+    "path": "engines/Jeweltracker/classification/foreign_object_prompts.json",
+    "bytes": 1369,
+    "sha256": "0299318f73d0991fcf7705297eb0313512aa93243d9e0c78f9651ebadc836aef"
+  },
+  {
+    "path": "engines/Jeweltracker/classification/jewelry_prompts.json",
+    "bytes": 8212,
+    "sha256": "0eb836eb6add98db19fcdd90a885b814a921e8c32544c2c053b4e0bfab723400"
+  },
+  {
+    "path": "engines/Jeweltracker/classification/operator_corrections.npz",
+    "bytes": 22526,
+    "sha256": "8313c288cb02a63906b0b4a265eb798962bd80d91a559d9dc9885107d6880ae3"
+  },
+  {
+    "path": "engines/Jeweltracker/classification/foreign_object_text_embeddings_cache.npz",
+    "bytes": 9086,
+    "sha256": "802989c52b6298b1a63fa495790333a62c22857d91013637612e7e168736cc07"
+  },
+  {
+    "path": "engines/Jeweltracker/classification/jewelry_text_embeddings_cache.npz",
+    "bytes": 46362,
+    "sha256": "432ebed256f122233bf18f29805bc1ca73f47ac41325bb216962c7836848084d"
+  },
+  {
+    "path": "engines/Jeweltracker/acidphintegration/auto_sop.py",
+    "bytes": 10728,
+    "sha256": "1795f3d5bf61cf09359e17a596f621672513b14444dce04d4a5695c06877d3b8",
+    "imports": [
+      "from __future__ import annotations",
+      "import math",
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acidphintegration/ph_paper_auto_sop.py",
+    "bytes": 39305,
+    "sha256": "6ea867662fb9c48ebea101a29acd68536007e14d03124eabb9957d9d98d41f02",
+    "imports": [
+      "from __future__ import annotations",
+      "import argparse",
+      "import os",
+      "import queue",
+      "import json",
+      "import math",
+      "import sys",
+      "import threading",
+      "import time",
+      "from datetime import datetime",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "from PyQt5.QtCore import QRect, QSize, Qt, QThread, pyqtSignal",
+      "from PyQt5.QtGui import QColor, QImage, QPainter",
+      "from PyQt5.QtWidgets import QApplication, QComboBox, QFrame, QGridLayout, QHBoxLayout, QLabel, QMainWindow, QMessageBox, QProgressBar, QPushButton, QScrollArea, QSizePolicy, QVBoxLayout, QWidget",
+      "from openvino_obb import OpenVINOOBB",
+      "import pyttsx3"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acidphintegration/__init__.py",
+    "bytes": 60,
+    "sha256": "da50fecdfe92074f12db63aae82720239569209e4e3b9e0fde452e5fc5e71737",
+    "imports": [],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acidphintegration/openvino_obb.py",
+    "bytes": 4741,
+    "sha256": "464fc217685a0e8d21e409814b472c3b1288be881ba60de56ef525d934c10aae",
+    "imports": [
+      "from __future__ import annotations",
+      "import ast",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "import openvino as ov"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 22,
+        "operation": "core.read_model"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.json",
+    "bytes": 121,
+    "sha256": "e8f3129e8e38484ca5ec90eb1a69a5e1deeb28a9bd681a6b9e5bc4d988fc6bb3"
+  },
+  {
+    "path": "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.bin",
+    "bytes": 22874614,
+    "sha256": "ea3b81100b571db7dab8dacbfe73877d655ee27ae75e542323e894df3cd5589c"
+  },
+  {
+    "path": "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.xml",
+    "bytes": 349189,
+    "sha256": "ffcff91db20a7967fa99afe40472de8baeb128db73e0e5e0b493ff2ff8e2ec14"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/analyzer.py",
+    "bytes": 4944,
+    "sha256": "5c8fe2f7238fabb3e69c9d7de5f5dec66d1296719c9b88b390aac378023cf19d",
+    "imports": [
+      "from __future__ import annotations",
+      "from dataclasses import asdict, dataclass",
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/sequence.py",
+    "bytes": 7115,
+    "sha256": "230dcd5058fcebf043d19da043334e80b97e311c1c7a72f639cf5cb594b68f46",
+    "imports": [
+      "from __future__ import annotations",
+      "from collections import deque",
+      "import time",
+      "import cv2",
+      "import numpy as np",
+      "from .flow import bbox_iou, pad_bbox",
+      "from .onnx_detector import ACID_DETECTION_CONFIDENCE"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/flow.py",
+    "bytes": 10056,
+    "sha256": "e75f5da7b7aedf3d5c1528f310d548272f59d649a25a07fad07204eebceb83dd",
+    "imports": [
+      "from __future__ import annotations",
+      "import time",
+      "from dataclasses import dataclass, field",
+      "from typing import Any",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/analyzer_v2.py",
+    "bytes": 6065,
+    "sha256": "11f297342eb5392dc38e6602e3104d93142975724c434ff04185a66f07d71688",
+    "imports": [
+      "from __future__ import annotations",
+      "from dataclasses import asdict, dataclass",
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/onnx_detector.py",
+    "bytes": 4365,
+    "sha256": "22cc7454c7de5d4f5e6829ce3b35e61712651b3c13f1f3c3c9778885bbc4ae12",
+    "imports": [
+      "from __future__ import annotations",
+      "import time",
+      "import hashlib",
+      "from dataclasses import dataclass",
+      "from pathlib import Path",
+      "import cv2",
+      "import numpy as np",
+      "import onnxruntime as ort"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 32,
+        "operation": "ort.InferenceSession"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/evaluate_v2.py",
+    "bytes": 3920,
+    "sha256": "f4110dfe803e9466269de87cbdc0a0436bc11bce317f47699b6d5308a7116442",
+    "imports": [
+      "from __future__ import annotations",
+      "import argparse",
+      "import csv",
+      "import json",
+      "from collections import Counter, defaultdict",
+      "from datetime import datetime",
+      "from pathlib import Path",
+      "import cv2",
+      "from analyzer_v2 import ANALYZER_VERSION, analyze_sequence_v2"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 35,
+        "operation": "(dataset_root / 'samples').glob"
+      },
+      {
+        "line": 36,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/integration.py",
+    "bytes": 22167,
+    "sha256": "d5e7d3e053dcf36999f1ad1e3fe70fa9663bd23aa8baff9c94385dcfea9e9d3d",
+    "imports": [
+      "from __future__ import annotations",
+      "from concurrent.futures import ThreadPoolExecutor",
+      "from datetime import datetime",
+      "import json",
+      "from pathlib import Path",
+      "import shutil",
+      "import threading",
+      "import time",
+      "import traceback",
+      "import uuid",
+      "import cv2",
+      "import numpy as np",
+      "from PyQt5 import QtCore",
+      "from .runtime import TemporalMobileNet, latest_temporal_model_path, DETECTOR_PATH, LAB_ROOT, _sha256",
+      "from .onnx_detector import OnnxAcidDetector, ACID_DETECTION_CONFIDENCE",
+      "from .sequence import AcidSequence",
+      "from .flow import bbox_iou",
+      "from acidphintegration.auto_sop import AutoSOP, analyze_paper, plausible_match, PAPER_CLASS_ID, CONFIDENCE",
+      "from acidphintegration.openvino_obb import OpenVINOOBB",
+      "from auto_testing import StoneSettling"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 123,
+        "operation": "self.payload"
+      },
+      {
+        "line": 126,
+        "operation": "self.payload"
+      },
+      {
+        "line": 134,
+        "operation": "self.payload"
+      },
+      {
+        "line": 177,
+        "operation": "self.payload"
+      },
+      {
+        "line": 188,
+        "operation": "self.payload"
+      },
+      {
+        "line": 271,
+        "operation": "self.payload"
+      },
+      {
+        "line": 158,
+        "operation": "self.payload"
+      },
+      {
+        "line": 172,
+        "operation": "self.payload"
+      },
+      {
+        "line": 266,
+        "operation": "self.payload"
+      },
+      {
+        "line": 331,
+        "operation": "self.payload"
+      },
+      {
+        "line": 219,
+        "operation": "self.payload"
+      },
+      {
+        "line": 233,
+        "operation": "self.payload"
+      },
+      {
+        "line": 317,
+        "operation": "self.payload"
+      },
+      {
+        "line": 321,
+        "operation": "self.payload"
+      },
+      {
+        "line": 209,
+        "operation": "self.payload"
+      },
+      {
+        "line": 305,
+        "operation": "self.payload"
+      },
+      {
+        "line": 327,
+        "operation": "self.payload"
+      },
+      {
+        "line": 229,
+        "operation": "self.payload"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/__init__.py",
+    "bytes": 53,
+    "sha256": "24b896a8bc750f0ef9d419fb853ec90b5ff27f7282ccad003956520fc0f6202f",
+    "imports": [],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/app.py",
+    "bytes": 31383,
+    "sha256": "74cce0cbe5259add08cd94bdf4993dc10db7a04671785cafd9070ad2d4715102",
+    "imports": [
+      "from __future__ import annotations",
+      "import hashlib",
+      "import json",
+      "import os",
+      "import sys",
+      "import threading",
+      "import time",
+      "from collections import deque",
+      "from pathlib import Path",
+      "from typing import Any",
+      "import cv2",
+      "import numpy as np",
+      "import onnxruntime as ort",
+      "from PyQt6.QtCore import QProcess, QThread, QTimer, Qt, pyqtSignal",
+      "from PyQt6.QtGui import QCloseEvent, QImage, QPixmap",
+      "from PyQt6.QtWidgets import QApplication, QComboBox, QDoubleSpinBox, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget",
+      "from acid_test.flow import bbox_iou, pad_bbox",
+      "from acid_test.onnx_detector import OnnxAcidDetector, ACID_DETECTION_CONFIDENCE",
+      "from acid_test.analyzer import median_frame",
+      "from acid_test.analyzer_v2 import analyze_sequence_v2",
+      "from acid_test.model_training.session_dataset import CLASSES as TEMPORAL_CLASSES, NORMALIZATION_MEAN, NORMALIZATION_STD, prepare_temporal_triplet",
+      "from acid_test.storage import LABELS, TemporalDatasetStore",
+      "from acid_test.runtime import TemporalMobileNet"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 110,
+        "operation": "(dataset_root / 'samples').glob"
+      },
+      {
+        "line": 87,
+        "operation": "MODEL_ARTIFACTS_ROOT.glob"
+      },
+      {
+        "line": 89,
+        "operation": "MODEL_ARTIFACTS_ROOT.glob"
+      },
+      {
+        "line": 265,
+        "operation": "self._load_latest_candidate"
+      },
+      {
+        "line": 112,
+        "operation": "json.loads"
+      },
+      {
+        "line": 376,
+        "operation": "json.loads"
+      },
+      {
+        "line": 462,
+        "operation": "self._load_latest_candidate"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/storage.py",
+    "bytes": 7710,
+    "sha256": "11c3de9ff18316443180a6ad842e29bc9eddccb1fef90985b04029390f6001ef",
+    "imports": [
+      "from __future__ import annotations",
+      "import hashlib",
+      "import json",
+      "import re",
+      "import uuid",
+      "from datetime import datetime",
+      "from pathlib import Path",
+      "from typing import Any",
+      "import cv2",
+      "import numpy as np"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 38,
+        "operation": "self.samples_dir.glob"
+      },
+      {
+        "line": 64,
+        "operation": "self.samples_dir.glob"
+      },
+      {
+        "line": 56,
+        "operation": "json.loads"
+      },
+      {
+        "line": 40,
+        "operation": "json.loads"
+      },
+      {
+        "line": 66,
+        "operation": "json.loads"
+      },
+      {
+        "line": 173,
+        "operation": "temporary_dir.rglob"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/openvino_detector.py",
+    "bytes": 4147,
+    "sha256": "be64e21b6be7a3534a47e8a79322ef3cada52504573d20408eeb196ca8273aee",
+    "imports": [
+      "from pathlib import Path",
+      "import hashlib",
+      "import json",
+      "import threading",
+      "import time",
+      "import cv2",
+      "import numpy as np",
+      "from .onnx_detector import Detection",
+      "import openvino as ov"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 23,
+        "operation": "json.loads"
+      },
+      {
+        "line": 28,
+        "operation": "core.read_model"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/runtime.py",
+    "bytes": 4367,
+    "sha256": "94ab888f9b5c70943916b56246e3413e76b7c4ebd31ab5e0190306b0a1ed9612",
+    "imports": [
+      "from __future__ import annotations",
+      "import hashlib",
+      "import time",
+      "from pathlib import Path",
+      "from typing import Any",
+      "import numpy as np",
+      "import onnxruntime as ort",
+      "from .model_training.session_dataset import CLASSES as TEMPORAL_CLASSES, NORMALIZATION_MEAN, NORMALIZATION_STD, prepare_temporal_triplet"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 38,
+        "operation": "MODEL_ARTIFACTS_ROOT.glob"
+      },
+      {
+        "line": 39,
+        "operation": "MODEL_ARTIFACTS_ROOT.glob"
+      },
+      {
+        "line": 53,
+        "operation": "ort.InferenceSession"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/train.py",
+    "bytes": 11759,
+    "sha256": "ae98c535e4b0a93b4ec530330458882cddc6c8cbe3f86959fc7d03e2dfa91795",
+    "imports": [
+      "from __future__ import annotations",
+      "import argparse",
+      "import copy",
+      "import json",
+      "import random",
+      "import time",
+      "from collections import Counter",
+      "from datetime import datetime",
+      "from pathlib import Path",
+      "from typing import Any",
+      "import numpy as np",
+      "import onnx",
+      "import onnxruntime as ort",
+      "import torch",
+      "from torch import nn",
+      "from torch.utils.data import DataLoader",
+      "from session_dataset import CLASSES, INPUT_SIZE, NORMALIZATION_MEAN, NORMALIZATION_STD, TemporalSessionDataset, build_index, stratified_split",
+      "from temporal_model import ARCHITECTURES, make_temporal_model"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 116,
+        "operation": "onnx.load"
+      },
+      {
+        "line": 146,
+        "operation": "ort.InferenceSession"
+      },
+      {
+        "line": 258,
+        "operation": "model.load_state_dict"
+      },
+      {
+        "line": 181,
+        "operation": "json.loads"
+      },
+      {
+        "line": 189,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "imports": [],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/temporal_model.py",
+    "bytes": 6532,
+    "sha256": "b0783f8b2837d6b4544482efd9e8072a6561c47942e18f77da64292905eea373",
+    "imports": [
+      "from __future__ import annotations",
+      "import torch",
+      "from torch import nn",
+      "from torchvision import models",
+      "from session_dataset import CLASSES"
+    ],
+    "dynamic_operations": []
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/evaluate_candidate.py",
+    "bytes": 5076,
+    "sha256": "1f95e852b0faa6605eb543674ea0062b7af6e9c2ea8718a00cd0d5013e469439",
+    "imports": [
+      "from __future__ import annotations",
+      "import argparse",
+      "import json",
+      "from pathlib import Path",
+      "import numpy as np",
+      "import onnxruntime as ort",
+      "import torch",
+      "from torch.utils.data import DataLoader",
+      "from session_dataset import CLASSES, TemporalSessionDataset, build_index"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 81,
+        "operation": "ort.InferenceSession"
+      },
+      {
+        "line": 29,
+        "operation": "(ROOT / 'artifacts').glob"
+      },
+      {
+        "line": 72,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/curation.json",
+    "bytes": 1145,
+    "sha256": "b0e99873267daabddf61a8a3a6ec884963d32a82fffa7e49ecd09b7ace9f2688"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/session_dataset.py",
+    "bytes": 7569,
+    "sha256": "f5724a8bbde1bdae005612f5de652646ddd2c03c854339924772eb78b93df6d2",
+    "imports": [
+      "from __future__ import annotations",
+      "import hashlib",
+      "import json",
+      "import random",
+      "from collections import Counter",
+      "from pathlib import Path",
+      "from typing import Any",
+      "import cv2",
+      "import numpy as np",
+      "import torch",
+      "from torch.utils.data import Dataset"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 39,
+        "operation": "json.loads"
+      },
+      {
+        "line": 44,
+        "operation": "(dataset_root / 'samples').glob"
+      },
+      {
+        "line": 45,
+        "operation": "json.loads"
+      },
+      {
+        "line": 169,
+        "operation": "load_triplet"
+      }
+    ]
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.onnx",
+    "bytes": 6674924,
+    "sha256": "868d1d8d1bfcae2f9c2a675df0b4161eba7c93a20119ed9868a81d104989b473"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_report.json",
+    "bytes": 9300,
+    "sha256": "40046cf67e6429e5d4873057cf597b471f5557745e2f0324f9cd66e373c1da23"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_dataset_index.json",
+    "bytes": 695867,
+    "sha256": "f678996da0f3e576b0f9a7f0c929072cd11dc3084fcbb83b92d4ce64263ca76f"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.pt",
+    "bytes": 6806037,
+    "sha256": "2d2a2f14d4fbb7f4611f7a99784e3fb59f102b8525c46076158cdd17b21dbc08"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+    "bytes": 6674924,
+    "sha256": "dd2cd6279355ef9c17652e7a5c0f37373c32e12b5091f4455d0bd362d500a37b"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_report.json",
+    "bytes": 9268,
+    "sha256": "91e5dbae1f205bf58c4db1ea819c397348722fc1159774f8e36f2a98e5f8032b"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_split.json",
+    "bytes": 5311,
+    "sha256": "7244bb3b04d7506d436bdb3ba8f7aa3829a250f2efeb8628ec8cb7d96fda7041"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_split.json",
+    "bytes": 2191,
+    "sha256": "c4dd0a199e4ea4b0d1764a49fcc278c504d54b996136c57bb159d01fbaf9780b"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_report.json",
+    "bytes": 9273,
+    "sha256": "394f9acd7c0fbfb3170bd6a4fb46351472685cc7dbc9523f2ee811fb94bbd508"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_split.json",
+    "bytes": 7502,
+    "sha256": "7bb3b781627cddea9229f5ffe063de9f5b4dd9a4372f95f6cef6193fb016b3e1"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json",
+    "bytes": 2704567,
+    "sha256": "49212372cfd70f72dc21cda2f75fd6737d3a30c9ff89391d7acc7af0a752c1ca"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.onnx",
+    "bytes": 6674881,
+    "sha256": "28f239a20d6552d42060103e8aef637535827ab51f295bc429bf2ab27613a269"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.pt",
+    "bytes": 6799459,
+    "sha256": "8eff4f254fbc779959fe695deb6234f105afba7a62e02b6a1af2b9b8a7080cda"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.pt",
+    "bytes": 6806037,
+    "sha256": "857975264e1a43a754bcb361a2324af431a0702628c6c28fd22ec4a0c016c60d"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json",
+    "bytes": 1993231,
+    "sha256": "a1d118e372b8aa3542102ed5e3f6d67723e200c35be9cacd414d571be2ca2729"
+  },
+  {
+    "path": "engines/Jeweltracker/acid_test/models/acid_detector.onnx",
+    "bytes": 47249091,
+    "sha256": "fc7fce3b0fa6ec655c601ac0756ba31b9d8354692d140a1cf3cdabf339a805d2"
+  },
+  {
+    "path": "tests/test_integration.py",
+    "bytes": 3130,
+    "sha256": "3618148a147c6bbb48c33ef262a86a58d53e87958cea021742ce5e6ae52841b3",
+    "imports": [
+      "import json",
+      "from pathlib import Path",
+      "import unittest",
+      "from app.config import ROOT, JEWEL, PACKET, command, engine_environment",
+      "import time",
+      "from unittest.mock import patch",
+      "from PyQt5 import QtWidgets",
+      "from app.process_manager import ProcessManager"
+    ],
+    "dynamic_operations": [
+      {
+        "line": 28,
+        "operation": "(ROOT / 'engines').rglob"
+      },
+      {
+        "line": 21,
+        "operation": "json.loads"
+      },
+      {
+        "line": 36,
+        "operation": "json.loads"
+      },
+      {
+        "line": 36,
+        "operation": "json.loads"
+      }
+    ]
+  },
+  {
+    "path": "tests/test_launcher.py",
+    "bytes": 3904,
+    "sha256": "a23beaa3fc3a25d17faaf4ab9f101cbe6ce5d8ddfcde8702302adb0fbe2de5e5",
+    "imports": [
+      "import os",
+      "import sys",
+      "import tempfile",
+      "import time",
+      "import unittest",
+      "from pathlib import Path",
+      "from unittest.mock import patch",
+      "from PyQt5 import QtWidgets",
+      "from app.main_window import MainWindow",
+      "from app.process_manager import ProcessManager"
+    ],
+    "dynamic_operations": []
+  }
+]

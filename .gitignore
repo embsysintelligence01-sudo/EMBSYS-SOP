@@ -86,3 +86,6 @@ core.[0-9]*
 *.7z
 *.tar
 *.tar.gz
+
+# All central model binaries and metadata are provisioned locally.
+/models/

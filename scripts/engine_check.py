@@ -11,7 +11,7 @@ os.environ.setdefault('YOLO_AUTOINSTALL', 'False')
 mode = sys.argv[1]
 if mode in ('imports', 'imports-purity'):
     import jewel_tracker_5
-    assert Path(jewel_tracker_5.__file__).resolve().parent == JEWEL
+    assert Path(jewel_tracker_5.__file__).resolve() == ROOT/"engines/purity/tracker.py"
     import packet_app
     assert Path(packet_app.__file__).resolve().parent == PACKET
     if mode != 'imports-purity':

@@ -30,6 +30,7 @@ Removal from the original spot does not distinguish lifting from sliding.
 """
 from __future__ import annotations
 
+from model_registry import model_path, asset_dir, resolve_model
 import argparse
 from collections import deque
 from dataclasses import dataclass
@@ -1074,7 +1075,7 @@ class Models:
         from standalone.tracking import GoldPredictor
         from standalone.models import PacketBagDetector
         self.gold = GoldPredictor()
-        self.bag = PacketBagDetector(ROOT/'model onnx') if load_bag else None
+        self.bag = PacketBagDetector(asset_dir('packet')) if load_bag else None
         self.original = original
         self.fast_home_capture = fast_home_capture
         self.hand = None
@@ -1087,7 +1088,7 @@ class Models:
     def enable_bag(self):
         if self.bag is None:
             from standalone.models import PacketBagDetector
-            self.bag = PacketBagDetector(ROOT/'model onnx')
+            self.bag = PacketBagDetector(asset_dir('packet'))
         return self.bag
 
     def enable_hands(self):
@@ -1099,7 +1100,7 @@ class Models:
     def enable_keypoints(self):
         if self.keypoints is None:
             from standalone.hand_keypoints import HandKeypoints
-            self.keypoints = HandKeypoints(ROOT/'model onnx'/'hand_landmarker.task')
+            self.keypoints = HandKeypoints(model_path('sealing.hand_landmarks'))
         return self.keypoints
 
     def detect_keypoints(self, frame, roi_mask):
