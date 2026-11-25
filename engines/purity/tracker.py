@@ -85,7 +85,7 @@ from int8_models import OpenVINOYolo
 from jewel_identity import IdentityMatcher
 from rub_preparation import RubPhotoModels, RubCycle, StoneCleanup, draw_acid_roi, render_rub_preview
 from auto_testing import StoneSettling
-from continuous_testing import ContinuousMonitor, draw_workflow, PHASE_TITLES
+from continuous_testing import ContinuousMonitor, draw_workflow, PHASE_TITLES, recording_assignment
 from session_evidence import prediction_text
 from linux_camera_controls import LINUX_AF_DEFAULT, apply_linux_antiflicker
 
@@ -865,6 +865,8 @@ class Worker(QtCore.QThread):
             if kind == 'hand_preview':
                 self.recording_hand_preview = payload['preview']
                 return
+            elif kind == 'clearance_advisory':
+                self.event.emit(payload['message'],'info')
             elif kind == 'recording_area':
                 self.recording_area_points = payload['points']
             elif kind == 'placement':
@@ -884,6 +886,28 @@ class Worker(QtCore.QThread):
                 if tr is not None:
                     tr.continuous_token = payload['token']
                     tr.acid_result = dict(prediction=None, rubbing_status='Recording', record_path='')
+            elif kind == 'identity_confirmed':
+                token = payload['token']
+                if (token != self.continuous_cycle_id or tr is None
+                        or getattr(self, 'continuous_tokens', {}).get(token) != (None, self.flow_revision)):
+                    return
+                self.continuous_tokens[token] = (tr.id, self.flow_revision)
+                self.continuous_pending_id = tr.id
+                tr.continuous_token = token
+                linked = getattr(tr, 'provisional_recording', None)
+                if linked is not None and linked.get('cycle_id') == token:
+                    tr.acid_result = dict(linked, jewel_id=tr.id,
+                                         recording_assignment='CONFIRMED', recording_candidate_id=None)
+                    if getattr(tr, 'provisional_rub_img', None) is not None:
+                        tr.rub_img = tr.provisional_rub_img
+                    if getattr(tr, 'provisional_acid_crop', None) is not None:
+                        tr.acid_crop = tr.provisional_acid_crop
+                    tr.provisional_recording = None
+                    tr.provisional_rub_img = tr.provisional_acid_crop = None
+                if getattr(self, 'continuous_stage', None):
+                    self.continuous_stage.update(jewel_id=tr.id, recording_assignment='CONFIRMED',
+                                                 recording_candidate_id=None)
+                self.event.emit(f'J{tr.id}: pickup identity confirmed; continuing the same recording.', 'info')
             elif kind == 'contact_gate':
                 if payload.get('token') != self.continuous_cycle_id:
                     return
@@ -967,11 +991,45 @@ class Worker(QtCore.QThread):
                                 + (' WARNING: acid and new rubbing are at different locations.' if record.get('acid_target_status') == 'ACID_AT_DIFFERENT_LOCATION' else '')
                                 + (' WARNING: new rubbing overlaps previous acid.' if record.get('rub_previous_acid_overlap', 0) > 0 else '')
                                 + (' WARNING: jewel association is unverified after another jewel was handled.' if record.get('acid_jewel_association') == 'UNVERIFIED_MULTIPLE_JEWELS' else ''), 'info')
+            self._update_provisional_recording(kind, payload)
             payload['completed'] = [tr.id for tr in self.tracks if tr.done]
             if kind not in ('target', 'phase', 'acid_detection', 'acid_area', 'reference', 'contact'):
                 self.emit_jewel_table()
         if kind != 'target':
             self.workflow.emit(dict(kind=kind, **payload))
+
+    def _update_provisional_recording(self, kind, payload):
+        """Attach candidate evidence to a row without changing tracking/test ownership."""
+        result = payload.get('record')
+        assignment = recording_assignment(result) if result is not None else payload
+        if assignment.get('recording_assignment') != 'PROVISIONAL':
+            return
+        candidate = assignment.get('recording_candidate_id')
+        tr = next((tr for tr in self.tracks if tr.id == candidate), None)
+        if tr is None:
+            return
+        token = result.get('cycle_id') if result is not None else payload.get('token')
+        if kind == 'begin':
+            tr.provisional_recording = dict(jewel_id=None, cycle_id=token,
+                recording_candidate_id=candidate, recording_assignment='PROVISIONAL',
+                prediction=None, rubbing_status='Recording', record_path='', recording_live=True)
+            tr.provisional_rub_img = tr.provisional_acid_crop = None
+        linked = getattr(tr, 'provisional_recording', None)
+        if linked is None or linked.get('cycle_id') != token:
+            return
+        if kind == 'contact':
+            tr.provisional_rub_img = payload['photo']
+            linked['rubbing_status'] = 'CONFIRMED_LIVE' if payload.get('confirmed') else 'CONTACT_VISIBLE'
+        elif kind == 'baseline':
+            tr.provisional_acid_crop = payload['photo']
+        elif kind == 'captured':
+            linked['recording_live'] = False
+        elif kind == 'result':
+            tr.provisional_recording = dict(result, **recording_assignment(result), recording_live=False)
+            if result.get('rub_image'):
+                tr.provisional_rub_img = cv2.imread(result['rub_image'])
+            if result.get('acid_image'):
+                tr.provisional_acid_crop = cv2.imread(result['acid_image'])
 
     def detect(self, model, frame, roi, imgsz=None, captured_at=None):
         """One unmodified full-frame prediction; ROI filtering happens afterward.
@@ -1199,9 +1257,16 @@ class Worker(QtCore.QThread):
 
     def emit_jewel_table(self):
         """Status table: updated when a jewel is locked, renamed, rubbed, acid tested or DONE."""
-        self.jewel_table.emit([(tr.id, getattr(tr, "thumb", None), tr.rubbed, getattr(tr, "rub_img", None),
-                                tr.acid_done, tr.done, tr.acid_result, tr.id in (self.acid_pending_id, self.continuous_pending_id), getattr(tr, "acid_crop", None))
-                               for tr in sorted(self.tracks, key=lambda x: x.id)])
+        rows=[]
+        for tr in sorted(self.tracks, key=lambda x: x.id):
+            provisional = getattr(tr, 'provisional_recording', None) if tr.acid_result is None else None
+            if provisional:
+                rows.append((tr.id,getattr(tr,'thumb',None),False,getattr(tr,'provisional_rub_img',None),
+                    False,False,provisional,provisional.get('recording_live',False),getattr(tr,'provisional_acid_crop',None)))
+            else:
+                rows.append((tr.id,getattr(tr,'thumb',None),tr.rubbed,getattr(tr,'rub_img',None),
+                    tr.acid_done,tr.done,tr.acid_result,tr.id in (self.acid_pending_id,self.continuous_pending_id),getattr(tr,'acid_crop',None)))
+        self.jewel_table.emit(rows)
 
     def persistent_jewels(self):
         """Bench detections of the arming window grouped by position; a group is a jewel when it was seen
@@ -2209,6 +2274,7 @@ class MainWindow(QtWidgets.QWidget):
         self.acid_grade = QtWidgets.QLineEdit()
         self.acid_grade.setPlaceholderText("Acid grade / batch (optional)")
         self.table = QtWidgets.QTableWidget(0, 7)
+        self.table.cellDoubleClicked.connect(self.open_table_recording)
         self.table.setHorizontalHeaderLabels(["J", "Jewel", "Rubbing evidence", "Rub spot", "Acid", "Result", "Acid crop"])
         self.table.verticalHeader().setVisible(False)
         self.table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
@@ -2659,6 +2725,8 @@ class MainWindow(QtWidgets.QWidget):
             self.acid_instruction.setText(payload['message']+(' '+payload['residue_warning'] if payload.get('residue_warning') else ''))
         elif kind == 'phase':
             prefix = f"J{payload['jewel_id']} | " if payload.get('jewel_id') is not None else ''
+            if payload.get('recording_assignment') == 'PROVISIONAL':
+                prefix = f"J{payload['recording_candidate_id']} (provisional) | "
             title = PHASE_TITLES.get(payload['phase'], payload['phase'])
             if payload.get('remaining') is not None:
                 title += f" ({payload['remaining']:.1f} s left)"
@@ -2683,6 +2751,7 @@ class MainWindow(QtWidgets.QWidget):
             self.contact_preview.clear()
             self.rub_preview.clear()
             self.contact_instruction.setText('Rubbing contact: not observed')
+            self.rub_instruction.setText('New rubbed mark: not yet confirmed for this recording. Acid monitoring continues.')
         elif kind == 'contact':
             self.contact_preview.setPixmap(QtGui.QPixmap.fromImage(to_qimage(payload['photo'])).scaled(
                 360,150,QtCore.Qt.KeepAspectRatio,QtCore.Qt.SmoothTransformation))
@@ -2699,12 +2768,14 @@ class MainWindow(QtWidgets.QWidget):
             self.rub_instruction.setText('New rubbed mark: DETECTED; detection rectangle shown.'
                                          + (' Previous acid overlap: contamination possible.' if payload.get('contamination_possible') else ''))
         elif kind == 'mask_decision':
-            self.rub_instruction.setText('New rubbed mask: '+('DETECTED' if payload['detected'] else 'NOT DETECTED')+'. Moving to baseline.'
+            self.rub_instruction.setText(('New rubbed mark: checking in background. Acid baseline capture has started.' if payload.get('pending') else
+                                         'New rubbed mask: '+('DETECTED' if payload['detected'] else 'NOT DETECTED')+'. Acid baseline capture has started.')
                                          + (' Previous acid overlap: contamination possible.' if payload.get('contamination_possible') else ''))
         elif kind == 'acid_area':
             self.acid_instruction.setText('ACID VERIFIED - measuring estimated acid area; original 5-second timer continues.')
         elif kind == 'acid_detection':
-            self.acid_instruction.setText('ACID VERIFIED - acid search stopped; recording 5-second reaction.' if payload['detected'] else
+            self.acid_instruction.setText('Acid candidate detected; recording continues. Waiting for a usable baseline to verify the patch.' if payload.get('waiting_for_baseline') else
+                                          'ACID VERIFIED - acid search stopped; recording 5-second reaction.' if payload['detected'] else
                                           'POSSIBLE ACID - recording now; checking movement and a persistent patch.' if payload.get('provisional') else
                                           'WAITING FOR ACID / CLEAR PATCH - freshness is advisory in the PDF.')
         elif kind == 'captured':
@@ -2716,6 +2787,9 @@ class MainWindow(QtWidgets.QWidget):
                 return
             if record.get('capture_complete') and record.get('prediction') is not None:
                 name = f"J{record['jewel_id']}" if record['jewel_id'] is not None else 'Unassigned test'
+                candidate = recording_assignment(record)
+                if candidate['recording_assignment']=='PROVISIONAL':
+                    name=f"J{candidate['recording_candidate_id']} (provisional recording)"
                 self.phase_label.setText(name+' DONE | '+prediction_text(record['prediction']))
                 notes = [record['prediction'].get('invalid_reason')]
                 if record.get('acid_target_status') == 'ACID_AT_DIFFERENT_LOCATION':
@@ -2774,6 +2848,7 @@ class MainWindow(QtWidgets.QWidget):
         th = 70  # thumbnail height
         self.table.setRowCount(len(rows))
         for r, (jid, thumb, rubbed, rub_img, acid, done, record, pending, acid_image) in enumerate(rows):
+            provisional = bool(record and record.get('recording_assignment')=='PROVISIONAL')
             bg = "#c8f0c8" if done else "transparent"
             prediction = record.get('prediction') if record else None
             result_text = (f"{ {'gold_22k': '22K GOLD', 'non_gold': 'NON-GOLD', 'invalid': 'INVALID (acid model)'}[prediction['prediction']]}\n{prediction['confidence']:.1%}"
@@ -2782,7 +2857,11 @@ class MainWindow(QtWidgets.QWidget):
             if self.worker is not None and self.worker.continuous_enabled:
                 acid_text = "DONE" if done else "INCOMPLETE" if record and record.get("close_reason") and not record.get("prediction") else "Saved" if acid else ("Recording" if pending else "Processing" if record else "")
             rubbing_text = record.get('rubbing_status', '') if record else ("\u2714" if rubbed else "")
-            for c, text in ((0, f"J{jid}"), (2, rubbing_text), (4, acid_text), (5, result_text)):
+            if provisional:
+                acid_text = 'Provisional\n'+('Recording' if pending else 'Saved' if record.get('close_reason') else 'Processing')
+                if result_text:
+                    result_text = 'Candidate recording\n'+result_text
+            for c, text in ((0, f"J{jid}"+('\nPROVISIONAL' if provisional else '')), (2, rubbing_text), (4, acid_text), (5, result_text)):
                 item = QtWidgets.QTableWidgetItem(text)
                 item.setTextAlignment(QtCore.Qt.AlignCenter)
                 font = item.font()
@@ -2800,6 +2879,12 @@ class MainWindow(QtWidgets.QWidget):
                         item.setForeground(QtGui.QColor(180, 110, 0))
                     elif prediction and prediction['prediction'] == 'non_gold':
                         item.setForeground(QtGui.QColor(190, 30, 30))
+                if provisional:
+                    item.setForeground(QtGui.QColor(180,110,0))
+                    item.setToolTip('Candidate recording only; jewel identity remains unconfirmed.\nCapture: '+record.get('record_path',''))
+                if record and record.get('record_path'):
+                    item.setData(QtCore.Qt.UserRole,record['record_path'])
+                    item.setToolTip(item.toolTip()+'\nDouble-click to open the recording folder.')
                 self.table.setItem(r, c, item)
             for c, img in ((1, thumb), (3, rub_img), (6, acid_image)):
                 lbl = QtWidgets.QLabel()
@@ -2814,6 +2899,12 @@ class MainWindow(QtWidgets.QWidget):
                 self.table.setCellWidget(r, c, lbl)
             self.table.setRowHeight(r, th + 6)
         self.refresh_acid_controls()
+
+    def open_table_recording(self, row, column):
+        item=self.table.item(row,column)
+        path=item.data(QtCore.Qt.UserRole) if item is not None else None
+        if path:
+            QtGui.QDesktopServices.openUrl(QtCore.QUrl.fromLocalFile(os.path.dirname(os.path.abspath(path))))
 
     def current_rub_key(self):
         worker = self.worker

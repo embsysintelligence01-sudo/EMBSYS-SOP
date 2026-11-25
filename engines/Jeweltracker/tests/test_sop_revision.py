@@ -15,7 +15,7 @@ from rubbing_recovery import recover_contact
 from sop_evidence import contact_region, validate_mark
 from audit_report import audit_outcome
 from session_evidence import FrameJournal, write_report
-from test_continuous_testing import scene,track,Photos,STONE,QUAD
+from test_continuous_testing import scene,track,Photos,STONE,QUAD,Detector
 
 
 @contextmanager
@@ -76,6 +76,27 @@ class MaskEvidenceTests(unittest.TestCase):
 
 
 class CycleLifecycleTests(unittest.TestCase):
+    def test_corner_overhang_allows_baseline_and_active_acid_search(self):
+        roi = np.float32([[100,90],[200,90],[200,170],[100,170]])
+        with monitor_case() as (m,events):
+            first = snap(100,held=1)
+            first['placement'] = roi
+            m.step(first)
+            a = m.active
+            for i in range(1,13):
+                current = snap(100+i*.2)
+                current['placement'] = roi
+                m.step(current)
+            self.assertIsNotNone(a['returned'])
+            self.assertIsNotNone(a.get('baseline_at'))
+            m.detector = Detector()
+            current = snap(102.6)
+            current['placement'] = roi
+            m.step(current)
+            self.assertIsNotNone(m.acid_job)
+            m.acid_job.result(timeout=5)
+            m._collect_jobs()
+
     def test_first_acid_application_is_latched_even_if_a_second_result_arrives(self):
         with monitor_case() as (m,events):
             m.step(snap(100,held=1))

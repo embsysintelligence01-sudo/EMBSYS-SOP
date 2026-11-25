@@ -6,9 +6,22 @@ from unittest.mock import Mock, patch
 from reportlab.pdfgen.canvas import Canvas
 
 from audit_report import GREEN, render_report, session_period, when
+import cv2
+import numpy as np
 
 
 class ReportLayoutTests(unittest.TestCase):
+    def test_provisional_recording_embeds_candidate_photo_without_assigning_identity(self):
+        from reportlab.lib.utils import ImageReader
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);photo=root/'J2.jpg'
+            cv2.imwrite(str(photo),np.full((40,40,3),(30,150,220),np.uint8))
+            record=dict(jewel_id=None,recording_candidate_id=2,recording_assignment='PROVISIONAL')
+            with patch('audit_report.ImageReader',wraps=ImageReader) as images:
+                render_report(root/'report.pdf',root,[dict(id=2,image=str(photo))],[record],[],lambda p:'Unavailable')
+            self.assertGreaterEqual(sum(call.args[0]==str(photo) for call in images.call_args_list),2)
+            self.assertIsNone(record['jewel_id'])
+
     def test_verification_is_inside_evidence_panels_and_overlap_is_green(self):
         with tempfile.TemporaryDirectory() as temporary:
             root=Path(temporary);output=root/'report.pdf'

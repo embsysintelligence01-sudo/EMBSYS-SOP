@@ -9,6 +9,50 @@ import numpy as np
 from acid_freshness import DEST, normalized, footprint, changed_pixels
 
 
+ACID_ROI_MARGIN = .10
+
+
+def acid_roi_support(region):
+    """Expand an acid footprint by 10% per side, independently of the stone."""
+    region = (region > 0).astype(np.uint8)
+    x, y, w, h = cv2.boundingRect(region)
+    if not w or not h:
+        return region > 0
+    px, py = max(1, int(np.ceil(w*ACID_ROI_MARGIN))), max(1, int(np.ceil(h*ACID_ROI_MARGIN)))
+    return cv2.dilate(region, np.ones((2*py+1, 2*px+1), np.uint8)) > 0
+
+
+def acid_roi_interference(image, support, baseline=None):
+    """Shared live/replay interference checks confined to the acid support."""
+    if image is None or not np.any(support):
+        return 'ACID_ROI_UNAVAILABLE'
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    skin = (hsv[:,:,0] <= 14) & (hsv[:,:,1] >= 45) & (hsv[:,:,2] > 80)
+    light = (hsv[:,:,1] < 40) & (hsv[:,:,2] > 150)
+    if float(skin[support].mean()) > .2 or float(light[support].mean()) > .8:
+        return 'HAND_OR_GLARE_OVER_CANDIDATE'
+    _, tool = visible_patch(image, support)
+    if baseline is not None:
+        # Compare the bright feature's own pixels; blur halos from a neighbouring
+        # wet patch must not turn an unchanged rubbed streak into a new needle.
+        tool &= cv2.absdiff(baseline,image).max(axis=2)>15
+    # An applicator elsewhere on the stone must not block this acid ROI.
+    if AcidApplicationVerifier._tool_like(tool & support, support):
+        return 'APPLICATOR_LIKE_CHANGE_REMAINS'
+    return None
+
+
+def baseline_roi_interference(image, support):
+    """A stationary bright rubbed streak is valid baseline texture, not a tool."""
+    if image is None or not np.any(support):return 'BASELINE_ACID_ROI_UNAVAILABLE'
+    hsv=cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
+    skin=(hsv[:,:,0]<=14)&(hsv[:,:,1]>=45)&(hsv[:,:,2]>80)
+    light=(hsv[:,:,1]<40)&(hsv[:,:,2]>150)
+    if float(skin[support].mean())>.2:return 'BASELINE_HAND_OVER_ACID_ROI'
+    if float(light[support].mean())>.8:return 'BASELINE_GLARE_OVER_ACID_ROI'
+    return None
+
+
 def visible_patch(image, support):
     """Current local dark/coloured patch; no comparison with pre-acid pixels."""
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -23,15 +67,18 @@ def visible_patch(image, support):
 
 
 class AcidApplicationVerifier:
-    def __init__(self, baseline, old_mask, window=5., max_candidates=2, min_clear_frames=2):
+    def __init__(self, baseline, old_mask, window=5., max_candidates=2, min_clear_frames=2,
+                 baseline_alternatives=(), baseline_timestamp=None):
         self.baseline = baseline.copy()
-        self.baseline_gray = cv2.cvtColor(baseline, cv2.COLOR_BGR2GRAY)
         # Historical locations must not exclude evidence of a new application.
         self.window, self.max_candidates = window, max_candidates
         self.min_clear_frames = max(2, int(min_clear_frames))
         self.pending = []
         self.events = []
         self.last_ts = -float('inf')
+        self.baseline_timestamp=baseline_timestamp
+        self.baseline_alternatives=list(baseline_alternatives)[-12:]
+        self.first_candidate_timestamp=None
 
     def _event(self, status, timestamp, candidate, **details):
         self.events.append(dict(status=status, timestamp=timestamp,
@@ -42,6 +89,8 @@ class AcidApplicationVerifier:
         self.pending = [item for item in self.pending if item is not candidate]
 
     def offer(self, frame, quad, detection, timestamp):
+        if self.first_candidate_timestamp is None or timestamp<self.first_candidate_timestamp:
+            self.first_candidate_timestamp=timestamp
         region = footprint(detection['bbox'], quad) > 0
         for candidate in self.pending:
             overlap = np.count_nonzero(region & candidate['seed'])
@@ -86,14 +135,6 @@ class AcidApplicationVerifier:
         # Use available stone coordinates even when the pose/clear-view
         # heuristics are uncertain. They no longer veto acid candidates.
         image = normalized(frame, quad) if quad is not None else None
-        if image is not None:
-            hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-            skin = (hsv[:, :, 0] <= 14) & (hsv[:, :, 1] >= 45) & (hsv[:, :, 2] > 80)
-            light = (hsv[:, :, 1] < 40) & (hsv[:, :, 2] > 150)
-            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            bright_delta = gray.astype(float)-self.baseline_gray.astype(float)
-            bright_delta -= np.median(bright_delta[8:-8, 8:-8])
-            new_highlights = (bright_delta > 15) & (hsv[:, :, 1] < 60)
         for candidate in list(self.pending):
             if timestamp < candidate['timestamp']:
                 continue
@@ -102,20 +143,39 @@ class AcidApplicationVerifier:
                             reason=candidate['reason'])
                 self._drop(candidate)
                 continue
-            support = cv2.dilate(candidate['seed'].astype(np.uint8), np.ones((9, 9), np.uint8)) > 0
-            patch, tool = visible_patch(image,support) if image is not None else (None,None)
-            if image is not None:
-                tool |= new_highlights
-            reason = None
+            support = acid_roi_support(candidate['seed'])
+            patch = visible_patch(image,support)[0] if image is not None else None
+            baseline=candidate.get('baseline',self.baseline)
+            reason = acid_roi_interference(image, support, baseline=baseline)
+            baseline_reason=baseline_roi_interference(baseline,support)
+            baseline_ts=candidate.get('baseline_timestamp',self.baseline_timestamp)
+            if baseline_ts is not None and baseline_ts>=self.first_candidate_timestamp:
+                baseline_reason='BASELINE_CAPTURED_AFTER_FIRST_CANDIDATE'
+            if baseline_reason is not None:
+                if candidate.get('baseline_reason')!=baseline_reason:
+                    self._event('BASELINE_ROI_REJECTED',timestamp,candidate,reason=baseline_reason,
+                                baseline_timestamp=self.baseline_timestamp)
+                    candidate['baseline_reason']=baseline_reason
+                cutoff=self.first_candidate_timestamp
+                choices=[item for item in self.baseline_alternatives
+                         if item['timestamp']<cutoff-.25 and baseline_roi_interference(item['image'],support) is None]
+                if choices:
+                    complete_context=[item for item in choices if item['timestamp']<=cutoff-2]
+                    chosen=(max(complete_context,key=lambda item:item['timestamp']) if complete_context
+                            else min(choices,key=lambda item:item['timestamp']))
+                    candidate['baseline']=baseline=chosen['image']
+                    candidate['baseline_timestamp']=chosen['timestamp']
+                    candidate['baseline_recovered']=True
+                    candidate.update(count=0,first=None,previous=None,patch=None)
+                    baseline_reason=None
+                    reason=acid_roi_interference(image,support,baseline=baseline)
+                    self._event('BASELINE_ROI_RECOVERED',timestamp,candidate,
+                                baseline_timestamp=chosen['timestamp'],source='RECORDED_PRE_ACID_FRAME')
+            if reason is None and baseline_reason is not None:
+                reason=baseline_reason
             if image is None:
                 # Coordinates are required to compare the same stone pixels.
                 reason = 'STONE_COORDINATES_UNAVAILABLE'
-            elif float(skin[8:-8, 8:-8].mean()) > .02:
-                reason = 'HAND_ON_STONE'
-            elif (float(skin[support].mean()) > .2 or float(light[support].mean()) > .8):
-                reason = 'HAND_OR_GLARE_OVER_CANDIDATE'
-            elif self._tool_like(tool, support):
-                reason = 'APPLICATOR_LIKE_CHANGE_REMAINS'
             if reason is not None:
                 candidate.update(count=0, first=None, previous=None, patch=None, reason=reason)
                 continue
@@ -131,7 +191,7 @@ class AcidApplicationVerifier:
             # not become acid merely because the cropped model detects it.
             # Require a majority change; JPEG colour halos around an unchanged
             # mark can otherwise pass a small changed-pixel fraction.
-            changed_patch = patch & changed_pixels(self.baseline, image)
+            changed_patch = patch & changed_pixels(baseline, image)
             if changed_patch.sum() < 5 or changed_patch.sum()/max(1, patch.sum()) < .50:
                 candidate.update(count=0, first=None, previous=None, patch=None,
                                  reason='NO_NEW_PATCH_SINCE_BASELINE')
@@ -187,6 +247,9 @@ class AcidApplicationVerifier:
                             application_timing_status=status,
                             application_verification='DETECTOR_AND_VISIBLE_PERSISTENT_PATCH',
                             clear_patch_frames=candidate['count'])
+                if candidate.get('baseline_recovered'):
+                    best.update(recovered_baseline=candidate['baseline'],
+                                recovered_baseline_timestamp=candidate['baseline_timestamp'])
                 self._event('APPLICATION_VERIFIED', timestamp, candidate, onset=first['timestamp'])
                 self.pending.clear()
                 return first['timestamp'], best

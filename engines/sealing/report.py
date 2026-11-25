@@ -205,23 +205,31 @@ def write_session_report(path, directory, work, flow, result, finish_t, clock_te
     testing = result.get('testing_session')
     if testing:
         for test in testing['jewels']:
+            if test.get('id') is None:
+                continue  # Unlinked footage remains on disk, outside named-jewel results.
             label = f"J{test['id']}" if test.get('id') is not None else 'UNKNOWN / UNASSIGNED'
             header(label + ' | Jewel testing result', 'Evidence outcome independent of workflow progress; no physical approval is implied')
             top = height-135
-            prediction = test.get('prediction')
+            provisional = not test.get('prediction') and bool(test.get('recording_prediction'))
+            prediction = test.get('prediction') or test.get('recording_prediction')
             text(str(prediction['prediction']).upper() if prediction else 'INCOMPLETE - NO ACID RESULT',
                  margin, top, 18, TEAL, True)
-            text('Evidence: '+test.get('evidence_status', test.get('test_status', 'REVIEW_REQUIRED'))+
+            text('Evidence: '+('REVIEW REQUIRED | Candidate recording; jewel identity unconfirmed' if provisional else test.get('evidence_status', test.get('test_status', 'REVIEW_REQUIRED')))+
                  ' | Identity: '+test.get('identity_status', 'UNCERTAIN'), margin, top-22, 8, TEAL, True)
             detail = (f"Model confidence: {prediction['confidence']:.1%}" if prediction else
                       'Reason: '+(test.get('close_reason') or 'No material prediction was generated.'))
             text(detail, margin, top-35, 10)
+            if provisional:
+                text('Candidate model prediction only; this is not a confirmed jewel test result.', margin, top-85, 8, TEAL, True)
             if not prediction:
                 text('Packing/sealing does not complete or pass this jewel test.', margin, top-85, 9, TEAL, True)
             text('Rubbing observed: '+str(test['rubbed'])+' | Acid capture complete: '+str(test['acid_done']),
                  margin, top-65, 10)
             text('Original jewel photo', margin, top-105, 11, TEAL, True)
-            picture(work / f"J{test['id']}_initial.jpg", margin, top-130, usable, 190)
+            original_photo=work / f"J{test['id']}_initial.jpg"
+            if not original_photo.is_file():
+                original_photo=Path(testing['directory']) / f"J{test['id']}.jpg"
+            picture(original_photo, margin, top-130, usable, 190)
             text('Testing evidence directory: '+testing['directory'], margin, top-345, 9)
             button(testing.get('report'), 'full jewel testing report', margin, top-400, 220)
             text('Testing, packing, strip-removal inference and OCR are separate recorded outcomes.',
@@ -255,7 +263,12 @@ def write_session_report(path, directory, work, flow, result, finish_t, clock_te
     if diagnostic:
         text('Last removal check: '+diagnostic.get('blocker', 'unavailable')+
              f" | {diagnostic.get('absent_hits', 0)}/5 clear observations; {diagnostic.get('clear_seconds', 0):.1f}/1.0 s", margin, 108, 8)
+    hand_warning = result.get('sealing_diagnostics', {}).get('hand_warning', {})
+    if hand_warning.get('observations', 0):
+        text(f"Hand overlap observed in {hand_warning['observations']} sealing observations "
+             f"({timestamp(hand_warning.get('first_at'))} to {timestamp(hand_warning.get('last_at'))}). "
+             'Report only; flow continued.', margin, 94, 7, TEAL)
     text('Sealing is inferred from verified strip removal; adhesive closure and strength are not measured.',
-         margin, 80, 8)
+         margin, 64, 8)
     canvas.showPage()
     canvas.save()

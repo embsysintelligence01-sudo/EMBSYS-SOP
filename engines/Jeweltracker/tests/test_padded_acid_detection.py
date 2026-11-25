@@ -66,7 +66,7 @@ class PaddedAcidDetectionTests(unittest.TestCase):
         self.assertIsNone(verifier.observe(after, QUAD, 10.3))
         self.assertIsNotNone(verifier.observe(after, QUAD, 10.4))
 
-    def test_hand_at_stone_edge_blocks_confirmation_away_from_patch(self):
+    def test_hand_at_stone_edge_does_not_block_confirmation_away_from_patch(self):
         before = scene()
         after = scene(acid=True)
         skin = cv2.cvtColor(np.uint8([[[10, 90, 180]]]), cv2.COLOR_HSV2BGR)[0, 0]
@@ -75,11 +75,10 @@ class PaddedAcidDetectionTests(unittest.TestCase):
         verifier = AcidApplicationVerifier(normalized(before, QUAD), np.zeros((256, 256), np.uint8))
         detection = dict(bbox=(125, 100, 148, 145), confidence=.88)
         verifier.offer(covered, QUAD, detection, 10)
-        for ts in (10, 10.1):
-            self.assertIsNone(verifier.observe(covered, QUAD, ts))
-        self.assertEqual('HAND_ON_STONE', verifier.pending[0]['reason'])
-        self.assertIsNone(verifier.observe(after, QUAD, 10.2))
-        self.assertIsNotNone(verifier.observe(after, QUAD, 10.3))
+        self.assertIsNone(verifier.observe(covered, QUAD, 10))
+        onset, result = verifier.observe(covered, QUAD, 10.1)
+        self.assertEqual(10, onset)
+        self.assertEqual(2, result['clear_patch_frames'])
 
     def test_bright_patch_outside_candidate_box_does_not_block_confirmation(self):
         before = scene()

@@ -35,16 +35,35 @@ def ready_for_packet(worker):
 
 
 def testing_snapshot(worker, directory, final=False):
+    monitor = getattr(worker, 'continuous_monitor', None)
     with getattr(worker, 'lock', nullcontext()):
-        jewels = [purity_evidence(tr) for tr in getattr(worker, 'tracks', ())]
+        records = getattr(monitor, 'tests', ()) if final else ()
+        if not isinstance(records, (list, tuple)):
+            records = ()
+        jewels = []
+        for tr in getattr(worker, 'tracks', ()):
+            snapshot_track = copy.copy(tr)
+            # Final report data comes from committed analysis, even when Qt
+            # has not yet delivered the corresponding UI result signal.
+            named = [r for r in records if r.get('jewel_id') == tr.id]
+            candidates = [r for r in records if r.get('jewel_id') is None
+                          and r.get('recording_assignment') == 'PROVISIONAL'
+                          and r.get('recording_candidate_id') == tr.id]
+            if named:
+                record = max(named, key=lambda r: r.get('started') or 0)
+                snapshot_track.acid_result = record
+                snapshot_track.acid_done = bool(record.get('capture_complete'))
+                snapshot_track.rubbed = record.get('rubbing_status') in ('CONFIRMED_LIVE','RUBBING_RECOVERED_FROM_CLIP')
+            if candidates:
+                snapshot_track.provisional_recording = max(candidates, key=lambda r: r.get('started') or 0)
+            jewels.append(purity_evidence(snapshot_track))
         if getattr(worker, 'mode', 'LOCKED') != 'LOCKED':
             for jewel in jewels:
                 if jewel['identity_status'] == 'ASSIGNED':
                     jewel['identity_status'] = 'UNCERTAIN'
     for jewel in jewels:
-        if final and not jewel['prediction'] and not jewel['close_reason']:
+        if final and not jewel['prediction'] and not jewel.get('recording_prediction') and not jewel['close_reason']:
             jewel['close_reason'] = 'Analysis finished without a material result.'
-    monitor = getattr(worker, 'continuous_monitor', None)
     return dict(directory=str(directory), jewels=jewels,
         evidence_status=aggregate_purity(jewels),
         identity_status='UNASSIGNED' if not jewels else

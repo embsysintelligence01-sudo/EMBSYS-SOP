@@ -74,7 +74,8 @@ def hand_continuity_mask(hand,shape):
 
 
 class HandKeypoints:
-    def __init__(self, model_path, *, video=False):
+    def __init__(self, model_path, *, video=False, detection_confidence=.5,
+                 presence_confidence=.5):
         import mediapipe as mp
         self.mp = mp
         self.video = video
@@ -82,8 +83,8 @@ class HandKeypoints:
             base_options=mp.tasks.BaseOptions(model_asset_path=str(model_path)),
             running_mode=(mp.tasks.vision.RunningMode.VIDEO if video
                           else mp.tasks.vision.RunningMode.IMAGE),
-            num_hands=4, min_hand_detection_confidence=.5,
-            min_hand_presence_confidence=.5)
+            num_hands=4, min_hand_detection_confidence=detection_confidence,
+            min_hand_presence_confidence=presence_confidence)
         self.model = mp.tasks.vision.HandLandmarker.create_from_options(options)
 
     def detect(self, frame, *, timestamp_ms=None):

@@ -112,6 +112,28 @@ class PacketStageTests(unittest.TestCase):
         self.assertEqual('INCOMPLETE', result['test_status'])
         self.assertEqual('PARTIAL_REACTION', result['close_reason'])
 
+    def test_final_snapshot_uses_committed_result_before_ui_signal_arrives(self):
+        tr=self.track(1);tr.acid_result=None;tr.acid_done=False;tr.rubbed=False
+        record=dict(jewel_id=1,started=100,cycle_id='test',prediction=dict(prediction='non_gold',confidence=.98),
+                    capture_complete=True,rubbing_status='CONFIRMED_LIVE',close_reason='REACTION_COMPLETE')
+        worker=SimpleNamespace(tracks=[tr],continuous_monitor=SimpleNamespace(tests=[record]))
+        result=testing_snapshot(worker,'/tmp/session',final=True)['jewels'][0]
+        self.assertEqual('non_gold',result['prediction']['prediction'])
+        self.assertTrue(result['acid_done'])
+        self.assertIsNone(tr.acid_result)
+
+    def test_candidate_prediction_is_exported_without_confirming_identity(self):
+        tr=self.track(3);tr.acid_result=None;tr.acid_done=False
+        record=dict(jewel_id=None,recording_candidate_id=3,recording_assignment='PROVISIONAL',started=100,
+                    prediction=dict(prediction='non_gold',confidence=.95),record_path='/tmp/test/manifest.json')
+        worker=SimpleNamespace(tracks=[tr],continuous_monitor=SimpleNamespace(tests=[record]))
+        result=testing_snapshot(worker,'/tmp/session',final=True)['jewels'][0]
+        self.assertIsNone(result['prediction'])
+        self.assertEqual('non_gold',result['recording_prediction']['prediction'])
+        self.assertEqual('PROVISIONAL',result['recording_assignment'])
+        self.assertNotEqual('VERIFIED',result['evidence_status'])
+        self.assertIsNone(result['close_reason'])
+
     def test_packet_window_starts_before_analysis_drains_and_models_stay_loaded(self):
         import threading
         with patch.object(QtCore.QTimer, 'singleShot'):

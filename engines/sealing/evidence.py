@@ -182,6 +182,7 @@ def export_session(directory, work, recorder, flow, finish_t, status, exe, seali
                   bed_verified_at=flow.bed_verified_at, strip_removed=flow.strip_removed,
                   strip_removed_at=flow.strip_removed_at)
     result['sealing_diagnostics'] = dict(last=dict(flow.sealing_diagnostic), blocker_counts=dict(flow.sealing_blocker_counts),
+        hand_warning=dict(flow.sealing_hand_warning),
         observations='sealing_diagnostics.jsonl' if (directory/'sealing_diagnostics.jsonl').is_file() else None,
         images='sealing_debug' if (directory/'sealing_debug').is_dir() else None)
     import copy

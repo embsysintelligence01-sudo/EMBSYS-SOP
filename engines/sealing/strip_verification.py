@@ -82,6 +82,8 @@ class PackingFlow:
         self.strip_previous_clear = False
         self.sealing_diagnostic = {}
         self.sealing_blocker_counts = {}
+        self.sealing_hand_warning = dict(observations=0, first_at=None, last_at=None,
+                                         policy='report_only')
         self.message = "Pick up one jewel; its recording starts automatically."
         self.last_t = -math.inf
 
@@ -204,9 +206,15 @@ class PackingFlow:
             self.bed_verified_at = t if packet_ok and packet_stationary else None
             self.recording_required = self.packet_started = True
         if self.strip_removal_requested and not self.strip_removed:
+            # Hand overlap is audit evidence, not a strip-removal gate.
+            if not hands_clear:
+                warning = self.sealing_hand_warning
+                warning['observations'] += 1
+                if warning['first_at'] is None:
+                    warning['first_at'] = t
+                warning['last_at'] = t
             blocker = ('packet_not_detected' if not context_ok else
                        'strip_area_not_visible' if not strip_view_ok else
-                       'hand_covering_strip_area' if not hands_clear else
                        'strip_still_detected' if strip == 'present' else
                        'strip_prediction_uncertain' if strip != 'absent' else 'checking_removal')
             paused = False
@@ -232,6 +240,7 @@ class PackingFlow:
             self.sealing_diagnostic = dict(timestamp=t, blocker=blocker, strip=strip,
                 packet_context=bool(context_ok), strip_area_visible=bool(strip_view_ok),
                 hands_clear=bool(hands_clear), absent_hits=self.strip_absent_hits,
+                hand_warning=not hands_clear, hand_policy='report_only',
                 required_hits=5, clear_seconds=self.strip_clear_seconds, required_clear_seconds=1.,
                 uncertainty_paused=paused, observation_gap_reset=observation_gap,
                 observation_gap_seconds=gap if math.isfinite(gap) else None)
@@ -246,7 +255,6 @@ class PackingFlow:
         elif self.strip_removal_requested:
             labels = dict(packet_not_detected='Packet not detected. Keep the packet inside the bench ROI.',
                 strip_area_not_visible='Strip area not visible. Unfold or reposition the packet.',
-                hand_covering_strip_area='Hand covering the strip area. Move both hands away.',
                 strip_still_detected='Strip still detected on the packet. Remove it and move the loose strip away.',
                 strip_prediction_uncertain='Strip prediction uncertain. Hold the packet still with even lighting.',
                 checking_removal='Checking strip removal.')

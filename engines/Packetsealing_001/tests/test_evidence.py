@@ -56,11 +56,13 @@ class EvidenceTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             work, recorder, flow = self.fixture(root)
+            flow.sealing_hand_warning.update(observations=4, first_at=101., last_at=102.)
             flow.packet_opening_model={'status':'ready','validation':{'accuracy':.6962}}
             flow.jewels[1].packet_opening_observations=[dict(label='OPEN_SIDE',first_seen=101.,last_seen=102.,samples=4,probability=.9)]
             result = export_session(root, work, recorder, flow, 102.9, "Synthetic test", exe, 102.4)
             self.assertEqual(result['jewels'][0]['packet_opening_observations'][0]['label'],'OPEN_SIDE')
             self.assertTrue(result["sealed"])
+            self.assertEqual(4, result['sealing_diagnostics']['hand_warning']['observations'])
             self.assertEqual(result["sealing_method"], "strip_removal_inferred")
             self.assertEqual(result["closure"]["status"], "inferred_from_strip_removal")
             if shutil.which("pdftotext"):
@@ -70,6 +72,8 @@ class EvidenceTests(unittest.TestCase):
                 self.assertIn('viewed from the side with an apparent opening', ' '.join(report_text.split()))
                 self.assertIn('inferred placed inside from transfer evidence', ' '.join(report_text.split()))
                 self.assertIn('69.6%',report_text)
+                self.assertIn('Hand overlap observed in 4 sealing observations', ' '.join(report_text.split()))
+                self.assertIn('Hidden attachment areas cannot verify removal.', ' '.join(report_text.split()))
             self.assertTrue(result["all_budgets_met"])
             self.assertEqual(len(result["exports"]), 2)
             self.assertTrue(all(r["combined_bytes"] <= 2_000_000 for r in result["exports"]))

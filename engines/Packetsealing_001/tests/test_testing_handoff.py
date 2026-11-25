@@ -11,6 +11,24 @@ from standalone.evidence import export_session, ffmpeg_path
 
 
 class TestingHandoffReportTests(unittest.TestCase):
+    def test_candidate_prediction_is_visible_and_unlinked_result_has_no_page(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory=Path(tmp)
+            work,recorder,flow=fixtures.EvidenceTests().fixture(directory)
+            flow.testing_session=dict(directory=tmp,analysis_status='FINISHED',jewels=[
+                dict(id=1,rubbed=False,acid_done=False,prediction=None,
+                     recording_prediction=dict(prediction='non_gold',confidence=.95),
+                     recording_assignment='PROVISIONAL',evidence_status='INCOMPLETE'),
+                dict(id=None,rubbed=False,acid_done=False,prediction=None)])
+            export_session(directory,work,recorder,flow,102.9,'Complete',ffmpeg_path())
+            if shutil.which('pdftotext'):
+                text=subprocess.check_output(['pdftotext',str(directory/'report.pdf'),'-'],text=True)
+                self.assertIn('NON_GOLD',text)
+                self.assertIn('95.0%',text)
+                self.assertIn('Candidate recording; jewel identity unconfirmed',text)
+                self.assertNotIn('UNKNOWN / UNASSIGNED | Jewel testing result',text)
+                self.assertNotIn('INCOMPLETE - NO ACID RESULT',text)
+
     def test_export_keeps_testing_result_and_confirmed_packet_number_together(self):
         with tempfile.TemporaryDirectory() as tmp:
             testing = Path(tmp)

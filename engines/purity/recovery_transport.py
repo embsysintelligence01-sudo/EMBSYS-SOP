@@ -139,6 +139,11 @@ def recover(monitor, attempt, contact):
         if monitor.backup_worker is None:
             monitor.backup_worker = BackupWorker(config)
         response = monitor.backup_worker.analyze(request, directory)
+    if attempt.get('reference_alignment_uncertain') and response.get('rub'):
+        response = dict(response)
+        response['unverified_rub'] = response.pop('rub')
+        response['status'] = 'REVIEW_REQUIRED'
+        response['reason'] = 'Stone outline recovered; earlier mark-reference alignment remains unverified.'
     attempt['backup'] = response
     attempt['evidence_source'] = response.get('source', 'EXISTING_RECOVERY_RETAINED')
     for key,value in response.get('timings',{}).items():

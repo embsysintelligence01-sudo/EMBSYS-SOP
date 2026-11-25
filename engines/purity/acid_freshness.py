@@ -118,7 +118,9 @@ class FreshAcidGate:
     def check(self, frame, quad, found, timestamp, geometry_known=True):
         if not found:
             return None, 'ACID_NOT_DETECTED'
-        if not geometry_known or quad is None or self.baseline is None:
+        # A fresh outline is not required: the caller retains established
+        # coordinates while the stone remains on the same bed position.
+        if quad is None or self.baseline is None:
             return self._reject(timestamp, 'STONE_GEOMETRY_UNCERTAIN', found)
         image = normalized(frame, quad)
         changed = changed_pixels(self.baseline, image)

@@ -24,6 +24,21 @@ class ContinuousUITests(unittest.TestCase):
     def tearDown(self):
         self.window.close()
 
+    def test_new_recording_clears_old_detected_mark_instruction(self):
+        worker=app.Worker(0,[(0,0),(399,0),(399,299),(0,299)],continuous=True)
+        self.window.worker=worker
+        worker.workflow.connect(self.window.continuous_update)
+        self.window.rub_instruction.setText('New rubbed mask: DETECTED. Moving to baseline.')
+        worker.continuous_event('begin',jewel_id=1,token='fresh-cycle')
+        self.assertNotIn('DETECTED',self.window.rub_instruction.text())
+        self.assertIn('not yet confirmed',self.window.rub_instruction.text())
+        worker.continuous_event('mask_decision',jewel_id=1,token='fresh-cycle',detected=False,pending=True)
+        self.assertIn('checking in background',self.window.rub_instruction.text())
+        worker.continuous_event('acid_detection',jewel_id=1,token='fresh-cycle',detected=False,
+                               provisional=True,waiting_for_baseline=True,timestamp=100,bbox=(125,100,148,145))
+        self.assertIn('usable baseline',self.window.acid_instruction.text())
+        self.window.worker=None
+
     def test_main_window_has_no_per_test_retakes_or_manual_handoff(self):
         self.window.show()
         self.qt.processEvents()

@@ -97,6 +97,15 @@ class EvidenceTests(unittest.TestCase):
         ref = RubReference(models, scene(mark=True), 1, QUAD)
         self.assertNotEqual('NEW_RUB', ref.after(models, scene(mark=True), 2, QUAD)['status'])
 
+    def test_stone_position_accepts_corner_overhang_but_requires_centre_in_roi(self):
+        roi = np.float32([[100,90],[200,90],[200,170],[100,170]])
+        self.assertTrue(inside_roi(QUAD, roi))  # All four stone corners are outside.
+        self.assertFalse(inside_roi(QUAD + [100,0], roi))
+        boundary = np.float32([[149.5,90],[200,90],[200,170],[149.5,170]])
+        self.assertTrue(inside_roi(QUAD, boundary))
+        self.assertFalse(inside_roi(None, roi))
+        self.assertFalse(inside_roi(QUAD, None))
+
     def test_journal_preserves_source_timestamps_and_writes_clip(self):
         with tempfile.TemporaryDirectory() as tmp:
             journal = FrameJournal(tmp)
@@ -179,8 +188,8 @@ class AutomaticFlowTests(unittest.TestCase):
     def test_auto_position_includes_full_stone_during_setup_but_never_moves_in_test(self):
         explicit = np.float32([[50,30],[250,30],[250,180],[50,180]])
         for mode, configured, expected_inside in [('ARMING', None, True),
-                                                   ('LOCKED', None, False),
-                                                   ('ARMING', explicit, False)]:
+                                                   ('LOCKED', None, True),
+                                                   ('ARMING', explicit, True)]:
             with self.subTest(mode=mode, explicit=configured is not None), tempfile.TemporaryDirectory() as tmp:
                 monitor = ContinuousMonitor(tmp, lambda: None, Photos(), Mock(), lambda *a, **kw: None)
                 try:
@@ -191,6 +200,8 @@ class AutomaticFlowTests(unittest.TestCase):
                         monitor.step(dict(frame=frame, timestamp=timestamp, mode=mode, revision=0,
                             stone=stone, placement=configured, bench_moving=False, rubbing=False, tracks=[]))
                     self.assertEqual(expected_inside, inside_roi(QUAD, monitor.placement))
+                    if mode == 'LOCKED':
+                        self.assertLess(monitor.placement[:,1].max(), QUAD[:,1].max())
                     if configured is not None:
                         np.testing.assert_array_equal(configured, monitor.placement)
                 finally:
@@ -297,7 +308,7 @@ class AutomaticFlowTests(unittest.TestCase):
                 self.assertTrue(all(r['close_reason']=='INACTIVITY_TIMEOUT' for r in monitor.tests))
                 self.assertTrue(all(r['prediction'] is None for r in monitor.tests))
                 phases = [payload['phase'] for kind, payload in events if kind == 'phase']
-                self.assertLess(phases.index('MASK_CHECK'), phases.index('BASELINE'))
+                self.assertTrue(all(r['baseline_source']=='JEWEL_PLACED_IN_TEST_BED' for r in monitor.tests))
                 self.assertLess(phases.index('BASELINE'), phases.index('WAIT_FOR_ACID'))
             finally:
                 if monitor.active:
