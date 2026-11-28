@@ -5,9 +5,9 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from app.config import PACKET
-cache = Path.home()/'.paddlex/official_models'
+from shared.inference.model_registry import asset_dir
 for name in ('PP-OCRv5_mobile_det','en_PP-OCRv5_mobile_rec','PP-LCNet_x1_0_textline_ori'):
-    directory=cache/name
+    directory=asset_dir(name)
     if not directory.is_dir() or not any(directory.glob('*.json')) or not any(directory.glob('*.pdiparams')):
         raise SystemExit('Required local PaddleOCR cache missing; offline validation unavailable')
 os.environ.update(HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK='True')

@@ -57,21 +57,10 @@ def main():
         if summary:
             detail += '; ' + '; '.join(summary[-2:])
         record(name, status, detail)
-    # Verify byte-for-byte copies of all model binaries and unchanged source files.
-    manifest = json.loads((ROOT / 'docs/COPY_MANIFEST.json').read_text())
-    import hashlib
-    models = [name for name in manifest if Path(name).suffix.lower() in ('.onnx','.pt','.pth','.bin','.xml','.task','.tflite','.npz','.joblib')]
-    bad = [name for name in models if asset_location(name) is None or not asset_location(name).is_file() or hashlib.sha256(asset_location(name).read_bytes()).hexdigest()!=manifest[name]]
-    record('model-copy-integrity', 'FAILED' if bad else 'PASSED', f'{len(models)} original model/asset roles checked at retained, relocated or identical canonical paths; missing/changed: '+', '.join(bad))
-    required = [JEWEL/'int_8_GOLD_JEWEL/gold_int8.xml', JEWEL/'INT8_openvino_model/best.xml',
-        JEWEL/'INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.xml', JEWEL/'acid_test/models/acid_detector.onnx',
-        JEWEL/'acidphintegration/acidph_openvino/acidph.xml', JEWEL/'weights/resnet18_features.onnx',
-        JEWEL/'weights/siglip2-base-patch32-256_vision_encoder.sim.onnx']
-    required += [PACKET/'model onnx'/name for name in ('bagnewmodel.onnx','fp_filter_resnet18_bag.onnx','stripmodel.onnx','hsv_fp_filter_strip.pt','handseg model.onnx','pcnumber.onnx')]
-    required += [path.with_suffix('.bin') for path in required if path.suffix == '.xml']
-    missing = [str(p.relative_to(ROOT)) for p in required if not p.is_file() or not p.stat().st_size]
-    temporal = list((JEWEL/'acid_test/model_training/artifacts').glob('temporal*.onnx'))
-    record('required-model-paths', 'FAILED' if missing or not temporal else 'PASSED', f'{len(required)} required assets; {len(temporal)} temporal models; missing: '+', '.join(missing))
+    from shared.inference.model_registry import validate, registry
+    problems = validate()
+    record('model-copy-integrity', 'FAILED' if problems else 'PASSED', f"{len(registry()['models'])} registered assets checked; errors: {problems}")
+    record('required-model-paths', 'FAILED' if problems else 'PASSED', 'Central registry checks logical names, hashes and OpenVINO pairs.')
     run('cleanup-integrity','purity',['scripts/verify_cleanup.py'])
     run('storage-paths','packet',['scripts/check_storage_paths.py'])
     run('source-security-audit','purity',['scripts/audit.py'])

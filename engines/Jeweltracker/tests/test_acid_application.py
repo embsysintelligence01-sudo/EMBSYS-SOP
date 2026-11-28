@@ -28,6 +28,53 @@ def verifier(old=None):
 
 
 class ApplicationVerificationTests(unittest.TestCase):
+    def test_obscured_baseline_at_actual_acid_roi_is_distinct_from_global_clearance(self):
+        before=scene()
+        skin=cv2.cvtColor(np.uint8([[[10,180,180]]]),cv2.COLOR_HSV2BGR)[0,0]
+        before[95:150,120:155]=skin
+        v=AcidApplicationVerifier(normalized(before,QUAD),np.zeros((256,256),np.uint8))
+        image=scene(acid=True);v.offer(image,QUAD,DETECTION,10)
+        self.assertIsNone(v.observe(image,QUAD,10,clear=False))
+        self.assertIsNone(v.observe(image,QUAD,10.04,clear=False))
+        self.assertEqual('BASELINE_HAND_OVER_ACID_ROI',v.pending[0]['reason'])
+
+    def test_stationary_bright_rubbed_streak_is_valid_baseline_texture(self):
+        before=needle()
+        image=needle(patch=True)
+        v=AcidApplicationVerifier(normalized(before,QUAD),np.zeros((256,256),np.uint8))
+        v.offer(image,QUAD,DETECTION,10)
+        self.assertIsNone(v.observe(image,QUAD,10))
+        onset,_=v.observe(image,QUAD,10.04)
+        self.assertEqual(10,onset)
+        self.assertFalse(reaction_region_covered(image,DETECTION['bbox'],QUAD,QUAD,True,
+                                               baseline=normalized(before,QUAD)))
+
+    def test_obscured_baseline_recovers_only_from_frames_before_first_candidate(self):
+        before=scene();skin=cv2.cvtColor(np.uint8([[[10,180,180]]]),cv2.COLOR_HSV2BGR)[0,0]
+        before[95:150,120:155]=skin
+        clean=normalized(scene(),QUAD)
+        alternatives=[dict(timestamp=7.5,image=clean),dict(timestamp=9.5,image=clean),
+                      dict(timestamp=10.1,image=normalized(scene(acid=True),QUAD))]
+        v=AcidApplicationVerifier(normalized(before,QUAD),np.zeros((256,256),np.uint8),
+                                 baseline_alternatives=alternatives,baseline_timestamp=8)
+        image=scene(acid=True);v.offer(image,QUAD,DETECTION,10)
+        self.assertIsNone(v.observe(image,QUAD,10))
+        onset,best=v.observe(image,QUAD,10.04)
+        self.assertEqual(10,onset)
+        self.assertEqual(7.5,best['recovered_baseline_timestamp'])
+        self.assertTrue(any(e['status']=='BASELINE_ROI_RECOVERED' for e in v.events))
+
+    def test_later_candidate_cannot_make_a_post_acid_frame_eligible_as_baseline(self):
+        before=scene();before[95:150,120:155]=(30,80,180)
+        v=AcidApplicationVerifier(normalized(before,QUAD),np.zeros((256,256),np.uint8),
+            baseline_alternatives=[dict(timestamp=11,image=normalized(scene(),QUAD))])
+        image=scene(acid=True);v.offer(image,QUAD,DETECTION,10)
+        v.observe(image,QUAD,15.1)
+        v.offer(image,QUAD,DETECTION,16)
+        self.assertIsNone(v.observe(image,QUAD,16))
+        self.assertIsNone(v.observe(image,QUAD,16.04))
+        self.assertFalse(any(e['status']=='BASELINE_ROI_RECOVERED' for e in v.events))
+
     def test_full_detector_roi_is_preserved_instead_of_tight_changed_patch(self):
         v=verifier();image=scene(acid=True)
         detection=dict(DETECTION,bbox=(110,85,165,160))
@@ -49,14 +96,40 @@ class ApplicationVerificationTests(unittest.TestCase):
         self.assertEqual((130,100,185,175),best['bbox'])
         np.testing.assert_array_equal(moved,best['source_frame'])
 
-    def test_reaction_coverage_follows_a_moved_stone_and_rejects_unknown_pose(self):
+    def test_reaction_coverage_follows_stone_without_whole_stone_clearance_veto(self):
         frame=np.full((300,400,3),65,np.uint8)
         skin=cv2.cvtColor(np.uint8([[[10,80,180]]]),cv2.COLOR_HSV2BGR)[0,0]
         frame[85:165,190:250]=skin
         box=(128,107,143,139)
         self.assertFalse(reaction_covered(frame,box))
         self.assertTrue(reaction_region_covered(frame,box,QUAD,QUAD+[80,0],True))
-        self.assertTrue(reaction_region_covered(scene(acid=True),box,QUAD,QUAD,False))
+        self.assertFalse(reaction_region_covered(scene(acid=True),box,QUAD,QUAD,False))
+        self.assertTrue(reaction_region_covered(scene(acid=True),box,QUAD,None,False))
+
+    def test_interference_outside_acid_roi_does_not_delay_confirmation(self):
+        skin=cv2.cvtColor(np.uint8([[[10,80,180]]]),cv2.COLOR_HSV2BGR)[0,0]
+        for colour in (skin,(220,220,220)):
+            with self.subTest(colour=tuple(colour)):
+                image=scene(acid=True)
+                image[70:190,175:210]=colour
+                v=verifier();v.offer(image,QUAD,DETECTION,10)
+                self.assertIsNone(v.observe(image,QUAD,10,clear=False))
+                onset,_=v.observe(image,QUAD,10.04,clear=False)
+                self.assertEqual(10,onset)
+                self.assertFalse(reaction_region_covered(image,DETECTION['bbox'],QUAD,QUAD,False))
+
+    def test_interference_inside_acid_roi_blocks_until_two_clear_frames(self):
+        skin=cv2.cvtColor(np.uint8([[[10,80,180]]]),cv2.COLOR_HSV2BGR)[0,0]
+        for colour in (skin,(220,220,220)):
+            with self.subTest(colour=tuple(colour)):
+                image=scene(acid=True);image[95:150,120:155]=colour
+                v=verifier();v.offer(image,QUAD,DETECTION,10)
+                self.assertIsNone(v.observe(image,QUAD,10))
+                self.assertIsNone(v.observe(image,QUAD,10.04))
+                self.assertTrue(reaction_region_covered(image,DETECTION['bbox'],QUAD,QUAD,True))
+                self.assertIsNone(v.observe(scene(acid=True),QUAD,10.1))
+                onset,_=v.observe(scene(acid=True),QUAD,10.14)
+                self.assertEqual(10.1,onset)
 
     def test_two_distinct_clear_frames_confirm_without_repeated_model_detections(self):
         v=verifier();image=scene(acid=True)
@@ -154,6 +227,99 @@ class ApplicationVerificationTests(unittest.TestCase):
 
 
 class ApplicationFlowTests(unittest.TestCase):
+    def test_recovered_baseline_is_used_by_live_gate_and_saved_metadata(self):
+        with monitor_case() as (m,events):
+            m.step(snap(100,held=1));a=m.active
+            before=scene();before[95:150,120:155]=(30,80,180)
+            m._baseline(a,before,100.2,QUAD)
+            a['baseline_candidates']=[dict(timestamp=100.3,image=normalized(scene(),QUAD))]
+            image=scene(acid=True)
+            m._acid_observation(101,a['id'],[DETECTION],(image,QUAD,True,True,False))
+            m._verify_application(a,image,QUAD,101.04,True,True)
+            self.assertEqual(101,a['acid_onset'])
+            self.assertEqual(100.3,a['baseline_at'])
+            a['finished']=106.1
+            self.assertEqual('RECORDED_PRE_ACID_FRAME',m._record(a)['baseline_source'])
+            np.testing.assert_array_equal(normalized(scene(),QUAD),a['fresh_gate'].baseline)
+
+    def test_live_hand_elsewhere_preserves_geometry_and_complete_reaction(self):
+        with monitor_case() as (m,events):
+            for i in range(21):
+                ts=100+i*.1;image=scene()
+                m.journal.offer(image,ts);m.step(snap(ts,held=1 if i==0 else None,frame=image))
+            a=m.active
+            m._set_acid(a,102,dict(DETECTION,source_frame=scene(acid=True),quad=QUAD))
+            skin=cv2.cvtColor(np.uint8([[[10,80,180]]]),cv2.COLOR_HSV2BGR)[0,0]
+            for i in range(21,72):
+                ts=100+i*.1;image=scene(acid=True)
+                image[70:90,90:210]=skin
+                m.journal.offer(image,ts);m.step(snap(ts,frame=image))
+            m.drain_finalization()
+            record=m.tests[0]
+            self.assertEqual('COMPLETE',record['reaction_coverage_status'])
+            self.assertFalse(record['reaction_rejected_frames'])
+            self.assertIsNone(a.get('reaction_interrupted_at'))
+            self.assertAlmostEqual(107,record['reaction_observation_end'])
+
+    def test_recorded_recovery_ignores_hand_away_from_acid_roi(self):
+        with monitor_case() as (m,events):
+            m.step(snap(100,held=1));a=m.active
+            a['fresh_gate']=FreshAcidGate(np.zeros((256,256),np.uint8),scene(),QUAD)
+            skin=cv2.cvtColor(np.uint8([[[10,80,180]]]),cv2.COLOR_HSV2BGR)[0,0]
+            for i in range(5):
+                ts=100.2+i*.2
+                image=scene(acid=True);image[70:90,90:210]=skin
+                m.journal.offer(image,ts);a['poses'].append((ts,QUAD.copy()))
+            m.journal.queue.join()
+            m._detect=lambda frame,ts,stone,cid:(ts,cid,[DETECTION])
+            recovery=dict(a,stop_search=threading.Event())
+            onset,best,_,_=m._search_recording(recovery,100.2,101)
+            self.assertAlmostEqual(100.2,onset)
+            self.assertIsNotNone(best)
+
+    def test_export_checks_acid_roi_instead_of_padded_classifier_crop(self):
+        with monitor_case() as (m,events):
+            m.step(snap(100,held=1));a=m.active
+            a['returned']=100.1;a['return_frame']=scene();a['baseline_at']=100
+            a['reference']=RubReference(Photos(),scene(),99,QUAD)
+            a['poses']=[(100+i*.1,QUAD.copy()) for i in range(82)]
+            skin=cv2.cvtColor(np.uint8([[[10,80,180]]]),cv2.COLOR_HSV2BGR)[0,0]
+            for i in range(82):
+                image=scene(acid=i>=25)
+                if i>=25:image[70:90,90:210]=skin
+                m.journal.offer(image,100+i*.1)
+                # This fixture checks ROI visibility, not writer-queue overload.
+                m.journal.queue.join()
+            m._set_acid(a,102.5,dict(DETECTION,source_frame=scene(acid=True),quad=QUAD,
+                        application_verification='DETECTOR_AND_VISIBLE_PERSISTENT_PATCH'))
+            m._finish(107.6);m.drain_finalization()
+            record=m.tests[0]
+            self.assertEqual('COMPLETE',record['reaction_coverage_status'])
+            self.assertFalse(record['reaction_rejected_frames'])
+            self.assertAlmostEqual(107.5,record['reaction_observation_end'])
+
+    def test_roi_obstruction_does_not_end_or_restart_five_second_recording(self):
+        with monitor_case() as (m,events):
+            for i in range(21):
+                ts=100+i*.1;image=scene()
+                m.journal.offer(image,ts);m.step(snap(ts,held=1 if i==0 else None,frame=image))
+            a=m.active
+            m._set_acid(a,102,dict(DETECTION,source_frame=scene(acid=True),quad=QUAD))
+            for i in range(21,72):
+                ts=100+i*.1;image=scene(acid=True)
+                if 104<=ts<104.6:image[95:150,120:155]=220
+                m.journal.offer(image,ts);m.step(snap(ts,frame=image))
+                if ts<107:
+                    self.assertIs(a,m.active)
+                    self.assertEqual(102,a['acid_onset'])
+                    self.assertIsNone(a['reaction_end'])
+            m.drain_finalization()
+            record=m.tests[0]
+            self.assertAlmostEqual(107,record['reaction_observation_end'])
+            self.assertEqual('PARTIAL',record['reaction_coverage_status'])
+            self.assertTrue(record['reaction_rejected_frames'])
+            self.assertGreater(record['reaction_last_timestamp'],106.5)
+
     def test_mark_from_between_tool_candidate_and_clear_patch_cannot_be_used_as_pre_acid_mask(self):
         with monitor_case() as (m,events):
             m.step(snap(100,held=1));a=m.active

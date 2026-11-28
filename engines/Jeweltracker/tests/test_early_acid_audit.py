@@ -10,6 +10,14 @@ from test_acid_application import DETECTION
 from test_sop_revision import monitor_case, snap
 
 class EarlyAcidAuditTests(unittest.TestCase):
+    def test_roi_interference_is_reported_without_shortening_recording(self):
+        record=dict(acid_onset=100,finished=105,reaction_observation_end=105,
+                    reaction_interrupted_at=102,reaction_end=None,
+                    usable_reaction_seconds=4.6,reaction_coverage_status='PARTIAL')
+        rows=event_rows(record)
+        self.assertTrue(any(row[0]=='Acid ROI interference' and row[3]=='Recording continued' for row in rows))
+        self.assertFalse(any(row[0]=='Possible cleaning / coverage' for row in rows))
+
     def test_baseline_false_positive_does_not_ban_early_application(self):
         with monitor_case() as (m, events):
             m.step(snap(100,held=1));a=m.active

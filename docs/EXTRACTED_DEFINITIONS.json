@@ -1,0 +1,177 @@
+[
+  {
+    "name": "dahua_url",
+    "destination": "shared/camera/acquisition.py",
+    "original_ast_sha256": "95d8dd3232d3a580e8850c89b9d0378d0d088119105c6a4ba1daf98e883232a3"
+  },
+  {
+    "name": "local_ipv4s",
+    "destination": "shared/camera/acquisition.py",
+    "original_ast_sha256": "223d1ef7110f2d7caad1c2a8f24d6a99cd5a8843139cd7949371f2a1801d9939"
+  },
+  {
+    "name": "unreachable_hint",
+    "destination": "shared/camera/acquisition.py",
+    "original_ast_sha256": "600e4011c3e077ebe2b5dab8159957f337d4798cf5e7ac94c7343030bd54db82"
+  },
+  {
+    "name": "af_flicker_note",
+    "destination": "shared/camera/acquisition.py",
+    "original_ast_sha256": "927388edcc1fcf59db9c70d8602db1f25e2a673ab08ad7af483dd40a13e01b4b"
+  },
+  {
+    "name": "apply_usb_antiflicker",
+    "destination": "shared/camera/acquisition.py",
+    "original_ast_sha256": "e413f1fd7f739997ce90174b662ed2abf58f3afce7b4953ea48e11d28ce3ad13"
+  },
+  {
+    "name": "clipped_share",
+    "destination": "shared/camera/acquisition.py",
+    "original_ast_sha256": "b8af51f00843e8a59fb2bd79b4767903a1ab57347b2c0b6733346de72b70f308"
+  },
+  {
+    "name": "FlickerMeter",
+    "destination": "shared/camera/acquisition.py",
+    "original_ast_sha256": "6e0063f6db26c5c22e50670e2af87c8ceff4cfdb599c15c6fb5667ecc0575be1"
+  },
+  {
+    "name": "open_usb_camera",
+    "destination": "shared/camera/acquisition.py",
+    "original_ast_sha256": "bef324f5d00bb45fd6aad8b8e55bee62ef5e21069dce8a0ffba03ef37e529ab3"
+  },
+  {
+    "name": "RTSPGrabber",
+    "destination": "shared/camera/acquisition.py",
+    "original_ast_sha256": "256fabc213d450bae82ac40978382a38987011c0e8a8613dc2c7d73bbb05bf81"
+  },
+  {
+    "name": "Det",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "5f06bbe30a925c1c70c4ad186f2b59c4a0f921e60364d80a343a911b64c743bc"
+  },
+  {
+    "name": "touching",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "2bc7b82e7a716a010c6fc6c7f7d1905117674e5742440d7d73632dfb880c4829"
+  },
+  {
+    "name": "merge_dets",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "992dc083c86a48343b674a5fb12eb4e15377f2904f39d63f4cb3c913d3029c2e"
+  },
+  {
+    "name": "merge_pieces",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "a934a16c50a5ea1267d2d4e761c674d3cf6e8119997f89295b35894980cd4788"
+  },
+  {
+    "name": "gold_fraction",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "73777ecb9d44a582d1f216d8db556e6b73649f4f624c90e1c19baca767d31419"
+  },
+  {
+    "name": "otsu_jewel_mask",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "701fe118d95b8f31b5a9b9521117367e3a142775c0ba8626d7861269b93a92a1"
+  },
+  {
+    "name": "count_link_holes",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "3fdd63bc8a157f3e4d0f30a217be488fe30c052b431b2f40f18aaee4752816a0"
+  },
+  {
+    "name": "appearance",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "87b6acae23dbce300edb42bacb35c1140cd9aa9467120370f8e12977236d7c4e"
+  },
+  {
+    "name": "siglip_mask",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "39297eba561afdbbb374714be4da39e989e7165bd8b117208066530963914031"
+  },
+  {
+    "name": "siglip_embed",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "aa7077773ea562d3df722438caa7d620d94fc510a34376bd6afd66482457f0f4"
+  },
+  {
+    "name": "similarity",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "f4cb12629e1ab4cfa05b41a7ae52b385f43519eeb11527526ea0fe4ab0e8e56a"
+  },
+  {
+    "name": "colour_similarity",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "c39f73421924c04a0a32c3c08dcf17648b61bff84a779e87a21e9f918901fcca"
+  },
+  {
+    "name": "Track",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "fd244c37b66bd2e54e060cd014e2b6da3aa07c206fb5fbab62727c2bcf05e6a2"
+  },
+  {
+    "name": "box_iou",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "d989ae355597b8c3c6dd5785e9e7d25da89546bdde8eee45c2a515ba16a4f4f7"
+  },
+  {
+    "name": "dashed_rect",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "e0b1f91d96fcdf92d0df6102010b36beef07de6be53f577cd7cf56b0df792f3b"
+  },
+  {
+    "name": "crop_box",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "795a17991d442e7df72e0c0ca0c387d95d5b62044761c3cbee4fda86624f0c6f"
+  },
+  {
+    "name": "augment",
+    "destination": "shared/tracking/observations.py",
+    "original_ast_sha256": "e6931d2ab4e3e754c3ebc52ae868a57abc4cc8dfb169950a3244c4cf4af28f6c"
+  },
+  {
+    "name": "JewelIdModel",
+    "destination": "engines/purity/identity_features.py",
+    "original_ast_sha256": "8583eb1316ef73f673aa276b1a20985ba0b3a59f6c6bff3da81a68ee1db6fbb2"
+  },
+  {
+    "name": "spot_patch",
+    "destination": "engines/purity/live_rubbing.py",
+    "original_ast_sha256": "f441c867b0f6919763e679128619a11712d0a1e2fd9428f5f0198a257c921333"
+  },
+  {
+    "name": "largest_component",
+    "destination": "engines/purity/live_rubbing.py",
+    "original_ast_sha256": "e62b8bed56246ff62f81a671360064bf7a7cc7eb52510bda6b9c38940c6bb64c"
+  },
+  {
+    "name": "StoneWatcher",
+    "destination": "engines/purity/live_rubbing.py",
+    "original_ast_sha256": "ec6cea39836466890fca4d02e3e0e1d29cfeeabf7aff96e0cb0e4ecb2250f52c"
+  },
+  {
+    "name": "stone_observation_matches",
+    "destination": "engines/purity/live_rubbing.py",
+    "original_ast_sha256": "707fc384a66452fc67ff8b5045efa794a2694db9e040d7e311fec92847fd6a9f"
+  },
+  {
+    "name": "rubbing_evidence",
+    "destination": "engines/purity/live_rubbing.py",
+    "original_ast_sha256": "6e086fb2cbc249da3379eb49ab6e303aa18ad2b076d9eefe12126d2731de4f09"
+  },
+  {
+    "name": "projected_rub_geometry",
+    "destination": "engines/purity/live_rubbing.py",
+    "original_ast_sha256": "1745bb8d6095233400b388d80d6d5c6cfe171f78bb1b28f439bfaf97388f2bd5"
+  },
+  {
+    "name": "RubbingObserver",
+    "destination": "engines/purity/live_rubbing.py",
+    "original_ast_sha256": "b53f704606182c8c1f406074a8e08945daa70516308dad8ff110a5e3f592dcfc"
+  },
+  {
+    "name": "SharedGoldModel",
+    "destination": "shared/inference/gold_dispatcher.py",
+    "original_ast_sha256": "262d54bcc9f7a54ac06320ce31827daa0477cd659b31ebeb8cb7bb7802d797d8"
+  }
+]

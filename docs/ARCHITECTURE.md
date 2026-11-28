@@ -47,3 +47,14 @@ Unreferenced numbered/similarity entry points and historical snapshots are prese
 Telemetry, packet output and local sample images were moved outside engine source directories, with compatible links. Purity captures remain at their physical original combined-project path: the unchanged evidence containment policy rejects symlinked parents. Saved evidence is retained and ignored by Git. `scripts/prepare_runtime.py` recreates these links during install and uses the same exclusive lock as ProcessManager; it refuses active ownership or ambiguous merges. No SOP source paths, algorithms or timing were changed.
 
 The development runner uses the configured SLIC environment and ownership lock, and executes preserved source with its original engine file/import context so local model/config lookups still work. These explicit developer tools never run from the production launcher. `CLEANUP_MANIFEST.json` maps old assets to their preserved destinations or byte-identical canonicals; validation/audit understand that mapping without weakening required active-model checks. `CLEANUP_REPORT.md` records every initial engine file, reason and result.
+
+## Packet Releasing preparation (2026-11-28)
+
+The original automated/manual Packet Releasing source and PyQt6 interface live in
+`engines/PacketReleasing/`. `development/run_engine.py` starts it using a separate
+configured interpreter under the existing inherited SOP ownership lock. The
+production command resolver rejects this workflow; `app/main_window.py` retains
+its two production choices. No queue or new cross-engine handoff is implemented.
+The existing purity/sealing source and verification remain unchanged. See
+`THREE_ENGINE_PREPARATION.md` for the engine map, dependencies, model comparisons,
+import contexts and validation limits.

@@ -101,10 +101,11 @@ a pending automatic restart.
    converted into inferred inside results. Their warnings remain visible.
    The stage is retained through subsequent packet movement or detector dropouts.
 8. Strip removal needs five fresh absent-strip observations spanning at least
-   one second, with the strip area in view and not covered by a hand. Only hands
-   near the packet count; a detection on a distant fixture does not block this
-   step. If the full-bag detector fails, a visual feature reference of the same
-   packet body supplies the inspection region. An empty bed or an off-camera
+   one second, with the currently detected packet settled and hands clear.
+   The same MediaPipe `hand_landmarker.task` used in purity supplies conservative
+   hand/wrist guard regions. Overlap at the packet resets removal progress;
+   distant hands do not block it. Counts and timestamps remain in PDF and JSON.
+   An empty bed or an off-camera
    strip area cannot prove removal. Rejected strip candidates remain uncertain.
 9. Once strip removal is confirmed, mark **Sealed — inferred from strip removal**
    and proceed to OCR even if jewel placement remains unconfirmed. No separate
@@ -131,8 +132,10 @@ that the jewel was released or remained inside. Physical adhesive strength is no
 The application uses the verified strip-removal sequence as its sealing rule.
 The strip must first be seen on the stationary packet at the test bed. Then five
 fresh absent-strip observations spanning at least one second, with packet/body
-context, the strip area visible and packet hands clear, confirm removal.
-A detector miss, uncertain strip prediction or covered strip cannot finish it.
+context and a settled packet clear of landmark hand overlap, confirm removal.
+Hand overlap is recorded in PDF and JSON and resets absence progress.
+Uncertain strip predictions
+cannot finish removal.
 This is process inference; pressing the adhesive flap shut is not directly
 measured. No closure weights or `PACKET_CLOSURE_CONFIG` are needed by the app.
 
@@ -190,7 +193,7 @@ its interpreter but must supply the existing SLIC/OpenCV contrib dependencies.
 ## Models and evidence
 
 All five files in `model onnx/` are required: `bagnewmodel.onnx`, `stripmodel.onnx`,
-`handseg model.onnx`, `fp_filter_resnet18_bag.onnx`, `hsv_fp_filter_strip.pt`.
+`hand_landmarker.task`, `fp_filter_resnet18_bag.onnx`, `hsv_fp_filter_strip.pt`.
 Packet exports currently use floating-point ONNX; gold uses OpenVINO INT8.
 Bag FP classification follows the original RGB/ImageNet 224×224 normalization
 and true-positive class 1. The export has no label metadata; validate that mapping
@@ -490,24 +493,21 @@ The main packet packing and acid workflows are unaffected.
 ## Strip-removal troubleshooting
 
 During removal, the phase label names the current blocker: packet reference lost,
-strip area not visible, hand covering strip area, strip still detected, or strip
+strip area not visible, strip still detected, or strip
 prediction uncertain. It shows accepted absence observations (`0/5`) and clear
 observation time (`0.0/1.0 s`). A source-time gap over 2.5 seconds resets progress.
 Slow inference, stale frames and camera interruptions also reset it.
 
-When the original packet feature reference can be matched, its strip attachment
-area moves with that reference. Strip predictions and hand clearance are checked
-there, with a surrounding margin, rather than across the entire packet. A loose
-strip outside this zone is logged as `outside_attachment_area`; this is a spatial
-exclusion, not a separate model identifying loose versus attached material. A
-strip still in the zone blocks confirmation. If no feature reference can be
-prepared, the full packet remains the conservative inspection scope. If a prepared
-reference is lost, full-bag detection alone no longer bypasses its visibility
-check. Return the packet with its original strip area visible to recover.
+The live workflow inspects the currently detected full packet. Landmark hand
+overlap within the packet and its surrounding margin resets absence progress.
+Packet movement or loss also resets the check; it retries automatically once
+the current packet is settled, hands clear, and the strip absent. The PDF and JSON retain its
+observation count and first/last timestamps. Strip predictions still determine
+presence, absence or uncertainty, and a missing packet cannot prove removal.
 
 A prediction marked uncertain may pause existing progress for up to 0.8 seconds
 since the last clear observation. It adds neither observations nor clear time.
-Prolonged uncertainty, hands in the area, lost context/visibility and accepted
+Prolonged uncertainty, lost context/visibility and accepted
 strip detections reset progress. Five clear absence observations and at least
 one second accumulated between consecutive clear observations remain required.
 

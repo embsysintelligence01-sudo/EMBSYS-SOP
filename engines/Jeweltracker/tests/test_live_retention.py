@@ -11,9 +11,44 @@ import cv2
 import numpy as np
 
 from evidence_archive import RetentionPolicy, SessionGuard, encoder_available, tree_bytes
-from live_retention import LiveRetention, compact_test, enqueue_test, finalize_live_session, job_path
+from live_retention import LOG, LiveRetention, compact_test, enqueue_test, finalize_live_session, job_path
 from session_evidence import FrameJournal, atomic_json, write_report
 import test_evidence_retention as fixtures
+
+
+class RetentionSchedulingTests(unittest.TestCase):
+    def test_purity_defers_current_and_historical_compression_until_close(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            parent = Path(tmp)
+            current, old = parent / 'current', parent / 'old'
+            for root in (current, old):
+                enqueue_test(root, dict(cycle_id='test_1', jewel_id=1), dict(id=1))
+            worker = LiveRetention(current, Mock(), Mock(), Mock(), defer_until_close=True)
+            with patch('live_retention.compact_test') as compact:
+                worker.process_pending(force=True)
+                compact.assert_not_called()
+                worker.start()
+                worker.close()
+                self.assertFalse(worker.is_alive())
+                self.assertEqual({current, old}, {call.args[0] for call in compact.call_args_list})
+
+    def test_unassigned_jobs_keep_raw_evidence_without_repeated_retries(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            raw = root / 'test_1'
+            raw.mkdir()
+            (raw / 'acid.avi').write_bytes(b'original evidence')
+            enqueue_test(root, dict(cycle_id='test_1', jewel_id=None), dict(id=None))
+            journal, emit = Mock(), Mock()
+            worker = LiveRetention(root, Mock(), journal, emit)
+            with patch('live_retention.compact_test') as compact:
+                worker.process_pending(force=True)
+                worker.process_pending(force=True)
+                compact.assert_not_called()
+            self.assertEqual('REVIEW_REQUIRED', json.loads(job_path(root, 'test_1').read_text())['status'])
+            self.assertEqual(b'original evidence', (raw / 'acid.avi').read_bytes())
+            journal.release_interval.assert_not_called()
+            emit.assert_called_once()
 
 
 @unittest.skipUnless(encoder_available(), 'FFmpeg/libx264 required')
@@ -96,7 +131,7 @@ class LiveRetentionTests(unittest.TestCase):
             _, record, _ = self.fixture(root)
             journal = Mock()
             worker = LiveRetention(root, self.policy(), journal, Mock())
-            with self.assertLogs('live_retention', level='ERROR'), \
+            with self.assertLogs(LOG.name, level='ERROR'), \
                     patch('live_retention.encode_budgeted', side_effect=OSError('disk temporarily unavailable')):
                 worker.process_pending(force=True)
             state = json.loads(job_path(root, 'test_1').read_text())
@@ -126,7 +161,7 @@ class LiveRetentionTests(unittest.TestCase):
                 return remove(path, *args, **kwargs)
 
             worker = LiveRetention(root, self.policy(), Mock(), Mock())
-            with self.assertLogs('live_retention', level='ERROR'), \
+            with self.assertLogs(LOG.name, level='ERROR'), \
                     patch('live_retention.shutil.rmtree', side_effect=fail_raw):
                 worker.process_pending(force=True)
             state = json.loads(job_path(root, 'test_1').read_text())

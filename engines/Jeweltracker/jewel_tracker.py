@@ -52,6 +52,7 @@ Workflow:
      DONE_SETTLE_S. DONE jewels stay tracked and guarded. Tracking only ends when you press
      "Reset (re-arm)", which then waits for the next batch.
 """
+from model_registry import resolve_model, model_path, asset_dir
 import os
 import sys
 import time
@@ -112,7 +113,7 @@ SCRIPT_DIR = os.path.dirname(sys.executable) if getattr(sys, "frozen", False) el
 LOG_FILE = os.path.join(SCRIPT_DIR, "jewel_guard.log")
 # tracking model. rubbing_gold.onnx was tried here too, but on this camera it missed small pieces and
 # ran ~4x slower (320 input, CPU), so it is only used for the gold-on-stone rubbing check.
-MODEL_PATH = os.path.join(SCRIPT_DIR, "nivagar_gold_v3.pt")
+MODEL_PATH = resolve_model(os.path.join(SCRIPT_DIR, "nivagar_gold_v3.pt"))
 ZONES_FILE = os.path.join(SCRIPT_DIR, "zones.json")
 CAPTURE_DIR = os.path.join(SCRIPT_DIR, "captures")  # stone-placed captures: annotated image + jewel crops
 CAMERA_FILE = os.path.join(SCRIPT_DIR, "camera.json")
@@ -178,8 +179,8 @@ MERGE_GAP_PX = 40          # detections whose masks come this close are pieces o
 SHOW_REJECTED = False      # True: draw dropped (not gold) detections in dark red, for tuning
 
 # rubbing check: the visual part of R:\Rubbing_Dept_Roha\run-local4.py (no audio)
-STONE_MODEL_PATH = os.path.join(SCRIPT_DIR, "newstone1.onnx")
-RUB_GOLD_MODEL_PATH = os.path.join(SCRIPT_DIR, "rubbing_gold.onnx")
+STONE_MODEL_PATH = resolve_model(os.path.join(SCRIPT_DIR, "newstone1.onnx"))
+RUB_GOLD_MODEL_PATH = resolve_model(os.path.join(SCRIPT_DIR, "rubbing_gold.onnx"))
 # The stone is found as the largest dark, solid, roughly square area in the ROI (~20 ms; it found the
 # stone in every test frame, also after the stone was moved). run-local4's stone model is the fallback.
 STONE_CHECK_S = 1.0            # look for the stone this often, so a moved stone is followed
@@ -229,7 +230,7 @@ SETTLE_SPEED_PX_S = 40
 
 # acid test after rubbing: run-local4 process_acid_frame. bestnewacid.hef is a Hailo build; acid.onnx is the
 # same YOLOv8s-seg acid model (class top_aci, 320 px) for the CPU.
-ACID_MODEL_PATH = os.path.join(SCRIPT_DIR, "acid.onnx")
+ACID_MODEL_PATH = resolve_model(os.path.join(SCRIPT_DIR, "acid.onnx"))
 ACID_FP_MODEL_PATH = os.path.join(SCRIPT_DIR, "bestnewacid_mobilenet_v3.pt")  # run-local4's false-positive
 ACID_FP_TRUE_THRESHOLD = 0.75  # filter (MobileNetV3); used only when the file is there
 ACID_FP_CROP_PADDING_RATIO = 0.05
@@ -273,7 +274,7 @@ CHAIN_MIN_HOLES = 3        # link holes in the Otsu mask -> chain (measured: cha
 CHAIN_HOLE_MIN_PX = 12
 SIGLIP_BACKEND_DIR = r"R:\similarity_check\desktop_backend"  # where the SigLIP2 model comes from
 SIGLIP_FILE = "siglip2-base-patch32-256_vision_encoder.sim.onnx"   # SigLIP2 vision encoder: fingerprint + type
-SIGLIP_MODEL = os.path.join(SCRIPT_DIR, "weights", SIGLIP_FILE)
+SIGLIP_MODEL = resolve_model(os.path.join(SCRIPT_DIR, "weights", SIGLIP_FILE))
 if not os.path.exists(SIGLIP_MODEL):
     SIGLIP_MODEL = os.path.join(SIGLIP_BACKEND_DIR, "weights", SIGLIP_FILE)
 

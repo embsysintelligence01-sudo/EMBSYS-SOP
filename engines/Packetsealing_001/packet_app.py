@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Launch the independent packet application with the existing SLIC environment."""
+from model_registry import model_path, asset_dir, resolve_model
 import argparse
 import os
 from pathlib import Path
@@ -48,7 +49,7 @@ def main():
         from standalone.evidence import ffmpeg_path
         if not hasattr(cv2, "ximgproc"):
             raise RuntimeError("SLIC is unavailable; use .venv-slic.")
-        models = PacketModels(ROOT / "model onnx")
+        models = PacketModels(asset_dir('packet'))
         frame = np.full((480, 640, 3), 230, np.uint8)
         roi = np.full(frame.shape[:2], 255, np.uint8)
         bag, strip, clear, _, _ = models.inspect(frame, roi)

@@ -50,6 +50,7 @@ class PackingTests(unittest.TestCase):
         for _ in range(6):
             self.step(strip='absent',packet_ok=False,packet_context_ok=True,packet_stationary=False,hands_clear=False)
         self.assertFalse(self.flow.sealed)
+        self.assertGreater(self.flow.sealing_hand_warning['observations'], 0)
         for _ in range(5):
             self.step(strip='absent',packet_ok=False,packet_context_ok=True,packet_stationary=False,hands_clear=True)
         self.assertTrue(self.flow.sealed)

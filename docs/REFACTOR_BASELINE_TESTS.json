@@ -1,0 +1,127 @@
+[
+  {
+    "check": "model-copy-integrity",
+    "status": "PASSED",
+    "detail": "47 original model/asset roles checked at retained, relocated or identical canonical paths; missing/changed: "
+  },
+  {
+    "check": "required-model-paths",
+    "status": "PASSED",
+    "detail": "17 required assets; 3 temporal models; missing: "
+  },
+  {
+    "check": "cleanup-integrity",
+    "status": "PASSED",
+    "detail": "exit=0; 6.9s; private log: outputs/validation/cleanup-integrity.log"
+  },
+  {
+    "check": "storage-paths",
+    "status": "PASSED",
+    "detail": "exit=0; 5.5s; private log: outputs/validation/storage-paths.log"
+  },
+  {
+    "check": "source-security-audit",
+    "status": "PASSED",
+    "detail": "exit=0; 13.5s; private log: outputs/validation/source-security-audit.log"
+  },
+  {
+    "check": "launcher-tests",
+    "status": "PASSED",
+    "detail": "exit=0; 7.5s; private log: outputs/validation/launcher-tests.log; Ran 10 tests in 7.136s; OK"
+  },
+  {
+    "check": "launcher-ui",
+    "status": "PASSED",
+    "detail": "exit=0; 0.3s; private log: outputs/validation/launcher-ui.log"
+  },
+  {
+    "check": "purity-imports",
+    "status": "PASSED",
+    "detail": "exit=0; 2.0s; private log: outputs/validation/purity-imports.log"
+  },
+  {
+    "check": "slic-imports",
+    "status": "PASSED",
+    "detail": "exit=0; 1.9s; private log: outputs/validation/slic-imports.log"
+  },
+  {
+    "check": "purity-ui",
+    "status": "PASSED",
+    "detail": "exit=0; 1.9s; private log: outputs/validation/purity-ui.log"
+  },
+  {
+    "check": "packet-ui",
+    "status": "PASSED",
+    "detail": "exit=0; 1.9s; private log: outputs/validation/packet-ui.log"
+  },
+  {
+    "check": "purity-models",
+    "status": "PASSED",
+    "detail": "exit=0; 6.3s; private log: outputs/validation/purity-models.log"
+  },
+  {
+    "check": "packet-models",
+    "status": "PASSED",
+    "detail": "exit=0; 5.4s; private log: outputs/validation/packet-models.log"
+  },
+  {
+    "check": "offline-ocr",
+    "status": "PASSED",
+    "detail": "exit=0; 10.4s; private log: outputs/validation/offline-ocr.log"
+  },
+  {
+    "check": "purity-regression",
+    "status": "FAILED",
+    "detail": "exit=1; 153.4s; private log: outputs/validation/purity-regression.log; Ran 414 tests in 150.628s; FAILED (failures=1)"
+  },
+  {
+    "check": "slic-regression",
+    "status": "FAILED",
+    "detail": "exit=1; 155.8s; private log: outputs/validation/slic-regression.log; Ran 414 tests in 153.368s; FAILED (failures=1)"
+  },
+  {
+    "check": "packet-regression",
+    "status": "PASSED",
+    "detail": "exit=0; 11.1s; private log: outputs/validation/packet-regression.log; Ran 352 tests in 8.551s; OK"
+  },
+  {
+    "check": "rub-regression",
+    "status": "PASSED",
+    "detail": "exit=0; 2.4s; private log: outputs/validation/rub-regression.log; Ran 43 tests in 2.038s; OK"
+  },
+  {
+    "check": "mouth-lab-regression",
+    "status": "FAILED",
+    "detail": "exit=1; 4.2s; private log: outputs/validation/mouth-lab-regression.log; Ran 12 tests in 2.130s; FAILED (failures=1)"
+  },
+  {
+    "check": "historical-regression",
+    "status": "FAILED",
+    "detail": "exit=1; 24.7s; private log: outputs/validation/historical-regression.log; Ran 50 tests in 22.817s; FAILED (failures=2, errors=1)"
+  },
+  {
+    "check": "pickup-self-test",
+    "status": "PASSED",
+    "detail": "exit=0; 0.4s; private log: outputs/validation/pickup-self-test.log"
+  },
+  {
+    "check": "pickup-motion-self-test",
+    "status": "PASSED",
+    "detail": "exit=0; 0.4s; private log: outputs/validation/pickup-motion-self-test.log"
+  },
+  {
+    "check": "archived-pickup-self-test",
+    "status": "PASSED",
+    "detail": "exit=0; 0.4s; private log: outputs/validation/archived-pickup-self-test.log"
+  },
+  {
+    "check": "live-camera-and-operator-SOP",
+    "status": "UNTESTED",
+    "detail": "Requires bench camera and operator: live ROI, full purity/sealing sequence, evidence export and physical camera release. No camera connection attempted."
+  },
+  {
+    "check": "optional-reviewer-and-legacy-hardware",
+    "status": "UNTESTED",
+    "detail": "External recording reviewer, Qt6 standalone acid UI and legacy Hailo/pickup hardware not exercised."
+  }
+]

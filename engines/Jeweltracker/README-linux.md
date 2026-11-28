@@ -39,6 +39,18 @@ audit. At most two candidate states and sixty audit events are retained per cycl
 
 ## Run
 
+The purity preview runs at about 15 FPS and composes overlays at the displayed
+size, up to 1280 pixels wide, to leave capacity for screen sharing or recording.
+Camera frames, saved evidence resolution, and detection freshness limits are
+unchanged. The existing verified 50 Hz manual-exposure profile remains enabled
+by default on Linux; changing preview speed does not change the shutter.
+
+Clip compression and historical storage recovery wait until the purity monitor
+stops and its evidence jobs drain. Raw evidence remains on disk until then, so
+long sessions need more temporary disk space and stopping can take longer.
+Unassigned jewel jobs are marked `REVIEW_REQUIRED`; their original evidence is
+retained without repeated compression attempts.
+
 The tracker now opens in **continuous capture** mode. Configure the bench ROI
 and optionally **Draw test position ROI** once; otherwise the first visible
 stone establishes a displayed test-position rectangle.

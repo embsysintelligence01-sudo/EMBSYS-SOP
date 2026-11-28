@@ -1,0 +1,7 @@
+# Enabled only after the corresponding adapter acceptance checks pass.
+enabled = ["purity", "packet", "releasing"]
+cpu_threads = 2
+max_hosts = 2
+max_background = 2
+host = "127.0.0.1"
+port = 8765

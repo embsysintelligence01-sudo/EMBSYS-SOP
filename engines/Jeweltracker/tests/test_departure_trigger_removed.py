@@ -12,7 +12,7 @@ class RemovedDepartureTriggerTests(unittest.TestCase):
             self.assertIsNone(m.active)
             self.assertFalse(any(k=='begin' for k,_ in events))
 
-    def test_old_provisional_flag_cannot_bypass_missing_stone_overlap(self):
+    def test_old_provisional_flag_cannot_verify_rubbing_but_placement_baseline_is_independent(self):
         with monitor_case() as (m,events):
             s=snap(100,held=1);s['overlap_trigger_required']=True;m.step(s)
             a=m.active
@@ -22,10 +22,12 @@ class RemovedDepartureTriggerTests(unittest.TestCase):
                 s=snap(ts);s['overlap_trigger_required']=True;m.step(s)
             self.assertIsNone(a['rubbing_started_at'])
             self.assertIsNone(a['returned'])
-            self.assertIsNone(a['baseline_at'])
+            self.assertEqual(a['baseline_at'],a['jewel_placement_baseline_at'])
+            self.assertIsNotNone(a['baseline_at'])
             self.assertIsNone(a['acid_onset'])
-            self.assertFalse(any(k=='baseline' for k,_ in events))
-            self.assertEqual('WAIT_FOR_CONTACT',m.phase[1])
+            self.assertTrue(any(k=='baseline' for k,_ in events))
+            self.assertEqual('BASELINE',m.phase[1])
+            self.assertIsNone(a['acid_onset'])
 
     def test_real_two_frame_overlap_still_allows_return_and_baseline(self):
         with monitor_case() as (m,events):

@@ -1,0 +1,163 @@
+[
+  {
+    "check": "standalone-sealing-replay",
+    "status": "PASSED",
+    "seconds": 19.92,
+    "summary": "",
+    "log": "outputs/production-validation/standalone-sealing-replay.log"
+  },
+  {
+    "check": "reset-replay",
+    "status": "PASSED",
+    "seconds": 23.76,
+    "summary": "",
+    "log": "outputs/production-validation/reset-replay.log"
+  },
+  {
+    "check": "crash-replay",
+    "status": "PASSED",
+    "seconds": 21.67,
+    "summary": "",
+    "log": "outputs/production-validation/crash-replay.log"
+  },
+  {
+    "check": "debug-close-replay",
+    "status": "PASSED",
+    "seconds": 14.46,
+    "summary": "",
+    "log": "outputs/production-validation/debug-close-replay.log"
+  },
+  {
+    "check": "purity-regression",
+    "status": "PASSED",
+    "seconds": 165.539,
+    "summary": "Ran 519 tests in 165.539s; OK",
+    "log": "outputs/production-purity-regression.log"
+  },
+  {
+    "check": "model-budget",
+    "status": "PASSED",
+    "seconds": 2.562,
+    "summary": "Ran 1 test in 2.562s; OK",
+    "log": "outputs/model-budget-tests.log"
+  },
+  {
+    "check": "model-cache-replay",
+    "status": "PASSED",
+    "seconds": 19.07,
+    "summary": "",
+    "log": "outputs/production-validation/model-cache-replay.log"
+  },
+  {
+    "check": "offline-sealing-ocr",
+    "status": "PASSED",
+    "seconds": 5.58,
+    "summary": "",
+    "log": "outputs/production-validation/offline-sealing-ocr.log"
+  },
+  {
+    "check": "local-regression-fixtures",
+    "status": "PASSED",
+    "seconds": 14.66,
+    "summary": "Ran 51 tests in 12.262s; OK",
+    "log": "outputs/production-validation/local-regression-fixtures.log"
+  },
+  {
+    "check": "sealing-regression",
+    "status": "PASSED",
+    "seconds": 11.09,
+    "summary": "Ran 356 tests in 8.904s; OK",
+    "log": "outputs/production-validation/sealing-regression.log"
+  },
+  {
+    "check": "linked-replay",
+    "status": "PASSED",
+    "seconds": 26.95,
+    "summary": "",
+    "log": "outputs/production-validation/linked-replay.log"
+  },
+  {
+    "check": "publication-jobs",
+    "status": "PASSED",
+    "seconds": 0.47,
+    "summary": "Ran 2 tests in 0.349s; OK",
+    "log": "outputs/production-validation/publication-jobs.log"
+  },
+  {
+    "check": "http-service-recovery",
+    "status": "PASSED",
+    "seconds": 12.29,
+    "summary": "",
+    "log": "outputs/production-validation/http-service-recovery.log"
+  },
+  {
+    "check": "virtual-panel",
+    "status": "PASSED",
+    "seconds": 0.21,
+    "summary": "Ran 2 tests in 0.071s; OK",
+    "log": "outputs/production-validation/virtual-panel.log"
+  },
+  {
+    "check": "release-regression",
+    "status": "PASSED",
+    "seconds": 25.45,
+    "summary": "Ran 94 tests in 20.863s; OK (skipped=1)",
+    "log": "outputs/production-validation/release-regression.log"
+  },
+  {
+    "check": "release-imports",
+    "status": "PASSED",
+    "seconds": 4.07,
+    "summary": "",
+    "log": "outputs/production-validation/release-imports.log"
+  },
+  {
+    "check": "releasing-replay",
+    "status": "PASSED",
+    "seconds": 12.6,
+    "summary": "",
+    "log": "outputs/production-validation/releasing-replay.log"
+  },
+  {
+    "check": "controller-api",
+    "status": "PASSED",
+    "seconds": 4.98,
+    "summary": "Ran 22 tests in 4.475s; OK",
+    "log": "outputs/production-validation/controller-api.log"
+  },
+  {
+    "check": "linked-debug-close-replay",
+    "status": "PASSED",
+    "seconds": 29.01,
+    "summary": "",
+    "log": "outputs/production-validation/linked-debug-close-replay.log"
+  },
+  {
+    "check": "source-model-integrity",
+    "status": "PASSED",
+    "seconds": 10.35,
+    "summary": "",
+    "log": "outputs/production-validation/source-model-integrity.log"
+  },
+  {
+    "check": "headless-handoff",
+    "status": "PASSED",
+    "seconds": 2.12,
+    "summary": "Ran 4 tests in 0.083s; OK",
+    "log": "outputs/production-validation/headless-handoff.log"
+  },
+  {
+    "check": "purity-diagnostics",
+    "status": "PASSED",
+    "seconds": 2.23,
+    "summary": "Ran 3 tests in 0.108s; OK",
+    "log": "outputs/production-validation/purity-diagnostics.log"
+  },
+  {
+    "check": "desktop-integration",
+    "status": "PASSED",
+    "seconds": 13.7,
+    "summary": "Ran 48 tests in 11.579s; OK (skipped=2)",
+    "log": "outputs/production-validation/desktop-integration.log"
+  }
+]

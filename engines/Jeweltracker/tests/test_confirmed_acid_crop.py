@@ -10,7 +10,7 @@ from test_sop_revision import monitor_case,snap
 PREDICTION=dict(prediction='non_gold',confidence=.91,probabilities={'non_gold':.91})
 
 class ConfirmedAcidCropTests(unittest.TestCase):
-    def prepare(self,m,confirmed=True):
+    def prepare(self,m,confirmed=True,obstructed=False):
         m.step(snap(100,held=1));a=m.active
         a.update(returned=100.1,baseline_at=100.2,return_frame=scene(),
                  fresh_gate=FreshAcidGate(np.zeros((256,256),np.uint8),scene(),QUAD),
@@ -18,7 +18,9 @@ class ConfirmedAcidCropTests(unittest.TestCase):
         # Feed a complete synthetic capture deterministically: a burst of 71
         # frames must not exercise the separate nonblocking queue-overload path.
         for i in range(71):
-            m.journal.offer(scene(acid=i>=10),100+i*.1)
+            image=scene(acid=i>=10)
+            if obstructed and i>=30:image[95:150,120:155]=220
+            m.journal.offer(image,100+i*.1)
             m.journal.queue.join()
         best=dict(DETECTION,source_frame=scene(acid=True),quad=QUAD.copy())
         if confirmed:best['application_verification']='DETECTOR_AND_VISIBLE_PERSISTENT_PATCH'
@@ -71,10 +73,10 @@ class ConfirmedAcidCropTests(unittest.TestCase):
 
     def test_cleaning_interruption_still_blocks_incomplete_reaction(self):
         with monitor_case() as (m,_):
-            a,_=self.prepare(m)
-            a['reaction_end']=102
+            a,_=self.prepare(m,obstructed=True)
             m._finish(106.1);m.drain_finalization()
             self.assertEqual('PARTIAL',m.tests[0]['reaction_coverage_status'])
+            self.assertEqual(106,m.tests[0]['reaction_observation_end'])
             self.assertIsNone(m.tests[0]['prediction'])
             m.classifier.predict.assert_not_called()
 

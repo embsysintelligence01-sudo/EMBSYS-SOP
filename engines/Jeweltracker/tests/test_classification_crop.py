@@ -43,15 +43,22 @@ class VerifiedCropTests(unittest.TestCase):
             self.assertIsNone(r['prediction'])
             m.classifier.predict.assert_not_called()
 
-    def test_full_frame_coordinates_are_not_offset_by_stone_origin(self):
+    def test_cropped_detector_coordinates_are_restored_to_full_frame(self):
         from unittest.mock import Mock
         from types import SimpleNamespace
+        from continuous_testing import ACID_STONE_PADDING
         with monitor_case() as (m,_):
-            m.detector=Mock()
-            m.detector.predict.return_value=([SimpleNamespace(**DETECTION)],0)
             image=scene(acid=True)
+            pad=ACID_STONE_PADDING*max(STONE[2]-STONE[0],STONE[3]-STONE[1])
+            x1,y1=max(0,int(STONE[0]-pad)),max(0,int(STONE[1]-pad))
+            x2,y2=min(image.shape[1],int(STONE[2]+pad)),min(image.shape[0],int(STONE[3]+pad))
+            local=tuple(v-(x1 if i%2==0 else y1) for i,v in enumerate(DETECTION['bbox']))
+            m.detector=Mock()
+            m.detector.predict.return_value=([SimpleNamespace(bbox=local,confidence=DETECTION['confidence'])],0)
             _,_,found=m._detect(image,100,STONE,None)
-            self.assertIs(image,m.detector.predict.call_args.args[0])
+            supplied=m.detector.predict.call_args.args[0]
+            np.testing.assert_array_equal(supplied,image[y1:y2,x1:x2])
+            self.assertLess(supplied.size,image.size)
             self.assertEqual(DETECTION['bbox'],found[0]['bbox'])
 
     def test_wrong_early_box_cannot_own_the_verified_classifier_region(self):

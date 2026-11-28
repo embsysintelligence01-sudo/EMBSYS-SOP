@@ -54,7 +54,7 @@ class FreshnessTests(unittest.TestCase):
         best, _ = gate.check(two_patches(), QUAD, [OLD, NEW], 12)
         self.assertEqual(OLD['bbox'],best['bbox'])  # history no longer ranks away old locations
 
-    def test_baseline_and_light_are_advisory_but_geometry_is_required(self):
+    def test_baseline_and_light_are_advisory_and_established_coordinates_suffice(self):
         empty = np.zeros((256,256),np.uint8)
         gate = FreshAcidGate(empty,scene(acid=True),QUAD)
         self.assertTrue(gate.check(scene(acid=True),QUAD,[OLD],1)[0]['freshness_warning'])
@@ -62,7 +62,8 @@ class FreshnessTests(unittest.TestCase):
         brighter = np.clip(scene().astype(int)+35,0,255).astype(np.uint8)
         self.assertTrue(gate.check(brighter,QUAD,[OLD],2)[0]['freshness_warning'])
         gate = FreshAcidGate(empty,scene(),QUAD)
-        self.assertIsNone(gate.check(scene(acid=True),QUAD,[OLD],3,False)[0])
+        self.assertIsNotNone(gate.check(scene(acid=True),QUAD,[OLD],3,False)[0])
+        self.assertIsNone(gate.check(scene(acid=True),None,[OLD],4,False)[0])
         self.assertIsNotNone(gate.check(scene(acid=True),QUAD,[OLD],4,True)[0])
 
     def test_occlusion_and_detector_misses_never_clear_history(self):

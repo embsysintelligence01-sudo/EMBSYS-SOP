@@ -1,0 +1,257 @@
+[
+  {
+    "old": "engines/Jeweltracker/jewel_tracker_5.py",
+    "new": "engines/purity/tracker.py"
+  },
+  {
+    "old": "engines/Jeweltracker/jewel_identity.py",
+    "new": "engines/purity/jewel_identity.py"
+  },
+  {
+    "old": "engines/Jeweltracker/continuous_testing.py",
+    "new": "engines/purity/workflow.py"
+  },
+  {
+    "old": "engines/Jeweltracker/rub_preparation.py",
+    "new": "engines/purity/rubbing.py"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_application.py",
+    "new": "engines/purity/acid_application.py"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_area.py",
+    "new": "engines/purity/acid_area.py"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_freshness.py",
+    "new": "engines/purity/acid_freshness.py"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_review_queue.py",
+    "new": "engines/purity/acid_review_queue.py"
+  },
+  {
+    "old": "engines/Jeweltracker/classification_crop.py",
+    "new": "engines/purity/classification_crop.py"
+  },
+  {
+    "old": "engines/Jeweltracker/jewel_classifier.py",
+    "new": "engines/purity/classification.py"
+  },
+  {
+    "old": "engines/Jeweltracker/rubbing_recovery.py",
+    "new": "engines/purity/recovery.py"
+  },
+  {
+    "old": "engines/Jeweltracker/backup_analysis.py",
+    "new": "engines/purity/recorded_analysis.py"
+  },
+  {
+    "old": "engines/Jeweltracker/backup_recovery.py",
+    "new": "engines/purity/recovery_transport.py"
+  },
+  {
+    "old": "engines/Jeweltracker/backup_worker.py",
+    "new": "engines/purity/recovery_worker.py"
+  },
+  {
+    "old": "engines/Jeweltracker/edgesam_backend.py",
+    "new": "shared/inference/edgesam.py"
+  },
+  {
+    "old": "engines/Jeweltracker/stone_onnx.py",
+    "new": "shared/inference/stone.py"
+  },
+  {
+    "old": "engines/Jeweltracker/int8_models.py",
+    "new": "shared/inference/yolo.py"
+  },
+  {
+    "old": "engines/Jeweltracker/live_pipeline.py",
+    "new": "shared/inference/scheduler.py"
+  },
+  {
+    "old": "engines/Jeweltracker/linux_camera_controls.py",
+    "new": "shared/camera/linux_controls.py"
+  },
+  {
+    "old": "engines/Jeweltracker/jewel_capture.py",
+    "new": "shared/tracking/jewel_capture.py"
+  },
+  {
+    "old": "engines/Jeweltracker/session_evidence.py",
+    "new": "shared/evidence/recording.py"
+  },
+  {
+    "old": "engines/Jeweltracker/sop_evidence.py",
+    "new": "shared/evidence/verification.py"
+  },
+  {
+    "old": "engines/Jeweltracker/evidence_archive.py",
+    "new": "shared/evidence/archive.py"
+  },
+  {
+    "old": "engines/Jeweltracker/audit_report.py",
+    "new": "shared/evidence/purity_report.py"
+  },
+  {
+    "old": "engines/Jeweltracker/compact_evidence.py",
+    "new": "shared/evidence/compact.py"
+  },
+  {
+    "old": "engines/Jeweltracker/simple_session.py",
+    "new": "shared/evidence/simple_session.py"
+  },
+  {
+    "old": "engines/Jeweltracker/live_retention.py",
+    "new": "shared/evidence/live_retention.py"
+  },
+  {
+    "old": "engines/Jeweltracker/historical_cleanup.py",
+    "new": "shared/evidence/historical_cleanup.py"
+  },
+  {
+    "old": "engines/Jeweltracker/packet_stage.py",
+    "new": "engines/purity/packet_handoff.py"
+  },
+  {
+    "old": "engines/Jeweltracker/surveillance.py",
+    "new": "shared/evidence/surveillance.py"
+  },
+  {
+    "old": "engines/Jeweltracker/auto_testing.py",
+    "new": "engines/purity/settling.py"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test",
+    "new": "engines/purity/acid",
+    "package": true
+  },
+  {
+    "old": "engines/Jeweltracker/acidphintegration",
+    "new": "engines/purity/ph",
+    "package": true
+  },
+  {
+    "old": "engines/Jeweltracker/new_rub_detection",
+    "new": "engines/purity/rubbed_mask_lab",
+    "package": true
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/app.py",
+    "new": "engines/sealing/workflow.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/models.py",
+    "new": "engines/sealing/packet_detection.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/tracking.py",
+    "new": "engines/sealing/jewel_transfer.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/flow.py",
+    "new": "engines/sealing/strip_verification.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/hand_keypoints.py",
+    "new": "engines/sealing/hand_tracking.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/packet_opening.py",
+    "new": "engines/sealing/packet_opening.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/packet_ocr.py",
+    "new": "engines/sealing/packet_ocr.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/evidence.py",
+    "new": "engines/sealing/evidence.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/report.py",
+    "new": "engines/sealing/report.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/camera.py",
+    "new": "engines/sealing/camera.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/settings.py",
+    "new": "engines/sealing/settings.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/ocr_service.py",
+    "new": "engines/sealing/ocr_service.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/transfer.py",
+    "new": "engines/sealing/transfer.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/gold_transfer.py",
+    "new": "engines/sealing/gold_transfer.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/gold_mask_tracks.py",
+    "new": "engines/sealing/gold_mask_tracks.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/gold_event_bridge.py",
+    "new": "engines/sealing/gold_event_bridge.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/packet_region.py",
+    "new": "engines/sealing/packet_region.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/packet_motion.py",
+    "new": "engines/sealing/packet_motion.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/preview.py",
+    "new": "engines/sealing/preview.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/workflow_display.py",
+    "new": "engines/sealing/workflow_display.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/closure.py",
+    "new": "engines/sealing/closure.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/aruco_reference.py",
+    "new": "engines/sealing/aruco_reference.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/home_capture.py",
+    "new": "engines/sealing/home_capture.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/home_rubbing.py",
+    "new": "engines/sealing/home_rubbing.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/marker_roi_ui.py",
+    "new": "engines/sealing/marker_roi_ui.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/motion_classification.py",
+    "new": "engines/sealing/motion_classification.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/replay.py",
+    "new": "engines/sealing/replay.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/scene_alignment.py",
+    "new": "engines/sealing/scene_alignment.py"
+  },
+  {
+    "old": "engines/Packetsealing_001/standalone/seal_context.py",
+    "new": "engines/sealing/seal_context.py"
+  }
+]

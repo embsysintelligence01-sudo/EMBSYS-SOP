@@ -1,0 +1,24 @@
+[Unit]
+Description=EMBSYS SOP persistent surveillance controller
+After=network.target
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@ROOT@
+Environment=PYTHONUNBUFFERED=1
+Environment=EMBSYS_APP_MODE=production
+EnvironmentFile=-@ROOT@/configs/service.env
+ExecStart=@ROOT@/runtime/environments/controller/bin/python @ROOT@/main.py --mode production --hardware virtual
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=120
+KillMode=process
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=false
+# Shared /tmp lock must match existing independent engine launchers.
+
+[Install]
+WantedBy=multi-user.target

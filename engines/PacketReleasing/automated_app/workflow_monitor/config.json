@@ -1,0 +1,60 @@
+{
+  "models": {
+    "model_dir": "models",
+    "packet_seg": "models/packet-seg.onnx",
+    "hand_seg": "models/hand-seg.onnx",
+    "scissor_seg": "models/scissor-seg.pt",
+    "topstrip_seg": "models/strip-seg.onnx",
+    "packet_number_obb": "models/packet-no-obb.onnx",
+    "cut_seg": "models/cut-seg.pt",
+    "jewel_seg": "models/jeweltrack.onnx",
+    "sam_model": "",
+    "imgsz": 320,
+    "number_imgsz": 640,
+    "device": "cpu"
+  },
+  "ocr_protection": {
+    "number_conf": 0.05,
+    "min_ocr_confidence": 0.65,
+    "min_reliable_reads": 2,
+    "preferred_digit_length": 6,
+    "min_id_length": 4,
+    "ocr_attempt_interval_frames": 3,
+    "max_unresolved_backside_frames_before_alert": 6
+  },
+  "automated_processing": {
+    "packet_conf": 0.12,
+    "hand_conf": 0.30,
+    "scissor_conf": 0.30,
+    "topstrip_conf": 0.25,
+    "cut_model_conf": 0.25,
+    "cut_model_min_conf": 0.70,
+    "cut_model_class_id": 0,
+    "baseline_stable_frames": 4,
+    "orientation_closed_confirm_frames": 4,
+    "hand_confirm_frames": 2,
+    "scissor_confirm_frames": 2,
+    "clear_wait_seconds": 3.0,
+    "cut_verify_seconds": 6.0,
+    "verify_sample_interval": 0.5,
+    "min_verify_samples": 4,
+    "min_valid_sample_ratio": 0.70,
+    "min_cut_streak": 3,
+    "post_cut_unknown_alert_frames": 8,
+    "auto_complete_stable_frames": 10,
+    "auto_complete_min_seconds": 2.0,
+    "outside_testbed_alert_frames": 3,
+    "uncertain_count_alert_frames": 4
+  },
+  "alerts": {
+    "suppression_cooldown_seconds": 8.0,
+    "max_active_alerts": 20
+  },
+  "output": {
+    "output_dir": "packet_cut_outputs/automated_sessions",
+    "save_evidence_images": true,
+    "save_json_report": true,
+    "save_markdown_report": true
+  }
+}
+

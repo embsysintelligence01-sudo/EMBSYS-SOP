@@ -1,0 +1,47 @@
+[
+  {
+    "model": "cut-seg.pt",
+    "sha256": "089d451104c75e8d80e5455f539bfca623bc51035af582f9c4aad5252edc906e",
+    "identical_registered_models": []
+  },
+  {
+    "model": "hand-seg.onnx",
+    "sha256": "0f725de96d87163ca809674b9492d9c43d24b8ce96845c931d5ebd9f54ce4cac",
+    "identical_registered_models": [
+      "sealing.hand"
+    ]
+  },
+  {
+    "model": "jeweltrack.onnx",
+    "sha256": "63da65b2e8ba872b58e89b39530814fc53b6187f9cb2b8d6cf130da21d4faa81",
+    "identical_registered_models": [
+      "shared.gold.legacy.rojeweltrack.onnx"
+    ]
+  },
+  {
+    "model": "packet-no-obb.onnx",
+    "sha256": "4f6111391e52dc6c3d330c7df44f06433e547df3401be0b635bb3cafbdb5ef35",
+    "identical_registered_models": [
+      "sealing.ocr_number"
+    ]
+  },
+  {
+    "model": "packet-seg.onnx",
+    "sha256": "dce32a88d0aa42bb2db1b44b7feed1ae87c88a4202f0d0b400c756bda41ce212",
+    "identical_registered_models": [
+      "sealing.packet"
+    ]
+  },
+  {
+    "model": "scissor-seg.pt",
+    "sha256": "f1d9020d96a37e3f6b53e3eb937bee3015c6fc38e44cab03464cd00dc413eead",
+    "identical_registered_models": []
+  },
+  {
+    "model": "strip-seg.onnx",
+    "sha256": "cd8969ae5f3b2cfafda092380f7b47efe742b67721afbd0a0a43a87c1172797e",
+    "identical_registered_models": [
+      "sealing.strip"
+    ]
+  }
+]

@@ -7,6 +7,7 @@ import subprocess
 import tempfile
 from PyQt5 import QtCore
 from .config import ROOT, command, engine_environment
+from .ownership import camera_owners
 
 
 class ProcessManager(QtCore.QObject):
@@ -49,6 +50,9 @@ class ProcessManager(QtCore.QObject):
             self.changed.emit('Error — cannot acquire workflow lock. Check local permissions.', False)
             return False
         try:
+            owners = camera_owners()
+            if owners:
+                raise RuntimeError('Camera already open outside the managed workflow')
             argv, cwd = command(workflow)
             self.process = subprocess.Popen(argv, cwd=cwd, env=engine_environment(workflow),
                 stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,

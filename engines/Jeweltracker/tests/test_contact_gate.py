@@ -94,9 +94,10 @@ class ContactMonitorGateTests(unittest.TestCase):
             self.assertEqual(1,a['jewel_id'])
             m.step(snap(100.2,contact=contact(100.2,confirmed=True)))
             self.assertIsNone(a['returned'])  # first return observation is not enough
+            self.assertEqual(100.2,a['baseline_at'])  # capture does not wait for return debounce
             m.step(snap(100.4,contact=contact(100.4,confirmed=True)))
             self.assertIsNotNone(a['returned'])
-            self.assertEqual('JEWEL_RETURNED',a['contact_close_reason'])
+            self.assertEqual('BASELINE_STARTED',a['contact_close_reason'])
             later=contact(100.6,confirmed=True);later['area']=100000
             m.step(snap(100.6,contact=later))
             self.assertIs(saved,a['contact'])

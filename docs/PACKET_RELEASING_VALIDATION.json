@@ -1,0 +1,117 @@
+[
+  {
+    "check": "launcher-regression",
+    "status": "PASSED",
+    "seconds": 2.02,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/launcher-regression.log"
+  },
+  {
+    "check": "historical-integration-checks",
+    "status": "FAILED",
+    "seconds": 4.43,
+    "detail": "exit 1",
+    "log": "outputs/validation/packet-releasing/historical-integration-checks.log"
+  },
+  {
+    "check": "releasing-dependencies",
+    "status": "PASSED",
+    "seconds": 0.57,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/releasing-dependencies.log"
+  },
+  {
+    "check": "releasing-imports",
+    "status": "PASSED",
+    "seconds": 5.23,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/releasing-imports.log"
+  },
+  {
+    "check": "releasing-ui",
+    "status": "PASSED",
+    "seconds": 4.17,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/releasing-ui.log"
+  },
+  {
+    "check": "releasing-models",
+    "status": "PASSED",
+    "seconds": 7.9,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/releasing-models.log"
+  },
+  {
+    "check": "releasing-regression",
+    "status": "PASSED",
+    "seconds": 31.04,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/releasing-regression.log"
+  },
+  {
+    "check": "purity-imports",
+    "status": "PASSED",
+    "seconds": 3.18,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/purity-imports.log"
+  },
+  {
+    "check": "sealing-imports",
+    "status": "PASSED",
+    "seconds": 2.28,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/sealing-imports.log"
+  },
+  {
+    "check": "purity-sealing-handoff",
+    "status": "PASSED",
+    "seconds": 2.47,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/purity-sealing-handoff.log"
+  },
+  {
+    "check": "asset-integrity",
+    "status": "PASSED",
+    "seconds": 5.28,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/asset-integrity.log"
+  },
+  {
+    "check": "purity-dependencies",
+    "status": "FAILED",
+    "seconds": 0.62,
+    "detail": "exit 1",
+    "log": "outputs/validation/packet-releasing/purity-dependencies.log"
+  },
+  {
+    "check": "sealing-dependencies",
+    "status": "FAILED",
+    "seconds": 0.42,
+    "detail": "exit 1",
+    "log": "outputs/validation/packet-releasing/sealing-dependencies.log"
+  },
+  {
+    "check": "new-integration",
+    "status": "PASSED",
+    "seconds": 1.07,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/new-integration.log"
+  },
+  {
+    "check": "releasing-protected-entrypoint",
+    "status": "PASSED",
+    "seconds": 5.83,
+    "detail": "exit 0",
+    "log": "outputs/validation/packet-releasing/releasing-protected-entrypoint.log"
+  },
+  {
+    "check": "live-camera-full-operator-flow",
+    "status": "NOT_TESTED",
+    "detail": "Bench operation still required; preparation never opens a camera."
+  },
+  {
+    "check": "production-enablement",
+    "status": "DISABLED",
+    "detail": "Production command rejects releasing; launcher UI and purity-to-sealing handoff unchanged."
+  }
+]

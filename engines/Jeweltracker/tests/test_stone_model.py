@@ -1,5 +1,6 @@
 from regression_assets import assets_root
 import time
+import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
@@ -147,7 +148,11 @@ class StoneBackendTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.model = StoneOnnxModel(tracker.STONE_MODEL_PATH)
-        cls.reference = tracker.YOLO(str(Path(tracker.STONE_MODEL_PATH).parent), task='segment')
+        cls.reference_directory=tempfile.TemporaryDirectory()
+        cls.addClassCleanup(cls.reference_directory.cleanup)
+        compatible=Path(cls.reference_directory.name)/'stone_openvino_model'
+        compatible.symlink_to(Path(tracker.STONE_MODEL_PATH).parent,target_is_directory=True)
+        cls.reference = tracker.YOLO(str(compatible), task='segment')
 
     def test_int8_boxes_and_confidence_match_ultralytics_decoding(self):
         root = assets_root()

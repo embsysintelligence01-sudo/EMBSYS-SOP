@@ -2,6 +2,8 @@ import json
 import shutil
 import tempfile
 import unittest
+import subprocess
+import cv2
 from pathlib import Path
 from unittest.mock import patch
 
@@ -14,6 +16,21 @@ import test_evidence_retention as fixtures
 
 @unittest.skipUnless(encoder_available(), 'FFmpeg/libx264 required')
 class SimpleSessionTests(unittest.TestCase):
+    @unittest.skipUnless(shutil.which('gst-launch-1.0'),'Ubuntu GStreamer required')
+    def test_avi_export_decodes_in_native_ubuntu_video_pipeline(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);policy=self.fixture(root)
+            finalize_simple_session(root,policy)
+            clip=root/'J1/rubbing.avi'
+            cap=cv2.VideoCapture(str(clip))
+            try:fourcc=int(cap.get(cv2.CAP_PROP_FOURCC))
+            finally:cap.release()
+            self.assertIn(''.join(chr((fourcc>>i)&255) for i in (0,8,16,24)),('XVID','FMP4'))
+            self.assertIn(b'XVID',clip.read_bytes()[:1024])
+            decoded=subprocess.run(['gst-launch-1.0','-q','filesrc','location='+str(clip),'!',
+                'avidemux','!','decodebin','!','fakesink','sync=false'],capture_output=True,text=True,timeout=30)
+            self.assertEqual(0,decoded.returncode,decoded.stderr)
+
     def fixture(self, root):
         fixtures.EvidenceRetentionTests().fixture(root)
         return RetentionPolicy(require_server_ack=False, simple_output=True, target_test_bytes=3_000_000)

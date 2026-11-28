@@ -87,10 +87,11 @@ class StripStageTests(unittest.TestCase):
         self.assertFalse(self.flow.strip_removed)
         self.assertTrue(self.flow.strip_removal_requested)
 
-    def test_hand_covered_strip_does_not_count_as_removed(self):
+    def test_hidden_attachment_area_cannot_confirm_removal(self):
         for _ in range(8):
             self.step(packet_ok=False, packet_context_ok=True, strip='absent', hands_clear=False)
         self.assertFalse(self.flow.strip_removed)
+        self.assertGreater(self.flow.sealing_hand_warning['observations'], 0)
 
     def test_strip_zone_must_be_in_view_but_full_bag_is_not_required(self):
         for _ in range(8):

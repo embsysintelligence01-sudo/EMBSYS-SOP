@@ -1,0 +1,15 @@
+# Core inference and image processing
+ultralytics
+opencv-python
+numpy
+torch
+onnxruntime
+onnx
+
+# OCR
+paddlepaddle
+paddleocr
+
+# Required by the desktop application
+PyQt6
+reportlab

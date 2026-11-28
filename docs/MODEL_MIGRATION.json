@@ -1,0 +1,770 @@
+[
+  {
+    "old": "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.xml",
+    "new": "models/shared/gold/gold_int8.xml",
+    "logical_name": "shared.gold",
+    "sha256": "b28753d8eb582b571090ab6b7bdd047ef446c3baa3d807ec1094cd2eb28bfb68"
+  },
+  {
+    "old": "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.bin",
+    "new": "models/shared/gold/gold_int8.bin",
+    "logical_name": "shared.gold.gold_int8.bin",
+    "sha256": "4679db67aea9fb93f6657dfe3db7c6ae96ae0515824e69f1c907100c6454577e"
+  },
+  {
+    "old": "engines/Jeweltracker/int_8_GOLD_JEWEL/gold_int8.json",
+    "new": "models/shared/gold/gold_int8.json",
+    "logical_name": "shared.gold.gold_int8.json",
+    "sha256": "c99f4b9072b7d0b42562e0545f6011ad501d8201d2209a9bb030481b00dc86ce"
+  },
+  {
+    "old": "engines/Jeweltracker/INT8_openvino_model/best.xml",
+    "new": "models/purity/stone/int8/best.xml",
+    "logical_name": "purity.stone",
+    "sha256": "8cc7cfb934fda932343213e21de3510044f069b96464302669f2557287e08351"
+  },
+  {
+    "old": "engines/Jeweltracker/INT8_openvino_model/benchmark_origin.json",
+    "new": "models/purity/stone/int8/benchmark_origin.json",
+    "logical_name": "purity.stone.int8.benchmark_origin.json",
+    "sha256": "6fbae56d51e8d5669c35acb7e6eaf212acf5b55ff12e046f118719d81abc0e67"
+  },
+  {
+    "old": "engines/Jeweltracker/INT8_openvino_model/best.bin",
+    "new": "models/purity/stone/int8/best.bin",
+    "logical_name": "purity.stone.int8.best.bin",
+    "sha256": "0c7e1e7871eb120dd8d469b777b67fab7eb07de513ab3538674d415391752aea"
+  },
+  {
+    "old": "engines/Jeweltracker/INT8_openvino_model/metadata.yaml",
+    "new": "models/purity/stone/int8/metadata.yaml",
+    "logical_name": "purity.stone.int8.metadata.yaml",
+    "sha256": "1be2f8ed172c20ea966a58d5be84a74d567d1d2b7a388b82243d5a0b83842422"
+  },
+  {
+    "old": "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.xml",
+    "new": "models/purity/rubbed_mask/int8/rubbedmask_det_v3_int8.xml",
+    "logical_name": "purity.rubbed_mask",
+    "sha256": "3c3cf5c14d5cebc0d68e16a4a9405ef0f9ac51056ddaf6b54b7d285f1d782232"
+  },
+  {
+    "old": "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.bin",
+    "new": "models/purity/rubbed_mask/int8/rubbedmask_det_v3_int8.bin",
+    "logical_name": "purity.rubbed_mask.int8.rubbedmask_det_v3_int8.bin",
+    "sha256": "009e536f4b78e3cc0f60a5cc2ecf0c631f03e3952836013556ca3324f3413c3a"
+  },
+  {
+    "old": "engines/Jeweltracker/INT_8_RUBBEDMASK/rubbedmask_det_v3_int8.json",
+    "new": "models/purity/rubbed_mask/int8/rubbedmask_det_v3_int8.json",
+    "logical_name": "purity.rubbed_mask.int8.rubbedmask_det_v3_int8.json",
+    "sha256": "9e994a9d084424ef85875d204ceb9015befbf68e75302202d2636318d3cd6a52"
+  },
+  {
+    "old": "engines/Jeweltracker/new_rub_detection/models/newstone1.onnx",
+    "new": "models/purity/rubbed_mask/legacy/newstone1.onnx",
+    "logical_name": "purity.rubbed_mask.legacy.newstone1.onnx",
+    "sha256": "afc8d3042c1426edd06a7bf1b4897b6e05bd0a1a32d00381774ecc572b547dbd"
+  },
+  {
+    "old": "engines/Jeweltracker/new_rub_detection/models/rubbedmask.onnx",
+    "new": "models/purity/rubbed_mask/legacy/rubbedmask.onnx",
+    "logical_name": "purity.rubbed_mask.legacy.rubbedmask.onnx",
+    "sha256": "42a46f35e09e75b143d25978fa0c9dba11533d00c09ebfcf90b75ab835db2390"
+  },
+  {
+    "old": "engines/Jeweltracker/weights/resnet18-f37072fd.pth",
+    "new": "models/purity/classification/weights/resnet18-f37072fd.pth",
+    "logical_name": "shared.identity_checkpoint",
+    "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+  },
+  {
+    "old": "engines/Jeweltracker/weights/siglip2-base-patch32-256_vision_encoder.sim.onnx",
+    "new": "models/purity/classification/weights/siglip2-base-patch32-256_vision_encoder.sim.onnx",
+    "logical_name": "purity.siglip",
+    "sha256": "1f92f04e592b172c7fe6bbef34c7cd5f42636d0524611319346906736284a560"
+  },
+  {
+    "old": "engines/Jeweltracker/weights/resnet18_features.onnx",
+    "new": "models/purity/classification/weights/resnet18_features.onnx",
+    "logical_name": "shared.identity_features",
+    "sha256": "da5e2b313ee25c0cc75e4bf0d16c19ed05803286cdacd0fedebd59b46a57a37a"
+  },
+  {
+    "old": "engines/Jeweltracker/weights/edgesam/edge_sam_3x_decoder.onnx",
+    "new": "models/purity/rubbed_mask/edgesam/edge_sam_3x_decoder.onnx",
+    "logical_name": "purity.recovery_decoder",
+    "sha256": "83a2174d54571596913dcb7455d021e713623c3dca30a31c8c41ab98c9fb0863"
+  },
+  {
+    "old": "engines/Jeweltracker/weights/edgesam/edge_sam_3x_encoder.onnx",
+    "new": "models/purity/rubbed_mask/edgesam/edge_sam_3x_encoder.onnx",
+    "logical_name": "purity.recovery_encoder",
+    "sha256": "719a498cf5b3fe9be9f01ee513e13d3915f9028aa4f23dfd30eaaa0a17143159"
+  },
+  {
+    "old": "engines/Jeweltracker/weights/edgesam/models.json",
+    "new": "models/purity/rubbed_mask/edgesam/models.json",
+    "logical_name": "purity.rubbed_mask.edgesam.models.json",
+    "sha256": "84c0f23e30286e4163a9d464acba28b85519431f23473ebfc21b75b4fb313c09"
+  },
+  {
+    "old": "engines/Jeweltracker/classification/jewelry_correction_gallery.npz",
+    "new": "models/purity/classification/gallery/jewelry_correction_gallery.npz",
+    "logical_name": "purity.classification.gallery.jewelry_correction_gallery.npz",
+    "sha256": "ac2985526f6de2a8d7d7d7dc0a6d797b5adc5964adbcdee9e497b083ae86f88b"
+  },
+  {
+    "old": "engines/Jeweltracker/classification/foreign_object_prompts.json",
+    "new": "models/purity/classification/gallery/foreign_object_prompts.json",
+    "logical_name": "purity.classification.gallery.foreign_object_prompts.json",
+    "sha256": "0299318f73d0991fcf7705297eb0313512aa93243d9e0c78f9651ebadc836aef"
+  },
+  {
+    "old": "engines/Jeweltracker/classification/jewelry_prompts.json",
+    "new": "models/purity/classification/gallery/jewelry_prompts.json",
+    "logical_name": "purity.classification.gallery.jewelry_prompts.json",
+    "sha256": "0eb836eb6add98db19fcdd90a885b814a921e8c32544c2c053b4e0bfab723400"
+  },
+  {
+    "old": "engines/Jeweltracker/classification/operator_corrections.npz",
+    "new": "models/purity/classification/gallery/operator_corrections.npz",
+    "logical_name": "purity.classification.gallery.operator_corrections.npz",
+    "sha256": "8313c288cb02a63906b0b4a265eb798962bd80d91a559d9dc9885107d6880ae3"
+  },
+  {
+    "old": "engines/Jeweltracker/classification/foreign_object_text_embeddings_cache.npz",
+    "new": "models/purity/classification/gallery/foreign_object_text_embeddings_cache.npz",
+    "logical_name": "purity.classification.gallery.foreign_object_text_embeddings_cache.npz",
+    "sha256": "802989c52b6298b1a63fa495790333a62c22857d91013637612e7e168736cc07"
+  },
+  {
+    "old": "engines/Jeweltracker/classification/jewelry_text_embeddings_cache.npz",
+    "new": "models/purity/classification/gallery/jewelry_text_embeddings_cache.npz",
+    "logical_name": "purity.classification.gallery.jewelry_text_embeddings_cache.npz",
+    "sha256": "432ebed256f122233bf18f29805bc1ca73f47ac41325bb216962c7836848084d"
+  },
+  {
+    "old": "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.json",
+    "new": "models/purity/acid/ph/acidph.json",
+    "logical_name": "purity.acid.ph.acidph.json",
+    "sha256": "e8f3129e8e38484ca5ec90eb1a69a5e1deeb28a9bd681a6b9e5bc4d988fc6bb3"
+  },
+  {
+    "old": "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.bin",
+    "new": "models/purity/acid/ph/acidph.bin",
+    "logical_name": "purity.acid.ph.acidph.bin",
+    "sha256": "ea3b81100b571db7dab8dacbfe73877d655ee27ae75e542323e894df3cd5589c"
+  },
+  {
+    "old": "engines/Jeweltracker/acidphintegration/acidph_openvino/acidph.xml",
+    "new": "models/purity/acid/ph/acidph.xml",
+    "logical_name": "purity.ph",
+    "sha256": "ffcff91db20a7967fa99afe40472de8baeb128db73e0e5e0b493ff2ff8e2ec14"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/models/acid_detector.onnx",
+    "new": "models/purity/acid/detector/acid_detector.onnx",
+    "logical_name": "purity.acid_detector",
+    "sha256": "fc7fce3b0fa6ec655c601ac0756ba31b9d8354692d140a1cf3cdabf339a805d2"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.onnx",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911.onnx",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.onnx",
+    "sha256": "868d1d8d1bfcae2f9c2a675df0b4161eba7c93a20119ed9868a81d104989b473"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_report.json",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911_report.json",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_report.json",
+    "sha256": "40046cf67e6429e5d4873057cf597b471f5557745e2f0324f9cd66e373c1da23"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_dataset_index.json",
+    "new": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149_dataset_index.json",
+    "logical_name": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_dataset_index.json",
+    "sha256": "f678996da0f3e576b0f9a7f0c929072cd11dc3084fcbb83b92d4ce64263ca76f"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911.pt",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911.pt",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911.pt",
+    "sha256": "2d2a2f14d4fbb7f4611f7a99784e3fb59f102b8525c46076158cdd17b21dbc08"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.onnx",
+    "sha256": "dd2cd6279355ef9c17652e7a5c0f37373c32e12b5091f4455d0bd362d500a37b"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_report.json",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901_report.json",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_report.json",
+    "sha256": "91e5dbae1f205bf58c4db1ea819c397348722fc1159774f8e36f2a98e5f8032b"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_split.json",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911_split.json",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_split.json",
+    "sha256": "7244bb3b04d7506d436bdb3ba8f7aa3829a250f2efeb8628ec8cb7d96fda7041"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_split.json",
+    "new": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149_split.json",
+    "logical_name": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_split.json",
+    "sha256": "c4dd0a199e4ea4b0d1764a49fcc278c504d54b996136c57bb159d01fbaf9780b"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149_report.json",
+    "new": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149_report.json",
+    "logical_name": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149_report.json",
+    "sha256": "394f9acd7c0fbfb3170bd6a4fb46351472685cc7dbc9523f2ee811fb94bbd508"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_split.json",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901_split.json",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_split.json",
+    "sha256": "7bb3b781627cddea9229f5ffe063de9f5b4dd9a4372f95f6cef6193fb016b3e1"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901_dataset_index.json",
+    "sha256": "49212372cfd70f72dc21cda2f75fd6737d3a30c9ff89391d7acc7af0a752c1ca"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.onnx",
+    "new": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149.onnx",
+    "logical_name": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.onnx",
+    "sha256": "28f239a20d6552d42060103e8aef637535827ab51f295bc429bf2ab27613a269"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_mobilenet_v3_20260912_170149.pt",
+    "new": "models/purity/acid/temporal/temporal_mobilenet_v3_20260912_170149.pt",
+    "logical_name": "purity.acid.temporal.temporal_mobilenet_v3_20260912_170149.pt",
+    "sha256": "8eff4f254fbc779959fe695deb6234f105afba7a62e02b6a1af2b9b8a7080cda"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261102_160901.pt",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261102_160901.pt",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261102_160901.pt",
+    "sha256": "857975264e1a43a754bcb361a2324af431a0702628c6c28fd22ec4a0c016c60d"
+  },
+  {
+    "old": "engines/Jeweltracker/acid_test/model_training/artifacts/temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json",
+    "new": "models/purity/acid/temporal/temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json",
+    "logical_name": "purity.acid.temporal.temporal_shared_mobilenet_v3_small_20261021_144911_dataset_index.json",
+    "sha256": "a1d118e372b8aa3542102ed5e3f6d67723e200c35be9cacd414d571be2ca2729"
+  },
+  {
+    "old": "engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.joblib",
+    "new": "models/sealing/opening/packet_bbox_classifier.joblib",
+    "logical_name": "sealing.opening",
+    "sha256": "89fd9b737d2e01dbcb3698e86290c2aff98c2a68b5986e9380a64e1eb254d48f"
+  },
+  {
+    "old": "engines/Packetsealing_001/packet_mouth_lab/models/packet_bbox_classifier.validation.json",
+    "new": "models/sealing/opening/packet_bbox_classifier.validation.json",
+    "logical_name": "sealing.opening.packet_bbox_classifier.validation.json",
+    "sha256": "6afb9a010c8a9a5898085fb57eae1d0cb1f53c62efebe7482f5a2368d75773e1"
+  },
+  {
+    "old": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.xml",
+    "new": "models/sealing/hand/candidate/best.xml",
+    "logical_name": "candidate.sealing.hand.candidate.best.xml",
+    "sha256": "21d6fb52e3dd516ce667c11c9e4e200d7c3600929adec2a14b124cc5022e4107"
+  },
+  {
+    "old": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/benchmark_origin.json",
+    "new": "models/sealing/hand/candidate/benchmark_origin.json",
+    "logical_name": "candidate.sealing.hand.candidate.benchmark_origin.json",
+    "sha256": "b7f57850c00ea21c1466aac3eddee54d99c7b9fc177943ec4d0f6c2b8614fbea"
+  },
+  {
+    "old": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/best.bin",
+    "new": "models/sealing/hand/candidate/best.bin",
+    "logical_name": "candidate.sealing.hand.candidate.best.bin",
+    "sha256": "1c9e08ca584268e4da3d67f7779fb0e75b58be19dee2375a343781c9b475780c"
+  },
+  {
+    "old": "development/models/Jeweltracker/INT8_openvino_model_hand_seg/metadata.yaml",
+    "new": "models/sealing/hand/candidate/metadata.yaml",
+    "logical_name": "candidate.sealing.hand.candidate.metadata.yaml",
+    "sha256": "7aeeed949f4fa38522398590bef88c7e6a49b2cb360f883929953508075bde2a"
+  },
+  {
+    "old": "development/models/Packetsealing_001/mouth_classifier.joblib",
+    "new": "models/sealing/opening/candidate/mouth_classifier.joblib",
+    "logical_name": "candidate.sealing.opening.candidate.mouth_classifier.joblib",
+    "sha256": "a6c3efb3daa0a65cc6c1278c79784da234b8951642e2d8e0536e395706932311"
+  },
+  {
+    "old": "development/models/Packetsealing_001/mouth_classifier.validation.json",
+    "new": "models/sealing/opening/candidate/mouth_classifier.validation.json",
+    "logical_name": "candidate.sealing.opening.candidate.mouth_classifier.validation.json",
+    "sha256": "6d504953760a44ef7ac4d0a2b67e63b0913198340fd3af1e62addc4f4134ce80"
+  },
+  {
+    "old": "engines/Packetsealing_001/model onnx/hand_landmarker.task",
+    "new": "models/sealing/hand/hand_landmarker.task",
+    "logical_name": "sealing.hand_landmarks",
+    "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1"
+  },
+  {
+    "old": "engines/Packetsealing_001/model onnx/pcnumber.onnx",
+    "new": "models/sealing/ocr/pcnumber.onnx",
+    "logical_name": "sealing.ocr_number",
+    "sha256": "4f6111391e52dc6c3d330c7df44f06433e547df3401be0b635bb3cafbdb5ef35"
+  },
+  {
+    "old": "engines/Packetsealing_001/model onnx/handseg model.onnx",
+    "new": "models/sealing/hand/handseg model.onnx",
+    "logical_name": "sealing.hand",
+    "sha256": "0f725de96d87163ca809674b9492d9c43d24b8ce96845c931d5ebd9f54ce4cac"
+  },
+  {
+    "old": "engines/Packetsealing_001/model onnx/bagnewmodel.onnx",
+    "new": "models/sealing/packet/bagnewmodel.onnx",
+    "logical_name": "sealing.packet",
+    "sha256": "dce32a88d0aa42bb2db1b44b7feed1ae87c88a4202f0d0b400c756bda41ce212"
+  },
+  {
+    "old": "engines/Packetsealing_001/model onnx/stripmodel.onnx",
+    "new": "models/sealing/strip/stripmodel.onnx",
+    "logical_name": "sealing.strip",
+    "sha256": "cd8969ae5f3b2cfafda092380f7b47efe742b67721afbd0a0a43a87c1172797e"
+  },
+  {
+    "old": "engines/Packetsealing_001/model onnx/fp_filter_resnet18_bag.onnx",
+    "new": "models/sealing/bag_filter/fp_filter_resnet18_bag.onnx",
+    "logical_name": "sealing.bag_filter",
+    "sha256": "9d31c4d65679e9f2cf3b89ea5f27ffa6f7f24a82b5593fac71edb275d32e801a"
+  },
+  {
+    "old": "engines/Packetsealing_001/model onnx/packet_closure.json.example",
+    "new": "models/sealing/packet/metadata/packet_closure.json.example",
+    "logical_name": "sealing.packet.metadata.packet_closure.json.example",
+    "sha256": "9745de8c5b1412e2a8bd78e7734f307e9ffc4bfb0058a132a8a3edcd2ae47252"
+  },
+  {
+    "old": "engines/Packetsealing_001/model onnx/hsv_fp_filter_strip.pt",
+    "new": "models/sealing/strip/hsv_fp_filter_strip.pt",
+    "logical_name": "sealing.strip_filter",
+    "sha256": "2f365b29a2cacdcb039f72799a570ceb8e8146588b1ca408460101f09cb72154"
+  },
+  {
+    "old": "engines/Jeweltracker/nivagar_gold_v3.onnx",
+    "new": "models/shared/gold/legacy/nivagar_gold_v3.onnx",
+    "logical_name": "shared.gold.legacy.nivagar_gold_v3.onnx",
+    "sha256": "1387781e05fe1f1bf577cb25a2871a650881892bbf15d7020dcfddc1c42e9d29"
+  },
+  {
+    "old": "engines/Jeweltracker/rubbing_gold.onnx",
+    "new": "models/purity/rubbed_mask/legacy_gold/rubbing_gold.onnx",
+    "logical_name": "purity.rubbed_mask.legacy_gold.rubbing_gold.onnx",
+    "sha256": "d1e30c1970153f68f4619bb76d349c8ba47a38658a5582934e46e5a5ccecf1cd"
+  },
+  {
+    "old": "engines/Jeweltracker/nivagar_gold_v3.pt",
+    "new": "models/shared/gold/legacy/nivagar_gold_v3.pt",
+    "logical_name": "shared.gold.legacy.nivagar_gold_v3.pt",
+    "sha256": "85f6d394d94ffd3fa97f1dbe5a497d074f7c7d66f484b81d7d09adb263e86c2e"
+  },
+  {
+    "old": "engines/Jeweltracker/newstone1.onnx",
+    "new": "models/purity/stone/legacy/newstone1.onnx",
+    "logical_name": "purity.stone.legacy.newstone1.onnx",
+    "sha256": "afc8d3042c1426edd06a7bf1b4897b6e05bd0a1a32d00381774ecc572b547dbd"
+  },
+  {
+    "old": "engines/Jeweltracker/rojeweltrack.onnx",
+    "new": "models/shared/gold/legacy/rojeweltrack.onnx",
+    "logical_name": "shared.gold.legacy.rojeweltrack.onnx",
+    "sha256": "63da65b2e8ba872b58e89b39530814fc53b6187f9cb2b8d6cf130da21d4faa81"
+  },
+  {
+    "old": "engines/Jeweltracker/acid.onnx",
+    "new": "models/purity/acid/legacy/acid.onnx",
+    "logical_name": "purity.acid.legacy.acid.onnx",
+    "sha256": "fc7fce3b0fa6ec655c601ac0756ba31b9d8354692d140a1cf3cdabf339a805d2"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/inference.pdiparams",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/inference.pdiparams",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det.inference.pdiparams",
+    "sha256": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/inference.json",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/inference.json",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det.inference.json",
+    "sha256": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.gitattributes",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.gitattributes",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..gitattributes",
+    "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/config.json",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/config.json",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det.config.json",
+    "sha256": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/README.md",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/README.md",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det.README.md",
+    "sha256": "4cc20ad6d41af86b3ce9885ffb0956e152574a2eb14179aeb07fd2d3956161ca"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/inference.yml",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/inference.yml",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det.inference.yml",
+    "sha256": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/.gitignore",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/.gitignore",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface..gitignore",
+    "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/CACHEDIR.TAG",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/CACHEDIR.TAG",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.CACHEDIR.TAG",
+    "sha256": "f6572428f6d5e1575e73a1502895a8731f10757dfbb634909c6e154b849af91d"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/trees/0d63e78e2b680928f6b1747d76a08db6e645efb7.json",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/trees/0d63e78e2b680928f6b1747d76a08db6e645efb7.json",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.trees.0d63e78e2b680928f6b1747d76a08db6e645efb7.json",
+    "sha256": "06d662d7ab252c2b91c0401e38068322a530ca90677788b7f0d70f885988af1f"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.metadata",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.yml.metadata",
+    "sha256": "40d5728df3694a7e4746a0e21d1ffc5fca484503309f8d4894c49d67853efdb7"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.metadata",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download..gitattributes.metadata",
+    "sha256": "392900f34fd48fc9940ad16ae9f88639c0e100bdcc9130f11ffaad5e71fed526"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.lock",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.lock",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.README.md.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.metadata",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/README.md.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.README.md.metadata",
+    "sha256": "987b9f3c491515260e3736eb14e23a3b0903d0eab588454783c3201e57b0ee20"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.lock",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.yml.lock",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.yml.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.lock",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.lock",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.pdiparams.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.lock",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.lock",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.json.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.lock",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/.gitattributes.lock",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download..gitattributes.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.lock",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.lock",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.config.json.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.metadata",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.pdiparams.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.pdiparams.metadata",
+    "sha256": "2e54320e47c5e81cce40e52dbfbe57add76cbaba22c16bc7d2a40e2010bd0276"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.metadata",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/config.json.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.config.json.metadata",
+    "sha256": "2462431ad7b046d1cd53913dc571dee2e05195697f2490cca953b433501afa02"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.metadata",
+    "new": "models/sealing/ocr/paddle/PP-OCRv5_mobile_det/.cache/huggingface/download/inference.json.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-OCRv5_mobile_det..cache.huggingface.download.inference.json.metadata",
+    "sha256": "fdab73e1cfad3951901a87270a7a8f509ec2e0c5c146a01f7134c67f4b43b87d"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/inference.pdiparams",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/inference.pdiparams",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.inference.pdiparams",
+    "sha256": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/inference.json",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/inference.json",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.inference.json",
+    "sha256": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.gitattributes",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.gitattributes",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..gitattributes",
+    "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/config.json",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/config.json",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.config.json",
+    "sha256": "16103ac291a82fca50f0bb000d62a4b8168f6042f03c89c44cf32f241d1eb1f2"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/README.md",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/README.md",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.README.md",
+    "sha256": "4c1cfd6e103b0966fe97505b5254cfa35a931d47d7effca97a9db47fb57dd699"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/inference.yml",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/inference.yml",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec.inference.yml",
+    "sha256": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/.gitignore",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/.gitignore",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface..gitignore",
+    "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/CACHEDIR.TAG",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/CACHEDIR.TAG",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.CACHEDIR.TAG",
+    "sha256": "f6572428f6d5e1575e73a1502895a8731f10757dfbb634909c6e154b849af91d"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/trees/267c36e24c331595590fe7bd72bde2436fd286f2.json",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/trees/267c36e24c331595590fe7bd72bde2436fd286f2.json",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.trees.267c36e24c331595590fe7bd72bde2436fd286f2.json",
+    "sha256": "79614cf95dc0368dc2ebbd1cb5250bcd51dac40914186b63a5dd64d1aac7c839"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.metadata",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.metadata",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.yml.metadata",
+    "sha256": "49ec16ebd9d468eaa72c99e44a4a608d0ce238b22242eb052b5ffcb37a52fa10"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.metadata",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.metadata",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download..gitattributes.metadata",
+    "sha256": "3cb66ca4d7e8c3da3bd9f6da46e4995d60ef8fb05b91fe9eb819a3c36b27b772"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.lock",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.lock",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.README.md.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.metadata",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/README.md.metadata",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.README.md.metadata",
+    "sha256": "9010e6ec73a193407c54fea702520adca7ef3153b3b93dd3418a5041ca0bec3c"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.lock",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.yml.lock",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.yml.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.lock",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.lock",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.pdiparams.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.lock",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.lock",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.json.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.lock",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/.gitattributes.lock",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download..gitattributes.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.lock",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.lock",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.config.json.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.metadata",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.pdiparams.metadata",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.pdiparams.metadata",
+    "sha256": "7edfaf6adb460199d4ff67f76b6cf76c307e77c09f73798a66f7ed2cffa9a156"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.metadata",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/config.json.metadata",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.config.json.metadata",
+    "sha256": "0c1b1dbadc23b92fe737a2766e5855f17c39ef2f4c2aa0e907ba1596302971bb"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.metadata",
+    "new": "models/sealing/ocr/paddle/en_PP-OCRv5_mobile_rec/.cache/huggingface/download/inference.json.metadata",
+    "logical_name": "sealing.ocr.paddle.en_PP-OCRv5_mobile_rec..cache.huggingface.download.inference.json.metadata",
+    "sha256": "7a45ae644110e1dc3766bd1ce5c46994b18f730e6b9aca95e8c83174c619534f"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/inference.pdiparams",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/inference.pdiparams",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.inference.pdiparams",
+    "sha256": "0de2bcf996cf553e2b848dd7b1769dafffc6917b1ccdf55c1d8efe7909fbf743"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/inference.json",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/inference.json",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.inference.json",
+    "sha256": "b81929eeaff8e52db0fafb49c9fbfc5bc0572f81641fe0179cc52096323fb4d4"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.gitattributes",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.gitattributes",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..gitattributes",
+    "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/config.json",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/config.json",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.config.json",
+    "sha256": "c1a2576f9713adabdc4a58d9d654fcc9ea93b6efd0e2d3581d5aab409a33f14f"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/README.md",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/README.md",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.README.md",
+    "sha256": "c2de067422621e296f697b849b90b8f6cae090a8e0a27d8b04eeb8d68ffb8ce0"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/inference.yml",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/inference.yml",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori.inference.yml",
+    "sha256": "8d5120d0e1a30a9df7ed46aa9119da3796ed066777089d1c1d705f132d5e90f9"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/.gitignore",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/.gitignore",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface..gitignore",
+    "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/CACHEDIR.TAG",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/CACHEDIR.TAG",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.CACHEDIR.TAG",
+    "sha256": "f6572428f6d5e1575e73a1502895a8731f10757dfbb634909c6e154b849af91d"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/trees/cd237a44b0e359d4fe38310a416203cf7403faa5.json",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/trees/cd237a44b0e359d4fe38310a416203cf7403faa5.json",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.trees.cd237a44b0e359d4fe38310a416203cf7403faa5.json",
+    "sha256": "917b0a39da002b79d233b76eda3d740624390ed6e5ab4dc4615050d5217f4c00"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.metadata",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.yml.metadata",
+    "sha256": "d91185b86fcd9603a067234989a61983acd53481163f74e361f60983e38dd547"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.metadata",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download..gitattributes.metadata",
+    "sha256": "a2398700b1fc9e23e3085448e98ef25a9bbed9614bf3d98831f5a1a4bc1c8e1c"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.lock",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.lock",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.README.md.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.metadata",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/README.md.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.README.md.metadata",
+    "sha256": "6f2a5c48647e02a65089fd09e9e984a8c1cceaa05f031c101387c363ef5d7cb7"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.lock",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.yml.lock",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.yml.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.lock",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.lock",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.pdiparams.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.lock",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.lock",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.json.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.lock",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/.gitattributes.lock",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download..gitattributes.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.lock",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.lock",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.config.json.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.metadata",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.pdiparams.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.pdiparams.metadata",
+    "sha256": "1ee781fb401cc61d1a47385cda2f69065c121e79e5177385199439dbb5ee6a9d"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.metadata",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/config.json.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.config.json.metadata",
+    "sha256": "f9d33ecac2ef3a11cdfd5f319e6d602c1f6c45c6e7c6a8eebf00eea938ba48ac"
+  },
+  {
+    "old": "/home/embsys/.paddlex/official_models/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.metadata",
+    "new": "models/sealing/ocr/paddle/PP-LCNet_x1_0_textline_ori/.cache/huggingface/download/inference.json.metadata",
+    "logical_name": "sealing.ocr.paddle.PP-LCNet_x1_0_textline_ori..cache.huggingface.download.inference.json.metadata",
+    "sha256": "a19afb51ce9db4d76123624a83c55164101e559b40381bed1a5ec919e9230eac"
+  }
+]

@@ -46,6 +46,7 @@ class SealingDiagnosticsTests(unittest.TestCase):
         cases = [('packet_not_detected', dict(packet_context_ok=False)),
                  ('strip_area_not_visible', dict(strip_view_ok=False)),
                  ('hand_covering_strip_area', dict(hands_clear=False)),
+                 ('packet_moving', dict(removal_ready=False)),
                  ('strip_still_detected', dict(strip='present'))]
         t = 11.
         for reason, changes in cases:
@@ -56,6 +57,20 @@ class SealingDiagnosticsTests(unittest.TestCase):
             self.assertFalse(self.flow.sealed)
             t += 1
 
+    def test_attachment_occlusion_resets_progress_and_retains_warning(self):
+        self.step(10.2)
+        self.step(10.5, hands_clear=False)
+        self.assertEqual(0, self.flow.strip_absent_hits)
+        self.assertEqual('hand_covering_strip_area', self.flow.sealing_diagnostic['blocker'])
+        self.assertTrue(self.flow.sealing_diagnostic['hand_warning'])
+        for t in (10.8, 11.1, 11.4):
+            self.step(t, hands_clear=False)
+        self.assertFalse(self.flow.sealed)
+        self.assertEqual(4, self.flow.sealing_hand_warning['observations'])
+        for t in (11.7, 12., 12.3, 12.6, 12.9):
+            self.step(t)
+        self.assertTrue(self.flow.sealed)
+
     def test_observation_gap_is_recorded_and_resets_clear_time(self):
         self.step(10.2)
         self.step(10.6)
@@ -63,6 +78,36 @@ class SealingDiagnosticsTests(unittest.TestCase):
         self.assertTrue(self.flow.sealing_diagnostic['observation_gap_reset'])
         self.assertEqual(1, self.flow.strip_absent_hits)
         self.assertEqual(0., self.flow.strip_clear_seconds)
+
+    def test_motion_resets_progress_and_clear_settled_packet_can_retry(self):
+        self.step(10.2)
+        self.step(10.5, removal_ready=False)
+        self.assertEqual(0, self.flow.strip_absent_hits)
+        self.assertEqual('packet_moving', self.flow.sealing_diagnostic['blocker'])
+        for t in (10.8, 11.1, 11.4, 11.7, 12.):
+            self.step(t, removal_ready=True)
+        self.assertTrue(self.flow.strip_removed)
+
+    def test_landmark_adapter_uses_purity_thresholds_and_increasing_timestamps(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from standalone.models import LandmarkHands
+        points = np.tile([50., 50.], (21, 1)).astype(np.float32)
+        points[0], points[9] = (50, 60), (50, 40)
+        hand = SimpleNamespace(points=points, scale=20., box=(45, 40, 55, 60))
+        with patch('engines.sealing.hand_tracking.HandKeypoints') as factory:
+            factory.return_value.detect.return_value = [hand]
+            adapter = LandmarkHands()
+            frame = np.zeros((100, 100, 3), np.uint8)
+            first = adapter.detect(frame)
+            adapter.detect(frame)
+            self.assertTrue(factory.call_args.kwargs['video'])
+            self.assertEqual(.25, factory.call_args.kwargs['detection_confidence'])
+            calls = factory.return_value.detect.call_args_list
+            self.assertLess(calls[0].kwargs['timestamp_ms'], calls[1].kwargs['timestamp_ms'])
+            self.assertGreater(np.count_nonzero(first[0].mask), 0)
+            adapter.close()
+            factory.return_value.close.assert_called_once()
 
     def models(self):
         models = PacketModels.__new__(PacketModels)
@@ -86,7 +131,7 @@ class SealingDiagnosticsTests(unittest.TestCase):
         models.strip.detect.return_value = [Detection(zone, (5, 5, 95, 15), .9)]
         self.assertEqual('present', models.inspect(np.zeros((100, 100, 3), np.uint8), mask, inspection_zone=zone)[1])
 
-    def test_hand_away_from_attachment_area_does_not_block_but_nearby_hand_does(self):
+    def test_hand_overlap_measurement_distinguishes_nearby_and_distant_hands(self):
         models, mask, zone, loose = self.models()
         frame = np.zeros((100, 100, 3), np.uint8)
         models.hand.detect.return_value = [Detection(loose, (5, 70, 95, 80), .9)]
@@ -118,7 +163,7 @@ class SealingDiagnosticsTests(unittest.TestCase):
         self.assertEqual(0, self.flow.strip_absent_hits)
         self.assertEqual('inference_too_slow', self.flow.sealing_diagnostic['blocker'])
 
-    def test_old_reference_loss_does_not_block_current_packet_detection(self):
+    def test_old_reference_loss_is_irrelevant_to_current_packet_check(self):
         self.step(10.2)
         self.step(10.4, reference_lost=True)
         self.assertEqual('checking_removal', self.flow.sealing_diagnostic['blocker'])
