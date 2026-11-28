@@ -30,7 +30,7 @@
     "standalone-sealing-replay",
     "virtual-panel"
   ],
-  "result_sha256": "7c9a9e07da69d73892139bec975c0b4a6fd6bd93c873f0b4d911a28d84705612",
+  "result_sha256": "683a39de5dc24def004976365942f680b787848d6cc9e866489087de185892ac",
   "source_migration_sha256": "335e055302572202bb6674099ac43bd0af4312fd92ec4a2919aaa3326ee69578",
   "physical_hardware_validation": "PENDING - not inferred from replay",
   "backup_branch": "backup/pre-production-20261128"

@@ -21,22 +21,25 @@ class DebugStream:
             or os.environ.get("WAYLAND_DISPLAY")
             or os.environ.get("QT_QPA_PLATFORM") == "offscreen"
         ):
-            self.viewer = subprocess.Popen(
-                [
-                    str(
-                        interpreter("releasing" if family == "releasing" else "packet")
-                    ),
-                    str(ROOT / "ui/engine_viewer.py"),
-                    "--engine",
-                    message["activity"]["engine"],
-                    "--directory",
-                    str(self.directory),
-                ],
-                env=env,
-                stdin=subprocess.DEVNULL,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-            )
+            with (self.directory / "viewer.log").open("a") as viewer_log:
+                self.viewer = subprocess.Popen(
+                    [
+                        str(
+                            interpreter(
+                                "releasing" if family == "releasing" else "packet"
+                            )
+                        ),
+                        str(ROOT / "ui/engine_viewer.py"),
+                        "--engine",
+                        message["activity"]["engine"],
+                        "--directory",
+                        str(self.directory),
+                    ],
+                    env=env,
+                    stdin=subprocess.DEVNULL,
+                    stdout=viewer_log,
+                    stderr=subprocess.STDOUT,
+                )
 
     def update(self, adapter):
         if time.monotonic() - self.last < 0.2:

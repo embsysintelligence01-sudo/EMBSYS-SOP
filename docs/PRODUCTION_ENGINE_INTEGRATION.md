@@ -52,6 +52,12 @@ new cycles clear stale contact/mask/baseline events. Result display respects the
 original active-cycle and latest-token guards. No viewer starts a model worker,
 acquires a camera, changes thresholds or writes verification results. Local
 diagnostics remain limited to debug mode and are not served to the browser.
+Optional warning text may be null in real worker events; the viewer treats null
+as absent text. This fixes a reproduced Qt callback crash. Two saved session
+snapshots were replayed in isolated viewer processes: both remained open and
+closed cleanly when requested. Regression coverage includes null warnings for
+both phase and status events. Each attempt's `debug/viewer.log` now preserves
+viewer stdout/errors; viewer failure does not mark engine evidence verified.
 The virtual panel and independent debugging commands do not write production
 queue records. Their camera ownership uses the common lease.
 

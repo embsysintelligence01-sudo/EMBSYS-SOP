@@ -70,7 +70,7 @@ class PurityView:
             w.report_label.setText(f'<a href="{escape(url)}">Open session PDF</a>')
         elif kind == "status":
             w.acid_instruction.setText(
-                p["message"] + " " + p.get("residue_warning", "")
+                (p.get("message") or "") + " " + (p.get("residue_warning") or "")
             )
         elif kind == "phase":
             jid = p.get("jewel_id")
@@ -82,7 +82,7 @@ class PurityView:
                 title += f" ({p['remaining']:.1f} s left)"
             w.phase_label.setText(prefix + "PROCESS: " + title)
             w.acid_instruction.setText(
-                p.get("message", "") + " " + p.get("residue_warning", "")
+                (p.get("message") or "") + " " + (p.get("residue_warning") or "")
             )
         elif kind in ("reference", "baseline"):
             self.stone_picture(kind, p)

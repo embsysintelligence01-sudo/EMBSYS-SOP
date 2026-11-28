@@ -50,6 +50,7 @@ class PurityDiagnosticsTests(unittest.TestCase):
                 jewel_id=1,
                 message="Waiting for acid",
                 remaining=3.5,
+                residue_warning=None,
             )
         )
         diagnostic.log("Stone loaded", "info")
@@ -106,6 +107,10 @@ class PurityDiagnosticsTests(unittest.TestCase):
                 self.assertEqual(window.table.item(0, 4).text(), "INCOMPLETE")
                 self.assertIn("NOT DETECTED", window.rub_instruction.text())
                 self.assertIn("Waiting for acid", window.acid_instruction.text())
+                view.event(
+                    dict(kind="status", message="Recording", residue_warning=None)
+                )
+                self.assertEqual(window.acid_instruction.text().strip(), "Recording")
                 self.assertIn(
                     "/test/attempt/purity/session", window.recordings_location.text()
                 )
