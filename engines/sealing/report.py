@@ -267,7 +267,7 @@ def write_session_report(path, directory, work, flow, result, finish_t, clock_te
     if hand_warning.get('observations', 0):
         text(f"Hand overlap observed in {hand_warning['observations']} sealing observations "
              f"({timestamp(hand_warning.get('first_at'))} to {timestamp(hand_warning.get('last_at'))}). "
-             'Report only; flow continued.', margin, 94, 7, TEAL)
+             'Removal verification waits for landmark hand clearance at the packet.', margin, 94, 7, TEAL)
     text('Sealing is inferred from verified strip removal; adhesive closure and strength are not measured.',
          margin, 64, 8)
     canvas.showPage()

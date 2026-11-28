@@ -12,6 +12,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parents[1]
 JEWEL = ROOT / 'engines/Jeweltracker'
 PACKET = ROOT / 'engines/Packetsealing_001'
+RELEASING = ROOT / 'engines/PacketReleasing'
 
 
 def settings():
@@ -29,7 +30,7 @@ def resolve_path(value):
 
 def interpreter(workflow):
     data = settings()
-    variable = 'PURITY_PYTHON' if workflow == 'purity' else 'PACKET_PYTHON'
+    variable = {'purity': 'PURITY_PYTHON', 'packet': 'PACKET_PYTHON', 'releasing': 'RELEASING_PYTHON'}[workflow]
     path = resolve_path(os.environ.get(variable) or data[workflow + '_python'])
     if not path.is_file() or not os.access(path, os.X_OK):
         raise RuntimeError(f'{variable} interpreter is unavailable. Run scripts/install.sh or configure configs/local.toml.')
@@ -52,10 +53,22 @@ def engine_environment(workflow):
             env['PACKET_OCR_PYTHON' if key == 'ocr_python' else 'EMBSYS_REVIEWER_DIR'] = str(resolve_path(value))
     for key in ('QT_PLUGIN_PATH', 'QT_QPA_PLATFORM_PLUGIN_PATH', 'QT_QPA_FONTDIR'):
         env.pop(key, None)
+    if workflow == 'releasing':
+        # Match the preserved engine's working Linux launcher, without importing Qt6.
+        env.update(PACKET_CUT_MODELS_DIR=str(RELEASING/'models'), WORKFLOW_DEVICE='cpu',
+                   OMP_NUM_THREADS=env.get('OMP_NUM_THREADS', '4'),
+                   MKL_NUM_THREADS=env.get('MKL_NUM_THREADS', '4'),
+                   YOLO_CONFIG_DIR=str(ROOT/'runtime/PacketReleasing/ultralytics'),
+                   PACKET_OCR_DET_MODEL=env.get('PACKET_OCR_DET_MODEL', 'PP-OCRv5_mobile_det'),
+                   PACKET_OCR_REC_MODEL=env.get('PACKET_OCR_REC_MODEL', 'en_PP-OCRv5_mobile_rec'))
     return env
 
 
-def command(workflow):
+def command(workflow, *, development=False):
+    if workflow == 'releasing':
+        if not development:
+            raise ValueError('Packet Releasing is development-only; production integration is not enabled')
+        return [str(interpreter(workflow)), str(RELEASING/'automated_app/app.py'), '--cpu'], RELEASING
     if workflow not in ('purity', 'packet'):
         raise ValueError('Unknown workflow')
     directory = JEWEL if workflow == 'purity' else PACKET

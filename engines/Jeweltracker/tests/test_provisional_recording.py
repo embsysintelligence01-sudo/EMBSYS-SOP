@@ -22,6 +22,77 @@ def trigger(ids):
 
 
 class RecordingAssignmentTests(unittest.TestCase):
+    def test_multi_candidate_recovery_updates_existing_cycle_even_during_reaction(self):
+        with monitor_case() as (m, events):
+            start = dict(trigger([1, 2]), pickup_id='0:1', event='pickup')
+            m._new_cycle(None, snap(100), 100, recording_trigger=start)
+            active = m.active
+            baseline = np.ones((12, 12, 3), np.uint8)
+            active.update(baseline=baseline, acid_onset=100.5, reaction_end=105.5)
+            cue = dict(start, event='identity_confirmation', jewel_id=2,
+                       provisional=False, confirmed_at=101., ownership_reason='unique_home_departure',
+                       ownership_at=100.2)
+            with patch.object(m, '_box_cue', return_value=cue), patch.object(m, '_finish') as finish:
+                m._select_box_cycle(snap(101))
+                m._select_box_cycle(snap(101.2))
+            finish.assert_not_called()
+            self.assertIs(active, m.active)
+            self.assertIs(baseline, active['baseline'])
+            self.assertEqual(2, active['jewel_id'])
+            self.assertEqual((100, 100.5, 105.5),
+                             (active['started'], active['acid_onset'], active['reaction_end']))
+            self.assertEqual(1, sum(kind == 'begin' for kind, _ in events))
+            self.assertEqual(1, sum(kind == 'identity_confirmed' for kind, _ in events))
+
+    def test_foreign_or_finished_pickup_confirmation_never_starts_another_cycle(self):
+        for case in ('foreign', 'no_active', 'wrong_owner'):
+            with self.subTest(case=case), monitor_case() as (m, events):
+                start = dict(trigger([1]), pickup_id='0:1', event='pickup')
+                if case != 'no_active':
+                    m._new_cycle(None, snap(100), 100, recording_trigger=start)
+                active = m.active
+                cue = dict(start, event='identity_confirmation', jewel_id=2 if case == 'wrong_owner' else 1,
+                           provisional=False, confirmed_at=101.,
+                           pickup_id='0:2' if case == 'foreign' else '0:1')
+                with patch.object(m, '_box_cue', return_value=cue), \
+                        patch.object(m, '_finish') as finish, patch.object(m, '_new_cycle') as new:
+                    m._select_box_cycle(snap(101))
+                finish.assert_not_called()
+                new.assert_not_called()
+                self.assertIs(active, m.active)
+                if active:
+                    self.assertIsNone(active['jewel_id'])
+
+    def test_recognized_arrival_can_correct_initial_provisional_candidate(self):
+        with monitor_case() as (m, events):
+            start = dict(trigger([1]), pickup_id='0:1', ownership_candidates=[1, 2])
+            m._new_cycle(None, snap(100), 100, recording_trigger=start)
+            active = m.active
+            cue = dict(start, event='identity_confirmation', jewel_id=2, provisional=False,
+                       confirmed_at=101., ownership_reason='recognized_gold_arrival')
+            with patch.object(m, '_box_cue', return_value=cue), patch.object(m, '_finish') as finish:
+                m._select_box_cycle(snap(101))
+            finish.assert_not_called()
+            self.assertIs(active, m.active)
+            self.assertEqual(2, active['jewel_id'])
+            self.assertEqual([1], active['recording_trigger']['candidate_ids'])
+            self.assertEqual('recognized_gold_arrival', m._record(active)['identity_confirmation']['ownership_reason'])
+
+    def test_arrival_after_acid_onset_cannot_inherit_the_earlier_reaction(self):
+        with monitor_case() as (m, events):
+            start = dict(trigger([1, 2]), pickup_id='0:1')
+            m._new_cycle(None, snap(100), 100, recording_trigger=start)
+            active = m.active
+            active['acid_onset'] = 100.5
+            cue = dict(start, event='identity_confirmation', jewel_id=2, provisional=False,
+                       confirmed_at=101., ownership_reason='recognized_gold_arrival', ownership_at=100.8)
+            with patch.object(m, '_box_cue', return_value=cue), patch.object(m, '_finish') as finish:
+                m._select_box_cycle(snap(101))
+            finish.assert_not_called()
+            self.assertIs(active, m.active)
+            self.assertIsNone(active['jewel_id'])
+            self.assertFalse(any(kind == 'identity_confirmed' for kind, _ in events))
+
     def test_confirmed_candidate_continues_same_cycle_and_preserves_evidence(self):
         with monitor_case() as (m,events):
             m._new_cycle(None,snap(100),100,recording_trigger=trigger([2]))
@@ -169,6 +240,22 @@ class ProvisionalRecordingUITests(unittest.TestCase):
         self.worker.continuous_event('result',record=record)
         self.assertIs(record,tr.acid_result)
         self.assertTrue(tr.done)
+
+    def test_recovered_different_owner_clears_old_provisional_row(self):
+        self.begin()
+        token = self.worker.continuous_cycle_id
+        photo = np.zeros((10, 10, 3), np.uint8)
+        self.worker.continuous_event('contact', jewel_id=None, token=token, photo=photo,
+                                     timestamp=1., confirmed=True, **self.assignment)
+        self.worker.continuous_event('identity_confirmed', jewel_id=2, token=token,
+                                     recording_assignment='CONFIRMED', recording_candidate_id=None)
+        previous, owner = self.worker.tracks
+        self.assertIsNone(previous.provisional_recording)
+        self.assertIsNone(previous.acid_result)
+        self.assertIsNone(previous.provisional_rub_img)
+        self.assertIs(photo, owner.rub_img)
+        self.assertEqual(2, self.worker.continuous_pending_id)
+        self.assertEqual(token, self.worker.continuous_cycle_id)
 
     def test_candidate_result_and_clip_link_do_not_confirm_identity_or_handoff_prediction(self):
         self.begin()

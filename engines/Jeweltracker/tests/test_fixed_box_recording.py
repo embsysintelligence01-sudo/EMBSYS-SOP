@@ -142,6 +142,234 @@ class BoxTriggerTests(TestCase):
         self.assertEqual([1], cue['candidate_ids'])
         self.assertIn('covered', self.trigger.preview['detail'])
 
+    def provisional_pickup(self):
+        self.frame[20:30, 15:25] = (40, 70, 120)
+        self.track.update(state='OCCLUDED')
+        self.pinch(35)
+        for ts in (.2, .4, .6):
+            self.assertIsNone(self.observe(ts, []))
+        return self.observe(.8, [])
+
+    def test_latched_provisional_grip_emits_one_later_confirmation_without_retrigger(self):
+        start = self.provisional_pickup()
+        self.frame[:] = 235
+        for ts in (1., 1.2):
+            self.assertIsNone(self.observe(ts, []))
+        confirmed = self.observe(1.4, [])
+        self.assertEqual('identity_confirmation', confirmed['event'])
+        self.assertEqual(start['pickup_id'], confirmed['pickup_id'])
+        self.assertEqual(1, confirmed['jewel_id'])
+        self.assertEqual('unique_home_departure', confirmed['ownership_reason'])
+        self.assertIsNone(self.observe(1.6, []))
+        self.assertIsNone(self.observe(1.8, []))
+
+    def test_home_departure_resolves_after_hand_leaves_box(self):
+        self.provisional_pickup()
+        self.model.detect.return_value = []
+        self.frame[:] = 235
+        self.assertIsNone(self.observe(1., []))
+        self.assertIsNone(self.observe(1.2, []))
+        result = self.observe(1.4, [])
+        self.assertEqual(1, result['jewel_id'])
+        self.assertEqual('identity_confirmation', result['event'])
+
+    def test_unmatched_recognized_gold_recovers_arrival_without_position_id(self):
+        self.provisional_pickup()
+        gold = self.detection(100)
+        gold.c = (105, 50)
+        gold.idres = (1, .9)
+        result = self.observe(1., [gold])
+        self.assertEqual('recognized_gold_arrival', result['ownership_reason'])
+        self.assertEqual(1, result['jewel_id'])
+        self.assertEqual('OCCLUDED', self.track['state'])
+
+    def multi_pickup(self):
+        other = self.detection(45)
+        track = dict(self.track, id=2, pos=other.c, mask=other.mask, origin=other.origin)
+        tracks = [self.track, track]
+        self.trigger.observe((0, SETTINGS['points'], 'Any'), self.frame, 0., tracks,
+                             [self.home, other], SETTINGS)
+        self.frame[20:30, 15:55] = (40, 70, 120)
+        self.track['state'] = track['state'] = 'OCCLUDED'
+        self.pinch(35)
+        cues = []
+        for ts in (.2, .4, .6, .8):
+            cue = self.trigger.observe((0, SETTINGS['points'], 'Any'), self.frame, ts, tracks, [], SETTINGS)
+            if cue:
+                cues.append(cue)
+        self.assertEqual(1, len(cues))
+        self.assertEqual([1, 2], cues[0]['candidate_ids'])
+        return tracks, other, cues[0]
+
+    def test_candidate_contraction_confirms_same_pickup_instead_of_another_cycle(self):
+        tracks, other, start = self.multi_pickup()
+        self.frame[:] = 235
+        cues = []
+        for ts in (1., 1.2, 1.4, 1.6):
+            cue = self.trigger.observe((0, SETTINGS['points'], 'Any'), self.frame, ts,
+                                       tracks, [self.home], SETTINGS)
+            if cue:
+                cues.append(cue)
+        self.assertEqual(1, len(cues))
+        self.assertEqual(2, cues[0]['jewel_id'])
+        self.assertEqual(start['pickup_id'], cues[0]['pickup_id'])
+        self.assertEqual('identity_confirmation', cues[0]['event'])
+
+    def test_two_departed_jewels_remain_ambiguous(self):
+        tracks, _, _ = self.multi_pickup()
+        self.frame[:] = 235
+        for ts in (1., 1.2, 1.4, 1.6):
+            self.assertIsNone(self.trigger.observe((0, SETTINGS['points'], 'Any'), self.frame,
+                                                  ts, tracks, [], SETTINGS))
+        self.assertIsNone(self.trigger.pickup['jewel_id'])
+
+    def test_departure_history_recovers_jewel_returned_to_same_spot(self):
+        tracks, other, start = self.multi_pickup()
+        # J1 leaves, but J2 stays covered so neither can yet be named.
+        self.frame[20:30, 15:25] = 235
+        for ts in (1., 1.2, 1.4):
+            self.assertIsNone(self.trigger.observe((0, SETTINGS['points'], 'Any'), self.frame,
+                                                  ts, tracks, [], SETTINGS))
+        self.model.detect.return_value = []
+        self.frame[:] = 235
+        result = self.trigger.observe((0, SETTINGS['points'], 'Any'), self.frame, 1.6,
+                                      tracks, [self.home, other], SETTINGS)
+        self.assertEqual(1, result['jewel_id'])
+        self.assertEqual('home_departure_and_return', result['ownership_reason'])
+        self.assertEqual(start['pickup_id'], result['pickup_id'])
+
+    def test_stream_gap_prevents_recovery_of_old_pickup(self):
+        start = self.provisional_pickup()
+        self.frame[:] = 235
+        self.assertIsNone(self.observe(2., []))
+        self.assertIsNone(self.trigger.pickup)
+        self.assertIsNone(self.observe(2.2, []))
+        self.assertIsNone(self.observe(2.4, []))
+        new = self.observe(2.6, [])
+        self.assertNotEqual(start['pickup_id'], new['pickup_id'])
+
+    def test_live_camera_grip_can_trigger_while_gold_processing_is_stalled(self):
+        self.pinch(35)
+        accepted = self.frame.copy()
+        live = self.frame.copy()
+        live[20:30, 15:25] = (40, 70, 120)
+        cues = []
+        # Reuse the last accepted gold sample. Hand frames/timestamps keep
+        # advancing, without fabricating any fresh position detections.
+        for ts in (.2, .4, .6, .8, 1., 1.2):
+            cue = self.trigger.observe((0, SETTINGS['points'], 'Any'), accepted, 0.,
+                                       [self.track], [self.home], SETTINGS,
+                                       live_frame=live, live_ts=ts)
+            if cue:
+                cues.append(cue)
+        self.assertEqual(1, len(cues))
+        self.assertEqual('pickup', cues[0]['event'])
+        self.assertTrue(cues[0]['provisional'])
+        self.assertEqual(0, self.track['det_seen'])
+        self.assertEqual(1200, self.model.detect.call_args.kwargs['timestamp_ms'])
+
+    def test_returned_jewel_home_moves_only_after_clear_stable_placement(self):
+        self.track.update(state='OCCLUDED')
+        self.pinch(35)
+        for ts in (.2, .4, .6):
+            self.observe(ts, [])
+        start = self.observe(.8, [])
+        self.assertEqual(1, start['jewel_id'])
+        self.model.detect.return_value = []
+        returned = self.detection(55)
+        for ts in (1., 1.2, 1.4, 1.6, 1.8, 2., 2.2):
+            self.track.update(state='OK', pos=returned.c, det_seen=ts,
+                              mask=returned.mask, origin=returned.origin)
+            self.assertIsNone(self.observe(ts, [returned]))
+        self.assertEqual((55, 20, 65, 30), self.trigger.homes[1].box)
+
+    def test_expired_confirmation_can_be_retried_from_fresh_evidence(self):
+        start = self.provisional_pickup()
+        self.frame[:] = 235
+        self.observe(1., [])
+        self.observe(1.2, [])
+        expired = self.observe(1.4, [])
+        self.trigger.discard_cue(expired)
+        retry = self.observe(1.6, [])
+        self.assertEqual(start['pickup_id'], retry['pickup_id'])
+        self.assertEqual('identity_confirmation', retry['event'])
+        self.assertEqual(1.6, retry['confirmed_at'])
+
+    def test_conflicting_recognized_arrivals_do_not_select_a_jewel(self):
+        tracks, _, _ = self.multi_pickup()
+        detections = [self.detection(100), self.detection(120)]
+        for jid, det in enumerate(detections, 1):
+            det.c = (det.c[0], 50)
+            det.idres = (jid, .95)
+        self.assertIsNone(self.trigger.observe((0, SETTINGS['points'], 'Any'), self.frame,
+                                              1., tracks, detections, SETTINGS))
+        self.assertIsNone(self.trigger.pickup['jewel_id'])
+
+    def test_actual_trigger_events_recover_one_main_cycle(self):
+        from unittest.mock import patch
+        start = self.provisional_pickup()
+        self.frame[:] = 235
+        self.observe(1., [])
+        self.observe(1.2, [])
+        confirmation = self.observe(1.4, [])
+        with monitor_case() as (monitor, events):
+            with patch.object(monitor, '_box_cue', return_value=start):
+                monitor._select_box_cycle(dict(snap(.8), box_settings=SETTINGS))
+            active = monitor.active
+            with patch.object(monitor, '_box_cue', return_value=confirmation), \
+                    patch.object(monitor, '_finish') as finish:
+                monitor._select_box_cycle(dict(snap(1.4), box_settings=SETTINGS))
+                monitor._select_box_cycle(dict(snap(1.6), box_settings=SETTINGS))
+            finish.assert_not_called()
+            self.assertIs(active, monitor.active)
+            self.assertEqual(1, active['jewel_id'])
+            self.assertEqual(1, sum(kind == 'begin' for kind, _ in events))
+            self.assertEqual(1, sum(kind == 'identity_confirmed' for kind, _ in events))
+
+    def test_next_jewel_gets_a_new_pickup_instead_of_previous_owner(self):
+        other = self.detection(45)
+        second = dict(self.track, id=2, pos=other.c, mask=other.mask, origin=other.origin)
+        tracks = [self.track, second]
+        key = (0, SETTINGS['points'], 'Any')
+        self.trigger.observe(key, self.frame, 0., tracks, [self.home, other], SETTINGS)
+        self.track['state'] = 'OCCLUDED'
+        self.pinch(35)
+        first = None
+        for ts in (.2, .4, .6, .8):
+            first = self.trigger.observe(key, self.frame, ts, tracks, [other], SETTINGS) or first
+        self.assertEqual(1, first['jewel_id'])
+        second['state'] = 'OCCLUDED'
+        cues = []
+        for ts in (1., 1.2, 1.4, 1.6, 1.8):
+            cue = self.trigger.observe(key, self.frame, ts, tracks, [], SETTINGS)
+            if cue:
+                cues.append(cue)
+        self.assertEqual(1, len(cues))
+        self.assertEqual('pickup', cues[0]['event'])
+        self.assertEqual(2, cues[0]['jewel_id'])
+        self.assertNotEqual(first['pickup_id'], cues[0]['pickup_id'])
+
+    def test_recognized_arrival_corrects_covered_wrong_candidate_only_with_home_proof(self):
+        other = self.detection(45)
+        second = dict(self.track, id=2, pos=other.c, mask=other.mask, origin=other.origin)
+        tracks = [self.track, second]
+        key = (0, SETTINGS['points'], 'Any')
+        self.trigger.observe(key, self.frame, 0., tracks, [self.home, other], SETTINGS)
+        self.frame[20:30, 15:25] = (40, 70, 120)
+        self.track['state'] = 'OCCLUDED'
+        self.pinch(35)
+        start = None
+        for ts in (.2, .4, .6, .8):
+            start = self.trigger.observe(key, self.frame, ts, tracks, [other], SETTINGS) or start
+        self.assertEqual([1], start['candidate_ids'])
+        self.frame[:] = 235
+        gold = self.detection(100)
+        gold.c, gold.idres = (105, 50), (2, .95)
+        result = self.trigger.observe(key, self.frame, 1., tracks, [self.home, gold], SETTINGS)
+        self.assertEqual(2, result['jewel_id'])
+        self.assertEqual(start['pickup_id'], result['pickup_id'])
+        self.assertEqual('recognized_gold_arrival', result['ownership_reason'])
+
     def test_short_landmark_miss_preserves_hold_but_expired_grip_cannot_trigger(self):
         self.frame[20:30, 15:25] = (40, 70, 120)
         self.track.update(state='OCCLUDED')
@@ -289,6 +517,19 @@ class BoxTriggerTests(TestCase):
         np.testing.assert_array_equal(self.frame, original)
         self.assertIs(self.frame, draw_hand_preview(self.frame, 1., self.trigger.preview))
         self.assertEqual(35, self.trigger.preview['hands'][0]['distance_px'])
+
+    def test_landmarks_scale_for_display_without_changing_recording_coordinates(self):
+        from unittest.mock import patch
+        self.pinch(35)
+        self.observe(.2, [self.home])
+        preview = self.trigger.preview
+        points = preview['hands'][0]['points'].copy()
+        small = np.full((self.frame.shape[0] // 2, self.frame.shape[1] // 2, 3), 80, np.uint8)
+        with patch('engines.purity.box_trigger.draw_hand') as draw:
+            draw_hand_preview(small, .3, preview, source_shape=self.frame.shape)
+        np.testing.assert_array_equal(draw.call_args.args[1].points, points * .5)
+        np.testing.assert_array_equal(preview['hands'][0]['points'], points)
+        self.assertTrue(np.all(small == 80))
 
     def test_grip_outside_stone_corner_starts_inside_extended_area(self):
         area = StoneRecordingArea()

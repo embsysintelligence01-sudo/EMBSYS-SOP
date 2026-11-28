@@ -46,7 +46,7 @@ class SealingDiagnosticsTests(unittest.TestCase):
         cases = [('packet_not_detected', dict(packet_context_ok=False)),
                  ('strip_area_not_visible', dict(strip_view_ok=False)),
                  ('hand_covering_strip_area', dict(hands_clear=False)),
-                 ('attachment_reference_lost', dict(reference_lost=True)),
+                 ('packet_moving', dict(removal_ready=False)),
                  ('strip_still_detected', dict(strip='present'))]
         t = 11.
         for reason, changes in cases:
@@ -78,6 +78,36 @@ class SealingDiagnosticsTests(unittest.TestCase):
         self.assertTrue(self.flow.sealing_diagnostic['observation_gap_reset'])
         self.assertEqual(1, self.flow.strip_absent_hits)
         self.assertEqual(0., self.flow.strip_clear_seconds)
+
+    def test_motion_resets_progress_and_clear_settled_packet_can_retry(self):
+        self.step(10.2)
+        self.step(10.5, removal_ready=False)
+        self.assertEqual(0, self.flow.strip_absent_hits)
+        self.assertEqual('packet_moving', self.flow.sealing_diagnostic['blocker'])
+        for t in (10.8, 11.1, 11.4, 11.7, 12.):
+            self.step(t, removal_ready=True)
+        self.assertTrue(self.flow.strip_removed)
+
+    def test_landmark_adapter_uses_purity_thresholds_and_increasing_timestamps(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from standalone.models import LandmarkHands
+        points = np.tile([50., 50.], (21, 1)).astype(np.float32)
+        points[0], points[9] = (50, 60), (50, 40)
+        hand = SimpleNamespace(points=points, scale=20., box=(45, 40, 55, 60))
+        with patch('engines.sealing.hand_tracking.HandKeypoints') as factory:
+            factory.return_value.detect.return_value = [hand]
+            adapter = LandmarkHands()
+            frame = np.zeros((100, 100, 3), np.uint8)
+            first = adapter.detect(frame)
+            adapter.detect(frame)
+            self.assertTrue(factory.call_args.kwargs['video'])
+            self.assertEqual(.25, factory.call_args.kwargs['detection_confidence'])
+            calls = factory.return_value.detect.call_args_list
+            self.assertLess(calls[0].kwargs['timestamp_ms'], calls[1].kwargs['timestamp_ms'])
+            self.assertGreater(np.count_nonzero(first[0].mask), 0)
+            adapter.close()
+            factory.return_value.close.assert_called_once()
 
     def models(self):
         models = PacketModels.__new__(PacketModels)
@@ -133,11 +163,11 @@ class SealingDiagnosticsTests(unittest.TestCase):
         self.assertEqual(0, self.flow.strip_absent_hits)
         self.assertEqual('inference_too_slow', self.flow.sealing_diagnostic['blocker'])
 
-    def test_reference_loss_blocks_even_with_current_packet_detection(self):
+    def test_old_reference_loss_is_irrelevant_to_current_packet_check(self):
         self.step(10.2)
         self.step(10.4, reference_lost=True)
-        self.assertEqual('attachment_reference_lost', self.flow.sealing_diagnostic['blocker'])
-        self.assertEqual(0, self.flow.strip_absent_hits)
+        self.assertEqual('checking_removal', self.flow.sealing_diagnostic['blocker'])
+        self.assertEqual(2, self.flow.strip_absent_hits)
 
     def test_attachment_zone_maps_back_to_large_camera_frames(self):
         models, _, _, _ = self.models()

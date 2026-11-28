@@ -1,5 +1,21 @@
 # EMBSYS SOP
 
+Packet Releasing is now preserved under `engines/PacketReleasing/` for independent
+development. It is disabled in the production launcher. See the
+[three-engine preparation guide](docs/THREE_ENGINE_PREPARATION.md) and
+[integration validation](docs/PACKET_RELEASING_VALIDATION.md).
+
+```bash
+./development/run_engine.sh purity
+./development/run_engine.sh packet
+./development/run_engine.sh releasing --camera 0
+```
+
+Run one engine at a time using these protected commands. Each opens its existing
+PyQt interface under the same SOP camera-ownership lock. The purity-to-sealing
+in-window handoff remains unchanged. Engine 3 uses its existing separate Python
+environment; no detection or verification rules were changed during integration.
+
 A PyQt5 desktop launcher for the existing purity testing and packet sealing applications. Both engines were copied from this PC's local working folders, including uncommitted changes and local models. The original folders are the preserved backups.
 
 From this directory:
@@ -25,7 +41,11 @@ Choose **Trigger hand** as **Any**, **Right**, or **Left** using the model label
 
 The purity pickup hand model uses **0.25 detection and presence confidence thresholds**. Pinch distance, pickup evidence and hold timing remain separate trigger checks; lower confidence can also admit false hand detections.
 
-A provisional pickup with exactly one candidate is shown under that jewel as **PROVISIONAL**. Double-click its table status or result to open the saved recording folder. Saved manifests retain an unassigned confirmed identity alongside the candidate ID; reports label the association as provisional. Multiple candidates stay unassigned. Candidate evidence does not mark a jewel DONE or supply a confirmed per-jewel prediction to packet sealing. A confirmed test takes precedence in the jewel's table row.
+A provisional pickup with exactly one candidate is shown under that jewel as **PROVISIONAL**. Double-click its table status or result to open the saved recording folder. Saved manifests retain an unassigned confirmed identity alongside the candidate ID; reports label the association as provisional. Multiple candidates stay unassigned until later evidence resolves ownership. Candidate evidence does not mark a jewel DONE or supply a confirmed per-jewel prediction to packet sealing. A confirmed test takes precedence in the jewel's table row.
+
+Pickup ownership now retains the standalone recorder's departure, arrival and return evidence for each grip episode. A uniquely confirmed home departure (with the other eligible jewels still at home), or confidently recognized raw gold inside the stone area, can resolve a provisional pickup while its test is active. The original recording, rubbing evidence and acid reaction clock continue in the same cycle; ownership confirmation never starts another test. Confirmation records its reason and source observations in the manifest. A returned jewel can establish a new home after 0.8 seconds of clear, stable placement outside the work area. Multiple qualifying hands or conflicting arrivals remain unassigned. Closed cycles are not reassigned by later pickups.
+
+Hand checks use current camera frames even when the last accepted gold observation is delayed. Gold masks older than 0.5 seconds cannot assert home occupancy or a gold arrival; fresh pixels at the learned home still support pickup checks. Ownership recovered during an acid reaction must be supported by observations from before its onset; a later arrival cannot inherit an earlier reaction. Unresolved identity crops are retried at most once every 0.4 seconds instead of caching an ambiguous result indefinitely. Confirmed stationary identities keep their cache.
 
 PDF summaries include the candidate jewel's photo with the provisional label. New compressed clips use **AVI with MPEG-4/Xvid video**, avoiding the H.264-in-AVI stream rejected by this Ubuntu video pipeline. Original recorder clips remain Motion-JPEG AVI. `scripts/export_ubuntu_review.py SOURCE_SESSION NEW_OUTPUT_FOLDER` makes a separate review copy of an existing session with photos, linked AVI clips and preserved full jewel reports; it does not change the original evidence.
 

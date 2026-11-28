@@ -19,3 +19,14 @@ The runner uses the existing SLIC interpreter, the same exclusive process lock a
 `fixtures/Packetsealing_001/sample_images/` contains the six original sample images. An engine-relative compatibility link preserves the optional mouth-lab file picker and existing example commands. These local images are ignored by Git.
 
 `benchmarks/` and `editor/` retain historical performance output and editor workspace settings for reference. The editor workspace is historical, not a launcher for the combined project.
+
+## Current engine development
+
+`./development/run_engine.sh purity|packet|releasing` starts a current engine's
+existing PyQt interface with its configured interpreter and the production camera
+ownership lock. `releasing --camera 0` is preparation-only and never appears in
+the production launcher. `--describe` prints paths without launching. The release
+engine also provides `engines/PacketReleasing/run_development.sh`.
+
+See `docs/THREE_ENGINE_PREPARATION.md` for dependencies, models, local data,
+source-preservation checks and the unchanged purity-to-sealing handoff.

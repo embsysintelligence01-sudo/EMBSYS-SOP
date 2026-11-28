@@ -3,3 +3,6 @@
 purity_python = ".venv-slic/bin/python"
 packet_python = ".venv-slic/bin/python"
 ocr_python = ".venv-ocr/bin/python"
+
+# Preparation-only engine: never selected by the production launcher.
+releasing_python = "../packet-cut-system/.venv-ubuntu/bin/python"

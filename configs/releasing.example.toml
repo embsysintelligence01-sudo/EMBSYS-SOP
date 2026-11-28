@@ -1,0 +1,3 @@
+# Merge into ignored configs/local.toml for a different installation.
+# Keep the venv's lexical interpreter path; do not resolve its python symlink.
+releasing_python = "../packet-cut-system/.venv-ubuntu/bin/python"

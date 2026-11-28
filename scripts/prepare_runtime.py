@@ -23,7 +23,7 @@ def maintenance_lock():
     fd = os.open(path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
     try:
         fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        yield
+        yield fd
     except BlockingIOError:
         raise RuntimeError('An SOP engine owns the camera. Finish the active session before preparing storage.') from None
     finally:

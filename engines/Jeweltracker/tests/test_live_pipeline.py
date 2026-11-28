@@ -96,6 +96,58 @@ class PreviewTests(unittest.TestCase):
         worker.arm()
         np.testing.assert_array_equal(worker.preview.render(frame.copy(), 10.41), frame)
 
+    def test_display_size_overlay_is_cached_but_stale_or_changed_source_is_hidden(self):
+        preview = LatestPreview(max_age=.5)
+        overlay = np.zeros((100, 160, 3), np.uint8)
+        overlay[20:40, 40:60] = (0, 255, 0)
+        preview.publish(overlay, 10.)
+        frame = np.full((50, 80, 3), 70, np.uint8)
+        rendered = preview.render(frame.copy(), 10.1, source_shape=overlay.shape)
+        np.testing.assert_array_equal(rendered[15, 25], (0, 255, 0))
+        np.testing.assert_array_equal(rendered[40, 70], (70, 70, 70))
+        cached = preview.scaled_overlay
+        preview.render(frame.copy(), 10.2, source_shape=overlay.shape)
+        self.assertIs(cached, preview.scaled_overlay)
+        np.testing.assert_array_equal(preview.render(frame.copy(), 10.51, source_shape=overlay.shape), frame)
+        np.testing.assert_array_equal(preview.render(frame.copy(), 10.2, source_shape=(200, 320, 3)), frame)
+        preview.publish(np.zeros_like(overlay), 10.3)
+        np.testing.assert_array_equal(preview.render(frame.copy(), 10.4, source_shape=overlay.shape), frame)
+        preview.clear()
+        self.assertIsNone(preview.scaled_overlay)
+
+    def test_gui_resizes_before_compositing_and_keeps_camera_pixels_immutable(self):
+        with patch.object(tracker.QtCore.QTimer, 'singleShot'), patch.object(tracker, 'write_log'):
+            window = tracker.MainWindow()
+        frame = np.full((1440, 2560, 3), 80, np.uint8)
+        grabber = SimpleNamespace(latest=Mock(return_value=(frame, 10.1)))
+        preview = LatestPreview()
+        overlay = np.zeros_like(frame)
+        overlay[200:400, 400:600] = (0, 255, 0)
+        preview.publish(overlay, 10.)
+        window.worker = SimpleNamespace(grabber=grabber, preview=preview)
+        window.video.set_frame = Mock()
+        try:
+            window.refresh_preview()
+            grabber.latest.assert_called_once_with(after_ts=None, copy_frame=False)
+            image = window.video.set_frame.call_args.args[0]
+            self.assertLessEqual(image.width(), tracker.PREVIEW_MAX_WIDTH)
+            self.assertEqual((2560, 1440), window.video.set_frame.call_args.kwargs['source_size'])
+            self.assertTrue(np.all(frame == 80))
+            self.assertIsNotNone(preview.scaled_overlay)
+        finally:
+            window.worker = None
+            window.close()
+
+    def test_thin_outlines_do_not_disappear_between_display_pixels(self):
+        preview = LatestPreview()
+        frame = np.full((5, 5, 3), 70, np.uint8)
+        for row in (0, 1):
+            overlay = np.zeros((10, 10, 3), np.uint8)
+            overlay[row, :] = (0, 255, 0)
+            preview.publish(overlay, 10.)
+            result = preview.render(frame.copy(), 10.1, source_shape=overlay.shape)
+            self.assertTrue(np.all(result[0, :, 1] > frame[0, :, 1]))
+
     def test_gui_preview_does_not_wait_for_tracking_or_model_locks(self):
         with patch.object(tracker.QtCore.QTimer, 'singleShot'), patch.object(tracker, 'write_log'):
             window = tracker.MainWindow()
@@ -154,6 +206,25 @@ class GuardingTests(unittest.TestCase):
     def detection(x=80):
         return tracker.Det(np.array([x-10, 60, x+10, 80]), np.array([float(x), 70.]),
                            400., .95, mask=np.ones((20, 20), np.uint8), origin=(x-10, 60))
+
+    def test_ambiguous_stable_crop_is_retried_without_running_identity_each_frame(self):
+        self.worker.id_model = Mock()
+        self.worker.id_model.predict.side_effect = [(None, 0.), (1, .95)]
+        frame = np.full((300, 500, 3), 180, np.uint8)
+        first, next_frame = self.detection(), self.detection()
+        with patch.object(tracker.time, 'monotonic', return_value=10.):
+            self.assertEqual((None, 0.), self.worker.identify(frame, first))
+        self.worker.prev_stable = [first]
+        first.stable_since = 0.
+        self.worker.mark_stable([next_frame], 1.)
+        with patch.object(tracker.time, 'monotonic', return_value=10.1):
+            self.assertEqual((None, 0.), self.worker.identify(frame, next_frame))
+        self.assertEqual(1, self.worker.id_model.predict.call_count)
+        with patch.object(tracker.time, 'monotonic', return_value=10.5):
+            self.assertEqual((1, .95), self.worker.identify(frame, next_frame))
+        with patch.object(tracker.time, 'monotonic', return_value=20.):
+            self.assertEqual((1, .95), self.worker.identify(frame, next_frame))
+        self.assertEqual(2, self.worker.id_model.predict.call_count)
 
     def test_jewel_is_followed_outside_roi_and_keeps_id_when_returning(self):
         tr = tracker.Track(1, self.detection(360), 100)

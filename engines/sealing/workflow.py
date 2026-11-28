@@ -124,6 +124,7 @@ class PacketWorker(QtCore.QThread):
 
     def run(self):
         recorder = None
+        models = None
         packet_pool = None
         exe = None
         error = None
@@ -271,14 +272,15 @@ class PacketWorker(QtCore.QThread):
                                      identities_ready=self.tracker.id_model.ready, pickup=pickup,
                                      packet_stationary=packet_region.stationary,
                                      packet_context_ok=bag is not None,
-                                     strip_view_ok=bag is not None)
+                                     strip_view_ok=bag is not None,
+                                     removal_ready=packet_ok and packet_region.stationary)
                     diagnostic = dict(self.flow.sealing_diagnostic)
                     if diagnostic:
                         details = getattr(models, 'last_diagnostic', {})
                         if isinstance(details, dict):
                             diagnostic['model'] = details
                         diagnostic['reference_required'] = False
-                        diagnostic['sealing_check'] = 'current_packet_and_strip_absence'
+                        diagnostic['sealing_check'] = 'current_settled_packet_landmark_hands_clear_strip_absent'
                         self._log_sealing_diagnostic(frame, t, diagnostic)
                     self.packet_opening.record(self.flow, t)
                     if self.flow.strip_removal_requested:
@@ -358,6 +360,8 @@ class PacketWorker(QtCore.QThread):
                 self.ocr.close()
             if packet_pool:
                 packet_pool.shutdown(wait=True, cancel_futures=True)
+            if models is not None:
+                models.close()
             if self.grabber:
                 self.grabber.on_frame = None
                 self.grabber.stop()

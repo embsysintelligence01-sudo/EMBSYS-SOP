@@ -198,7 +198,8 @@ RUB_STONE_JITTER_PX = 3.0          # stabilize small box changes for relative mo
 RUB_GRACE_S = 2.0              # rubbing seen this recently: an unseen jewel is RUBBING, not MISSING
 # One scheduled jewellery inference serves tracking and stone masking.
 LIVE_RESULT_MAX_AGE_S = 0.5
-PREVIEW_INTERVAL_MS = 40
+PREVIEW_INTERVAL_MS = 67  # ~15 FPS leaves CPU capacity for screen sharing/recording
+PREVIEW_MAX_WIDTH = 1280
 STONE_MARGIN_PX = 40           # "on the stone" includes this margin around the stone box
 # Rubbing focus: while a jewel is rubbed the others rest on the bench. The rubbing check (~100 ms, 10x/s) and the
 # jewel YOLO (85-180 ms every frame) together saturated the CPU and the video hung, so while rubbing is seen the
@@ -240,6 +241,7 @@ OUT_FOLLOW_PX = 120        # ... and this close to where it was going (followed 
 STABLE_S = 0.8             # a detection that has not moved for this long is identified by the ID model
 STABLE_MOVE_PX = 15        # ... "not moved": centre within this of the previous frame's (and boxes overlapping)
 ID_MIN_PROB = 0.6          # ID model: a stable detection is taken for a jewel at this probability or more
+ID_RETRY_S = 0.4           # retry unresolved crops as finger coverage/visibility changes
 ID_SWAP_PROB = 0.8         # a followed jewel the model says is another one this surely -> IDs corrected
 ID_SAMPLES = 48            # turned / scaled / re-lit copies of each capture crop to learn from
 ID_NEG_SAMPLES = 60        # bench and stone crops (rub marks): the "not a jewel" class
@@ -894,16 +896,20 @@ class Worker(QtCore.QThread):
                 self.continuous_tokens[token] = (tr.id, self.flow_revision)
                 self.continuous_pending_id = tr.id
                 tr.continuous_token = token
-                linked = getattr(tr, 'provisional_recording', None)
+                # Recovery can correct a provisional row's owner. Move only
+                # this cycle's evidence; never leave the old row recording.
+                previous = next((other for other in self.tracks
+                                 if (getattr(other, 'provisional_recording', None) or {}).get('cycle_id') == token), tr)
+                linked = getattr(previous, 'provisional_recording', None)
                 if linked is not None and linked.get('cycle_id') == token:
                     tr.acid_result = dict(linked, jewel_id=tr.id,
                                          recording_assignment='CONFIRMED', recording_candidate_id=None)
-                    if getattr(tr, 'provisional_rub_img', None) is not None:
-                        tr.rub_img = tr.provisional_rub_img
-                    if getattr(tr, 'provisional_acid_crop', None) is not None:
-                        tr.acid_crop = tr.provisional_acid_crop
-                    tr.provisional_recording = None
-                    tr.provisional_rub_img = tr.provisional_acid_crop = None
+                    if getattr(previous, 'provisional_rub_img', None) is not None:
+                        tr.rub_img = previous.provisional_rub_img
+                    if getattr(previous, 'provisional_acid_crop', None) is not None:
+                        tr.acid_crop = previous.provisional_acid_crop
+                    previous.provisional_recording = None
+                    previous.provisional_rub_img = previous.provisional_acid_crop = None
                 if getattr(self, 'continuous_stage', None):
                     self.continuous_stage.update(jewel_id=tr.id, recording_assignment='CONFIRMED',
                                                  recording_candidate_id=None)
@@ -1246,9 +1252,12 @@ class Worker(QtCore.QThread):
         return out
 
     def identify(self, frame, d):
-        """ID model on a detection, once per standing-still episode."""
-        if d.idres is None:
+        """Cache confirmed IDs; retry unresolved crops at a bounded rate."""
+        now = time.monotonic()
+        if (d.idres is None or (d.idres[0] is None
+                and now-getattr(d, 'id_checked_at', -float('inf')) >= ID_RETRY_S)):
             d.idres = self.id_model.predict(crop_box(frame, d.box))
+            d.id_checked_at = now
         return d.idres
 
     def emit_jewel_list(self):
@@ -1585,6 +1594,7 @@ class Worker(QtCore.QThread):
                 if np.hypot(*(d.c - p.c)) <= STABLE_MOVE_PX and box_iou(d.box, p.box) >= 0.6:
                     d.stable_since = p.stable_since
                     d.idres = p.idres  # same still detection: keep its ID-model answer
+                    d.id_checked_at = getattr(p, 'id_checked_at', -float('inf'))
                     break
         self.prev_stable = dets
 
@@ -2806,20 +2816,23 @@ class MainWindow(QtWidgets.QWidget):
         if worker is None or worker.grabber is None:
             return
         after_ts = self.preview_key[1] if self.preview_key and self.preview_key[0] == id(worker) else None
-        frame, ts = worker.grabber.latest(after_ts=after_ts)
+        frame, ts = worker.grabber.latest(after_ts=after_ts, copy_frame=False)
         key = (id(worker), ts)
         if frame is None or key == self.preview_key:
             return
         self.preview_key = key
-        frame = worker.preview.render(frame, ts)
-        # Completed hand observations are published by replacement and stay immutable.
-        hand_preview = getattr(worker, 'recording_hand_preview', None)
-        frame = draw_hand_preview(frame, ts, hand_preview)
+        source_shape = frame.shape
         h, w = frame.shape[:2]
-        scale = min(1.0, self.video.width() / w, self.video.height() / h)
+        scale = min(1.0, PREVIEW_MAX_WIDTH / w, self.video.width() / w, self.video.height() / h)
         if scale < 1.0:
             frame = cv2.resize(frame, (max(1, round(w * scale)), max(1, round(h * scale))),
                                interpolation=cv2.INTER_LINEAR)
+        else:
+            frame = frame.copy()  # Published camera frames remain immutable.
+        frame = worker.preview.render(frame, ts, source_shape=source_shape)
+        # Completed hand observations are immutable camera-coordinate landmarks.
+        hand_preview = getattr(worker, 'recording_hand_preview', None)
+        frame = draw_hand_preview(frame, ts, hand_preview, source_shape=source_shape)
         self.video.set_frame(to_qimage(frame), source_size=(w, h))
 
     def stop_worker(self):

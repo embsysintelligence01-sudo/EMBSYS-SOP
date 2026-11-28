@@ -5,7 +5,7 @@ The source bodies are unchanged; see docs/IMPORT_PATH_MIGRATION.md.
 """
 
 class Det:
-    __slots__ = ("box", "c", "area", "conf", "gold", "mask", "origin", "app", "stable_since", "idres", "sig")
+    __slots__ = ("box", "c", "area", "conf", "gold", "mask", "origin", "app", "stable_since", "idres", "id_checked_at", "sig")
 
     def __init__(self, box, c, area, conf, gold=1.0, mask=None, origin=(0, 0)):
         self.box, self.c, self.area, self.conf, self.gold = box, c, area, conf, gold
@@ -13,6 +13,7 @@ class Det:
         self.app = None  # appearance fingerprint, filled in when needed
         self.stable_since = None  # standing still since (set by the worker)
         self.idres = None         # (jewel id or None, probability) from the ID model, once it is stable
+        self.id_checked_at = -float('inf')  # monotonic time of the cached recognition attempt
         self.sig = None           # version 6 SLIC scores for contested detections
 
 

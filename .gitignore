@@ -26,6 +26,10 @@ captures/
 outputs/
 recordings/
 evidence/
+# Keep the purity storage scheduler source visible despite the data-folder rule.
+!/shared/evidence/
+/shared/evidence/*
+!/shared/evidence/live_retention.py
 diagnostics/
 similarity_crops/
 dataset/
@@ -89,3 +93,8 @@ core.[0-9]*
 
 # All central model binaries and metadata are provisioned locally.
 /models/
+
+# Private release ROI/baselines, model sidecars and fresh session evidence.
+/engines/PacketReleasing/**/packet_cut_outputs/
+/engines/PacketReleasing/models/
+/engines/PacketReleasing/.runtime/

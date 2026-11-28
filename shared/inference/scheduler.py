@@ -79,21 +79,47 @@ class LatestPreview:
         self.max_age = max_age
         self.lock = threading.Lock()
         self.overlay = None
+        self.scaled_overlay = None
 
     def publish(self, image, captured_at):
         mask = cv2.bitwise_not(cv2.inRange(image, (0, 0, 0), (0, 0, 0)))
         with self.lock:
             self.overlay = (image, mask, captured_at)
+            self.scaled_overlay = None
 
     def clear(self):
         with self.lock:
             self.overlay = None
+            self.scaled_overlay = None
 
-    def render(self, frame, captured_at):
+    def render(self, frame, captured_at, source_shape=None):
+        """Compose at display size when the original camera shape is supplied.
+
+        Cache resized overlays per observation; camera pixels and evidence are
+        never resized here. A changed source shape still invalidates old boxes.
+        """
         with self.lock:
             overlay = self.overlay
+            scaled = self.scaled_overlay
         if overlay is not None:
             image, mask, ts = overlay
-            if image.shape == frame.shape and 0 <= captured_at - ts <= self.max_age:
-                cv2.copyTo(image, mask, frame)
+            if not 0 <= captured_at - ts <= self.max_age:
+                return frame
+            if source_shape is not None and tuple(image.shape[:2]) != tuple(source_shape[:2]):
+                return frame
+            if image.shape != frame.shape:
+                if source_shape is None:
+                    return frame
+                size = (frame.shape[1], frame.shape[0])
+                if scaled is None or scaled[0] is not overlay or scaled[1] != size:
+                    # Area sampling preserves thin outlines that nearest-neighbor
+                    # sampling could drop entirely as a box moves between pixels.
+                    image = cv2.resize(image, size, interpolation=cv2.INTER_AREA)
+                    mask = cv2.resize(mask, size, interpolation=cv2.INTER_AREA)
+                    scaled = (overlay, size, image, mask)
+                    with self.lock:
+                        if self.overlay is overlay:
+                            self.scaled_overlay = scaled
+                image, mask = scaled[2:]
+            cv2.copyTo(image, mask, frame)
         return frame

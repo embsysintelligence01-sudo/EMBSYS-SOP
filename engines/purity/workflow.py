@@ -478,7 +478,8 @@ class ContinuousMonitor(threading.Thread):
         try:
             if self.retention_policy.enabled and self.retention_policy.simple_output:
                 from live_retention import LiveRetention
-                self.storage_worker=LiveRetention(self.directory,self.retention_policy,self.journal,self.emit)
+                self.storage_worker=LiveRetention(self.directory,self.retention_policy,self.journal,self.emit,
+                                                  defer_until_close=True)
                 self.storage_worker.start()
             # Recording is already running while models are prepared.
             self.emit('status', message='Preparing automatic test models; recording continues.')
@@ -1226,6 +1227,8 @@ class ContinuousMonitor(threading.Thread):
             if (cue and job_key == key and snap['mode'] == 'LOCKED'
                     and 0 <= snap['timestamp'] - cue['confirmed_at'] <= .75):
                 return cue
+            if cue and job_key == key:
+                self.box_trigger.discard_cue(cue)
         if self.box_error is not None:
             return None
         if not self.box_ready:
@@ -1238,11 +1241,13 @@ class ContinuousMonitor(threading.Thread):
         if sample is None or snap['mode'] != 'LOCKED':
             return None
         frame, ts, tracks, dets = sample
-        if not 0 <= snap['timestamp'] - ts <= .75 or ts - self.box_last_sample < HAND_CHECK_S:
+        live_ts = snap['timestamp']
+        if live_ts < ts or live_ts - self.box_last_sample < HAND_CHECK_S:
             return None
-        self.box_last_sample = ts
+        self.box_last_sample = live_ts
         eligible = [track for track in tracks if track['id'] not in self.captured_ids]
-        job = self.box_pool.submit(self.box_trigger.observe, key, frame, ts, eligible, dets, settings)
+        job = self.box_pool.submit(self.box_trigger.observe, key, frame, ts, eligible, dets, settings,
+                                   live_frame=snap['frame'], live_ts=live_ts)
         self.box_job = job, key, False
         return None
 
@@ -1255,6 +1260,23 @@ class ContinuousMonitor(threading.Thread):
                 self._phase('WAIT_FOR_BOX', 'Waiting for a picked-up jewel and a grip inside the extended stone area.')
             return
         jid, boundary = cue['jewel_id'], cue['confirmed_at']
+        if cue.get('event') == 'identity_confirmation':
+            active = self.active
+            original = active.get('recording_trigger', {}) if active else {}
+            reason = cue.get('ownership_reason')
+            candidates = (original.get('ownership_candidates', original.get('candidate_ids', []))
+                          if reason == 'recognized_gold_arrival' else original.get('candidate_ids', []))
+            if (active is None or active['jewel_id'] is not None
+                    or not cue.get('pickup_id') or cue['pickup_id'] != original.get('pickup_id')
+                    or jid not in candidates
+                    or reason not in ('recognized_gold_arrival', 'unique_home_departure', 'home_departure_and_return')
+                    or jid in self.captured_ids or cue.get('provisional', True)):
+                return  # Late/foreign recovery never opens or replaces a test.
+            if (active.get('acid_onset') is not None and
+                    (cue.get('ownership_at') is None or cue['ownership_at'] > active['acid_onset'])):
+                return  # Later jewellery cannot inherit an earlier reaction.
+            self._confirm_box_identity(active, cue)
+            return
         if jid is not None and jid in self.captured_ids:
             return
         active = self.active
@@ -1270,13 +1292,7 @@ class ContinuousMonitor(threading.Thread):
                     and active.get('returned') is None):
                 # A confirmed view of the same sole pickup candidate resolves
                 # identity; it is not a second test or a camera handoff.
-                active['jewel_id'] = jid
-                active['identity_status'] = 'IN_HAND'
-                active['identity_confirmation'] = copy.deepcopy(cue)
-                unresolved = 'Jewel identity was missed or multiple jewels were under hands; no identity was guessed.'
-                active['issues'] = [issue for issue in active['issues'] if issue != unresolved]
-                self.cycle_assignments[active['id']] = recording_assignment(active)
-                self.emit('identity_confirmed', jewel_id=jid, token=active['id'], timestamp=boundary)
+                self._confirm_box_identity(active, cue)
                 return
             self._finish(boundary, 'Next jewel triggered recording near the stone.',
                          reason='NEXT_JEWEL_PICKUP')
@@ -1286,6 +1302,17 @@ class ContinuousMonitor(threading.Thread):
         self.active['pickup_image_timestamp'] = snap['timestamp']
         self._phase('CONTACT_POSSIBLE', 'Recording started near the stone. Checking rubbing evidence.',
                     self.active)
+
+    def _confirm_box_identity(self, active, cue):
+        """Attach recovered ownership to the existing evidence, once."""
+        jid = cue['jewel_id']
+        active['jewel_id'] = jid
+        active['identity_status'] = 'RETURNED' if active.get('returned') is not None else 'IN_HAND'
+        active['identity_confirmation'] = copy.deepcopy(cue)
+        unresolved = 'Jewel identity was missed or multiple jewels were under hands; no identity was guessed.'
+        active['issues'] = [issue for issue in active['issues'] if issue != unresolved]
+        self.cycle_assignments[active['id']] = recording_assignment(active)
+        self.emit('identity_confirmed', jewel_id=jid, token=active['id'], timestamp=cue['confirmed_at'])
 
     def step(self, snap):
         ts, frame = snap['timestamp'], snap['frame']

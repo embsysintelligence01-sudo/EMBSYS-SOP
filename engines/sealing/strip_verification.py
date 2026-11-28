@@ -83,7 +83,7 @@ class PackingFlow:
         self.sealing_diagnostic = {}
         self.sealing_blocker_counts = {}
         self.sealing_hand_warning = dict(observations=0, first_at=None, last_at=None,
-                                         policy='report_only')
+                                         policy='wait_for_packet_hands_clear')
         self.message = "Pick up one jewel; its recording starts automatically."
         self.last_t = -math.inf
 
@@ -139,7 +139,8 @@ class PackingFlow:
     def update(self, t, observations, *, packet_ok, hands_clear, strip,
                pickup=None, identities_ready=True, packet_stationary=False,
                closure="model_missing", closure_confidence=None,
-               packet_context_ok=None, strip_view_ok=True, reference_lost=False):
+               packet_context_ok=None, strip_view_ok=True, reference_lost=False,
+               removal_ready=True):
         if self.sealed or t <= self.last_t:
             return
         gap = t - self.last_t
@@ -206,7 +207,7 @@ class PackingFlow:
             self.bed_verified_at = t if packet_ok and packet_stationary else None
             self.recording_required = self.packet_started = True
         if self.strip_removal_requested and not self.strip_removed:
-            # Hand overlap is audit evidence, not a strip-removal gate.
+            # Fresh packet visibility, clear hands and a settled view gate absence.
             if not hands_clear:
                 warning = self.sealing_hand_warning
                 warning['observations'] += 1
@@ -215,7 +216,9 @@ class PackingFlow:
                 warning['last_at'] = t
             blocker = ('packet_not_detected' if not context_ok else
                        'strip_area_not_visible' if not strip_view_ok else
+                       'hand_covering_strip_area' if not hands_clear else
                        'strip_still_detected' if strip == 'present' else
+                       'packet_moving' if not removal_ready else
                        'strip_prediction_uncertain' if strip != 'absent' else 'checking_removal')
             paused = False
             if blocker == 'checking_removal':
@@ -240,7 +243,8 @@ class PackingFlow:
             self.sealing_diagnostic = dict(timestamp=t, blocker=blocker, strip=strip,
                 packet_context=bool(context_ok), strip_area_visible=bool(strip_view_ok),
                 hands_clear=bool(hands_clear), absent_hits=self.strip_absent_hits,
-                hand_warning=not hands_clear, hand_policy='report_only',
+                hand_warning=not hands_clear, hand_policy='wait_for_packet_hands_clear',
+                packet_settled=bool(removal_ready),
                 required_hits=5, clear_seconds=self.strip_clear_seconds, required_clear_seconds=1.,
                 uncertainty_paused=paused, observation_gap_reset=observation_gap,
                 observation_gap_seconds=gap if math.isfinite(gap) else None)
@@ -254,6 +258,8 @@ class PackingFlow:
             self.message = "Sealed — inferred from strip removal. Result retained. Saving PDF and videos."+self.placement_warning
         elif self.strip_removal_requested:
             labels = dict(packet_not_detected='Packet not detected. Keep the packet inside the bench ROI.',
+                hand_covering_strip_area='Waiting for hands to leave the packet area.',
+                packet_moving='Waiting for the packet to settle before checking strip absence.',
                 strip_area_not_visible='Strip area not visible. Unfold or reposition the packet.',
                 strip_still_detected='Strip still detected on the packet. Remove it and move the loose strip away.',
                 strip_prediction_uncertain='Strip prediction uncertain. Hold the packet still with even lighting.',

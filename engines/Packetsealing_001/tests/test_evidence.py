@@ -73,7 +73,7 @@ class EvidenceTests(unittest.TestCase):
                 self.assertIn('inferred placed inside from transfer evidence', ' '.join(report_text.split()))
                 self.assertIn('69.6%',report_text)
                 self.assertIn('Hand overlap observed in 4 sealing observations', ' '.join(report_text.split()))
-                self.assertIn('Hidden attachment areas cannot verify removal.', ' '.join(report_text.split()))
+                self.assertIn('Removal verification waits for landmark hand clearance at the packet.', ' '.join(report_text.split()))
             self.assertTrue(result["all_budgets_met"])
             self.assertEqual(len(result["exports"]), 2)
             self.assertTrue(all(r["combined_bytes"] <= 2_000_000 for r in result["exports"]))

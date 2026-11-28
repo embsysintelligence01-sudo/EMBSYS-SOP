@@ -2,6 +2,7 @@
 from model_registry import model_path, asset_dir, resolve_model
 from dataclasses import dataclass
 from pathlib import Path
+import time
 
 import cv2
 import numpy as np
@@ -96,15 +97,36 @@ class PacketBagDetector:
         probabilities = np.exp(logits - logits.max())
         return float(probabilities[self.bag_tp_class] / probabilities.sum())
 
+class LandmarkHands:
+    """Purity's landmark detector with conservative hand/wrist overlap masks."""
+    def __init__(self):
+        from .hand_tracking import HandKeypoints
+        self.detector = HandKeypoints(model_path('sealing.hand_landmarks'), video=True,
+                                      detection_confidence=.25, presence_confidence=.25)
+        self.last_ms = -1
+
+    def detect(self, frame):
+        from .hand_tracking import home_guard_mask
+        self.last_ms = max(self.last_ms+1, time.monotonic_ns()//1_000_000)
+        return [Detection(home_guard_mask(hand, frame.shape), hand.box, 1.)
+                for hand in self.detector.detect(frame, timestamp_ms=self.last_ms)]
+
+    def close(self):
+        self.detector.close()
+
+
 class PacketModels(PacketBagDetector):
     def __init__(self, directory: Path, bag_tp_class=1, bag_filter_threshold=.20):
         super().__init__(directory, bag_tp_class, bag_filter_threshold)
         self.strip = Segmenter(model_path("sealing.strip"), .4)
-        self.hand = Segmenter(model_path("sealing.hand"), .3)
+        self.hand = LandmarkHands()
         self.strip_filter = StripCNN()
         self.strip_filter.load_state_dict(torch.load(model_path("sealing.strip_filter"),
                                                      map_location="cpu", weights_only=True))
         self.strip_filter.eval()
+
+    def close(self):
+        self.hand.close()
 
     def filter_strip(self, crop):
         hsv = cv2.cvtColor(cv2.resize(crop, (64, 64)), cv2.COLOR_BGR2HSV).astype(np.float32)
@@ -179,6 +201,7 @@ class PacketModels(PacketBagDetector):
         hand_limit = max(100, np.count_nonzero(scope) * .001)
         hands_clear = hand_pixels < hand_limit
         self.last_diagnostic = dict(inspection_scope='tracked_attachment_area' if inspection_zone is not None else 'full_packet',
+            hand_model='sealing.hand_landmarks', hand_mask_basis='landmark_guard_region',
             bag_filter_threshold=self.bag_filter_threshold, bag_detector_threshold=getattr(self.bag, 'confidence', .5) if isinstance(getattr(self.bag, 'confidence', .5), (int, float)) else .5,
             raw_bag_candidates=len(bags), bag_candidates=bag_candidates,
             raw_strip_candidates=len(strips), strip_candidates=candidates, hand_pixels_in_scope=hand_pixels,

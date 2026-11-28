@@ -13,6 +13,10 @@ paths = {
     'packet_python': Path(os.environ.get('PACKET_PYTHON', original / '.venv-slic/bin/python')),
     'ocr_python': Path(os.environ.get('PACKET_OCR_PYTHON', packet / '.venv-ocr/bin/python')),
 }
+# Engine 3 is optional at install time and remains development-only.
+release = Path(os.environ.get('RELEASING_PYTHON', ROOT.parent / 'packet-cut-system/.venv-ubuntu/bin/python'))
+if release.is_file() or os.environ.get('RELEASING_PYTHON'):
+    paths['releasing_python'] = release
 for key, path in paths.items():
     # Do not resolve symlinks: the environment path controls site-packages.
     if not path.is_file():

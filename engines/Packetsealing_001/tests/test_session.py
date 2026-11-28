@@ -169,7 +169,7 @@ class SessionTests(unittest.TestCase):
                 def latest(self, after):
                     clock["index"] += 1
                     i = clock["index"]
-                    if i > 25:
+                    if i > 32:  # Allow packet reappearance, settling, absence checks and OCR.
                         raise AssertionError("Automatic session did not reach sealing completion")
                     t = started + i * .3
                     self.on_frame(frame, t)

@@ -101,9 +101,11 @@ a pending automatic restart.
    converted into inferred inside results. Their warnings remain visible.
    The stage is retained through subsequent packet movement or detector dropouts.
 8. Strip removal needs five fresh absent-strip observations spanning at least
-   one second, with the packet and strip area in view. Hand segmentation overlap
-   is report-only: its observation count and first/last timestamps appear in the
-   PDF and JSON without pausing or resetting removal. An empty bed or an off-camera
+   one second, with the currently detected packet settled and hands clear.
+   The same MediaPipe `hand_landmarker.task` used in purity supplies conservative
+   hand/wrist guard regions. Overlap at the packet resets removal progress;
+   distant hands do not block it. Counts and timestamps remain in PDF and JSON.
+   An empty bed or an off-camera
    strip area cannot prove removal. Rejected strip candidates remain uncertain.
 9. Once strip removal is confirmed, mark **Sealed — inferred from strip removal**
    and proceed to OCR even if jewel placement remains unconfirmed. No separate
@@ -130,8 +132,9 @@ that the jewel was released or remained inside. Physical adhesive strength is no
 The application uses the verified strip-removal sequence as its sealing rule.
 The strip must first be seen on the stationary packet at the test bed. Then five
 fresh absent-strip observations spanning at least one second, with packet/body
-context and the strip area visible, confirm removal. Hand overlap is recorded
-in the PDF and JSON and does not block the flow. Uncertain strip predictions
+context and a settled packet clear of landmark hand overlap, confirm removal.
+Hand overlap is recorded in PDF and JSON and resets absence progress.
+Uncertain strip predictions
 cannot finish removal.
 This is process inference; pressing the adhesive flap shut is not directly
 measured. No closure weights or `PACKET_CLOSURE_CONFIG` are needed by the app.
@@ -190,7 +193,7 @@ its interpreter but must supply the existing SLIC/OpenCV contrib dependencies.
 ## Models and evidence
 
 All five files in `model onnx/` are required: `bagnewmodel.onnx`, `stripmodel.onnx`,
-`handseg model.onnx`, `fp_filter_resnet18_bag.onnx`, `hsv_fp_filter_strip.pt`.
+`hand_landmarker.task`, `fp_filter_resnet18_bag.onnx`, `hsv_fp_filter_strip.pt`.
 Packet exports currently use floating-point ONNX; gold uses OpenVINO INT8.
 Bag FP classification follows the original RGB/ImageNet 224×224 normalization
 and true-positive class 1. The export has no label metadata; validate that mapping
@@ -495,9 +498,10 @@ prediction uncertain. It shows accepted absence observations (`0/5`) and clear
 observation time (`0.0/1.0 s`). A source-time gap over 2.5 seconds resets progress.
 Slow inference, stale frames and camera interruptions also reset it.
 
-The live workflow inspects the currently detected full packet. Hand overlap
-within that packet and its surrounding margin is audit evidence only; it does
-not reset absence observations or stop sealing. The PDF and JSON retain its
+The live workflow inspects the currently detected full packet. Landmark hand
+overlap within the packet and its surrounding margin resets absence progress.
+Packet movement or loss also resets the check; it retries automatically once
+the current packet is settled, hands clear, and the strip absent. The PDF and JSON retain its
 observation count and first/last timestamps. Strip predictions still determine
 presence, absence or uncertainty, and a missing packet cannot prove removal.
 

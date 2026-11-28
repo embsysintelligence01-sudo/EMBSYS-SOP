@@ -1,0 +1,87 @@
+{
+  "models": {
+    "model_dir": "models",
+    "packet_seg": "models/packet-seg.onnx",
+    "jewel_seg": "models/jeweltrack.onnx",
+    "hand_seg": "models/hand-seg.onnx",
+    "sam_model": "",
+    "imgsz": 320,
+    "device": "cpu",
+    "onnx_providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "packet_inspection": {
+    "packet_conf": 0.25,
+    "jewel_conf": 0.25,
+    "jewel_borderline_conf": 0.14,
+    "hand_conf": 0.30,
+    "min_packet_area_px": 4000,
+    "min_packet_solidity": 0.60,
+    "max_hand_occlusion_ratio": 0.30,
+    "max_border_touch_edges": 2,
+    "min_aspect_ratio": 0.22,
+    "max_aspect_ratio": 4.5,
+    "max_tilt_deviation_deg": 40.0,
+    "border_inset_ratio": 0.12,
+    "min_border_inset_px": 10,
+    "min_interior_area_px": 1200,
+    "min_interior_area_ratio": 0.15,
+    "min_blur_variance": 25.0,
+    "min_mean_brightness": 38.0,
+    "max_mean_brightness": 242.0,
+    "min_gold_area_px": 90,
+    "min_gold_interior_overlap": 0.45,
+    "max_specular_glare_ratio": 0.65,
+    "min_gold_texture_std": 8.0,
+    "cv_gold_support_area_px": 220,
+    "cv_gold_uncertainty_area_px": 140,
+    "temporal_confirm_frames": 5,
+    "temporal_window_size": 7,
+    "roi_crop_padding_ratio": 0.15
+  },
+  "jewellery_counting": {
+    "testbed_roi": [160, 120, 480, 400],
+    "use_normalized_roi": false,
+    "testbed_roi_normalized": [0.25, 0.25, 0.75, 0.8333],
+    "auto_detect_green_testbed": false,
+    "jewel_conf": 0.25,
+    "hand_conf": 0.30,
+    "packet_conf": 0.25,
+    "min_roi_overlap_ratio": 0.50,
+    "min_article_area_px": 120,
+    "empty_testbed_confirm_frames": 4,
+    "empty_max_foreground_ratio": 0.03,
+    "separation": {
+      "enable_sam": true,
+      "min_peak_distance_px": 14,
+      "peak_rel_threshold": 0.42,
+      "clean_neck_ratio_max": 0.58,
+      "ambiguous_neck_ratio_max": 0.85,
+      "touching_solidity_max": 0.86,
+      "deep_defect_depth_px": 7.0,
+      "overlap_box_iou_threshold": 0.25,
+      "complex_area_multiplier": 3.2
+    },
+    "tracking": {
+      "min_match_iou": 0.12,
+      "max_centroid_distance_px": 65.0,
+      "min_track_confirm_hits": 2,
+      "max_missing_frames": 4,
+      "id_prefix": "JWL"
+    },
+    "stability": {
+      "required_stable_frames": 8,
+      "min_stable_seconds": 1.5,
+      "max_centroid_shift_px": 10.0,
+      "max_area_change_ratio": 0.20,
+      "max_uncertain_ratio_in_window": 0.25
+    }
+  },
+  "output": {
+    "output_dir": "packet_cut_outputs/post_cut_inspection",
+    "save_evidence_images": true,
+    "save_json_report": true
+  }
+}
+

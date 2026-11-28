@@ -56,7 +56,10 @@ def replay(path, report, step=6):
                     worker.flow.pause_packet()
                 obs = worker._transfer_observations(frame, t, bag, hands, pickup)
                 worker.flow.update(t, obs, packet_ok=packet_ok, hands_clear=clear, strip=strip,
-                                   pickup=pickup, packet_stationary=region.stationary)
+                                   pickup=pickup, packet_stationary=region.stationary,
+                                   packet_context_ok=bag is not None,
+                                   strip_view_ok=bag is not None,
+                                   removal_ready=packet_ok and region.stationary)
                 current = {j.id: j.status for j in worker.flow.jewels.values()}
                 for jid, state in current.items():
                     if previous.get(jid) != state:
@@ -80,5 +83,6 @@ def replay(path, report, step=6):
         print(f"Replay report: {report}")
         return result
     finally:
+        models.close()
         tracker.close()
         capture.release()
