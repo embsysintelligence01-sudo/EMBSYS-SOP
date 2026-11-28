@@ -41,6 +41,17 @@ Production rendering suppresses unnecessary live preview work while retaining
 all inference and evidence annotations. Production workers use QCoreApplication,
 not hidden engine windows. Debug mode starts a separate read-only instance of
 the original widgets; diagnostics contain the same accepted observations.
+Purity diagnostics now forward the original `Worker.workflow` events, including
+hand-model status, phases, before-stone and baseline captures, rubbing contact,
+rubbed-mark decisions, acid status and final results. The original hand-overlay
+function draws the worker's existing fresh landmarks. Table evidence thumbnails
+are transported as small JPEGs instead of being discarded. Before-stone and
+baseline images appear together in the existing stone preview area.
+Display snapshots retain the latest event per supported kind and 40 log entries;
+new cycles clear stale contact/mask/baseline events. Result display respects the
+original active-cycle and latest-token guards. No viewer starts a model worker,
+acquires a camera, changes thresholds or writes verification results. Local
+diagnostics remain limited to debug mode and are not served to the browser.
 The virtual panel and independent debugging commands do not write production
 queue records. Their camera ownership uses the common lease.
 

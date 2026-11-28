@@ -20,6 +20,34 @@ def main():
     logs.mkdir(exist_ok=True)
     checks = [
         (
+            "purity-diagnostics",
+            "purity",
+            ROOT,
+            [
+                "-m",
+                "unittest",
+                "discover",
+                "-s",
+                "tests",
+                "-p",
+                "test_purity_diagnostics.py",
+            ],
+            [ROOT / "tests", JEWEL, PACKET, ROOT],
+        ),
+        (
+            "linked-debug-close-replay",
+            "controller",
+            ROOT,
+            [
+                "deployment/replay_acceptance.py",
+                "--engine",
+                "linked",
+                "--scenario",
+                "debug-close",
+            ],
+            [ROOT],
+        ),
+        (
             "controller-api",
             "controller",
             ROOT,

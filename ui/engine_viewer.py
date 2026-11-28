@@ -43,6 +43,9 @@ def main():
             window.rub_timer.stop()
             window.packet_stage.timer.stop()
             window.preview_timer.stop()
+            from ui.purity_diagnostics import PurityView
+
+            purity_view = PurityView(window, jewel_tracker_5)
         else:
             from engines.sealing.workflow import MainWindow
 
@@ -83,7 +86,7 @@ def main():
             window._on_compliance(data.get("compliance", {}))
         elif args.engine == "purity":
             window.lbl_status.setText(data.get("status", ""))
-            window.show_table(data.get("table", []))
+            purity_view.update(data)
         else:
             window.notice.setText(data.get("status", ""))
             if data.get("sealing"):

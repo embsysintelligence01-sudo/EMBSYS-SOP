@@ -9,6 +9,8 @@ sys.path.insert(0, str(ROOT))
 from services.source_integrity import verify_sources
 
 REQUIRED = {
+    "purity-diagnostics",
+    "linked-debug-close-replay",
     "controller-api",
     "desktop-integration",
     "purity-regression",

@@ -52,13 +52,14 @@ class DebugStream:
                 temporary.write_bytes(encoded.tobytes())
                 temporary.replace(self.directory / "frame.jpg")
         from services.identity import plain
+        from services.diagnostics import image_payload
 
         rows = []
         for original in getattr(adapter, "table", []):
             row = list(original)
             for index in (1, 3, 8):
                 if len(row) > index:
-                    row[index] = None
+                    row[index] = image_payload(row[index], maximum=(128, 96))
             if len(row) > 6 and isinstance(row[6], dict):
                 row[6] = {
                     k: v
@@ -86,6 +87,11 @@ class DebugStream:
                 live=getattr(adapter, "live", {}),
                 system=getattr(adapter, "system", {}),
                 compliance=getattr(adapter, "compliance", {}),
+                purity=(
+                    adapter.diagnostics.snapshot(adapter.worker)
+                    if getattr(adapter, "diagnostics", None) is not None
+                    else {}
+                ),
             ),
         )
 

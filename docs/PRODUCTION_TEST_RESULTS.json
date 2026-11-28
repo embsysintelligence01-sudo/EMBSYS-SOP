@@ -70,13 +70,6 @@
     "log": "outputs/production-validation/sealing-regression.log"
   },
   {
-    "check": "headless-handoff",
-    "status": "PASSED",
-    "seconds": 2.12,
-    "summary": "Ran 4 tests in 0.067s; OK",
-    "log": "outputs/production-validation/headless-handoff.log"
-  },
-  {
     "check": "linked-replay",
     "status": "PASSED",
     "seconds": 26.95,
@@ -112,13 +105,6 @@
     "log": "outputs/production-validation/release-regression.log"
   },
   {
-    "check": "source-model-integrity",
-    "status": "PASSED",
-    "seconds": 6.18,
-    "summary": "",
-    "log": "outputs/production-validation/source-model-integrity.log"
-  },
-  {
     "check": "release-imports",
     "status": "PASSED",
     "seconds": 4.07,
@@ -140,10 +126,38 @@
     "log": "outputs/production-validation/controller-api.log"
   },
   {
+    "check": "purity-diagnostics",
+    "status": "PASSED",
+    "seconds": 2.22,
+    "summary": "Ran 3 tests in 0.110s; OK",
+    "log": "outputs/production-validation/purity-diagnostics.log"
+  },
+  {
+    "check": "linked-debug-close-replay",
+    "status": "PASSED",
+    "seconds": 29.01,
+    "summary": "",
+    "log": "outputs/production-validation/linked-debug-close-replay.log"
+  },
+  {
     "check": "desktop-integration",
     "status": "PASSED",
-    "seconds": 14.15,
-    "summary": "Ran 45 tests in 11.361s; OK (skipped=2)",
+    "seconds": 14.95,
+    "summary": "Ran 48 tests in 12.500s; OK (skipped=2)",
     "log": "outputs/production-validation/desktop-integration.log"
+  },
+  {
+    "check": "source-model-integrity",
+    "status": "PASSED",
+    "seconds": 10.35,
+    "summary": "",
+    "log": "outputs/production-validation/source-model-integrity.log"
+  },
+  {
+    "check": "headless-handoff",
+    "status": "PASSED",
+    "seconds": 2.12,
+    "summary": "Ran 4 tests in 0.083s; OK",
+    "log": "outputs/production-validation/headless-handoff.log"
   }
 ]

@@ -12,12 +12,14 @@
     "desktop-integration",
     "headless-handoff",
     "http-service-recovery",
+    "linked-debug-close-replay",
     "linked-replay",
     "local-regression-fixtures",
     "model-budget",
     "model-cache-replay",
     "offline-sealing-ocr",
     "publication-jobs",
+    "purity-diagnostics",
     "purity-regression",
     "release-imports",
     "release-regression",
@@ -28,7 +30,7 @@
     "standalone-sealing-replay",
     "virtual-panel"
   ],
-  "result_sha256": "e68adfdbd3f5cae5c16129445c19a63bf64f903ba57dbc824ab197b97eec4055",
+  "result_sha256": "7c9a9e07da69d73892139bec975c0b4a6fd6bd93c873f0b4d911a28d84705612",
   "source_migration_sha256": "335e055302572202bb6674099ac43bd0af4312fd92ec4a2919aaa3326ee69578",
   "physical_hardware_validation": "PENDING - not inferred from replay",
   "backup_branch": "backup/pre-production-20261128"

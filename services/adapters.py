@@ -37,6 +37,7 @@ class PledgeAdapter:
         self.sealing_state = {}
         self.identity_key = None
         self.identity_version = 0
+        self.diagnostics = None
 
     def source_settings(self):
         from engines.sealing.settings import tracker_camera, tracker_source, tracker_roi
@@ -87,6 +88,11 @@ class PledgeAdapter:
             )
             worker.preserve_gold_model = True
             if self.debug:
+                from services.diagnostics import PurityDiagnostics
+
+                self.diagnostics = PurityDiagnostics()
+                worker.workflow.connect(self.diagnostics.event)
+                worker.event.connect(self.diagnostics.log)
                 worker.jewel_table.connect(lambda rows: setattr(self, "table", rows))
             worker.event.connect(lambda text, level: self.notice(aid, text))
             worker.status.connect(lambda text: self.notice(aid, text))
@@ -290,7 +296,10 @@ class PledgeAdapter:
         if frame is None:
             return None
         if self.current["activity"]["engine"] == "purity":
-            worker.preview.render(frame, stamp)
+            frame = worker.preview.render(frame, stamp)
+            frame = self.tracker.draw_hand_preview(
+                frame, stamp, getattr(worker, "recording_hand_preview", None)
+            )
         else:
             worker.live_overlay.render(frame, stamp)
             worker.gold_overlay.render(frame, stamp)
