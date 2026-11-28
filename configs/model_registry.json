@@ -1428,6 +1428,83 @@
       "stages": [
         "purity"
       ]
+    },
+    "releasing.scissor-seg": {
+      "path": "models/releasing/scissor-seg.pt",
+      "sha256": "f1d9020d96a37e3f6b53e3eb937bee3015c6fc38e44cab03464cd00dc413eead",
+      "bytes": 6113380,
+      "format": "pt",
+      "original": "engines/PacketReleasing/models/scissor-seg.pt",
+      "runtime": "CPU Torch",
+      "stages": [
+        "releasing"
+      ]
+    },
+    "releasing.hand-seg": {
+      "path": "models/releasing/hand-seg.onnx",
+      "sha256": "0f725de96d87163ca809674b9492d9c43d24b8ce96845c931d5ebd9f54ce4cac",
+      "bytes": 41598877,
+      "format": "onnx",
+      "original": "engines/PacketReleasing/models/hand-seg.onnx",
+      "runtime": "CPU ONNX Runtime",
+      "stages": [
+        "releasing"
+      ]
+    },
+    "releasing.cut-seg": {
+      "path": "models/releasing/cut-seg.pt",
+      "sha256": "089d451104c75e8d80e5455f539bfca623bc51035af582f9c4aad5252edc906e",
+      "bytes": 6110244,
+      "format": "pt",
+      "original": "engines/PacketReleasing/models/cut-seg.pt",
+      "runtime": "CPU Torch",
+      "stages": [
+        "releasing"
+      ]
+    },
+    "releasing.packet-seg": {
+      "path": "models/releasing/packet-seg.onnx",
+      "sha256": "dce32a88d0aa42bb2db1b44b7feed1ae87c88a4202f0d0b400c756bda41ce212",
+      "bytes": 47217683,
+      "format": "onnx",
+      "original": "engines/PacketReleasing/models/packet-seg.onnx",
+      "runtime": "CPU ONNX Runtime",
+      "stages": [
+        "releasing"
+      ]
+    },
+    "releasing.jeweltrack": {
+      "path": "models/releasing/jeweltrack.onnx",
+      "sha256": "63da65b2e8ba872b58e89b39530814fc53b6187f9cb2b8d6cf130da21d4faa81",
+      "bytes": 47217673,
+      "format": "onnx",
+      "original": "engines/PacketReleasing/models/jeweltrack.onnx",
+      "runtime": "CPU ONNX Runtime",
+      "stages": [
+        "releasing"
+      ]
+    },
+    "releasing.packet-no-obb": {
+      "path": "models/releasing/packet-no-obb.onnx",
+      "sha256": "4f6111391e52dc6c3d330c7df44f06433e547df3401be0b635bb3cafbdb5ef35",
+      "bytes": 45801888,
+      "format": "onnx",
+      "original": "engines/PacketReleasing/models/packet-no-obb.onnx",
+      "runtime": "CPU ONNX Runtime",
+      "stages": [
+        "releasing"
+      ]
+    },
+    "releasing.strip-seg": {
+      "path": "models/releasing/strip-seg.onnx",
+      "sha256": "cd8969ae5f3b2cfafda092380f7b47efe742b67721afbd0a0a43a87c1172797e",
+      "bytes": 47217450,
+      "format": "onnx",
+      "original": "engines/PacketReleasing/models/strip-seg.onnx",
+      "runtime": "CPU ONNX Runtime",
+      "stages": [
+        "releasing"
+      ]
     }
   },
   "aliases": {

@@ -26,7 +26,7 @@ class ReleasingIntegrationTests(unittest.TestCase):
         env = engine_environment('releasing')
         self.assertNotIn('PYTHONPATH', env)
         self.assertNotIn('QT_QPA_PLATFORM_PLUGIN_PATH', env)
-        self.assertEqual(env['PACKET_CUT_MODELS_DIR'], str(RELEASING/'models'))
+        self.assertEqual(Path(env['PACKET_CUT_MODELS_DIR']).resolve(),(RELEASING/'models').resolve())
         self.assertEqual(env['VIRTUAL_ENV'], str(interpreter('releasing').parent.parent))
         self.assertEqual(env['WORKFLOW_DEVICE'], 'cpu')
 
@@ -88,10 +88,5 @@ class ReleasingIntegrationTests(unittest.TestCase):
             self.assertNotIn('--', spawn.call_args.args[0])
 
     def test_source_preserved(self):
-        import hashlib
-        snapshot = json.loads((ROOT/'configs/packet_releasing_snapshot.json').read_text())
-        for relative, digest in snapshot['files'].items():
-            path = RELEASING/relative
-            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), digest, relative)
-        for relative, digest in snapshot['existing_engine_source_baseline'].items():
-            self.assertEqual(hashlib.sha256((ROOT/relative).read_bytes()).hexdigest(), digest, relative)
+        from services.source_integrity import verify_sources
+        self.assertEqual(verify_sources(),[])

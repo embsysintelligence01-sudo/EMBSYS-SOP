@@ -82,6 +82,9 @@ logs/
 .coverage*
 htmlcov/
 core
+# Keep the controller package; the rule above excludes crash dumps.
+!/core/
+!/core/*.py
 core.[0-9]*
 *.mov
 *.webm
@@ -98,3 +101,10 @@ core.[0-9]*
 /engines/PacketReleasing/**/packet_cut_outputs/
 /engines/PacketReleasing/models/
 /engines/PacketReleasing/.runtime/
+
+# Production private service settings and certificates.
+configs/service.env
+/deployment/certificates/
+
+# Ignore environment directories and compatibility links alike.
+**/.venv*

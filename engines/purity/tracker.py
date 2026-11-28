@@ -423,9 +423,10 @@ class Worker(QtCore.QThread):
     status = QtCore.pyqtSignal(str)
     workflow = QtCore.pyqtSignal(object)
 
-    def __init__(self, source, roi_pts, stone_pts=None, camera=None, continuous=False, test_pts=None, rub_models=None, acid_models=None):
+    def __init__(self, source, roi_pts, stone_pts=None, camera=None, continuous=False, test_pts=None, rub_models=None, acid_models=None, visualization=True):
         super().__init__()
         self.source = source
+        self.visualization = visualization
         self.continuous_enabled = continuous
         self.recording_settings = None
         self.recording_area_points = ()
@@ -707,8 +708,9 @@ class Worker(QtCore.QThread):
                     if self.recording_settings is not None:
                         self._sample_recording_box(frame, ts, dets, fresh_detections=not skip)
                     # Publish drawing only; the GUI supplies fresh camera pixels.
-                    overlay = self.draw(np.zeros_like(frame), dets, ts)
-                    self.preview.publish(overlay, ts)
+                    if self.visualization:
+                        overlay = self.draw(np.zeros_like(frame), dets, ts)
+                        self.preview.publish(overlay, ts)
                     mode = self.mode
 
                 now = time.time()
@@ -2152,7 +2154,7 @@ def beep():
 class MainWindow(QtWidgets.QWidget):
     ZONE_NAMES = {"roi": "ROI", "stone": "stone", "test": "test position"}
 
-    def __init__(self):
+    def __init__(self, *, auto_connect=True):
         super().__init__()
         self.setWindowTitle("Jewel Guard")
         self.worker = None
@@ -2420,7 +2422,8 @@ class MainWindow(QtWidgets.QWidget):
         loaded = [self.ZONE_NAMES[k] for k in ("roi", "stone", "test") if self.zones[k]]
         if loaded:
             self.add_log("Loaded saved " + " and ".join(loaded), "info")
-        QtCore.QTimer.singleShot(0, self.toggle_connect)  # connect to the camera on startup
+        if auto_connect:
+            QtCore.QTimer.singleShot(0, self.toggle_connect)  # independent development default
 
     def open_recordings_folder(self):
         directory = os.path.join(CAPTURE_DIR, "sessions")

@@ -55,12 +55,19 @@ def engine_environment(workflow):
         env.pop(key, None)
     if workflow == 'releasing':
         # Match the preserved engine's working Linux launcher, without importing Qt6.
-        env.update(PACKET_CUT_MODELS_DIR=str(RELEASING/'models'), WORKFLOW_DEVICE='cpu',
+        env.update(PACKET_CUT_MODELS_DIR=str(ROOT/'models/releasing'), WORKFLOW_DEVICE='cpu',
                    OMP_NUM_THREADS=env.get('OMP_NUM_THREADS', '4'),
                    MKL_NUM_THREADS=env.get('MKL_NUM_THREADS', '4'),
                    YOLO_CONFIG_DIR=str(ROOT/'runtime/PacketReleasing/ultralytics'),
                    PACKET_OCR_DET_MODEL=env.get('PACKET_OCR_DET_MODEL', 'PP-OCRv5_mobile_det'),
                    PACKET_OCR_REC_MODEL=env.get('PACKET_OCR_REC_MODEL', 'en_PP-OCRv5_mobile_rec'))
+    if workflow=='releasing':
+        from shared.inference.model_registry import asset_dir
+        env['PACKET_OCR_DET_DIR']=str(asset_dir('PP-OCRv5_mobile_det'))
+        env['PACKET_OCR_REC_DIR']=str(asset_dir('en_PP-OCRv5_mobile_rec'))
+    env.update(HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
+    cache=ROOT/'runtime/model-cache/paddlex'
+    if cache.is_dir():env['PADDLE_PDX_CACHE_HOME']=str(cache)
     return env
 
 

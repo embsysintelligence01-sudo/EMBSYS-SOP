@@ -8,6 +8,7 @@ from queue import Queue, Empty
 import json
 import time
 import uuid
+import threading
 import os
 import copy
 from contextlib import nullcontext
@@ -40,13 +41,16 @@ class PacketWorker(QtCore.QThread):
     exported = QtCore.pyqtSignal(object)
     failed = QtCore.pyqtSignal(str)
 
-    def __init__(self, source, roi, parent=None, *, handoff=None):
+    def __init__(self, source, roi, parent=None, *, handoff=None, output_root=None, visualization=True):
         super().__init__(parent)
         self.source, self.roi_points = source, roi
         self.handoff = handoff
+        self.output_root = Path(output_root) if output_root is not None else None
+        self.visualization = visualization
         self.handoff_initialized = False
         self.commands = Queue()
         self.running = True
+        self.capture_stopped = threading.Event()
         self.directory = None
         self.flow = None
         self.latest_observations = {}
@@ -136,7 +140,7 @@ class PacketWorker(QtCore.QThread):
             previous = self.handoff['worker'] if self.handoff else None
             self.tracker = TrackingBridge(self.roi_points, previous=previous) if previous is not None else TrackingBridge(self.roi_points)
             # Separate ownership: purity retention must never prune live packet files.
-            self.directory = ROOT / "outputs" / (datetime.now(TIMEZONE).strftime("%Y%m%d_%H%M%S_") + uuid.uuid4().hex[:6])
+            self.directory = (self.output_root if self.output_root is not None else ROOT / "outputs") / (datetime.now(TIMEZONE).strftime("%Y%m%d_%H%M%S_") + uuid.uuid4().hex[:6])
             work = self.directory / ".working"
             work.mkdir(parents=True)
             recorder = Recorder(work)
@@ -369,6 +373,7 @@ class PacketWorker(QtCore.QThread):
                 while hasattr(self.grabber, "is_alive") and self.grabber.is_alive():
                     self.notice.emit("Waiting for camera acquisition to release ownership…")
                     self.grabber.join(timeout=1)
+            self.capture_stopped.set()  # Actual acquisition barrier; report jobs may still be pending.
             if self.tracker:
                 self.tracker.close()
             if recorder:
@@ -443,6 +448,8 @@ class PacketWorker(QtCore.QThread):
             self.state.emit(state)
 
     def _publish_gold(self, frame, t):
+        if not self.visualization:
+            return
         statuses = {jid: j.status for jid, j in self.flow.jewels.items()} if self.flow else None
         image = draw_gold(np.zeros_like(frame), self.tracker, t, statuses)
         # A real pickup must immediately remove its old bench box. Hold empty
@@ -450,6 +457,8 @@ class PacketWorker(QtCore.QThread):
         self.gold_overlay.publish(image, t, hold_empty=self.tracker.mode == "ARMING")
 
     def _publish_packet(self, frame, t, bag, strip_mask):
+        if not self.visualization:
+            return
         motion = bag is None and self.packet_motion.source in ('motion', 'recent')
         if motion:
             bag = self.packet_motion.current

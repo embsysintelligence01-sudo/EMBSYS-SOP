@@ -1,7 +1,16 @@
 # EMBSYS SOP
 
+The persistent three-engine application starts with `python3 main.py --mode production --hardware virtual`. Open **http://127.0.0.1:8765** for the queue and run `python3 ui/virtual_panel.py` separately for START/STOP/RESET.
+
+Read the [production installation guide](docs/PRODUCTION_INSTALLATION.md), [architecture](docs/PRODUCTION_ARCHITECTURE.md), [engine integration report](docs/PRODUCTION_ENGINE_INTEGRATION.md), [dependencies](docs/PRODUCTION_DEPENDENCIES.md), [migration report](docs/PRODUCTION_MIGRATION_CLEANUP.md), [test results](docs/PRODUCTION_TEST_RESULTS.md) and [remaining physical validation](docs/PRODUCTION_KNOWN_LIMITATIONS.md).
+
+Recorded-input measurements and pending physical tests are listed in [the acceptance matrix](docs/PRODUCTION_ACCEPTANCE_MATRIX.md). The installed service starts independently of the desktop; use the installation guide before starting a manual controller.
+
+The sections below describe the preserved legacy launcher and earlier preparation phase. Production execution uses the persistent controller above.
+
 Packet Releasing is now preserved under `engines/PacketReleasing/` for independent
-development. It is disabled in the production launcher. See the
+development. The legacy launcher keeps it disabled; the validated new controller
+enables all three adapters. See the
 [three-engine preparation guide](docs/THREE_ENGINE_PREPARATION.md) and
 [integration validation](docs/PACKET_RELEASING_VALIDATION.md).
 

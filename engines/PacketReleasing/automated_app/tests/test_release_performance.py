@@ -28,6 +28,19 @@ class TestReleaseInferenceBudget(unittest.TestCase):
         self.addCleanup(self.fixture.doCleanups)
         self.pipeline = self.fixture.pipeline
 
+    def test_headless_skips_live_overlay_but_retains_cutting_evidence(self):
+        self.pipeline.pipe_cfg.visualization=False
+        hand=np.zeros_like(self.fixture.empty);hand[140:260,220:320]=255
+        scissors=np.zeros_like(hand);scissors[160:210,320:400]=255
+        for _ in range(6):
+            snapshot=self.fixture.step(packet_mask=_intact_mask(),hand_present=True,hand_mask=hand,
+                                       scissor_present=True,scissor_mask=scissors)
+        np.testing.assert_array_equal(snapshot.annotated_frame,self.fixture.frame)
+        self.assertTrue(self.pipeline._cutting_activity_observed)
+        self.assertTrue(Path(self.pipeline._cutting_evidence).is_file())
+        self.assertTrue(snapshot.live_monitoring['hand_detected'])
+        self.assertTrue(snapshot.live_monitoring['scissor_detected'])
+
     def test_number_detector_and_ocr_are_idle_after_id_lock(self):
         p = self.pipeline
         p._packet_id = '324811'

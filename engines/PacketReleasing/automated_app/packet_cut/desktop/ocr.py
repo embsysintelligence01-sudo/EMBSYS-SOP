@@ -18,6 +18,10 @@ def get_ocr_engine():
         if os.environ.get("WORKFLOW_DEVICE") == "cpu":
             options["device"] = "cpu"
             options["cpu_threads"] = int(os.environ.get("OMP_NUM_THREADS", "4"))
+        if os.environ.get('PACKET_OCR_DET_DIR'):
+            options['text_detection_model_dir']=os.environ['PACKET_OCR_DET_DIR']
+        if os.environ.get('PACKET_OCR_REC_DIR'):
+            options['text_recognition_model_dir']=os.environ['PACKET_OCR_REC_DIR']
         _OCR_ENGINE = PaddleOCR(
             lang="en",
             use_doc_orientation_classify=False,
@@ -112,6 +116,8 @@ def get_number_recognizer():
         options = {}
         if os.environ.get("WORKFLOW_DEVICE") == "cpu":
             options.update(device="cpu", cpu_threads=int(os.environ.get("OMP_NUM_THREADS", "4")))
+        if os.environ.get('PACKET_OCR_REC_DIR'):
+            options['model_dir']=os.environ['PACKET_OCR_REC_DIR']
         _NUMBER_RECOGNIZER = TextRecognition(
             model_name=os.environ.get("PACKET_OCR_REC_MODEL", "en_PP-OCRv5_mobile_rec"),
             **options,

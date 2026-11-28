@@ -42,17 +42,19 @@ class OverlapTriggerTests(unittest.TestCase):
         self.assertIsNone(w.continuous_overlap_trigger)
         self.observe(w);self.assertIsNotNone(w.continuous_overlap_trigger)
 
-    def test_pickup_or_false_return_cannot_start_rubbing_or_baseline_before_overlap(self):
+    def test_false_contact_cannot_verify_rubbing_while_placement_baseline_continues(self):
         with monitor_case() as (m,events):
             s=snap(100,held=1);s['overlap_trigger_required']=True
             m.step(s);a=m.active
             for ts in (100.2,100.4,100.8):
                 s=snap(ts,contact=contact(ts,confirmed=True));s['overlap_trigger_required']=True
                 m.step(s)
-            self.assertIsNone(a['contact']);self.assertIsNone(a['baseline_at'])
+            self.assertIsNone(a['contact']);self.assertIsNotNone(a['baseline_at'])
+            self.assertEqual(a['baseline_at'],a['jewel_placement_baseline_at'])
             self.assertIsNone(a['returned'])
             self.assertFalse(any(k=='contact' for k,_ in events))
-            self.assertEqual('WAIT_FOR_CONTACT',m.phase[1])
+            self.assertEqual('BASELINE',m.phase[1])
+            self.assertIsNone(a['acid_onset'])
 
     def test_matching_cycle_trigger_arms_possible_contact_and_wrong_token_does_not(self):
         with monitor_case() as (m,events):

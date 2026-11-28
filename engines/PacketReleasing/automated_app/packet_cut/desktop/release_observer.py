@@ -320,15 +320,17 @@ class ReleaseObserver:
         p._latest_observed_action = (max(observed, key=lambda item: item['observed_at'])['reason'] if observed else
                                     'Observing release; no required stage order.')
         p._packet_det_summary = 'Packet ID not shown / unreadable' if not p._frontside_verified else f'Packet ID {p._packet_id} read by OCR'
-        visual = count_snapshot.annotated_frame if count_snapshot else frame.copy()
-        for present, mask, colour, label in (
-                (hand_known and hp, hm, (50, 50, 230), 'HAND'),
-                (scissor_known and sp, sm, (230, 180, 40), 'SCISSORS')):
-            if present and np.any(mask):
-                visual = draw_mask_overlay(visual, mask, colour, alpha=.3)
-                x, y, width, height = cv2.boundingRect(mask)
-                cv2.rectangle(visual, (x, y), (x + width, y + height), colour, 2)
-                cv2.putText(visual, label, (x, max(18, y - 5)), cv2.FONT_HERSHEY_SIMPLEX, .55, colour, 2)
+        visual = frame
+        if p.pipe_cfg.visualization:
+            visual = count_snapshot.annotated_frame if count_snapshot else frame.copy()
+            for present, mask, colour, label in (
+                    (hand_known and hp, hm, (50, 50, 230), 'HAND'),
+                    (scissor_known and sp, sm, (230, 180, 40), 'SCISSORS')):
+                if present and np.any(mask):
+                    visual = draw_mask_overlay(visual, mask, colour, alpha=.3)
+                    x, y, width, height = cv2.boundingRect(mask)
+                    cv2.rectangle(visual, (x, y), (x + width, y + height), colour, 2)
+                    cv2.putText(visual, label, (x, max(18, y - 5)), cv2.FONT_HERSHEY_SIMPLEX, .55, colour, 2)
         active = 'Checks · OCR off' if p._frontside_verified else 'Checks · crop OCR'
         snapshot = p._build_snapshot(visual, active, list(dict.fromkeys(models)), p._instruction, False, False)
         snapshot.live_monitoring.update(

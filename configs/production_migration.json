@@ -1,0 +1,63 @@
+{
+  "backup_branch": "backup/pre-production-20261128",
+  "changes": {
+    "engines/PacketReleasing/automated_app/packet_cut/desktop/automation.py": {
+      "before": "c641ecd86c402a44a85943f7e6ebbd87e428f973f66c9309fa063a8b74e031d4",
+      "after": "3a69d4a843d88e47189ea7e306305484608d6c6925d9e736af6d5244e9f6d97e",
+      "reason": "Default-on visualization config only; detection/verification configuration unchanged."
+    },
+    "engines/PacketReleasing/automated_app/packet_cut/desktop/ocr.py": {
+      "before": "e9cf575f6c1714d0d771bad6a1dafd09b015325f5c00ddfd6a9fd750896c9f6e",
+      "after": "24ebb501dca9cdf713b0e216f3470fbb085e1ba3dd173791e73a9f9f2c0a3170",
+      "reason": "Optional explicit offline OCR model directories; recognition, preprocessing and confidence rules unchanged."
+    },
+    "engines/PacketReleasing/automated_app/packet_cut/desktop/release_observer.py": {
+      "before": "f54b078978fa19dca77c2de19602309a720680957108c72bfd1c1549f708c321",
+      "after": "bf54d2b5e2c2aaf53291de2c74360528286ad31cbb05ac6101a32e519c959a54",
+      "reason": "Skip final live-preview overlay assembly in production; independent checks and stage evidence generation unchanged."
+    },
+    "engines/PacketReleasing/automated_app/packet_cut/desktop/worker.py": {
+      "before": "f7ef21178c44edab2741c82fda2c91897f8c76d6aa6f5cfe7f08132ceca2a42b",
+      "after": "bbda287081607ea31e7b8e98f0d794ed2f92b512785d806b3b25e4846dd0c4e1",
+      "reason": "Actual acquisition-release signal before finalization, optional preview conversion, bounded diagnostic snapshot."
+    },
+    "engines/PacketReleasing/automated_app/tests/test_release_performance.py": {
+      "before": "1dc8b52212dcc5c67f00ccdd812fab3f774f56883e6e89f83562ccb091bdd3c7",
+      "after": "7c767427d20197e50f17f00fe38207d37a97901632acaeedf5170331491d0a27",
+      "reason": "Verify headless preview suppression retains hand/scissor detection and cutting photos."
+    },
+    "engines/Jeweltracker/tests/test_classification_crop.py": {
+      "before": "de5bfd3c8b0beb1a6d4eac540d948cd26cf53fa0d7cc49339750c686c57d5a5b",
+      "after": "41f50b6cb112f4d657f944f17048abb0d903268cb171f44677eb412bef254eac",
+      "reason": "Test current cropped detector coordinate restoration instead of outdated whole-frame input assumption."
+    },
+    "engines/Jeweltracker/tests/test_overlap_trigger.py": {
+      "before": "6e65e641e71708ebddf501692d160c6d31c87be8cc57c959b58e81d3e8b1cc1d",
+      "after": "6f2817fa6960491c0c4e871ccfa0f477938b79e58a4b53c6d0109fe3440243c3",
+      "reason": "Assert existing independent placement baseline without accepting false contact/rubbing evidence."
+    },
+    "engines/Jeweltracker/tests/test_departure_trigger_removed.py": {
+      "before": "90edbe0fee0ae0194d86060edcb330b9f90ccd99c1dcfc69a7304fc42a7af033",
+      "after": "915bef1113c45cb5b3a3f70a38486eba35b95d0bcd3e4337399db100f89e2f0e",
+      "reason": "Keep rubbing verification gated while independently testing the existing jewel-placement baseline."
+    },
+    "engines/Jeweltracker/tests/test_stone_model.py": {
+      "before": "c7c774963047608845502ac3d053a536bb122d0a82d8daaa535ae479b103ab7b",
+      "after": "37b7b7123e399b3553f876e9c99a468192e3ca3d5c55383d844dcae8014b2f76",
+      "reason": "Provide the filename suffix required by installed Ultralytics for the unchanged OpenVINO reference."
+    },
+    "engines/purity/tracker.py": {
+      "before": "277174d0ad7bc9dc008c41ec0abe097ff5b2c287ea9b2104b1164592167a5d25",
+      "after": "909f7ec5c2db9d6f44f3ba371d61c1288ac426e051623a7a97e31e5bebd2e81a",
+      "reason": "Optional preview rendering, development autoconnect flag; default worker processing unchanged."
+    },
+    "engines/sealing/workflow.py": {
+      "before": "18f1099db4971ff81f89c718a2721375c55e9ad4fff6f731c7d22ac33730465c",
+      "after": "69a9d4c75c3c0ad894c9c66de35b4af9533872c08f072cd569a47a21a67c37e6",
+      "reason": "Attempt-scoped output root, actual capture-release barrier, optional live preview; evidence drawing remains active."
+    }
+  },
+  "preserved_environment": "Windows experiment environment relocated intact to runtime/preserved-windows-environment; original path is a compatibility link",
+  "models": "No original binary replaced; model hashes retained",
+  "deleted_source_files": []
+}

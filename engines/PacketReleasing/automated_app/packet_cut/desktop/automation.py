@@ -138,6 +138,7 @@ class AutoPipelineConfig:
 
     save_outputs: bool = True
     output_dir: str = str(desk_cfg.OUTPUT_DIR / "automated_sessions")
+    visualization: bool = True
 
 
 @dataclass

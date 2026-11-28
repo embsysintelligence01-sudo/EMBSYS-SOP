@@ -1,0 +1,17 @@
+[Unit]
+Description=EMBSYS SOP persistent surveillance controller (user)
+After=network.target
+
+[Service]
+WorkingDirectory=@ROOT@
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-@ROOT@/configs/service.env
+ExecStart=@ROOT@/runtime/environments/controller/bin/python @ROOT@/main.py --mode production --hardware virtual
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=120
+KillMode=process
+UMask=0077
+
+[Install]
+WantedBy=default.target

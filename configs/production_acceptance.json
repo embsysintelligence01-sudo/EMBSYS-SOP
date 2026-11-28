@@ -1,0 +1,35 @@
+{
+  "software_integration": "PASSED",
+  "enabled": [
+    "purity",
+    "packet",
+    "releasing"
+  ],
+  "required_checks": [
+    "controller-api",
+    "crash-replay",
+    "debug-close-replay",
+    "desktop-integration",
+    "headless-handoff",
+    "http-service-recovery",
+    "linked-replay",
+    "local-regression-fixtures",
+    "model-budget",
+    "model-cache-replay",
+    "offline-sealing-ocr",
+    "publication-jobs",
+    "purity-regression",
+    "release-imports",
+    "release-regression",
+    "releasing-replay",
+    "reset-replay",
+    "sealing-regression",
+    "source-model-integrity",
+    "standalone-sealing-replay",
+    "virtual-panel"
+  ],
+  "result_sha256": "e68adfdbd3f5cae5c16129445c19a63bf64f903ba57dbc824ab197b97eec4055",
+  "source_migration_sha256": "335e055302572202bb6674099ac43bd0af4312fd92ec4a2919aaa3326ee69578",
+  "physical_hardware_validation": "PENDING - not inferred from replay",
+  "backup_branch": "backup/pre-production-20261128"
+}

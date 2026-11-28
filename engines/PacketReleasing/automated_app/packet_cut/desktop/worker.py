@@ -39,6 +39,7 @@ def _bgr_to_qimage(frame: np.ndarray) -> QImage:
 class PacketWorker(QThread):
     """Fully automated START-to-STOP background worker for MainWindow."""
 
+    acquisition_stopped = pyqtSignal()
     frame_ready = pyqtSignal(QImage)
     analysis_frame_ready = pyqtSignal(QImage, float, dict)
     live_monitoring_updated = pyqtSignal(dict)
@@ -65,6 +66,7 @@ class PacketWorker(QThread):
         parent=None,
         *,
         prepare_only: bool = False,
+        visualization: bool = True,
         manual_roi: Optional[Tuple[int, int, int, int]] = None,
         empty_reference: Optional[np.ndarray] = None,
     ) -> None:
@@ -82,6 +84,8 @@ class PacketWorker(QThread):
         )
         self.frame_provider = frame_provider
         self.frame_interval_sec = max(0.005, float(frame_interval_sec))
+        self.visualization = visualization
+        self.pipe_cfg.visualization = visualization
         self.prepare_only = prepare_only
         self.manual_roi = manual_roi
         self.empty_reference = empty_reference.copy() if empty_reference is not None else None
@@ -89,6 +93,8 @@ class PacketWorker(QThread):
         self._lock = threading.Lock()
         self._stop_requested = False
         self._retry_stage: Optional[str] = None
+        self.analysis_fps = 0.0
+        self.last_snapshot = None
         self.last_frame: Optional[np.ndarray] = None
         self.pipeline: Optional[AutomatedPacketPipeline] = None
 
@@ -213,7 +219,7 @@ class PacketWorker(QThread):
             cap = self._open_camera()
             live_source = isinstance(self.camera_id, int) or str(self.camera_id).startswith(('/dev/video', 'rtsp://', 'http://', 'https://'))
             if self.pipe_cfg.pass_by and self.frame_provider is None and live_source:
-                capture = LatestFrameCapture(cap, lambda frame: self.frame_ready.emit(_bgr_to_qimage(frame)))
+                capture = LatestFrameCapture(cap, (lambda frame: self.frame_ready.emit(_bgr_to_qimage(frame))) if self.visualization else None)
                 capture.start()
             if self.manual_roi is not None:
                 x1, y1, x2, y2 = self.manual_roi
@@ -288,22 +294,25 @@ class PacketWorker(QThread):
                         raise RuntimeError("The selected ROI is outside the camera frame. Check readiness and redraw the ROI.")
                     region = frame[y1:y2, x1:x2].copy()
                     snap = self.pipeline.process_frame(region, now_sec=frame_captured_at)
-                    preview = frame.copy()
-                    preview[y1:y2, x1:x2] = snap.annotated_frame
+                    preview = frame.copy() if self.visualization else frame
+                    if self.visualization:
+                        preview[y1:y2, x1:x2] = snap.annotated_frame
 
+                self.last_snapshot = snap
                 finished = time.monotonic()
                 elapsed = finished - analysis_started
                 cadence = elapsed if last_analysis_finished is None else finished - last_analysis_finished
                 last_analysis_finished = finished
                 instant_rate = 1 / max(cadence, .001)
                 analysis_rate = instant_rate if analysis_rate is None else .75 * analysis_rate + .25 * instant_rate
-                if capture is None:
+                self.analysis_fps = analysis_rate
+                if capture is None and self.visualization:
                     self.frame_ready.emit(_bgr_to_qimage(preview))
-                else:
+                elif capture is not None:
                     snap.system_monitoring['camera_status'] = (
                         f'LIVE {capture.preview_rate:.0f} fps | checks {analysis_rate:.1f} fps'
                     )
-                    if snap.live_monitoring.get('cutting_detection_fresh'):
+                    if self.visualization and snap.live_monitoring.get('cutting_detection_fresh'):
                         self.analysis_frame_ready.emit(_bgr_to_qimage(snap.annotated_frame),
                                                        frame_captured_at or finished, dict(snap.live_monitoring))
                 self.live_monitoring_updated.emit(snap.live_monitoring)
@@ -321,6 +330,13 @@ class PacketWorker(QThread):
             if capture is not None:
                 capture.stop()
                 capture.join(2)
+            if capture is not None:
+                while capture.is_alive():
+                    capture.join(.2)
+            if cap is not None:
+                cap.release()
+                cap = None
+            self.acquisition_stopped.emit()
             if self.pipeline is not None and self.pipeline._final_report is None:
                 report = self.pipeline.stop_session()
                 self.final_report_ready.emit(report, dict(self.pipeline._report_paths))
@@ -343,6 +359,14 @@ class PacketWorker(QThread):
                 recovery="Stopped safely",
             )
             self.error.emit(err_msg)
+            if capture is not None:
+                capture.stop()
+                while capture.is_alive():
+                    capture.join(.2)
+            if cap is not None:
+                cap.release()
+                cap = None
+            self.acquisition_stopped.emit()
             # Preserve partial evidence and flush pending clips on a camera or
             # processing failure, just as STOP does.
             if self.pipeline is not None and self.pipeline.activity_logger is not None and self.pipeline._final_report is None:

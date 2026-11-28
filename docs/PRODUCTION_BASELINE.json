@@ -1,0 +1,30 @@
+{
+  "backup_branch": "backup/pre-production-20261128",
+  "commit": "d96ad0b",
+  "checks": [
+    {
+      "engine": "launcher",
+      "result": "FAILED",
+      "seconds": 7.78,
+      "log": "outputs/production-baseline/launcher.log"
+    },
+    {
+      "engine": "purity",
+      "result": "FAILED",
+      "seconds": 164.07,
+      "log": "outputs/production-baseline/purity.log"
+    },
+    {
+      "engine": "sealing",
+      "result": "PASSED",
+      "seconds": 11.5,
+      "log": "outputs/production-baseline/sealing.log"
+    },
+    {
+      "engine": "releasing",
+      "result": "PASSED",
+      "seconds": 29.99,
+      "log": "outputs/production-baseline/releasing.log"
+    }
+  ]
+}

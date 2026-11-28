@@ -39,7 +39,7 @@ def main():
         config = WorkflowMonitorConfig.load()
         for key in ('packet', 'hand', 'scissor', 'topstrip', 'number', 'cut', 'jewel'):
             path = config.models.path_for(key)
-            assert path.is_file() and path.resolve().is_relative_to(ENGINE/'models'), (key, path)
+            assert path.is_file() and path.resolve().is_relative_to((ENGINE/'models').resolve()), (key, path)
         print('PASS: imports resolve inside the copy; seven local model paths verified')
     elif args.mode == 'ui':
         from PyQt6.QtWidgets import QApplication
